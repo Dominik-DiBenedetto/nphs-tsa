@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% load static %}
+
+    <title>Event Matchmaker | NPHS TSA</title>
+</head>
+<body>
+    {% if Events %}
+    {% for event in Events %}
+    <h1 class="event-name">{{event.0}}</h1>
+    <p class="event-desc">{{event.1}}</p>
+    {% endfor %}
+    {% endif %}
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="interests" id="interests" placeholder="Describe yourself and interests" />
+        <button type="submit">Match</button>
+    </form>
+</body>
+</html>

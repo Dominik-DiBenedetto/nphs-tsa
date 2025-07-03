@@ -1,0 +1,22 @@
+<div class="navbar">
+    <a href="/" class="navbar-link">Home</a>
+    <a href="/officers" class="navbar-link">Officers</a>
+    <a href="/events/" class="navbar-link">Events</a>
+    <a href="/events/matchmaker" class="navbar-link">Events Matchmaker</a>
+    <a href="/achievements" class="navbar-link">Achievements</a>
+    <a href="/sponsors" class="navbar-link">Our Sponsors</a>
+    <a href="/contact" class="navbar-link">Contact</a>
+
+    {% if is_authenticated %}
+    <a href="/members/{{user.username}}" class="navbar-link">Profile</a>
+    {% else %}
+    <a href="/auth/login" class="navbar-link">Login</a>
+    {% endif %}
+</div>
+{% if is_authenticated %}
+<div class="sidebar">
+    <button class="hamburger sidebar-toggle">^</button>
+    <a href="/members/{{user.username}}" class="sidebar-link">Profile</a>
+    <a href="/members/" class="sidebar-link">Members</a>
+</div>
+{% endif %}

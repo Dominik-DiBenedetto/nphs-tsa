@@ -1,0 +1,16 @@
+:root{
+    --tsa-navy-blue: #005DAB;
+    --tsa-dark-navy-blue: #012D53;
+}
+
+body{
+    background: #eee;
+    width: 100vw;
+    height: 100vh;
+}
+
+.navbar{
+    background-color: var(--tsa-navy-blue);
+    width: 100vw;
+    height: 5vh;
+}
