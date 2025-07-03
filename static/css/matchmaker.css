@@ -1,0 +1,85 @@
+.events{
+    width: 100vw;
+    height: 100vh;
+    overflow-y: scroll;
+    overflow-x: none;
+    display: flex;
+    flex-direction: column;
+}
+
+.event{
+    width: 100vw;
+    height: 20vh;
+    padding: 1rem 2rem;
+    display: flex;
+    flex-direction: row;
+}
+
+.event-descriptors{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.event-desc{
+    width: 100%;
+}
+
+.event-interaction-options{
+    flex-grow: 1;
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: center;
+    align-items:end;
+    gap: 1rem;
+    padding-right: 4rem;
+}
+
+.event-interaction-option{
+    width: 25%;
+    height: 25%;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: all 250ms;
+    background-color: transparent;
+}
+
+.view-event{
+    border: 2px solid var(--tsa-red);
+    color: var(--tsa-red);
+}
+
+.view-event:hover{
+    background-color: var(--tsa-red);
+    color: var(--tsa-dark-red);
+}
+
+.join-event{
+    border: 2px solid var(--tsa-dark-navy-blue);
+    color: var(--tsa-dark-navy-blue);
+}
+
+.join-event:hover{
+    background-color: var(--tsa-dark-navy-blue);
+    color: var(--tsa-navy-blue);
+}
+
+.event:nth-child(even){
+    background-color: #ddd;
+    color: var(--tsa-navy-blue);
+}
+
+.event:nth-child(odd){
+    background-color: var(--tsa-navy-blue);
+    color: #ddd;
+}
+
+form{
+    position: sticky;
+    width: 100vw;
+    height: 10vh;
+    bottom: 0;
+    background-color: var(--tsa-dark-navy-blue);
+}

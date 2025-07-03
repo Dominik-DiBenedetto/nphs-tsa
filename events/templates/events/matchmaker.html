@@ -5,15 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/matchmaker.css' %}">
 
     <title>Event Matchmaker | NPHS TSA</title>
 </head>
 <body>
+    {% load mycomponents %}
+    {% navbar %}
     {% if Events %}
-    {% for event in Events %}
-    <h1 class="event-name">{{event.0}}</h1>
-    <p class="event-desc">{{event.1}}</p>
-    {% endfor %}
+    <div class="events">
+        {% for event in Events %}
+        <div class="event">
+            <div class="event-descriptors">
+                <h1 class="event-name">{{forloop.counter}}. {{event.0}}</h1>
+                <p class="event-desc">{{event.1}}</p>
+            </div>
+            <div class="event-interaction-options">
+                <button class="event-interaction-option view-event">View Event</button>
+                {% if user.is_authenticated %}
+                <button class="event-interaction-option join-event">Join Event</button>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
     {% endif %}
     <form method="post">
         {% csrf_token %}

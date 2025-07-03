@@ -1,12 +1,17 @@
 :root{
     --tsa-navy-blue: #005DAB;
     --tsa-dark-navy-blue: #012D53;
+    --tsa-dark-red: #893B47;
+    --tsa-red: #DB2B1E;
 }
 
 body{
     background: #eee;
     width: 100vw;
     height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    box-sizing: border-box;
 }
 
 .navbar{
