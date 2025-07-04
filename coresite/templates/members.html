@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/members.css' %}" />
+
+        <script src="{% static 'javascript/members.js' %}" defer></script>
+
+        <title>Members | NPHS TSA</title>
+    </head>
+    <body>
+        {% load mycomponents %}
+        {% navbar %}
+        <div class="container">
+            <div class="header">
+                <h1>Team Members</h1>
+                <p>Manage your team members and their permissions</p>
+            </div>
+
+            <div class="members-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>ID</th>
+                            <th>Role</th>
+                            <th>Strikes</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="membersTableBody">
+                        <tr>
+                            <td class="member-name">Dominik DiBenedetto</td>
+                            <td class="member-id">N501029</td>
+                            <td>
+                                <span class="role-badge role-${member.role}">Vice President</span>
+                            </td>
+                            <td>
+                                <span class="strikes ${getStrikesClass(member.strikes)}">Strikes: 0</span>
+                            </td>
+                            <td>
+                                <div class="menu-container">
+                                    <button
+                                        class="menu-button"
+                                        onclick="toggleMenu(1)"
+                                    >
+                                        <span class="menu-dots"></span>
+                                    </button>
+                                    <div class="dropdown-menu" id="menu-1">
+                                        <a
+                                            class="dropdown-item"
+                                            href="/members/{member.username}"
+                                            >View</a
+                                        >
+                                        <a
+                                            class="dropdown-item"
+                                            href="/members/{member.username}/edit"
+                                            >Edit</a
+                                        >
+                                        <a class="dropdown-item delete"
+                                            >Delete</a
+                                        >
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        <!-- Members will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </body>
+</html>

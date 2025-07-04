@@ -3,9 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/event.css' %}">
     <title>{{Event.name}}</title>
 </head>
 <body>
-    
+    {% load mycomponents %}
+    {% navbar %}
+    <div class="container">
+        <header class="header">
+            <h1 class="event-title">Animatronics</h1>
+            <p class="event-subtitle">Advanced Network Security Competition</p>
+        </header>
+
+        <div class="content-grid">
+            <!-- Event Guide Section -->
+            <div class="card event-guide">
+                <h2 class="card-title">Competetive Event Guide (CEG)</h2>
+                <div class="file-upload-area" id="fileUploadArea">
+                    <p>📁 Click here or drag and drop the event guide file</p>
+                    <p style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">Supported formats: PDF, DOC, DOCX, TXT</p>
+                </div>
+                <input type="file" id="fileInput" style="display: none;" accept=".pdf,.doc,.docx,.txt">
+                <div class="file-info" id="fileInfo">
+                    <strong>File uploaded:</strong> <span id="fileName"></span>
+                    <button class="btn" onclick="viewFile()" style="margin-left: 1rem;">View File</button>
+                </div>
+                <div class="file-viewer" id="fileViewer"></div>
+            </div>
+
+            <!-- Event Description -->
+            <div class="card">
+                <h2 class="card-title">📝 Event Description</h2>
+                <div class="event-description">
+                    <p>
+                        To address the annual design challenge, participants exhibit and demonstrate their knowledge of mechanical and control systems by creating an animatronic device with a specific purpose (i.e., communicate an idea, entertain, demonstrate a concept, etc.) that includes sound, lights, and an appropriate surrounding environment (a display).
+                    </p>
+                </div>
+            </div>
+
+            <!-- Event Prompt -->
+            <div class="card">
+                <h2 class="card-title">🎯 Event Prompt</h2>
+                <div class="event-prompt">
+                    Following the specified requirements, create an animatronic exhibit for a public library to excite young readers.
+                </div>
+            </div>
+        </div>
+
+        <!-- Teams Section -->
+        <div class="card teams-section">
+            <h2 class="card-title">👥 Competing Teams</h2>
+            <div class="teams-container">
+                <div class="team-card">
+                    <div class="team-name">Team 1</div>
+                    <ul class="team-members">
+                        <li class="team-member">
+                            <span>Dominik DiBenedetto</span>
+                            <span class="captain-badge">Captain</span>
+                        </li>
+                        <li class="team-member">
+                            <span>Alexander Avin</span>
+                        </li>
+                        <li class="team-member">
+                            <span>Huy Nguyen</span>
+                        </li>
+                        <li class="team-member">
+                            <span>Michael Dankanich</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Past Accomplishments -->
+        <div class="card accomplishments-section">
+            <h2 class="card-title">🏆 Past Accomplishments</h2>
+            <ul class="accomplishments-list">
+                <li class="accomplishment-item">
+                    <span>1st Place - Regional Cybersecurity Championship</span>
+                    <span class="accomplishment-year">2023</span>
+                </li>
+                <li class="accomplishment-item">
+                    <span>2nd Place - National CyberPatriot Competition</span>
+                    <span class="accomplishment-year">2023</span>
+                </li>
+                <li class="accomplishment-item">
+                    <span>3rd Place - State Technology Fair - Cybersecurity Division</span>
+                    <span class="accomplishment-year">2022</span>
+                </li>
+                <li class="accomplishment-item">
+                    <span>1st Place - Local Hackathon Security Track</span>
+                    <span class="accomplishment-year">2022</span>
+                </li>
+                <li class="accomplishment-item">
+                    <span>Finalist - International Cyber Defense Exercise</span>
+                    <span class="accomplishment-year">2021</span>
+                </li>
+            </ul>
+        </div>
+    </div>
 </body>
 </html>
