@@ -1,22 +1,68 @@
-<div class="navbar">
-    <a href="/" class="navbar-link">Home</a>
-    <a href="/officers" class="navbar-link">Officers</a>
-    <a href="/events/" class="navbar-link">Events</a>
-    <a href="/events/matchmaker" class="navbar-link">Events Matchmaker</a>
-    <a href="/achievements" class="navbar-link">Achievements</a>
-    <a href="/sponsors" class="navbar-link">Our Sponsors</a>
-    <a href="/contact" class="navbar-link">Contact</a>
+<nav class="navbar" id="navbar">
+    <div class="navbar-container">
+        <button class="sidebar-toggle" id="sidebarToggle">
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </button>
+        <a href="#" class="navbar-brand">
+            <div class="brand-logo">A</div>
+            <span>NPHS TSA</span>
+        </a>
 
-    {% if is_authenticated %}
-    <a href="/members/{{user.username}}" class="navbar-link">Profile</a>
-    {% else %}
-    <a href="/auth/login" class="navbar-link">Login</a>
-    {% endif %}
-</div>
+        <ul class="navbar-nav">
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Events</a></li>
+            <li><a href="#">Achievements</a></li>
+            <li><a href="/events/matchmaker/">Event Matchmaker</a></li>
+            {% if is_authenticated %}
+            <li><a href="/auth/logout">Logout</a></li>
+            {% else %}
+            <li><a href="/auth/login">Login</a></li>
+            {% endif %}
+        </ul>
+    </div>
+</nav>
 {% if is_authenticated %}
-<div class="sidebar">
-    <button class="hamburger sidebar-toggle">^</button>
-    <a href="/members/{{user.username}}" class="sidebar-link">Profile</a>
-    <a href="/members/" class="sidebar-link">Members</a>
-</div>
+<aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+        <a href="/members/{{user.username}}" class="sidebar-brand">
+            <div class="sidebar-brand-text">
+                <h3>{{user.name}}</h3>
+            </div>
+        </a>
+    </div>
+
+    <div class="sidebar-content">
+        <div class="sidebar-section">
+            <div class="sidebar-section-title">Main</div>
+            <ul class="sidebar-menu">
+                <li><a href="/members/" class="active"><span class="sidebar-menu-icon icon-home"></span>Members</a></li>
+                <li><a href="#"><span class="sidebar-menu-icon icon-inbox"></span>Inbox</a></li>
+                <li><a href="#"><span class="sidebar-menu-icon icon-calendar"></span>Calendar</a></li>
+            </ul>
+        </div>
+
+        <div class="sidebar-section">
+            <div class="sidebar-section-title">Analytics</div>
+            <ul class="sidebar-menu">
+                <li><a href="#"><span class="sidebar-menu-icon icon-chart"></span>Overview</a></li>
+                <li><a href="#"><span class="sidebar-menu-icon icon-chart"></span>Reports</a></li>
+                <li><a href="#"><span class="sidebar-menu-icon icon-users"></span>Team</a></li>
+            </ul>
+        </div>
+
+        <div class="sidebar-section">
+            <div class="sidebar-section-title">Support</div>
+            <ul class="sidebar-menu">
+                <li><a href="#"><span class="sidebar-menu-icon icon-help"></span>Help Center</a></li>
+                <li><a href="#"><span class="sidebar-menu-icon icon-settings"></span>Settings</a></li>
+            </ul>
+        </div>
+    </div>
+</aside>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
 {% endif %}
