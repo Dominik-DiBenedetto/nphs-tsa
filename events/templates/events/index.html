@@ -8,6 +8,8 @@
     <title>Events</title>
 </head>
 <body>
+    {% load mycomponents %}
+    {% navbar "Events" "none" %}
     <h1>Events</h1>
     {% for event in Events %}
         <div class="event" id="{{event.name}}">

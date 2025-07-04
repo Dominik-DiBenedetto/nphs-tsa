@@ -7,6 +7,8 @@ from .models import Member
 
 # Create your views here.
 def login_page(request):
+    if request.user.is_authenticated:
+        return redirect('/home/')
     # Check if the HTTP request method is POST (form submission)
     if request.method == "POST":
         username = request.POST.get('username')
@@ -35,6 +37,8 @@ def login_page(request):
 
 # Define a view function for the registration page
 def register_page(request):
+    if request.user.is_authenticated:
+        return redirect('/home/')
     # Check if the HTTP request method is POST (form submission)
     if request.method == 'POST':
         name = request.POST.get('name')
@@ -71,7 +75,10 @@ def register_page(request):
         
         # Display an information message indicating successful account creation
         messages.info(request, "Account created Successfully!")
-        return redirect('/auth/register/')
+
+        login(request, user)
+
+        return redirect('/home/')
     
     # Render the registration page template (GET request)
     return render(request, 'auth/register.html')

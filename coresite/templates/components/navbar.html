@@ -1,5 +1,7 @@
+{% load static %}
 <nav class="navbar" id="navbar">
     <div class="navbar-container">
+        {% if is_authenticated %}
         <button class="sidebar-toggle" id="sidebarToggle">
             <div class="hamburger">
                 <span></span>
@@ -7,15 +9,16 @@
                 <span></span>
             </div>
         </button>
+        {% endif %}
         <a href="#" class="navbar-brand">
-            <div class="brand-logo">A</div>
+            <img class="brand-logo" src="{% static 'images/nphs_bobcats_favicon.jpg' %}" />
             <span>NPHS TSA</span>
         </a>
 
-        <ul class="navbar-nav">
-            <li><a href="#" class="active">Home</a></li>
+        <ul class="navbar-nav" data-active-navbar-link="{{ active_navbar_link }}">
+            <li><a href="/">Home</a></li>
             <li><a href="#">About</a></li>
-            <li><a href="#">Events</a></li>
+            <li><a href="/events/">Events</a></li>
             <li><a href="#">Achievements</a></li>
             <li><a href="/events/matchmaker/">Event Matchmaker</a></li>
             {% if is_authenticated %}
@@ -36,33 +39,42 @@
         </a>
     </div>
 
-    <div class="sidebar-content">
+    <div class="sidebar-content" data-active-sidebar-link="{{ active_sidebar_link }}">
         <div class="sidebar-section">
             <div class="sidebar-section-title">Main</div>
             <ul class="sidebar-menu">
-                <li><a href="/members/" class="active"><span class="sidebar-menu-icon icon-home"></span>Members</a></li>
-                <li><a href="#"><span class="sidebar-menu-icon icon-inbox"></span>Inbox</a></li>
-                <li><a href="#"><span class="sidebar-menu-icon icon-calendar"></span>Calendar</a></li>
+                <li><a href="/members/"><span class="sidebar-menu-icon icon-home"></span>Members</a></li>
+                <li><a href="#"><span class="sidebar-menu-icon icon-inbox"></span>Attendance</a></li>
+                <li><a href="#"><span class="sidebar-menu-icon icon-calendar"></span>Notifications</a></li>
             </ul>
         </div>
 
         <div class="sidebar-section">
-            <div class="sidebar-section-title">Analytics</div>
+            <div class="sidebar-section-title">Events</div>
             <ul class="sidebar-menu">
-                <li><a href="#"><span class="sidebar-menu-icon icon-chart"></span>Overview</a></li>
-                <li><a href="#"><span class="sidebar-menu-icon icon-chart"></span>Reports</a></li>
-                <li><a href="#"><span class="sidebar-menu-icon icon-users"></span>Team</a></li>
+                <li><a href="#"><span class="sidebar-menu-icon icon-chart"></span>Progress Reports</a></li>
+                <li><a href="#"><span class="sidebar-menu-icon icon-chart"></span>Event Feedback</a></li>
+                <li><a href="#"><span class="sidebar-menu-icon icon-users"></span>Timeline</a></li>
+            </ul>
+        </div>
+
+        <div class="sidebar-section">
+            <div class="sidebar-section-title">Fundraisers</div>
+            <ul class="sidebar-menu">
+                <li><a href="#"><span class="sidebar-menu-icon icon-users"></span>Upcoming Fundraisers</a></li>
+                <li><a href="#"><span class="sidebar-menu-icon icon-chart"></span>Calendar</a></li>
             </ul>
         </div>
 
         <div class="sidebar-section">
             <div class="sidebar-section-title">Support</div>
             <ul class="sidebar-menu">
-                <li><a href="#"><span class="sidebar-menu-icon icon-help"></span>Help Center</a></li>
+                <li><a href="#"><span class="sidebar-menu-icon icon-help"></span>Feedback</a></li>
                 <li><a href="#"><span class="sidebar-menu-icon icon-settings"></span>Settings</a></li>
             </ul>
         </div>
     </div>
 </aside>
 <div class="sidebar-overlay" id="sidebarOverlay"></div>
+<script src="{% static 'javascript/navbar.js' %}" defer></script>
 {% endif %}

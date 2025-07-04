@@ -4,16 +4,22 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+        {% load static %}
+        <link rel="icon" href="{% static 'images/nphs_bobcats_favicon.jpg' %}" type="image/x-icon">
+
+        <!-- CSS -->
         <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
         <link rel="stylesheet" href="{% static 'css/members.css' %}" />
 
+        <!-- Javascript -->
         <script src="{% static 'javascript/members.js' %}" defer></script>
+        
 
         <title>Members | NPHS TSA</title>
     </head>
     <body>
         {% load mycomponents %}
-        {% navbar %}
+        {% navbar "none" "Members" %}
         <div class="container">
             <div class="header">
                 <h1>Team Members</h1>
@@ -32,11 +38,12 @@
                         </tr>
                     </thead>
                     <tbody id="membersTableBody">
+                        {% for member in members %}
                         <tr>
-                            <td class="member-name">Dominik DiBenedetto</td>
-                            <td class="member-id">N501029</td>
+                            <td class="member-name">{{ member.name }}</td>
+                            <td class="member-id">{{ member.username }}</td>
                             <td>
-                                <span class="role-badge role-${member.role}">Vice President</span>
+                                <span class="role-badge role-${member.role}">{{ member.role }}</span>
                             </td>
                             <td>
                                 <span class="strikes ${getStrikesClass(member.strikes)}">Strikes: 0</span>
@@ -52,12 +59,12 @@
                                     <div class="dropdown-menu" id="menu-1">
                                         <a
                                             class="dropdown-item"
-                                            href="/members/{member.username}"
+                                            href="/members/{{member.username}}"
                                             >View</a
                                         >
                                         <a
                                             class="dropdown-item"
-                                            href="/members/{member.username}/edit"
+                                            href="/members/{{member.username}}/edit"
                                             >Edit</a
                                         >
                                         <a class="dropdown-item delete"
@@ -67,6 +74,8 @@
                                 </div>
                             </td>
                         </tr>
+                        {% endfor %}
+                        
                         <!-- Members will be populated by JavaScript -->
                     </tbody>
                 </table>

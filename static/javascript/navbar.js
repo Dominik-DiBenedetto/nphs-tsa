@@ -66,20 +66,13 @@ window.addEventListener('resize', () => {
 });
 
 // Active link handling
-document.querySelectorAll('.navbar-nav a, .sidebar-menu a').forEach(link => {
-    link.addEventListener('click', (e) => {
-        e.preventDefault();
+const active_nav_link = document.querySelector("[data-active-navbar-link]")
+const active_sidebar_link = document.querySelector("[data-active-sidebar-link]")
 
-        // Remove active class from all links in the same container
-        const container = link.closest('.navbar-nav') || link.closest('.sidebar-menu');
-        container.querySelectorAll('a').forEach(a => a.classList.remove('active'));
-
-        // Add active class to clicked link
-        link.classList.add('active');
-
-        // Close sidebar on mobile after clicking a link
-        if (window.innerWidth <= 768) {
-            closeSidebar();
-        }
-    });
-});
+const navbar_link_text = active_nav_link.getAttribute("data-active-navbar-link")
+const sidebar_link_text = active_sidebar_link.getAttribute("data-active-sidebar-link")
+if (navbar_link_text != "none") {
+    Array.from(active_nav_link.querySelectorAll("a")).find(el => el.innerText === navbar_link_text).classList.add("active");
+} else {
+    Array.from(active_sidebar_link.querySelectorAll("a")).find(el => el.innerText == sidebar_link_text).classList.add("active");
+}

@@ -5,56 +5,45 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>NPHS TSA | Login</title>
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+        {% load static %}
+        <link rel="icon" href="{% static 'images/nphs_bobcats_favicon.jpg' %}" type="image/x-icon">
+
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+        <link rel="stylesheet" href="{% static 'css/login.css' %}">
+        
     </head>
     <body>
+        {% load mycomponents %}
+        {% navbar "Login" "none" %}
+        <div class="login-container">
+        <div class="title">NPHS TSA</div>
+        <div class="subtitle">Technology Student Association</div>
+        
         <form method="post">
-            <div class="title">NPHS TSA</div>
             {% csrf_token %}
-            <!-- CSRF token for security -->
-
-            <!-- Login heading -->
-            <h3>Login</h3>
-            <hr />
-
-            <!-- Display error/success messages -->
             {% if messages %}
-            <div class="alert alert-primary" role="alert">
+            <div class="alert" id="messageAlert">
                 {% for message in messages %} {{ message }} {% endfor %}
             </div>
             {% endif %}
 
-            <!-- Username input field -->
             <div class="form-group">
-                <label for="username">Username</label>
-                <input
-                    type="text"
-                    class="form-control"
-                    name="username"
-                    id="username"
-                    aria-describedby="Enter email or username"
-                    placeholder="Email or Username"
-                    required
-                />
+                <label for="username">N Number</label>
+                <input type="text" name="username" id="username" placeholder="Email or N Number" required="">
             </div>
 
-            <!-- Password input field -->
             <div class="form-group">
                 <label for="password">Password</label>
-                <input
-                    type="password"
-                    name="password"
-                    class="form-control"
-                    id="password"
-                    placeholder="Password"
-                    required
-                />
+                <input type="password" name="password" id="password" placeholder="Password" required="">
             </div>
 
-            <!-- Link to registration page -->
-            <p>Don't have an account <a href="/auth/register/">Register</a></p>
+            <div class="register-link">
+                Don't have an account? <a href="/auth/register/">Register here</a>
+            </div>
 
-            <!-- Submit button -->
-            <button type="submit" class="btn btn-primary">Login</button>
+            <button type="submit" class="btn-login">Login</button>
         </form>
+    </div>
     </body>
 </html>
