@@ -1,15 +1,369 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    {% load static %}
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-    <title>NPHS TSA | Home</title>
-</head>
-<body>
-    {% load mycomponents %}
-    {% navbar "Home" "none" %}
-</body>
+        {% load static %}
+        <link
+            rel="icon"
+            href="{% static 'images/nphs_bobcats_favicon.jpg' %}"
+            type="image/x-icon"
+        />
+
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/home.css' %}" />
+
+        <title>NPHS TSA | Home</title>
+    </head>
+    <body>
+        {% load mycomponents %} {% navbar "Home" "none" %}
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <image
+                    class="profile-image"
+                    src="{% static 'images/nphs_bobcats_favicon.jpg' %}"
+                ></image>
+                <h1>North Port High School TSA</h1>
+                <p>Technology Student Association</p>
+                <a href="#about" class="cta-button">Learn More</a>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <h2 class="section-title fade-in">About Us</h2>
+                <div class="about-content">
+                    <div class="about-image fade-in">🖼️ Your Photo Here</div>
+                    <div class="about-text fade-in">
+                        <p>
+                            If you are looking for a fun and engaging way to
+                            spend your after-school hours, North Port High
+                            School TSA is the club for you! Our club provides a
+                            welcoming atmosphere that is perfect for anyone with
+                            a passion for engineering, problem solving, and
+                            creative thinking. Here, you can find like-minded
+                            people who share your interests while having fun and
+                            learning something new every day. Our team of
+                            dedicated advisors are always on hand to mentor,
+                            teach, and support students, ensuring they achieve
+                            their full potential.
+                        </p>
+                        <p>
+                            Our chapter is dedicated to achieving the best
+                            results, providing a supportive environment for all
+                            members, and striving for excellence in all aspects.
+                            With a focus on innovation and creativity, we aim to
+                            make a positive impact in our community and beyond.
+                            Watch us in our pursuit of excellence and become a
+                            part of our outstanding team.
+                        </p>
+                    </div>
+                    <div class="about-text fade-in" style="min-width: 35vw">
+                        <p>
+                            North Port High School TSA is an excellent chapter
+                            that combines hard work and fun. Our members are
+                            dedicated to the TSA motto which is "Learning to
+                            lead in a technical world". TSA helps our members
+                            learn not only the fields of science, technology,
+                            and mathematics but how to lead the next generations
+                            into the future. We strive to create a supportive
+                            and inclusive community where everyone can thrive.
+                        </p>
+                        <p>
+                            When the middle school students of Heron Creek and
+                            Woodland complete their middle school TSA journey,
+                            most of them will be able to attend North Port High
+                            School TSA. We are excited to welcome them to our
+                            school and look forward to helping them continue
+                            their TSA journey.
+                        </p>
+                    </div>
+                    <div class="about-image fade-in">🖼️ Your Photo Here</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="skills">
+            <div class="container">
+                <h2 class="section-title fade-in">Building Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-card fade-in">
+                        <div class="skill-icon">🧭</div>
+                        <h3>Leadership</h3>
+                        <p>
+                            TSA builds leadership through team roles, event
+                            planning, and decision-making in competitive
+                            settings.
+                        </p>
+                    </div>
+                    <div class="skill-card fade-in">
+                        <div class="skill-icon">🧩</div>
+                        <h3>Problem Solving</h3>
+                        <p>
+                            Students tackle real-world challenges using STEM
+                            skills, encouraging creative and practical
+                            solutions.
+                        </p>
+                    </div>
+                    <div class="skill-card fade-in">
+                        <div class="skill-icon">🧠</div>
+                        <h3>Critical Thinking</h3>
+                        <p>
+                            TSA promotes analyzing problems, evaluating options,
+                            and making informed decisions under pressure.
+                        </p>
+                    </div>
+                    <div class="skill-card fade-in">
+                        <div class="skill-icon">🤝</div>
+                        <h3>Collaboration</h3>
+                        <p>
+                            TSA fosters teamwork by encouraging students to work
+                            together on projects, communicate effectively, and
+                            share responsibilities to reach common goals.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="officers" class="officers">
+            <div class="container">
+                <h2 class="section-title fade-in">2025-2026 Officers</h2>
+                <div class="officer-grid">
+                    <!-- officer Member 1 -->
+                    <div class="officer-card">
+                        <img class="profile-image" src="{% static 'images/bella.avif' %}" />
+                        <h3 class="member-name">Isabella Ramsey</h3>
+                        <p class="member-position">
+                            President & Florida TSA State Vice President
+                        </p>
+                        <!-- <p class="member-bio">Visionary leader with 15+ years of experience in tech innovation and strategic business development.</p> -->
+                    </div>
+
+                    <!-- officer Member 2 -->
+                    <div class="officer-card">
+                        <img class="profile-image" src="{% static 'images/dom.avif' %}" />
+                        <h3 class="member-name">Dominik DiBenedetto</h3>
+                        <p class="member-position">Vice President</p>
+                    </div>
+
+                    <!-- officer Member 3 -->
+                    <div class="officer-card">
+                        <img class="profile-image" src="{% static 'images/megan.avif' %}" />
+                        <h3 class="member-name">Megan Taylor</h3>
+                        <p class="member-position">Secretary</p>
+                    </div>
+
+                    <!-- officer Member 4 -->
+                    <div class="officer-card">
+                        <img class="profile-image" src="{% static 'images/dom.avif' %}" />
+                        <h3 class="member-name">Alexander Avin</h3>
+                        <p class="member-position">Treasurer</p>
+                    </div>
+
+                    <!-- officer Member 5 -->
+                    <div class="officer-card">
+                        <img class="profile-image" src="{% static 'images/dom.avif' %}" />
+                        <h3 class="member-name">Elizabeth Carpenter</h3>
+                        <p class="member-position">Reporter</p>
+                    </div>
+
+                    <!-- officer Member 6 -->
+                    <div class="officer-card">
+                        <img class="profile-image" src="{% static 'images/dom.avif' %}" />
+                        <h3 class="member-name">Michael Dankanich</h3>
+                        <p class="member-position">Sergeant At Arms</p>
+                    </div>
+
+                    <!-- officer Member 7 -->
+                    <div class="officer-card">
+                        <img class="profile-image" src="{% static 'images/jakoby.avif' %}" />
+                        <h3 class="member-name">Ken Jakoby</h3>
+                        <p class="member-position">Advisor</p>
+                    </div>
+
+                    <!-- officer Member 8 -->
+                    <div class="officer-card">
+                        <img class="profile-image" src="{% static 'images/lord.avif' %}" />
+                        <h3 class="member-name">Elysia Lord</h3>
+                        <p class="member-position">Advisor</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="gallery">
+            <div class="container">
+                <h2 class="section-title fade-in">Gallery</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item fade-in">
+                        <span>Project Photo 1</span>
+                    </div>
+                    <div class="gallery-item fade-in">
+                        <span>Project Photo 2</span>
+                    </div>
+                    <div class="gallery-item fade-in">
+                        <span>Team Photo</span>
+                    </div>
+                    <div class="gallery-item fade-in">
+                        <span>Event Photo</span>
+                    </div>
+                    <div class="gallery-item fade-in">
+                        <span>Workspace Photo</span>
+                    </div>
+                    <div class="gallery-item fade-in">
+                        <span>Achievement Photo</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer id="contact">
+            <div class="container">
+                <div class="social-links">
+                    <a href="#">📧</a>
+                    <a href="#">💼</a>
+                    <a href="#">🐦</a>
+                    <a href="#">📷</a>
+                </div>
+                <p>
+                    © 2025 North Port High School Technology Student
+                    Association. All rights reserved.
+                </p>
+            </div>
+        </footer>
+
+        <script>
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+                anchor.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(
+                        this.getAttribute("href")
+                    );
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: "smooth",
+                            block: "start",
+                        });
+                    }
+                });
+            });
+
+            // Intersection Observer for fade-in animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: "0px 0px -50px 0px",
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add("visible");
+                    } else if (
+                        entry.target.parentElement.classList.contains(
+                            "hero-content"
+                        ) &&
+                        !entry.target.classList.contains("hide")
+                    ) {
+                        entry.target.classList.add("hide");
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all elements with fade-in class
+            document.querySelectorAll(".fade-in").forEach((el) => {
+                observer.observe(el);
+            });
+
+            function isOverlapping(div1, div2) {
+                const rect1 = div1.getBoundingClientRect();
+                const rect2 = div2.getBoundingClientRect();
+                console.log(rect1, rect2);
+
+                return !(
+                    rect1.right < rect2.left ||
+                    rect1.left > rect2.right ||
+                    rect1.bottom < rect2.top ||
+                    rect1.top > rect2.bottom
+                );
+            }
+
+            let heroImg = document.querySelector(".hero-content img");
+            let heroH1 = document.querySelector(".hero-content h1");
+            let heroP = document.querySelector(".hero-content p");
+            let heroA = document.querySelector(".hero-content a");
+
+            // Add parallax effect to hero section
+            window.addEventListener("scroll", () => {
+                const scrolled = window.pageYOffset;
+                const hero = document.querySelector(".hero");
+                const about = document.querySelector(".about");
+                if (hero) {
+                    hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+
+                    if (isOverlapping(heroH1, about)) {
+                        if (!heroH1.classList.contains("hide"))
+                            heroH1.classList.add("hide");
+                    } else {
+                        heroH1.classList.remove("hide");
+                    }
+
+                    if (isOverlapping(heroP, about)) {
+                        if (!heroP.classList.contains("hide"))
+                            heroP.classList.add("hide");
+                    } else {
+                        heroP.classList.remove("hide");
+                    }
+
+                    if (isOverlapping(heroA, about)) {
+                        if (!heroA.classList.contains("hide"))
+                            heroA.classList.add("hide");
+                    } else {
+                        heroA.classList.remove("hide");
+                    }
+                }
+            });
+
+            // Gallery item click handler
+            document.querySelectorAll(".gallery-item").forEach((item) => {
+                item.addEventListener("click", function () {
+                    // You can add functionality here to open a modal or lightbox
+                    console.log("Gallery item clicked:", this.textContent);
+                    // Example: Open image in modal, navigate to project page, etc.
+                });
+            });
+
+            // Add typing effect to hero text
+            function typeWriter(element, text, speed = 100) {
+                let i = 0;
+                element.innerHTML = "";
+                function type() {
+                    if (i < text.length) {
+                        element.innerHTML += text.charAt(i);
+                        i++;
+                        setTimeout(type, speed);
+                    }
+                }
+                type();
+            }
+
+            // Initialize typing effect when page loads
+            window.addEventListener("load", () => {
+                const heroTitle = document.querySelector(".hero h1");
+                if (heroTitle) {
+                    const originalText = heroTitle.textContent;
+                    setTimeout(() => {
+                        typeWriter(heroTitle, originalText, 100);
+                    }, 1000);
+                }
+            });
+        </script>
+    </body>
 </html>

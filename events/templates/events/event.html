@@ -4,17 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    {% load static %}
+    <link rel="icon" href="{% static 'images/nphs_bobcats_favicon.jpg' %}" type="image/x-icon">
+
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     <link rel="stylesheet" href="{% static 'css/event.css' %}">
     <title>{{Event.name}}</title>
 </head>
 <body>
     {% load mycomponents %}
-    {% navbar %}
+    {% navbar "none" "none" %}
     <div class="container">
         <header class="header">
-            <h1 class="event-title">Animatronics</h1>
-            <p class="event-subtitle">Advanced Network Security Competition</p>
+            <h1 class="event-title">{{ Event.name }}</h1>
+            <!-- <p class="event-subtitle">Advanced Network Security Competition</p> -->
         </header>
 
         <div class="content-grid">
@@ -38,7 +41,7 @@
                 <h2 class="card-title">📝 Event Description</h2>
                 <div class="event-description">
                     <p>
-                        To address the annual design challenge, participants exhibit and demonstrate their knowledge of mechanical and control systems by creating an animatronic device with a specific purpose (i.e., communicate an idea, entertain, demonstrate a concept, etc.) that includes sound, lights, and an appropriate surrounding environment (a display).
+                        {{ Event.desc }}
                     </p>
                 </div>
             </div>
@@ -47,7 +50,7 @@
             <div class="card">
                 <h2 class="card-title">🎯 Event Prompt</h2>
                 <div class="event-prompt">
-                    Following the specified requirements, create an animatronic exhibit for a public library to excite young readers.
+                    {{ Event.prompt }}
                 </div>
             </div>
         </div>

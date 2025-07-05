@@ -2,9 +2,24 @@
     "Team1":
     [
         {
-            "Name": "Dom",
+            "Name": "Dominik DiBenedetto",
             "Id": "2166909",
             "IsCaptain": true
+        },
+        {
+            "Name": "Huy Nguyen",
+            "Id": "2166910",
+            "IsCaptain": false
+        },
+        {
+            "Name": "Alexander Avin",
+            "Id": "2166911",
+            "IsCaptain": false
+        },
+        {
+            "Name": "Michael Dankanich",
+            "Id": "2166912",
+            "IsCaptain": false
         }
     ]
 }
