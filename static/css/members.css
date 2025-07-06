@@ -154,6 +154,7 @@ tbody tr:hover {
     background-color: #64748b;
     border-radius: 50%;
     position: absolute;
+    left: 0;
 }
 
 .menu-dots::before {

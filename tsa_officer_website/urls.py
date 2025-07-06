@@ -22,6 +22,7 @@ urlpatterns = [
     path("auth/", include("authentication.urls")),
     path("", include("coresite.urls")),
 
+    path("members/", include("members.urls")),
     path("events/", include("events.urls")),
     path("achievements/", include("achievements.urls")),
 

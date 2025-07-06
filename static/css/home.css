@@ -1,5 +1,5 @@
 .container {
-    max-width: 1200px;
+    max-width: 1600px;
     padding: 0 20px;
 }
 
@@ -104,7 +104,7 @@
 
 .about-content {
     display: grid;
-    grid-template-columns: 1fr 2fr;
+    grid-template-columns: 1fr 1fr;
     gap: 3rem;
     align-items: center;
     margin-top: 3rem;

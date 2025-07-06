@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        {% load static %}
+        <link rel="icon" href="{% static 'images/nphs_bobcats_favicon.jpg' %}" type="image/x-icon">
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/members.css' %}" />
+
+        <!-- Javascript -->
+        <script src="{% static 'javascript/members.js' %}" defer></script>
+        
+
+        <title>Members | NPHS TSA</title>
+    </head>
+    <body>
+        {% load mycomponents %}
+        {% navbar "none" "Attendance" %}
+        <div class="container">
+            <div class="header">
+                <h1>Attendance</h1>
+                <p>Manage and view member attendance records</p>
+            </div>
+            {% for date, record in records.items %}
+            <div class="members-table">
+                <table>
+                    <thead>
+                        <tr style="position: relative;">
+                            <th>Name</th>
+                            <th>ID</th>
+                            <th style="position: absolute; right: 20px; top: 50%; transform: translateY(-50%);">{{ date }}</th>
+                        </tr>
+                    </thead>
+                    
+                    <tbody id="membersTableBody">
+                        {% for member in record %}
+                        <tr>
+                            <td class="member-name" style="width: 70%;">
+                                {% if member.user %}
+                                {{ member.user.name }}
+                                {% else %}
+                                Unknown
+                                {% endif %}
+                            </td>
+                            <td class="member-id">{{ member.n_number }}</td>
+                            <td style="position: relative;">
+                                <div class="menu-container" style="position: absolute; right: 20px; top: 50%; transform: translateY(-50%);">
+                                    <button
+                                        class="menu-button"
+                                        onclick="toggleMenu(1)"
+                                    >
+                                        <span class="menu-dots"></span>
+                                    </button>
+                                    <div class="dropdown-menu" id="menu-1">
+                                        <a
+                                            class="dropdown-item"
+                                            href="/members/{{member.username}}"
+                                            >View</a
+                                        >
+                                        <a
+                                            class="dropdown-item"
+                                            href="/members/{{member.username}}/edit"
+                                            >Edit</a
+                                        >
+                                        <a class="dropdown-item delete"
+                                            >Delete</a
+                                        >
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% endfor %}
+        </div>
+    </body>
+</html>
