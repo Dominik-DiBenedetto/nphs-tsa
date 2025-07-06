@@ -13,11 +13,17 @@
 </head>
 <body>
     {% load mycomponents %}
+    {% load is_officer %}
     {% navbar "Events" "none" %}
     <div class="container">
         <main class="main">
             <section class="events-section">
-                <h2 class="section-title">High School Events</h2>
+                <h2 class="section-title">
+                    High School Events
+                    {% if user.is_superuser or user|is_officer %}
+                    <a href="{% url 'add_events' %}">+</a>
+                    {% endif %}
+                </h2>
 
                 {% if Events %}
                 <div class="events-grid">
@@ -42,14 +48,6 @@
             </section>
             {% endif %}
         </main>
-    <!-- </div>
-    {% for event in Events %}
-        <div class="event" id="{{event.name}}">
-            <h1>{{event.name}}</h1>
-            <button class="view-event-btn">
-                <a href="{% url 'event' event.id %}">View Event</a>
-            </button>
-        </div>
-    {% endfor %} -->
+    </div>
 </body>
 </html>

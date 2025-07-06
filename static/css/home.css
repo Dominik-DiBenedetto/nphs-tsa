@@ -13,6 +13,8 @@
     color: white;
     position: relative;
     overflow: hidden;
+    background: radial-gradient(var(--tsa-dark-navy-blue), var(--tsa-navy-blue));
+    z-index: 1;
 }
 
 .hero-content {
@@ -75,8 +77,10 @@
 
 /* About Section */
 .about {
+    position: relative;
     background: white;
     padding: 5rem 0;
+    z-index: 2;
 }
 
 .section-title {
@@ -171,6 +175,10 @@
     margin: 0 auto 1rem;
     color: white;
     font-size: 2rem;
+}
+
+.officers{
+    padding: 5rem 0;
 }
 
 .officer-grid {

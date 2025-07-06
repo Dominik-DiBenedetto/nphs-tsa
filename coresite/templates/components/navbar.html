@@ -16,10 +16,10 @@
         </a>
 
         <ul class="navbar-nav" data-active-navbar-link="{{ active_navbar_link }}">
-            <li><a href="/">Home</a></li>
-            <li><a href="/#officers">Officers</a></li>
-            <li><a href="/events/">Events</a></li>
-            <li><a href="#">Achievements</a></li>
+            <li><a href="/#home">Home</a></li>
+            <li><a href="/#officers" class="officer-nav-link">Officers</a></li>
+            <li><a href="/events">Events</a></li>
+            <li><a href="/achievements">Achievements</a></li>
             <li><a href="/events/matchmaker/">Event Matchmaker</a></li>
             {% if is_authenticated %}
             <li><a href="/auth/logout">Logout</a></li>

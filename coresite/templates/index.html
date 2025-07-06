@@ -256,6 +256,23 @@
                 });
             });
 
+            document.querySelectorAll('a[href^="/#"]').forEach((anchor) => {
+                anchor.addEventListener("click", function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(
+                        this.getAttribute("href").replace("/","")
+                    );
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: "smooth",
+                            block: "start",
+                        });
+                    }
+                    document.querySelector(".navbar-nav .active").classList.remove("active");
+                    this.classList.add("active")
+                })
+            })
+
             // Intersection Observer for fade-in animations
             const observerOptions = {
                 threshold: 0.1,
@@ -282,24 +299,6 @@
                 observer.observe(el);
             });
 
-            function isOverlapping(div1, div2) {
-                const rect1 = div1.getBoundingClientRect();
-                const rect2 = div2.getBoundingClientRect();
-                console.log(rect1, rect2);
-
-                return !(
-                    rect1.right < rect2.left ||
-                    rect1.left > rect2.right ||
-                    rect1.bottom < rect2.top ||
-                    rect1.top > rect2.bottom
-                );
-            }
-
-            let heroImg = document.querySelector(".hero-content img");
-            let heroH1 = document.querySelector(".hero-content h1");
-            let heroP = document.querySelector(".hero-content p");
-            let heroA = document.querySelector(".hero-content a");
-
             // Add parallax effect to hero section
             window.addEventListener("scroll", () => {
                 const scrolled = window.pageYOffset;
@@ -307,27 +306,6 @@
                 const about = document.querySelector(".about");
                 if (hero) {
                     hero.style.transform = `translateY(${scrolled * 0.5}px)`;
-
-                    if (isOverlapping(heroH1, about)) {
-                        if (!heroH1.classList.contains("hide"))
-                            heroH1.classList.add("hide");
-                    } else {
-                        heroH1.classList.remove("hide");
-                    }
-
-                    if (isOverlapping(heroP, about)) {
-                        if (!heroP.classList.contains("hide"))
-                            heroP.classList.add("hide");
-                    } else {
-                        heroP.classList.remove("hide");
-                    }
-
-                    if (isOverlapping(heroA, about)) {
-                        if (!heroA.classList.contains("hide"))
-                            heroA.classList.add("hide");
-                    } else {
-                        heroA.classList.remove("hide");
-                    }
                 }
             });
 

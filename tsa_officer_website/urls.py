@@ -23,4 +23,6 @@ urlpatterns = [
     path("", include("coresite.urls")),
 
     path("events/", include("events.urls")),
+    path("achievements/", include("achievements.urls")),
+
 ]

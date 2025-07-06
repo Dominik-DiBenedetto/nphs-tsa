@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% load static %}
+    <link
+        rel="icon"
+        href="{% static 'images/nphs_bobcats_favicon.jpg' %}"
+        type="image/x-icon"
+    />
+
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/achievements.css' %}" />
+
+    <script src="{% static 'javascript/achievements.js' %}" defer></script>
+
+    <title>Conference Placements</title>
+</head>
+<body>
+    {% load mycomponents %} {% navbar "Achievements" "none" %}
+    <div class="container">
+        <!-- Header -->
+        <div class="header fade-in">
+            <h1>Conference Placements</h1>
+            <p>Track record of top 3 placements across various conferences and years</p>
+            
+            <!-- Filters -->
+            <div class="filters">
+                <div class="filter-group">
+                    <label for="searchInput">Search</label>
+                    <input type="text" id="searchInput" class="filter-input" placeholder="Search students, companies, or ranks...">
+                </div>
+                <div class="filter-group">
+                    <label for="yearFilter">Year</label>
+                    <select id="yearFilter" class="filter-input">
+                        <option value="">All Years</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="conferenceFilter">Conference</label>
+                    <select id="conferenceFilter" class="filter-input">
+                        <option value="">All Conferences</option>
+                    </select>
+                </div>
+                <button class="clear-filters" onclick="clearAllFilters()">Clear Filters</button>
+            </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="stats fade-in">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-number" id="totalPlacements">0</span>
+                    <div class="stat-label">Total Top 3s</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="totalConferences">0</span>
+                    <div class="stat-label">Conferences</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="totalCompanies">0</span>
+                    <div class="stat-label">Events</div>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="totalYears">0</span>
+                    <div class="stat-label">Years</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Placements Content -->
+        <div id="placementsContent"></div>
+
+        <!-- No Results -->
+        <div id="noResults" class="no-results" style="display: none;">
+            <h3>No placements found</h3>
+            <p>Try adjusting your search criteria or clearing the filters.</p>
+        </div>
+    </div>
+</body>
+</html>

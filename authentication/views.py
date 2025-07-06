@@ -1,9 +1,31 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 # from django.contrib.auth.models import User
 from .models import Member
+from django.contrib.auth.models import Group, Permission
+
+officer_permissions_group, created = Group.objects.get_or_create(name='Officer')
+perm = Permission.objects.get(codename='add_event')  # Example permission
+officer_permissions_group.permissions.add(perm)
+
+officer_nnumbers = {
+    "N463506": "President",
+    "N501029": "Vice President",
+    "N432119": "Secretary",
+    "N443333": "Treasurer",
+    "N431784": "Reporter",
+    "N434205": "Sergeant At Arms",
+}
+
+def update_roles(user):
+    for n_num, role in officer_nnumbers.items():
+        if user.username != n_num: continue
+        user.role = role
+        user.groups.add(officer_permissions_group)
+        user.save()
+
 
 # Create your views here.
 def login_page(request):
@@ -30,6 +52,7 @@ def login_page(request):
         else:
             # Log in the user and redirect to the home page upon successful login
             login(request, user)
+            update_roles(user)
             return redirect('/home/')
 
     # Render the login page template (GET request)
@@ -77,8 +100,13 @@ def register_page(request):
         messages.info(request, "Account created Successfully!")
 
         login(request, user)
+        update_roles(user)
 
         return redirect('/home/')
     
     # Render the registration page template (GET request)
     return render(request, 'auth/register.html')
+
+def logout_view(request):
+    logout(request)
+    return redirect("/home/")

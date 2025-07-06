@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'authentication.apps.AuthenticationConfig',
     'coresite.apps.CoresiteConfig',
     'events.apps.EventsConfig',
+    'achievements.apps.AchievementsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
