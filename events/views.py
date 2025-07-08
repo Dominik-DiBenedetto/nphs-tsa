@@ -1,6 +1,8 @@
-from django.shortcuts import render, get_object_or_404
-from django.http import HttpResponse
+import json, traceback
+from django.shortcuts import render, get_object_or_404, redirect
+from django.http import FileResponse, Http404, HttpResponse
 from sentence_transformers import SentenceTransformer, util
+from django.views.decorators.clickjacking import xframe_options_exempt
 
 from .models import Event
 
@@ -59,6 +61,39 @@ def view_event(request, event_id):
     event = get_object_or_404(Event, pk=event_id)
     return render(request, "events/event.html", {"Event": event})
 
+def update_event(request, event_id):
+    event = get_object_or_404(Event, pk=event_id)
+    if request.method == "POST":
+        print("UPDATING")
+        try:
+            name = request.POST.get('Name')
+            desc = request.POST.get('Description')
+            prompt = request.POST.get('Prompt')
+            ceg_file = request.FILES.get('CEG')
+            teams_json = request.POST.get('Teams')
+
+            event.name = name
+            event.desc = desc
+            event.prompt = prompt
+            # event.CEG = ceg_file
+            event.teams_json = teams_json
+
+            event.save()
+            
+            return redirect("/events/")
+        except Exception as e:
+            print(f"ERRORORO {e}")
+    return render(request, "events/update_event.html", {"Event": event, "teams_json": json.dumps(event.competitors)})
+
+@xframe_options_exempt
+def view_ceg_file(request, event_id):
+    try:
+        event = Event.objects.get(id=event_id)
+        file_path = event.CEG.path
+        return FileResponse(open(file_path, 'rb'), content_type='application/pdf')  # Adjust MIME if needed
+    except (Event.DoesNotExist, FileNotFoundError):
+        raise Http404("File not found.")
+
 def event_matchmaker(request):
     if request.method == "POST":
         interests = request.POST.get('interests')
@@ -74,3 +109,30 @@ def event_matchmaker(request):
         return render(request, "events/matchmaker.html", {"Events": tuple(sorted_events_list)})
 
     return render(request, "events/matchmaker.html")
+
+def add_event(request):
+    if request.user.groups.filter(name="Officer").exists():
+        if request.method == "POST":
+            try:
+                name = request.POST.get('Name')
+                desc = request.POST.get('Description')
+                prompt = request.POST.get('Prompt')
+                ceg_file = request.FILES.get('CEG')
+                teams_json = request.POST.get('Teams')
+
+                newEvent = Event.objects.create(
+                    name = name,
+                    desc = desc,
+                    prompt = prompt,
+                    CEG = ceg_file,
+                    competitors = json.loads(teams_json)
+                )
+                return redirect("/events/")
+                
+            except Exception as e:
+                print(f"ERROR!!! {e}")
+                traceback.print_exc()
+
+        return render(request, "events/add_event.html")
+    else:
+        return redirect("/events/")

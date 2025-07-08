@@ -21,7 +21,7 @@
                 <h2 class="section-title">
                     High School Events
                     {% if user.is_superuser or user|is_officer %}
-                    <a href="{% url 'add_events' %}">+</a>
+                    <a href="{% url 'add_event' %}">+</a>
                     {% endif %}
                 </h2>
 

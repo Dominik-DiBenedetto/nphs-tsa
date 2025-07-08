@@ -1,81 +1,18 @@
-const placementsData = [
-    {
-        year: 2025,
-        conferences: [
-            {
-                name: "Manatee Regionals",
-                location: "Bradenton, FL",
-                date: "December 14, 2024",
-                placements: [
-                    { event: "Chapter Team", students: "Dominik DiBenedetto, Isabella Ramsey, Matthew Jakoby, Chaz LaFlair, Joseph Carlo-Tsourakis, Megan Taylor", rank: "2nd" },
-                ]
-            },
-            {
-                name: "Florida State Conference",
-                location: "Orlando, FL",
-                date: "February 19-23, 2025",
-                placements: [
-                    { event: "Biotechnology Design", students: "Megan Taylor", rank: "3rd" },
-                    { event: "Coding", students: "Dominik DiBenedetto, Gavin Arsenault", rank: "1st" },
-                    { event: "Debating Technology Issues", students: "Isabella Ramsey, Mya Bright", rank: "1st" },
-                    { event: "Drone Challenge", students: "Matthew Jakoby", rank: "1st" },
-                    { event: "Extempraneous Speech", students: "Alexander Avin", rank: "3rd" },
-                    { event: "Fashion Design and Technology", students: "Elizabeth Carpenter, Michael Dankanich, Savannah Wilmer", rank: "3rd" },
-                    { event: "Forensics Science", students: "Savannah Wilmer", rank: "3rd" },
-                    { event: "Prepared Presentation", students: "Megan Taylor", rank: "1st" },
-                    { event: "Technology Problem Solving", students: "Matthew Jakoby, Elizabeth Carpenter", rank: "1st" },
-                    { event: "Video Game Design", students: "Dominik DiBenedetto, Alexander Avin, Michael Dankanich, Huy Nguyen, Aditya Warrier", rank: "2nd" },
-                    { event: "Virtual Reality Simulation", students: "Dominik DiBenedetto, Michael Dankanich, Huy Nguyen, Chaz LaFlair", rank: "2nd" }
-                ]
-            },
-            {
-                name: "Nationals",
-                location: "Nashville, TN",
-                date: "June 27-July 1, 2025",
-                placements: [
-                    { event: "Geospatial Technology", students: "Aditya Warrier, Alexander Avin, Matthew Jakoby", rank: "1st" },
-                ]
-            }
-        ]
-    },
-    {
-        year: 2024,
-        conferences: [
-            {
-                name: "Manatee Regionals",
-                location: "Bradenton, FL",
-                date: "December, 2023",
-                placements: [
-                    
-                ]
-            },
-            {
-                name: "Florida State Conference",
-                location: "Orlando, FL",
-                date: "February 19-23, 2022",
-                placements: [
-                    { event: "Geospatial Technology", students: "Hannah Aguilar", rank: "1st" },
-                    { event: "Prepared Presentation", students: "Megan Taylor", rank: "2nd" },
-                    { event: "Promotional Design", students: "", rank: "3rd" },
-                    { event: "Virtual Reality Simulation", students: "Chaz LaFlair, Joseph Carlo-Tsourakis, Zander Hilton", rank: "3rd" },
-                ]
-            },
-            {
-                name: "Nationals",
-                location: "Orlando, FL",
-                date: "June 27-July 1, 2022",
-                placements: [
-                    
-                ]
-            }
-        ]
-    },
+let placementsData = [
+    
 ];
+
+
 
 let filteredData = [...placementsData];
 
 // Initialize the page
-function init() {
+async function init() {
+    await fetch("/achievements/get_achievements/").then(res => res.json())
+    .then(data => {
+        placementsData = data
+        filteredData = [...placementsData]
+    })
     populateFilters();
     renderPlacements();
     updateStats();
@@ -128,6 +65,24 @@ function renderPlacements() {
     });
 }
 
+const modal = document.querySelector(".modal")
+const modalCover = document.querySelector(".modal-cover")
+const modalInput = document.querySelector(".modal-input")
+const modalLabel = document.querySelector(".modal-label")
+const modalButton = document.querySelector(".modal-btn")
+function promptAddYear() {
+    modal.classList.remove("hidden")
+    modalCover.classList.remove("hidden")
+
+    modalButton.removeEventListener("click")
+    modalButton.addEventListener("click", addYear)
+}
+
+function addYear(e){
+    e.preventDefault();
+
+}
+
 function createYearSection(yearData, index) {
     const section = document.createElement('div');
     section.className = 'year-section fade-in';
@@ -142,16 +97,19 @@ function createYearSection(yearData, index) {
             <div class="toggle-icon">▼</div>
         </div>
         <div class="conferences-container">
-            ${yearData.conferences.map(conf => createConferenceCard(conf)).join('')}
+            ${yearData.conferences.map(conf => createConferenceCard(conf, yearData.year)).join('')}
+            <button class="add-conference-btn" onclick="openAddConferenceModal(${yearData.year})">
+                ➕ Add New Conference
+            </button>
         </div>
     `;
 
     return section;
 }
 
-function createConferenceCard(conference) {
+function createConferenceCard(conference, year) {
     return `
-        <div class="conference-card">
+        <div class="conference-card" data-year="${year}" data-conference="${conference.name}">
             <div class="conference-header">
                 <div>
                     <div class="conference-name">${conference.name}</div>
@@ -169,6 +127,9 @@ function createConferenceCard(conference) {
                         <div class="placement-rank">${placement.rank}</div>
                     </div>
                 `).join('')}
+                <button class="add-placement-btn" onclick="openAddPlacementModal('${year}', '${conference.name}')">
+                    ➕ Add Placement
+                </button>
             </div>
         </div>
     `;
@@ -269,6 +230,201 @@ function setupEventListeners() {
     document.getElementById('searchInput').addEventListener('input', applyFilters);
     document.getElementById('yearFilter').addEventListener('change', applyFilters);
     document.getElementById('conferenceFilter').addEventListener('change', applyFilters);
+}
+
+// Global variables for modal state
+let currentYear = null;
+let currentConference = null;
+
+// Toggle admin panel
+function toggleAdminPanel() {
+    const toggle = document.getElementById('adminToggle');
+    const panel = document.getElementById('adminPanel');
+
+    toggle.classList.toggle('active');
+    panel.classList.toggle('active');
+}
+
+// Modal functions
+function openModal(modalId) {
+    document.getElementById(modalId).classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeModal(modalId) {
+    document.getElementById(modalId).classList.remove('active');
+    document.body.style.overflow = 'auto';
+}
+
+// Add Year Modal
+function openAddYearModal() {
+    document.getElementById('newYear').value = new Date().getFullYear();
+    openModal('addYearModal');
+}
+
+// Add Conference Modal
+function openAddConferenceModal(year = null) {
+    currentYear = year;
+    const yearSelect = document.getElementById('conferenceYear');
+    yearSelect.innerHTML = '';
+
+    // Populate year dropdown
+    placementsData.forEach(yearData => {
+        const option = document.createElement('option');
+        option.value = yearData.year;
+        option.textContent = yearData.year;
+        if (year && yearData.year === year) {
+            option.selected = true;
+        }
+        yearSelect.appendChild(option);
+    });
+
+    openModal('addConferenceModal');
+}
+
+// Add Placement Modal
+function openAddPlacementModal(year, conferenceName) {
+    currentYear = year;
+    currentConference = conferenceName;
+    openModal('addPlacementModal');
+}
+
+// Form submissions
+document.getElementById('addYearForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const year = parseInt(document.getElementById('newYear').value);
+
+    // Check if year already exists
+    if (placementsData.find(item => item.year === year)) {
+        alert('This year already exists!');
+        return;
+    }
+
+    // Add new year
+    placementsData.push({
+        year: year,
+        conferences: []
+    });
+
+    // Sort by year (newest first)
+    placementsData.sort((a, b) => b.year - a.year);
+
+    // Update display
+    filteredData = [...placementsData];
+    populateFilters();
+    renderPlacements();
+    updateStats();
+
+    closeModal('addYearModal');
+    alert(`Year ${year} added successfully!`);
+});
+
+document.getElementById('addConferenceForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const year = parseInt(document.getElementById('conferenceYear').value);
+    const name = document.getElementById('conferenceName').value;
+    const location = document.getElementById('conferenceLocation').value;
+    const date = document.getElementById('conferenceDate').value;
+
+    // Find the year and add conference
+    const yearData = placementsData.find(item => item.year === year);
+    if (yearData) {
+        yearData.conferences.push({
+            name: name,
+            location: location,
+            date: date,
+            placements: []
+        });
+
+        // Update display
+        filteredData = [...placementsData];
+        populateFilters();
+        renderPlacements();
+        updateStats();
+
+        closeModal('addConferenceModal');
+        alert('Conference added successfully!');
+
+        let payload = {
+            name: name,
+            date: date,
+            location: location,
+            year: year
+        }
+        fetch("http://127.0.0.1:8000/achievements/add_conference/", {
+            method: "POST",
+            headers: {
+                'X-CSRFToken': getCookie('csrftoken')
+            },
+            body: JSON.stringify(payload)
+        })
+
+        // Clear form
+        document.getElementById('addConferenceForm').reset();
+    }
+});
+
+document.getElementById('addPlacementForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const student = document.getElementById('placementStudent').value;
+    const event = document.getElementById('placementCompany').value;
+    const rank = document.getElementById('placementPosition').value;
+
+    // Find the year and conference
+    const yearData = placementsData.find(item => item.year == currentYear);
+    if (yearData) {
+        const conference = yearData.conferences.find(conf => conf.name === currentConference);
+        if (conference) {
+            conference.placements.push({
+                students: student,
+                event: event,
+                rank: rank
+            });
+
+            // Update display
+            filteredData = [...placementsData];
+            populateFilters();
+            renderPlacements();
+            updateStats();
+
+            closeModal('addPlacementModal');
+            alert('Placement added successfully!');
+
+            let payload = {
+                conference: currentConference,
+                eventName: event,
+                students: student,
+                year: currentYear,
+                rank: rank
+            }
+            fetch("http://127.0.0.1:8000/achievements/add_achievement/", {
+                method: "POST",
+                headers: {
+                    'X-CSRFToken': getCookie('csrftoken')
+                },
+                body: JSON.stringify(payload)
+            })
+
+            // Clear form
+            document.getElementById('addPlacementForm').reset();
+        }
+    }
+});
+
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
 }
 
 // Initialize when page loads

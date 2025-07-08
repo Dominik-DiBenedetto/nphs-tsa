@@ -36,6 +36,7 @@ body {
     background: white;
     border-radius: 12px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
 }
 
 table {
@@ -64,6 +65,10 @@ td {
 
 tbody tr:hover {
     background-color: #f8fafc;
+}
+
+.hidden-date, .hidden-date-search{
+    display: none;
 }
 
 .member-name {
@@ -220,6 +225,60 @@ tbody tr:hover {
     background-color: #fef2f2;
 }
 
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.filter-group label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #555;
+}
+
+.filter-input {
+    padding: 0.75rem 1rem;
+    border: 2px solid #e1e5e9;
+    border-radius: 10px;
+    font-size: 1rem;
+    background: white;
+    transition: all 0.3s ease;
+    min-width: 200px;
+}
+
+.filter-input:focus {
+    outline: none;
+    border-color: var(--tsa-navy-blue);
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.clear-filters {
+    padding: 0.75rem 1.5rem;
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    margin-top: 1.5rem;
+}
+
+.clear-filters:hover {
+    background: #ff5252;
+    transform: translateY(-2px);
+}
+
 @media (max-width: 768px) {
     .container {
         padding: 1rem;
@@ -235,6 +294,15 @@ tbody tr:hover {
 
     .header h1 {
         font-size: 1.5rem;
+    }
+
+    .filters {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filter-input {
+        min-width: auto;
     }
 }
 

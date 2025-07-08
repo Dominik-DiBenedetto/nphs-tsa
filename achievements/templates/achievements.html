@@ -19,7 +19,9 @@
     <title>Conference Placements</title>
 </head>
 <body>
-    {% load mycomponents %} {% navbar "Achievements" "none" %}
+    {% load mycomponents %}
+    {% load is_officer %} 
+    {% navbar "Achievements" "none" %}
     <div class="container">
         <!-- Header -->
         <div class="header fade-in">
@@ -70,13 +72,112 @@
             </div>
         </div>
 
+        <!-- Admin Controls -->
+        {% if user.is_superuser or user|is_officer %}
+        <div class="admin-controls fade-in">
+            <div class="admin-panel active" id="adminPanel">
+                <div class="admin-buttons">
+                    <button class="admin-btn" onclick="openAddYearModal()">
+                        📅 Add New Year
+                    </button>
+                    <button class="admin-btn success" onclick="exportData()">
+                        📥 Export Data
+                    </button>
+                    <button class="admin-btn" onclick="importData()">
+                        📤 Import Data
+                    </button>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
         <!-- Placements Content -->
         <div id="placementsContent"></div>
 
         <!-- No Results -->
         <div id="noResults" class="no-results" style="display: none;">
             <h3>No placements found</h3>
-            <p>Try adjusting your search criteria or clearing the filters.</p>
+            <p>Try adding data, adjusting your search criteria, or clearing the filters.</p>
+        </div>
+    </div>
+
+    <!-- Add Year Modal -->
+    <div class="modal" id="addYearModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Add New Year</h3>
+                <button class="close-btn" onclick="closeModal('addYearModal')">&times;</button>
+            </div>
+            <form id="addYearForm">
+                <div class="form-group">
+                    <label for="newYear">Year</label>
+                    <input type="number" id="newYear" required>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-cancel" onclick="closeModal('addYearModal')">Cancel</button>
+                    <button type="submit" class="btn-save">Add Year</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Conference Modal -->
+    <div class="modal" id="addConferenceModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Add New Conference</h3>
+                <button class="close-btn" onclick="closeModal('addConferenceModal')">&times;</button>
+            </div>
+            <form id="addConferenceForm">
+                <div class="form-group">
+                    <label for="conferenceYear">Year</label>
+                    <select id="conferenceYear" required></select>
+                </div>
+                <div class="form-group">
+                    <label for="conferenceName">Conference Name</label>
+                    <input type="text" id="conferenceName" required placeholder="Conference Name">
+                </div>
+                <div class="form-group">
+                    <label for="conferenceLocation">Location</label>
+                    <input type="text" id="conferenceLocation" required placeholder="Conference Location">
+                </div>
+                <div class="form-group">
+                    <label for="conferenceDate">Date</label>
+                    <input type="text" id="conferenceDate" required placeholder="Month day, year">
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-cancel" onclick="closeModal('addConferenceModal')">Cancel</button>
+                    <button type="submit" class="btn-save">Add Conference</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Placement Modal -->
+    <div class="modal" id="addPlacementModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">Add New Placement</h3>
+                <button class="close-btn" onclick="closeModal('addPlacementModal')">&times;</button>
+            </div>
+            <form id="addPlacementForm">
+                <div class="form-group">
+                    <label for="placementCompany">Event</label>
+                    <input type="text" id="placementCompany" required placeholder="Event name">
+                </div>
+                <div class="form-group">
+                    <label for="placementStudent">Student Names</label>
+                    <input type="text" id="placementStudent" required placeholder="Name1, Name2, etc.">
+                </div>
+                <div class="form-group">
+                    <label for="placementPosition">Placement</label>
+                    <input type="text" id="placementPosition" required placeholder="1st, 2nd, or 3rd">
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn-cancel" onclick="closeModal('addPlacementModal')">Cancel</button>
+                    <button type="submit" class="btn-save">Add Placement</button>
+                </div>
+            </form>
         </div>
     </div>
 </body>

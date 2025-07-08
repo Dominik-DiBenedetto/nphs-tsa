@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        {% load static %}
+        <link
+            rel="icon"
+            href="{% static 'images/nphs_bobcats_favicon.jpg' %}"
+            type="image/x-icon"
+        />
+
+        <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/add_event.css' %}" />
+
+        <title>Update Event</title>
+    </head>
+    <body>
+        {% load mycomponents %} 
+        {% load is_officer %} 
+        {% navbar "Events" "none" %}
+        <div class="container">
+            <!-- Header -->
+            <div class="header">
+                <h1>Update Event</h1>
+                <p>Update Information For {{Event.name}}</p>
+            </div>
+
+            <!-- Form Container -->
+            <div class="form-container">
+                <form id="eventForm">
+                    <!-- Event Details Section -->
+                    <div class="form-section fade-in">
+                        <h2 class="section-title">Event Details</h2>
+
+                        <div class="form-group">
+                            <label for="eventName">Event Name *</label>
+                            <input
+                                type="text"
+                                id="eventName"
+                                name="eventName"
+                                class="form-input"
+                                required
+                                placeholder="Enter event name..."
+                                value="{{ Event.name }}"
+                            />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="eventDescription"
+                                >Event Description *</label
+                            >
+                            <textarea
+                                id="eventDescription"
+                                name="eventDescription"
+                                class="form-input"
+                                required
+                                placeholder="Describe your event, rules, objectives, and any important information..."
+                            >
+{{ Event.desc }}</textarea
+                            >
+                        </div>
+
+                        <div class="form-group">
+                            <label for="eventPrompt"
+                                >Event Prompt
+                                <span class="optional">(Optional)</span></label
+                            >
+                            <textarea
+                                id="eventPrompt"
+                                name="eventPrompt"
+                                class="form-input"
+                                placeholder="Additional prompt or specific instructions for participants..."
+                            >
+{{ Event.prompt }}</textarea
+                            >
+                        </div>
+                    </div>
+
+                    <!-- CEG Upload Section -->
+                    <div class="form-section fade-in">
+                        <h2 class="section-title">
+                            Competitive Event Guide (CEG)
+                        </h2>
+
+                        <div class="form-group">
+                            {% if not Event.CEG %}
+                            <label for="cegFile">Upload CEG Document</label>
+                            <div class="file-upload" id="cegUpload">
+                                <input
+                                    type="file"
+                                    id="cegFile"
+                                    name="cegFile"
+                                    accept=".pdf,.doc,.docx,.txt"
+                                />
+                                <label for="cegFile" class="file-upload-label">
+                                    <span style="font-size: 2rem">📎</span>
+                                    <div>
+                                        <div style="font-weight: 600">
+                                            Click to upload CEG document
+                                        </div>
+                                        <div
+                                            style="
+                                                font-size: 0.9rem;
+                                                opacity: 0.7;
+                                            "
+                                        >
+                                            PDF
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                            <div class="file-info" id="fileInfo"></div>
+                            {% else %}
+                            <label for="cegFile">View CEG Document</label>
+                            <iframe
+                                src="{% url 'view_ceg' Event.id %}"
+                                width="100%"
+                                height="200px"
+                            ></iframe>
+                            <a href="{{ Event.CEG.url}}" download
+                                >{{ Event.CEG.name|slice:"CEG/" }} (Download)</a
+                            >
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <!-- Teams Section -->
+                    <div class="form-section fade-in">
+                        <h2 class="section-title">Teams & Participants</h2>
+
+                        <div class="teams-container" id="teamsContainer">
+                            <!-- Teams will be added here dynamically -->
+                        </div>
+
+                        <button
+                            type="button"
+                            class="add-team-btn"
+                            onclick="addTeam()"
+                        >
+                            <span style="font-size: 1.2rem">➕</span>
+                            Add New Team
+                        </button>
+                    </div>
+
+                    <!-- Submit Section -->
+                    <div class="submit-section fade-in">
+                        <h3 style="margin-bottom: 1rem; color: #333">
+                            Ready to Create Your Event?
+                        </h3>
+                        <p style="margin-bottom: 2rem; color: #666">
+                            Review your event details and click create when
+                            ready.
+                        </p>
+
+                        <button type="submit" class="submit-btn" id="submitBtn">
+                            Create Event
+                        </button>
+
+                        <div
+                            class="event-summary"
+                            id="eventSummary"
+                            style="display: none"
+                        >
+                            <!-- Summary will be populated here -->
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <script>
+            let loadedTeams = {{ teams_json|safe}}
+            loadedTeams = JSON.parse(loadedTeams)
+            let teamCount = 0;
+            let eventData = {
+                name: "{{ Event.name|safe }}",
+                description: "{{ Event.desc|safe }}",
+                prompt: "{{ Event.prompt|safe }}",
+                cegFile: "{{ Event.CEG|safe }}",
+                teams: loadedTeams,
+            };
+
+            // Initialize the page
+            function init() {
+                setupEventListeners();
+                addTeam(); // Add first team by default
+            }
+
+            // Setup event listeners
+            function setupEventListeners() {
+                // Form submission
+                document
+                    .getElementById("eventForm")
+                    .addEventListener("submit", handleSubmit);
+
+                // File upload
+                if (document
+                    .getElementById("cegFile"))
+                    document
+                        .getElementById("cegFile")
+                        .addEventListener("change", handleFileUpload);
+
+                // Real-time form updates
+                document
+                    .getElementById("eventName")
+                    .addEventListener("input", updateEventData);
+                document
+                    .getElementById("eventDescription")
+                    .addEventListener("input", updateEventData);
+                document
+                    .getElementById("eventPrompt")
+                    .addEventListener("input", updateEventData);
+            }
+
+            // Add new team
+            function addTeam() {
+                let loadingTeam = false;
+                if (teamCount < eventData.teams.length) loadingTeam = true;
+
+                console.log("ADD TEAM")
+                teamCount++;
+                const teamsContainer = document.getElementById("teamsContainer");
+
+                const teamCard = document.createElement("div");
+                teamCard.className = "team-card slide-in";
+                teamCard.id = `team-${teamCount}`;
+
+                teamCard.innerHTML = `
+                            <div class="team-header">
+                                <div class="team-title">Team ${teamCount}</div>
+                                <div class="team-controls">
+                                    <button type="button" class="btn btn-secondary" onclick="toggleTeamMembers(${teamCount})">
+                                        <span id="toggle-icon-${teamCount}"></span> Toggle Members
+                                    </button>
+                                    <button type="button" class="btn btn-danger" onclick="removeTeam(${teamCount})">
+                                        Remove
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="members-grid" id="members-${teamCount}">
+                                ${generateMemberInputs(teamCount, isLoading=loadingTeam)}
+                            </div>
+                        `;
+
+                teamsContainer.appendChild(teamCard);
+
+                // Add team to eventData
+                if (!loadingTeam) {
+                    eventData.teams.push({
+                        id: teamCount,
+                        members: ["", "", "", "", "", ""],
+                    });
+                }
+                console.log(eventData)
+            }
+
+            // Generate member input fields
+            function generateMemberInputs(teamId, isLoading=false) {
+                let inputs = "";
+                for (let i = 1; i <= 6; i++) {
+                    inputs += `
+                                <div class="member-input">
+                                    <div class="member-number">${i}</div>
+                                    <input type="text"
+                                           id="team-${teamId}-member-${i}"
+                                           name="team-${teamId}-member-${i}"
+                                           class="form-input"
+                                           placeholder="Member ${i} name..."
+                                           onchange="updateTeamMember(${teamId}, ${i}, this.value)"
+                                           value="${isLoading && eventData.teams[teamId-1].members[i-1] || ""}"
+                                           >
+                                </div>
+                            `;
+                }
+                return inputs;
+            }
+
+            // Remove team
+            function removeTeam(teamId) {
+                if (teamCount <= 1) {
+                    alert("You must have at least one team!");
+                    return;
+                }
+
+                const teamCard = document.getElementById(`team-${teamId}`);
+                if (teamCard) {
+                    teamCard.style.animation = "fadeOut 0.3s ease forwards";
+                    setTimeout(() => {
+                        teamCard.remove();
+                        // Remove from eventData
+                        eventData.teams = eventData.teams.filter(
+                            (team) => team.id !== teamId
+                        );
+                    }, 300);
+                }
+            }
+
+            // Toggle team members visibility
+            function toggleTeamMembers(teamId) {
+                const membersGrid = document.getElementById(`members-${teamId}`);
+
+                if (membersGrid.style.display === "none") {
+                    membersGrid.style.display = "grid";
+                } else {
+                    membersGrid.style.display = "none";
+                }
+            }
+
+            // Update team member
+            function updateTeamMember(teamId, memberIndex, value) {
+                const team = eventData.teams.find((t) => t.id === teamId);
+                if (team) {
+                    team.members[memberIndex - 1] = value;
+                }
+            }
+
+            // Handle file upload
+            function handleFileUpload(event) {
+                const file = event.target.files[0];
+                const fileUpload = document.getElementById("cegUpload");
+                const fileInfo = document.getElementById("fileInfo");
+
+                if (file) {
+                    fileUpload.classList.add("has-file");
+                    fileInfo.innerHTML = `
+                                <strong>Selected file:</strong> ${file.name}<br>
+                                <strong>Size:</strong> ${(file.size / 1024 / 1024).toFixed(
+                                    2
+                                )} MB<br>
+                                <strong>Type:</strong> ${file.type || "Unknown"}
+                            `;
+                    eventData.cegFile = file;
+                } else {
+                    fileUpload.classList.remove("has-file");
+                    fileInfo.innerHTML = "";
+                    eventData.cegFile = null;
+                }
+            }
+
+            // Update event data
+            function updateEventData() {
+                eventData.name = document.getElementById("eventName").value;
+                eventData.description = document.getElementById("eventDescription").value;
+                eventData.prompt = document.getElementById("eventPrompt").value;
+            }
+
+            // Handle form submission
+            function handleSubmit(event) {
+                event.preventDefault();
+
+                // Validate required fields
+                if (!eventData.name.trim()) {
+                    alert("Please enter an event name!");
+                    document.getElementById("eventName").focus();
+                    return;
+                }
+
+                if (!eventData.description.trim()) {
+                    alert("Please enter an event description!");
+                    document.getElementById("eventDescription").focus();
+                    return;
+                }
+
+                // Check if at least one team has members
+                const hasMembers = eventData.teams.some((team) =>
+                    team.members.some((member) => member.trim() !== "")
+                );
+
+                if (!hasMembers) {
+                    alert("Please add at least one team member!");
+                    return;
+                }
+
+                // Disable submit button
+                const submitBtn = document.getElementById("submitBtn");
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = "Creating Event...";
+
+                // Create event
+                console.log(eventData.cegFile)
+                let formData = new FormData();
+                formData.append('Name', eventData.name.trim());
+                formData.append('Description', eventData.description.trim());
+                formData.append('Prompt', eventData.prompt.trim());
+                formData.append('CEG', eventData.cegFile); // File input
+                formData.append('Teams', JSON.stringify(eventData.teams));
+
+                fetch(`http://127.0.0.1:8000/events/event/{{ Event.id|safe }}/update/`, {
+                    method: "POST",
+                    headers: {
+                        'X-CSRFToken': getCookie('csrftoken')
+                    },
+                    body: formData
+                }).then(response => response.json()).then(data => {
+                    console.log('Success:', data);
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+            }
+
+            function getCookie(name) {
+                let cookieValue = null;
+                if (document.cookie && document.cookie !== '') {
+                    const cookies = document.cookie.split(';');
+                    for (let i = 0; i < cookies.length; i++) {
+                        const cookie = cookies[i].trim();
+                        // Does this cookie string begin with the name we want?
+                        if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                            break;
+                        }
+                    }
+                }
+                return cookieValue;
+            }
+
+            // Add CSS for fadeOut animation
+            const style = document.createElement("style");
+            style.textContent = `
+                        @keyframes fadeOut {
+                            to {
+                                opacity: 0;
+                                transform: translateX(-100%);
+                            }
+                        }
+                    `;
+            document.head.appendChild(style);
+
+            // Initialize when page loads
+            document.addEventListener("DOMContentLoaded", init);
+        </script>
+    </body>
+</html>

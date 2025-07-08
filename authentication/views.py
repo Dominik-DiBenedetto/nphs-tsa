@@ -6,10 +6,6 @@ from django.contrib.auth.decorators import login_required
 from .models import Member
 from django.contrib.auth.models import Group, Permission
 
-officer_permissions_group, created = Group.objects.get_or_create(name='Officer')
-perm = Permission.objects.get(codename='add_event')  # Example permission
-officer_permissions_group.permissions.add(perm)
-
 officer_nnumbers = {
     "N463506": "President",
     "N501029": "Vice President",
@@ -20,6 +16,7 @@ officer_nnumbers = {
 }
 
 def update_roles(user):
+    officer_permissions_group, created = Group.objects.get_or_create(name='Officer')
     for n_num, role in officer_nnumbers.items():
         if user.username != n_num: continue
         user.role = role

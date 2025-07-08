@@ -9,12 +9,7 @@ class Event(models.Model):
 
     CEG = models.FileField(blank=True, null=True)
     competitors = models.JSONField(blank=True, null=True)
+    captain = models.CharField(max_length=35, blank=True, null=True)
 
     def __str__(self):
         return self.name
-
-    def get_teams(self):
-        teams = json.loads(self.competitors)
-        if teams and teams != {}:
-            return teams.keys()
-        return None

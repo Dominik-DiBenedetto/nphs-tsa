@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="icon" href="{% static 'images/nphs_bobcats_favicon.jpg' %}" type="image/x-icon">
+
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/add_event.css' %}">
+
+    <script src="{% static 'javascript/add_event.js' %}" defer></script>
+
+    <title>Add Event</title>
+</head>
+<body>
+    {% load mycomponents %}
+    {% load is_officer %}
+    {% navbar "Events" "none" %}
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Create New Event</h1>
+            <p>Set up your competitive event with teams and participants</p>
+        </div>
+
+        <!-- Form Container -->
+        <div class="form-container">
+            <form id="eventForm">
+                <!-- Event Details Section -->
+                <div class="form-section fade-in">
+                    <h2 class="section-title">
+                        Event Details
+                    </h2>
+                    
+                    <div class="form-group">
+                        <label for="eventName">Event Name *</label>
+                        <input type="text" id="eventName" name="eventName" class="form-input" required placeholder="Enter event name...">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="eventDescription">Event Description *</label>
+                        <textarea id="eventDescription" name="eventDescription" class="form-input" required placeholder="Describe your event, rules, objectives, and any important information..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="eventPrompt">Event Prompt <span class="optional">(Optional)</span></label>
+                        <textarea id="eventPrompt" name="eventPrompt" class="form-input" placeholder="Additional prompt or specific instructions for participants..."></textarea>
+                    </div>
+                </div>
+
+                <!-- CEG Upload Section -->
+                <div class="form-section fade-in">
+                    <h2 class="section-title">
+                        Competitive Event Guide (CEG)
+                    </h2>
+                    
+                    <div class="form-group">
+                        <label for="cegFile">Upload CEG Document</label>
+                        <div class="file-upload" id="cegUpload">
+                            <input type="file" id="cegFile" name="cegFile" accept=".pdf,.doc,.docx,.txt">
+                            <label for="cegFile" class="file-upload-label">
+                                <span style="font-size: 2rem;">📎</span>
+                                <div>
+                                    <div style="font-weight: 600;">Click to upload CEG document</div>
+                                    <div style="font-size: 0.9rem; opacity: 0.7;">PDF</div>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="file-info" id="fileInfo"></div>
+                    </div>
+                </div>
+
+                <!-- Teams Section -->
+                <div class="form-section fade-in">
+                    <h2 class="section-title">
+                        Teams & Participants
+                    </h2>
+                    
+                    <div class="teams-container" id="teamsContainer">
+                        <!-- Teams will be added here dynamically -->
+                    </div>
+
+                    <button type="button" class="add-team-btn" onclick="addTeam()">
+                        <span style="font-size: 1.2rem;">➕</span>
+                        Add New Team
+                    </button>
+                </div>
+
+                <!-- Submit Section -->
+                <div class="submit-section fade-in">
+                    <h3 style="margin-bottom: 1rem; color: #333;">Ready to Create Your Event?</h3>
+                    <p style="margin-bottom: 2rem; color: #666;">Review your event details and click create when ready.</p>
+                    
+                    <button type="submit" class="submit-btn" id="submitBtn">
+                        Create Event
+                    </button>
+
+                    <div class="event-summary" id="eventSummary" style="display: none;">
+                        <!-- Summary will be populated here -->
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

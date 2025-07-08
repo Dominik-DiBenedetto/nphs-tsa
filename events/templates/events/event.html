@@ -24,6 +24,7 @@
             <!-- Event Guide Section -->
             <div class="card event-guide">
                 <h2 class="card-title">Competetive Event Guide (CEG)</h2>
+                {% if not Event.CEG %}
                 <div class="file-upload-area" id="fileUploadArea">
                     <p>📁 Click here or drag and drop the event guide file</p>
                     <p style="font-size: 0.9rem; color: #666; margin-top: 0.5rem;">Supported formats: PDF, DOC, DOCX, TXT</p>
@@ -34,6 +35,10 @@
                     <button class="btn" onclick="viewFile()" style="margin-left: 1rem;">View File</button>
                 </div>
                 <div class="file-viewer" id="fileViewer"></div>
+                {% else %}
+                <iframe src="{% url 'view_ceg' Event.id %}" width="100%" height="200px"></iframe>
+                <a href="{{ Event.CEG.url}}" download>{{ Event.CEG.name|slice:"CEG/" }} (Download)</a>
+                {% endif %}
             </div>
 
             <!-- Event Description -->
@@ -59,24 +64,24 @@
         <div class="card teams-section">
             <h2 class="card-title">👥 Competing Teams</h2>
             <div class="teams-container">
+                {% for team in Event.competitors %}
                 <div class="team-card">
-                    <div class="team-name">Team 1</div>
+                    <div class="team-name">Team {{ team.id }}</div>
                     <ul class="team-members">
+                        {% for member in team.members %}
+                        {% if not member == "" %}
                         <li class="team-member">
-                            <span>Dominik DiBenedetto</span>
+                            <span>{{ member }}</span>
+                            
+                            {% if Event.captain == member %}
                             <span class="captain-badge">Captain</span>
+                            {% endif %}
                         </li>
-                        <li class="team-member">
-                            <span>Alexander Avin</span>
-                        </li>
-                        <li class="team-member">
-                            <span>Huy Nguyen</span>
-                        </li>
-                        <li class="team-member">
-                            <span>Michael Dankanich</span>
-                        </li>
+                        {% endif %}
+                        {% endfor %}
                     </ul>
                 </div>
+                {% endfor %}
             </div>
         </div>
 

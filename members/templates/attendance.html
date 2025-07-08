@@ -13,26 +13,47 @@
 
         <!-- Javascript -->
         <script src="{% static 'javascript/members.js' %}" defer></script>
+        <script src="{% static 'javascript/attendance.js' %}" defer></script>
+
         
 
         <title>Members | NPHS TSA</title>
     </head>
     <body>
         {% load mycomponents %}
+        {% load my_filters %}
         {% navbar "none" "Attendance" %}
         <div class="container">
             <div class="header">
                 <h1>Attendance</h1>
                 <p>Manage and view member attendance records</p>
+                <div class="filters">
+                    <div class="filter-group">
+                        <label for="searchInput">Search</label>
+                        <input type="text" id="searchInput" class="filter-input" placeholder="Search student names or n numbers...">
+                    </div>
+                    <div class="filter-group">
+                        <label for="dateFilter">Date</label>
+                        <input type="date" name="dateFilter" id="dateFilter" class="filter-input" />
+                    </div>
+                    <div class="filter-group">
+                        <label for="dateOrderFilter">Date</label>
+                        <select id="dateOrderFilter" name="dateOrderFilter" class="dateOrderFilter filter-input">
+                            <option value="ascending">Ascending</option>
+                            <option value="descending">Descending</option>
+                        </select>
+                    </div>
+                    <button class="clear-filters" onclick="clearAllFilters()">Clear Filters</button>
+                </div>
             </div>
             {% for date, record in records.items %}
-            <div class="members-table">
+            <div class="members-table" id="date-{{ date|replace_string:' , ' }}">
                 <table>
                     <thead>
                         <tr style="position: relative;">
                             <th>Name</th>
                             <th>ID</th>
-                            <th style="position: absolute; right: 20px; top: 50%; transform: translateY(-50%);">{{ date }}</th>
+                            <th class="date" style="position: absolute; right: 20px; top: 50%; transform: translateY(-50%);">{{ date }}</th>
                         </tr>
                     </thead>
                     
