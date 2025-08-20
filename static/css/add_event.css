@@ -372,3 +372,37 @@ textarea.form-input {
         transform: translateX(0);
     }
 }
+.modal{
+    position: fixed;
+    width: 30vw;
+    height: 20vh;
+    background: white;
+    border: 1px solid #999;
+    border-radius: 8px;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    display: none;
+}
+
+.modal.active{
+    display: block;
+}
+
+.modal-buttons{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    bottom: 20px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.modal-buttons button{
+    max-width: 100px;
+    font-size: 1rem;
+    width: 40%;
+    min-width: 60px;
+}

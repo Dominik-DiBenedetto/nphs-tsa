@@ -22,10 +22,14 @@
     <body>
         {% load mycomponents %}
         {% load my_filters %}
+        {% load is_officer %}
         {% navbar "none" "Attendance" %}
         <div class="container">
             <div class="header">
                 <h1>Attendance</h1>
+                {% if user.is_superuser or user|is_officer %}
+                <a href="{% url 'scan_attendance' %}">Scan</a>
+                {% endif %}
                 <p>Manage and view member attendance records</p>
                 <div class="filters">
                     <div class="filter-group">
@@ -59,6 +63,16 @@
                     
                     <tbody id="membersTableBody">
                         {% for member in record %}
+                        <div class="modal modal-{{ member.n_number }}">
+                            <h3 class="confirm-delete">Are you sure you want to delete attendance record for {{ member.n_number }} on {{ date }}?</h3>
+                            <div class="modal-buttons">
+                                <button class="cancel-delete-button">Cancel</button>
+                                <form action="/members/attendance/delete/{{ date }}/{{ member.n_number }}" method="post">
+                                    {% csrf_token %}
+                                    <button type="submit">Confirm</button>
+                                </form>
+                            </div>
+                        </div>
                         <tr>
                             <td class="member-name" style="width: 70%;">
                                 {% if member.user %}
@@ -68,28 +82,31 @@
                                 {% endif %}
                             </td>
                             <td class="member-id">{{ member.n_number }}</td>
-                            <td style="position: relative;">
-                                <div class="menu-container" style="position: absolute; right: 20px; top: 50%; transform: translateY(-50%);">
+                            <td style="position: relative;" style="z-index: 100;">
+                                <div class="menu-container" style="position: absolute; right: 20px; top: 50%; transform: translateY(-50%); z-index: 100">
                                     <button
                                         class="menu-button"
-                                        onclick="toggleMenu(1)"
+                                        onclick="toggleMenu('{{ forloop.parentloop.counter }}-{{ forloop.counter }}')"
                                     >
                                         <span class="menu-dots"></span>
                                     </button>
-                                    <div class="dropdown-menu" id="menu-1">
+                                    <div class="dropdown-menu" id="menu-{{ forloop.parentloop.counter }}-{{ forloop.counter }}">
                                         <a
                                             class="dropdown-item"
-                                            href="/members/{{member.username}}"
+                                            href="/members/{{ member.n_number }}"
                                             >View</a
                                         >
                                         <a
                                             class="dropdown-item"
-                                            href="/members/{{member.username}}/edit"
+                                            href="/members/{{ member.n_number }}/edit"
                                             >Edit</a
                                         >
-                                        <a class="dropdown-item delete"
-                                            >Delete</a
+
+                                        {% if user.is_superuser or user|is_officer %}
+                                        <button a class="dropdown-item delete" data-nnum="{{ member.n_number }}"
+                                            >Delete</button
                                         >
+                                        {% endif %}
                                     </div>
                                 </div>
                             </td>

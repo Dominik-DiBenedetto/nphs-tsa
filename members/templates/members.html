@@ -52,11 +52,11 @@
                                 <div class="menu-container">
                                     <button
                                         class="menu-button"
-                                        onclick="toggleMenu(1)"
+                                        onclick="toggleMenu({{ forloop.counter }})"
                                     >
                                         <span class="menu-dots"></span>
                                     </button>
-                                    <div class="dropdown-menu" id="menu-1">
+                                    <div class="dropdown-menu" id="menu-{{ forloop.counter }}">
                                         <a
                                             class="dropdown-item"
                                             href="/members/{{member.username}}"

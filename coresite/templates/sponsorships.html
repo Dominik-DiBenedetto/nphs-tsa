@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link
+        rel="icon"
+        href="{% static 'images/nphs_bobcats_favicon.jpg' %}"
+        type="image/x-icon"
+    />
+
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/sponsorships.css' %}" />
+
+    <title>Become a Sponsor - NPHS TSA</title>
+</head>
+<body>
+    {% load mycomponents %} {% navbar "Sponsorships" "none" %}
+    <div class="container">
+        <header class="header fade-in">
+            <h1>Become a Sponsor</h1>
+            <p>Help us bring more of our amazing students to competitions!</p>
+        </header>
+
+        <div class="tiers-grid">
+            <div class="tier-card bronze fade-in">
+                <div class="tier-header">
+                    <h3 class="tier-name">Bronze</h3>
+                    <div class="tier-price">$100</div>
+                </div>
+                <ul class="benefits-list">
+                    <li>Brand “Thank You” on our TSA Chapter Website</li>
+                </ul>
+                <button class="cta-button" onclick="selectTier('Bronze')">Choose Bronze</button>
+            </div>
+
+            <div class="tier-card silver fade-in">
+                <div class="tier-header">
+                    <h3 class="tier-name">Silver</h3>
+                    <div class="tier-price">$250</div>
+                </div>
+                <ul class="benefits-list">
+                    <li>Small Brand Logo on Chapter's upcoming Competition T-Shirt.</li>
+                    <li>Brand “Thank You” on our TSA Chapter Website.</li>
+                </ul>
+                <button class="cta-button" onclick="selectTier('Silver')">Choose Silver</button>
+            </div>
+
+            <div class="tier-card gold fade-in">
+                <div class="tier-header">
+                    <h3 class="tier-name">Gold</h3>
+                    <div class="tier-price">$500</div>
+                </div>
+                <ul class="benefits-list">
+                    <li>Medium Brand Logo on Chapter's upcoming Competition T-Shirt.</li>
+                    <li>Sponsors a student's trip for a competition.</li>
+                    <li>Custom-made LED Acrylic sign with your brand's logo.</li>
+                    <li>“Thank you” message on the NPHS Marquee for 1 week.</li>
+                    <li>Brand “Thank You” on our TSA Chapter Website.</li>
+                </ul>
+                <button class="cta-button" onclick="selectTier('Gold')">Choose Gold</button>
+            </div>
+
+            <div class="tier-card platinum fade-in">
+                <div class="tier-header">
+                    <h3 class="tier-name">Platinum</h3>
+                    <div class="tier-price">$1,000+</div>
+                </div>
+                <ul class="benefits-list">
+                    <li>Custom-made LED Acrylic sign with your brand's logo.</li>
+                    <li>Sponsors an event for a competition.</li>
+                    <li>Custom “Thank you” banner displayed at NPHS.</li>
+                    <li>“Thank you” message on the NPHS Marquee for 2 weeks.</li>
+                    <li>Large Brand Logo on Chapter's upcoming Competition T-Shirt.</li>
+                    <li>Brand “Thank You” on our TSA Chapter Website.</li>
+                </ul>
+                <button class="cta-button" onclick="selectTier('Platinum')">Choose Platinum</button>
+            </div>
+        </div>
+
+        <section class="contact-section fade-in">
+            <h2>Ready to Sponsor?</h2>
+            <p>Sponsorships can be purchased via credit card on our official School Store (* a 4% processing fee is added for credit card) or
+            via check made out to “NPHS TSA” and mailed or delivered to North Port HS, Attn: Ken Jakoby, TSA.</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span>📧</span>
+                    <span>ken.jakoby@sarasotacountyschools.net</span>
+                </div>
+                <div class="contact-item">
+                    <span></span>
+                    <span><a href="https://tinyurl.com/NPHSSchoolStore">NPHS School Store</a></span>
+                </div>
+                <div class="contact-item">
+                    <span>📍</span>
+                    <span>6400 W Price Blvd, North Port, FL 34291</span>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Tier selection function
+        function selectTier(tierName) {
+            // Create a more engaging interaction
+            const button = event.target;
+            const originalText = button.textContent;
+            
+            button.style.background = '#10b981';
+            button.textContent = 'Selected! ✓';
+            
+            setTimeout(() => {
+                button.style.background = '';
+                button.textContent = originalText;
+            }, 2000);
+
+            // In a real application, this would redirect to a contact form or payment page
+            console.log(`Selected ${tierName} tier`);
+            
+            // Simulate opening contact form
+            setTimeout(() => {
+                alert(`Thank you for your interest in the ${tierName} sponsorship tier! Please contact us at sponsors@techconf2024.com to proceed.`);
+            }, 500);
+        }
+
+        // Add some interactive hover effects
+        document.querySelectorAll('.tier-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = card.classList.contains('featured') ? 'scale(1.05) translateY(-8px)' : 'translateY(-8px)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = card.classList.contains('featured') ? 'scale(1.05)' : '';
+            });
+        });
+
+        // Smooth scroll for better UX
+        document.documentElement.style.scrollBehavior = 'smooth';
+    </script>
+</body>
+</html>

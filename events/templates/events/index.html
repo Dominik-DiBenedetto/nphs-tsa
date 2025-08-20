@@ -38,10 +38,6 @@
                         </div>
                         <div class="event-footer">
                             <button class="btn btn-outline"><a href="{% url 'event' event.id %}">View Event</a></button>
-
-                            {% if user.is_authenticated %}
-                            <button class="btn btn-primary">Join Event</button>
-                            {% endif %}
                         </div>
                     </div>
                     {% endfor %}

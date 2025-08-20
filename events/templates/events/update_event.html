@@ -19,11 +19,22 @@
         {% load mycomponents %} 
         {% load is_officer %} 
         {% navbar "Events" "none" %}
+        <div class="modal">
+            <h3 class="confirm-delete">Are you sure you want to delete {{ Event.name }}?</h3>
+            <div class="modal-buttons">
+                <button class="cancel-delete-button">Cancel</button>
+                <form action="/events/event/{{ Event.pk }}/delete" method="post">
+                    {% csrf_token %}
+                    <button type="submit">Confirm</button>
+                </form>
+            </div>
+        </div>
         <div class="container">
             <!-- Header -->
             <div class="header">
                 <h1>Update Event</h1>
                 <p>Update Information For {{Event.name}}</p>
+                <button onclick="toggleModal()">Delete</button>
             </div>
 
             <!-- Form Container -->
@@ -146,15 +157,15 @@
                     <!-- Submit Section -->
                     <div class="submit-section fade-in">
                         <h3 style="margin-bottom: 1rem; color: #333">
-                            Ready to Create Your Event?
+                            Ready to Update Your Event?
                         </h3>
                         <p style="margin-bottom: 2rem; color: #666">
-                            Review your event details and click create when
+                            Review your event details and click update when
                             ready.
                         </p>
 
                         <button type="submit" class="submit-btn" id="submitBtn">
-                            Create Event
+                            Update Event
                         </button>
 
                         <div
@@ -168,14 +179,19 @@
                 </form>
             </div>
         </div>
+        {{ teams_json|json_script:"teams-data" }}
         <script>
-            let loadedTeams = {{ teams_json|safe}}
-            loadedTeams = JSON.parse(loadedTeams)
+            const teamsDataElement = document.getElementById('teams-data');
+            let loadedTeams
+            if (teamsDataElement) {
+                loadedTeams = JSON.parse(teamsDataElement.textContent);
+            }
+            // loadedTeams = JSON.parse(loadedTeams)
             let teamCount = 0;
             let eventData = {
                 name: "{{ Event.name|safe }}",
-                description: "{{ Event.desc|safe }}",
-                prompt: "{{ Event.prompt|safe }}",
+                description: `{{ Event.desc|safe }}`,
+                prompt: `{{ Event.prompt|safe }}`,
                 cegFile: "{{ Event.CEG|safe }}",
                 teams: loadedTeams,
             };
@@ -361,16 +377,6 @@
                     return;
                 }
 
-                // Check if at least one team has members
-                const hasMembers = eventData.teams.some((team) =>
-                    team.members.some((member) => member.trim() !== "")
-                );
-
-                if (!hasMembers) {
-                    alert("Please add at least one team member!");
-                    return;
-                }
-
                 // Disable submit button
                 const submitBtn = document.getElementById("submitBtn");
                 submitBtn.disabled = true;
@@ -385,14 +391,16 @@
                 formData.append('CEG', eventData.cegFile); // File input
                 formData.append('Teams', JSON.stringify(eventData.teams));
 
-                fetch(`http://127.0.0.1:8000/events/event/{{ Event.id|safe }}/update/`, {
+                fetch(`/events/event/{{ Event.pk|safe }}/update/`, {
                     method: "POST",
                     headers: {
                         'X-CSRFToken': getCookie('csrftoken')
                     },
                     body: formData
-                }).then(response => response.json()).then(data => {
-                    console.log('Success:', data);
+                }).then(response => {
+                    if (response.redirected) {
+                        window.location.href = response.url;
+                    }
                 })
                 .catch((error) => {
                     console.error('Error:', error);
@@ -429,6 +437,10 @@
 
             // Initialize when page loads
             document.addEventListener("DOMContentLoaded", init);
+
+            function toggleModal() {
+                document.querySelector(".modal").classList.toggle("active")
+            }
         </script>
     </body>
 </html>

@@ -1,10 +1,14 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 # from django.contrib.auth.models import User
-from .models import Member
+from .models import Member, CustomUserUpdateForm
 from django.contrib.auth.models import Group, Permission
+from django.core.serializers import serialize
+from django.contrib.auth.decorators import user_passes_test
+import json
+
 
 officer_nnumbers = {
     "N463506": "President",
@@ -15,14 +19,27 @@ officer_nnumbers = {
     "N434205": "Sergeant At Arms",
 }
 
+officer_names = {
+    "N463506": "Bella Ramsey",
+    "N501029": "Dominik DiBenedetto",
+    "N432119": "Megan Taylor",
+    "N443333": "Alexander Avin",
+    "N431784": "Elizabeth Carpenter",
+    "N434205": "Michael Dankanich",
+}
+
 def update_roles(user):
     officer_permissions_group, created = Group.objects.get_or_create(name='Officer')
     for n_num, role in officer_nnumbers.items():
         if user.username != n_num: continue
         user.role = role
         user.groups.add(officer_permissions_group)
+        user.name = officer_names[n_num]
+        
         user.save()
 
+def is_officer(user):
+    return user.is_superuser or user.groups.filter(name="Officer").exists()
 
 # Create your views here.
 def login_page(request):
@@ -91,10 +108,11 @@ def register_page(request):
         
         # Set the user's password and save the user object
         user.set_password(password)
+        user.is_active = False
         user.save()
         
         # Display an information message indicating successful account creation
-        messages.info(request, "Account created Successfully!")
+        messages.info(request, "Account created Successfully, once your dues are paid you will be approved and able to login!")
 
         login(request, user)
         update_roles(user)
@@ -103,6 +121,33 @@ def register_page(request):
     
     # Render the registration page template (GET request)
     return render(request, 'auth/register.html')
+
+@user_passes_test(is_officer)
+def approve_users(request):
+    users = Member.objects.all()
+    data = list(users.values()) 
+    if request.method == "POST":
+        body_data = json.loads(request.body)
+        if body_data:
+            n_num = body_data["n_num"]
+
+            user = get_object_or_404(Member, username=n_num)
+            if user:
+                user.is_active = True
+                user.save()
+
+    return render(request, "auth/approve.html", {"users_list": data})
+
+@user_passes_test(is_officer)
+def deny_user(request):
+    if request.method == "POST":
+        n_num = request.POST.get("n_num")
+
+        user = get_object_or_404(Member, username=n_num)
+        if user:
+            user.delete()
+        
+    return redirect("/approve/")
 
 def logout_view(request):
     logout(request)

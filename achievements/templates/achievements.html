@@ -102,6 +102,7 @@
     </div>
 
     <!-- Add Year Modal -->
+    {% if user.is_superuser or user|is_officer %}
     <div class="modal" id="addYearModal">
         <div class="modal-content">
             <div class="modal-header">
@@ -120,8 +121,10 @@
             </form>
         </div>
     </div>
+    {% endif %}
 
     <!-- Add Conference Modal -->
+    {% if user.is_superuser or user|is_officer %}
     <div class="modal" id="addConferenceModal">
         <div class="modal-content">
             <div class="modal-header">
@@ -152,8 +155,10 @@
             </form>
         </div>
     </div>
+    {% endif %}
 
     <!-- Add Placement Modal -->
+    {% if user.is_superuser or user|is_officer %}
     <div class="modal" id="addPlacementModal">
         <div class="modal-content">
             <div class="modal-header">
@@ -180,5 +185,6 @@
             </form>
         </div>
     </div>
+    {% endif %}
 </body>
 </html>

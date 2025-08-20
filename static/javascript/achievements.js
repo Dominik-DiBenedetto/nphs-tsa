@@ -83,6 +83,8 @@ function addYear(e){
 
 }
 
+let isAdmin = !(document.querySelector(".admin-controls") == null || document.querySelector(".admin-controls") == undefined || document.querySelector(".admin-controls") == false)
+
 function createYearSection(yearData, index) {
     const section = document.createElement('div');
     section.className = 'year-section fade-in';
@@ -98,9 +100,11 @@ function createYearSection(yearData, index) {
         </div>
         <div class="conferences-container">
             ${yearData.conferences.map(conf => createConferenceCard(conf, yearData.year)).join('')}
-            <button class="add-conference-btn" onclick="openAddConferenceModal(${yearData.year})">
-                ➕ Add New Conference
-            </button>
+            ${isAdmin && 
+                `<button class="add-conference-btn" onclick="openAddConferenceModal(${yearData.year})">
+                    ➕ Add New Conference
+                </button>` || ``}
+            
         </div>
     `;
 
@@ -108,23 +112,24 @@ function createYearSection(yearData, index) {
 }
 
 function createConferenceCard(conference, year) {
-    return `
+    if (isAdmin){
+        return `
         <div class="conference-card" data-year="${year}" data-conference="${conference.name}">
             <div class="conference-header">
                 <div>
-                    <div class="conference-name">${conference.name}</div>
-                    <div class="conference-location">📍 ${conference.location}</div>
+                    <div class="conference-name" contenteditable="true">${conference.name}</div>
+                    <div class="conference-location" contenteditable="true">📍 ${conference.location}</div>
                 </div>
-                <div class="conference-date">${conference.date}</div>
+                <div class="conference-date" contenteditable="true">${conference.date}</div>
             </div>
             <div class="placements-list">
                 ${conference.placements.map(placement => `
                     <div class="placement-item">
                         <div class="placement-info">
-                            <div class="event-name">${placement.event}</div>
-                            <div class="students-name">${placement.students}</div>
+                            <div class="event-name" contenteditable="true" input="updatePlacementName()">${placement.event}</div>
+                            <div class="students-name" contenteditable="true">${placement.students}</div>
                         </div>
-                        <div class="placement-rank">${placement.rank}</div>
+                        <div class="placement-rank" contenteditable="true">${placement.rank}</div>
                     </div>
                 `).join('')}
                 <button class="add-placement-btn" onclick="openAddPlacementModal('${year}', '${conference.name}')">
@@ -133,6 +138,145 @@ function createConferenceCard(conference, year) {
             </div>
         </div>
     `;
+    } else {
+        return `
+            <div class="conference-card" data-year="${year}" data-conference="${conference.name}">
+                <div class="conference-header">
+                    <div>
+                        <div class="conference-name">${conference.name}</div>
+                        <div class="conference-location">📍 ${conference.location}</div>
+                    </div>
+                    <div class="conference-date">${conference.date}</div>
+                </div>
+                <div class="placements-list">
+                    ${conference.placements.map(placement => `
+                        <div class="placement-item">
+                            <div class="placement-info">
+                                <div class="event-name">${placement.event}</div>
+                                <div class="students-name">${placement.students}</div>
+                            </div>
+                            <div class="placement-rank">${placement.rank}</div>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+        `;
+    }
+}
+
+window.addEventListener("input", (e) => {
+    e.preventDefault()
+    if (!e.target) return;
+    
+    let newText = e.target.textContent
+    if (e.target.classList.contains("conference-name")){
+        let conferenceDiv = e.target.parentElement.parentElement.parentElement
+        let conferenceYear = conferenceDiv.getAttribute("data-year")
+        let conferenceName = conferenceDiv.getAttribute("data-conference")
+        let conferenceData
+        
+        filteredData.forEach((yearData, index) => {
+            if (yearData.year == parseInt(conferenceYear)) {
+                conferenceData = yearData.conferences.find(conf => conf.name === conferenceName);
+            } 
+        });
+
+        if (!conferenceData) return;
+        
+        conferenceData["name"] = newText
+        conferenceDiv.setAttribute("data-conference", newText)
+    } else if (e.target.classList.contains("conference-location")){
+        let conferenceDiv = e.target.parentElement.parentElement.parentElement
+        let conferenceYear = conferenceDiv.getAttribute("data-year")
+        let conferenceName = conferenceDiv.getAttribute("data-conference")
+        let conferenceData
+        
+        filteredData.forEach((yearData, index) => {
+            if (yearData.year == parseInt(conferenceYear)) {
+                conferenceData = yearData.conferences.find(conf => conf.name === conferenceName);
+            } 
+        });
+
+        if (!conferenceData) return;
+        
+        conferenceData["location"] = newText
+    } else if (e.target.classList.contains("conference-location")){
+        let conferenceDiv = e.target.parentElement.parentElement
+        let conferenceYear = conferenceDiv.getAttribute("data-year")
+        let conferenceName = conferenceDiv.getAttribute("data-conference")
+        let conferenceData
+        
+        filteredData.forEach((yearData, index) => {
+            if (yearData.year == parseInt(conferenceYear)) {
+                conferenceData = yearData.conferences.find(conf => conf.name === conferenceName);
+            } 
+        });
+
+        if (!conferenceData) return;
+        
+        conferenceData["date"] = newText
+    } else if (e.target.classList.contains("event-name")){
+        let conferenceDiv = e.target.parentElement.parentElement.parentElement.parentElement
+        let conferenceYear = conferenceDiv.getAttribute("data-year")
+        let conferenceName = conferenceDiv.getAttribute("data-conference")
+        let eventData
+        let conferenceData
+        
+        filteredData.forEach((yearData, index) => {
+            if (yearData.year == parseInt(conferenceYear)) {
+                conferenceData = yearData.conferences.find(conf => conf.name === conferenceName);
+                if (!conferenceData) return;
+                if (e.inputType == "deleteContentBackward") {
+                    eventData = conferenceData.placements.find(event => event.event.slice(0,-1) === newText);
+                } else {
+                    console.log(newText)
+                    conferenceData.placements.forEach(event => console.log(decodeURI((event.event + e.data).trim().valueOf()) === decodeURI(newText.trim().valueOf()), decodeURI(newText.trim().valueOf())))
+                    eventData = conferenceData.placements.find(event => (event.event + e.data).trim() === newText.trim());
+                }
+            } 
+        });
+        console.log(eventData, e)
+
+        if (!eventData) return;
+        
+        console.log("setting event to", newText)
+        eventData["event"] = newText
+    } else if (e.target.classList.contains("students-name")){
+        let conferenceDiv = e.target.parentElement.parentElement.parentElement.parentElement
+        let conferenceYear = conferenceDiv.getAttribute("data-year")
+        let conferenceName = conferenceDiv.getAttribute("data-conference")
+        let conferenceData
+        
+        filteredData.forEach((yearData, index) => {
+            if (yearData.year == parseInt(conferenceYear)) {
+                conferenceData = yearData.conferences.find(conf => conf.name === conferenceName);
+            } 
+        });
+
+        if (!conferenceData) return;
+        
+        conferenceData["placements"][0]["students"] = newText
+    } else if (e.target.classList.contains("placement-rank")){
+        let conferenceDiv = e.target.parentElement.parentElement.parentElement
+        let conferenceYear = conferenceDiv.getAttribute("data-year")
+        let conferenceName = conferenceDiv.getAttribute("data-conference")
+        let conferenceData
+        
+        filteredData.forEach((yearData, index) => {
+            if (yearData.year == parseInt(conferenceYear)) {
+                conferenceData = yearData.conferences.find(conf => conf.name === conferenceName);
+            } 
+        });
+
+        if (!conferenceData) return;
+        
+        conferenceData["placements"][0]["rank"] = newText
+    } 
+})
+
+function updatePlacementName(e)
+{
+    console.log(e.target.value)
 }
 
 // Toggle year section
@@ -290,51 +434,26 @@ function openAddPlacementModal(year, conferenceName) {
 }
 
 // Form submissions
-document.getElementById('addYearForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const year = parseInt(document.getElementById('newYear').value);
+let addYearForm = document.getElementById("addYearForm")
+if (addYearForm) {
+    addYearForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const year = parseInt(document.getElementById('newYear').value);
 
-    // Check if year already exists
-    if (placementsData.find(item => item.year === year)) {
-        alert('This year already exists!');
-        return;
-    }
+        // Check if year already exists
+        if (placementsData.find(item => item.year === year)) {
+            alert('This year already exists!');
+            return;
+        }
 
-    // Add new year
-    placementsData.push({
-        year: year,
-        conferences: []
-    });
-
-    // Sort by year (newest first)
-    placementsData.sort((a, b) => b.year - a.year);
-
-    // Update display
-    filteredData = [...placementsData];
-    populateFilters();
-    renderPlacements();
-    updateStats();
-
-    closeModal('addYearModal');
-    alert(`Year ${year} added successfully!`);
-});
-
-document.getElementById('addConferenceForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const year = parseInt(document.getElementById('conferenceYear').value);
-    const name = document.getElementById('conferenceName').value;
-    const location = document.getElementById('conferenceLocation').value;
-    const date = document.getElementById('conferenceDate').value;
-
-    // Find the year and add conference
-    const yearData = placementsData.find(item => item.year === year);
-    if (yearData) {
-        yearData.conferences.push({
-            name: name,
-            location: location,
-            date: date,
-            placements: []
+        // Add new year
+        placementsData.push({
+            year: year,
+            conferences: []
         });
+
+        // Sort by year (newest first)
+        placementsData.sort((a, b) => b.year - a.year);
 
         // Update display
         filteredData = [...placementsData];
@@ -342,43 +461,28 @@ document.getElementById('addConferenceForm').addEventListener('submit', function
         renderPlacements();
         updateStats();
 
-        closeModal('addConferenceModal');
-        alert('Conference added successfully!');
+        closeModal('addYearModal');
+        alert(`Year ${year} added successfully!`);
+    });
+}
 
-        let payload = {
-            name: name,
-            date: date,
-            location: location,
-            year: year
-        }
-        fetch("http://127.0.0.1:8000/achievements/add_conference/", {
-            method: "POST",
-            headers: {
-                'X-CSRFToken': getCookie('csrftoken')
-            },
-            body: JSON.stringify(payload)
-        })
+let confForm = document.getElementById('addConferenceForm')
+if (confForm) {
+    confForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const year = parseInt(document.getElementById('conferenceYear').value);
+        const name = document.getElementById('conferenceName').value;
+        const location = document.getElementById('conferenceLocation').value;
+        const date = document.getElementById('conferenceDate').value;
 
-        // Clear form
-        document.getElementById('addConferenceForm').reset();
-    }
-});
-
-document.getElementById('addPlacementForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const student = document.getElementById('placementStudent').value;
-    const event = document.getElementById('placementCompany').value;
-    const rank = document.getElementById('placementPosition').value;
-
-    // Find the year and conference
-    const yearData = placementsData.find(item => item.year == currentYear);
-    if (yearData) {
-        const conference = yearData.conferences.find(conf => conf.name === currentConference);
-        if (conference) {
-            conference.placements.push({
-                students: student,
-                event: event,
-                rank: rank
+        // Find the year and add conference
+        const yearData = placementsData.find(item => item.year === year);
+        if (yearData) {
+            yearData.conferences.push({
+                name: name,
+                location: location,
+                date: date,
+                placements: []
             });
 
             // Update display
@@ -387,17 +491,16 @@ document.getElementById('addPlacementForm').addEventListener('submit', function(
             renderPlacements();
             updateStats();
 
-            closeModal('addPlacementModal');
-            alert('Placement added successfully!');
+            closeModal('addConferenceModal');
+            alert('Conference added successfully!');
 
             let payload = {
-                conference: currentConference,
-                eventName: event,
-                students: student,
-                year: currentYear,
-                rank: rank
+                name: name,
+                date: date,
+                location: location,
+                year: year
             }
-            fetch("http://127.0.0.1:8000/achievements/add_achievement/", {
+            fetch("/achievements/add_conference/", {
                 method: "POST",
                 headers: {
                     'X-CSRFToken': getCookie('csrftoken')
@@ -406,10 +509,60 @@ document.getElementById('addPlacementForm').addEventListener('submit', function(
             })
 
             // Clear form
-            document.getElementById('addPlacementForm').reset();
+            document.getElementById('addConferenceForm').reset();
         }
-    }
-});
+    });
+}
+
+let placement = document.getElementById('addPlacementForm')
+if (placement) {
+    placement.addEventListener('submit', function(e) {
+        e.preventDefault();
+        const student = document.getElementById('placementStudent').value;
+        const event = document.getElementById('placementCompany').value;
+        const rank = document.getElementById('placementPosition').value;
+
+        // Find the year and conference
+        const yearData = placementsData.find(item => item.year == currentYear);
+        if (yearData) {
+            const conference = yearData.conferences.find(conf => conf.name === currentConference);
+            if (conference) {
+                conference.placements.push({
+                    students: student,
+                    event: event,
+                    rank: rank
+                });
+
+                // Update display
+                filteredData = [...placementsData];
+                populateFilters();
+                renderPlacements();
+                updateStats();
+
+                closeModal('addPlacementModal');
+                alert('Placement added successfully!');
+
+                let payload = {
+                    conference: currentConference,
+                    eventName: event,
+                    students: student,
+                    year: currentYear,
+                    rank: rank
+                }
+                fetch("/achievements/add_achievement/", {
+                    method: "POST",
+                    headers: {
+                        'X-CSRFToken': getCookie('csrftoken')
+                    },
+                    body: JSON.stringify(payload)
+                })
+
+                // Clear form
+                document.getElementById('addPlacementForm').reset();
+            }
+        }
+    });
+}
 
 function getCookie(name) {
     let cookieValue = null;

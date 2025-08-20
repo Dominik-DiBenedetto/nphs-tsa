@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scan Attendance</title>
+
+    <script src="https://unpkg.com/html5-qrcode"></script>
+    {% load static %}
+
+    <link rel="icon" href="{% static 'images/nphs_bobcats_favicon.jpg' %}" type="image/x-icon">
+    <script src="{% static 'javascript/attendance_scanner.js' %}" defer></script>
+</head>
+<body>
+    <div id="reader" width="600px"></div>
+    <video autoplay id="scanner" class="scanner-view"></video>
+    <h1 class="n_number"></h1>
+</body>
+</html>

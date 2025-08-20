@@ -1,0 +1,272 @@
+body{
+    background: linear-gradient(135deg, var(--tsa-navy-blue) 0%, var(--tsa-dark-navy-blue) 100%);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    margin-top: 64px;
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 3rem;
+    color: white;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.stats-bar {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.stat-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 1.5rem;
+    flex: 1;
+    min-width: 200px;
+    text-align: center;
+    color: white;
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.filters {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.filter-group label {
+    color: white;
+    font-weight: 500;
+}
+
+.filter-group select,
+.filter-group input {
+    padding: 0.5rem;
+    border: none;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.9);
+    font-size: 0.9rem;
+}
+
+.user-list {
+    display: grid;
+    gap: 1.5rem;
+}
+
+.user-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+}
+
+.user-card:nth-child(even) {
+    animation-delay: 0.1s;
+}
+
+.user-card:nth-child(odd) {
+    animation-delay: 0.2s;
+}
+
+.user-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.user-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--tsa-navy-blue), var(--tsa-dark-navy-blue));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.user-info h3 {
+    font-size: 1.3rem;
+    color: #2d3748;
+    margin-bottom: 0.25rem;
+}
+
+.user-info p {
+    color: #718096;
+    font-size: 0.9rem;
+}
+
+.user-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.detail-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.detail-label {
+    font-size: 0.8rem;
+    color: #718096;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.detail-value {
+    color: #2d3748;
+    font-weight: 500;
+}
+
+.user-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+}
+
+.btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.9rem;
+}
+
+.btn-approve {
+    background: #48bb78;
+    color: white;
+}
+
+.btn-approve:hover {
+    background: #38a169;
+    transform: translateY(-1px);
+}
+
+.btn-deny {
+    background: #f56565;
+    color: white;
+}
+
+.btn-deny:hover {
+    background: #e53e3e;
+    transform: translateY(-1px);
+}
+
+.btn-view {
+    background: #4299e1;
+    color: white;
+}
+
+.btn-view:hover {
+    background: #3182ce;
+    transform: translateY(-1px);
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.status-pending {
+    background: #fed7d7;
+    color: #c53030;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: white;
+}
+
+.empty-state h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 2rem;
+    }
+
+    .stats-bar {
+        flex-direction: column;
+    }
+
+    .filters {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .user-actions {
+        flex-direction: column;
+    }
+
+    .user-details {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,4 +1,5 @@
 {% load static %}
+{% load is_officer %}
 <nav class="navbar" id="navbar">
     <div class="navbar-container">
         {% if is_authenticated %}
@@ -20,6 +21,7 @@
             <li><a href="/#officers" class="officer-nav-link">Officers</a></li>
             <li><a href="/events">Events</a></li>
             <li><a href="/achievements">Achievements</a></li>
+            <li><a href="/sponsorships">Sponsorships</a></li>
             <li><a href="/events/matchmaker/">Event Matchmaker</a></li>
             {% if is_authenticated %}
             <li><a href="/auth/logout">Logout</a></li>
@@ -46,6 +48,9 @@
                 <li><a href="/members/"><span class="sidebar-menu-icon icon-home"></span>Members</a></li>
                 <li><a href="/members/attendance/"><span class="sidebar-menu-icon icon-inbox"></span>Attendance</a></li>
                 <li><a href="#"><span class="sidebar-menu-icon icon-calendar"></span>Notifications</a></li>
+                {% if user.is_superuser or user|is_officer %}
+                <li><a href="/auth/approve/"><span class="sidebar-menu-icon icon-calendar"></span>Approve Members</a></li>
+                {% endif %}
             </ul>
         </div>
 

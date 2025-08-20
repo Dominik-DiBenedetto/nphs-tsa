@@ -177,16 +177,6 @@ function handleSubmit(event) {
         return;
     }
 
-    // Check if at least one team has members
-    const hasMembers = eventData.teams.some((team) =>
-        team.members.some((member) => member.trim() !== "")
-    );
-
-    if (!hasMembers) {
-        alert("Please add at least one team member!");
-        return;
-    }
-
     // Disable submit button
     const submitBtn = document.getElementById("submitBtn");
     submitBtn.disabled = true;
@@ -201,14 +191,16 @@ function handleSubmit(event) {
     formData.append('CEG', eventData.cegFile); // File input
     formData.append('Teams', JSON.stringify(eventData.teams));
 
-    fetch("http://127.0.0.1:8000/events/add_event/", {
+    fetch("/events/add_event/", {
         method: "POST",
         headers: {
             'X-CSRFToken': getCookie('csrftoken')
         },
         body: formData
-    }).then(response => response.json()).then(data => {
-        console.log('Success:', data);
+    }).then(response => {
+        if (response.redirected) {
+            window.location.href = response.url;
+        }
     })
     .catch((error) => {
         console.error('Error:', error);

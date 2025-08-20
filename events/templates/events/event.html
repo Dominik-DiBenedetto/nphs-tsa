@@ -13,11 +13,14 @@
 </head>
 <body>
     {% load mycomponents %}
-    {% navbar "none" "none" %}
+    {% navbar "Events" "none" %}
+    {% load is_officer %}
     <div class="container">
         <header class="header">
             <h1 class="event-title">{{ Event.name }}</h1>
-            <!-- <p class="event-subtitle">Advanced Network Security Competition</p> -->
+            {% if user.is_superuser or user|is_officer %}
+            <a class="event-subtitle" href="/events/event/{{ Event.pk }}/update">Edit Event</a>
+            {% endif %}
         </header>
 
         <div class="content-grid">
@@ -64,7 +67,7 @@
         <div class="card teams-section">
             <h2 class="card-title">👥 Competing Teams</h2>
             <div class="teams-container">
-                {% for team in Event.competitors %}
+                {% for team in Teams %}
                 <div class="team-card">
                     <div class="team-name">Team {{ team.id }}</div>
                     <ul class="team-members">
@@ -86,7 +89,7 @@
         </div>
 
         <!-- Past Accomplishments -->
-        <div class="card accomplishments-section">
+        <!-- <div class="card accomplishments-section">
             <h2 class="card-title">🏆 Past Accomplishments</h2>
             <ul class="accomplishments-list">
                 <li class="accomplishment-item">
@@ -110,7 +113,7 @@
                     <span class="accomplishment-year">2021</span>
                 </li>
             </ul>
-        </div>
+        </div> -->
     </div>
 </body>
 </html>

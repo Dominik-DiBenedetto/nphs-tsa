@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Account Approval - NPHS TSA</title>
+    {% load static %}
+    <link rel="icon" href="{% static 'images/nphs_bobcats_favicon.jpg' %}" type="image/x-icon">
+
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/approve.css' %}">
+</head>
+<body>
+    {% load mycomponents %}
+    {% navbar "none" "Approve Members" %}
+    <div class="container">
+        <div class="header">
+            <h1>User Account Approval</h1>
+            <p>Review and manage pending user account requests</p>
+        </div>
+
+        <div class="stats-bar">
+            <div class="stat-card">
+                <div class="stat-number" id="pendingCount">0</div>
+                <div class="stat-label">Pending Requests</div>
+            </div>
+        </div>
+
+        <div class="filters">
+            <div class="filter-group">
+                <label for="statusFilter">Status:</label>
+                <select id="statusFilter">
+                    <option value="all" selected>All</option>
+                    <option value="pending">Pending</option>
+                    <option value="approved">Approved</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="dateFilter">Date:</label>
+                <input type="date" id="dateFilter">
+            </div>
+            <div class="filter-group">
+                <label for="searchFilter">Search:</label>
+                <input type="text" id="searchFilter" placeholder="Name or email...">
+            </div>
+        </div>
+
+        {{ users_list|json_script:"users-data" }}
+
+        <div class="user-list" id="userList">
+            <!-- Users will be populated by JavaScript -->
+        </div>
+    </div>
+
+    <script>
+        // Sample user data
+        let users = JSON.parse(document.querySelector("#users-data").textContent);
+
+        users.forEach(user => {
+            user.status = user.is_active == false && "pending" || "approved"
+        });
+
+        let filteredUsers = [...users];
+
+        function getInitials(name) {
+            return name.split(' ').map(n => n[0]).join('').toUpperCase();
+        }
+
+        function formatDate(dateString) {
+            return new Date(dateString).toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric'
+            });
+        }
+
+        function updateStats() {
+            const pending = users.filter(u => u.status === 'pending').length;
+
+            document.getElementById('pendingCount').textContent = pending;
+        }
+
+        function renderUsers() {
+            const userList = document.getElementById('userList');
+            
+            if (filteredUsers.length === 0) {
+                userList.innerHTML = `
+                    <div class="empty-state">
+                        <h3>No users found</h3>
+                        <p>Try adjusting your filters to see more results.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            userList.innerHTML = filteredUsers.map(user => `
+                <div class="user-card" data-user-id="${user.id}">
+                    <div class="user-header">
+                        <div class="user-avatar">${getInitials(user.name)}</div>
+                        <div class="user-info">
+                            <h3>${user.name}</h3>
+                            <p>${user.email}</p>
+                        </div>
+                        <div style="margin-left: auto;">
+                            <span class="status-badge status-${user.status}">${user.status}</span>
+                        </div>
+                    </div>
+                    <div class="user-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Registration Date</span>
+                            <span class="detail-value">${formatDate(user.date_joined)}</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">N Number</span>
+                            <span class="detail-value">${user.username}</span>
+                        </div>
+                        <div class="user-actions">
+                            ${user.status === "pending" ? `
+                                <button class="btn btn-approve" onclick="approveUser('${user.username}')">Approve</button>
+                                <button class="btn btn-deny" onclick="denyUser('${user.username}')">Deny</button>
+                            ` : ''}
+                        </div>
+                    </div>
+                    
+                </div>
+            `).join('');
+        }
+
+        function filterUsers() {
+            const statusFilter = document.getElementById('statusFilter').value;
+            const dateFilter = document.getElementById('dateFilter').value;
+            const searchFilter = document.getElementById('searchFilter').value.toLowerCase();
+
+            filteredUsers = users.filter(user => {
+                const matchesStatus = statusFilter === 'all' || user.status === statusFilter;
+                const matchesDate = !dateFilter || user.registrationDate === dateFilter;
+                const matchesSearch = !searchFilter || 
+                    user.name.toLowerCase().includes(searchFilter) ||
+                    user.email.toLowerCase().includes(searchFilter);
+
+                return matchesStatus && matchesDate && matchesSearch;
+            });
+
+            renderUsers();
+        }
+
+        function approveUser(userId) {
+            console.log("Click")
+            const user = users.find(u => u.username === userId);
+            console.log(approveUser, user)
+            if (user) {
+                fetch("/auth/approve/", {
+                    method: "POST",
+                    headers: {
+                        'X-CSRFToken': getCookie('csrftoken')
+                    },
+                    body: JSON.stringify({
+                        n_num: userId,
+                    })
+                }).then(response => {
+                    user.status = 'approved';
+                    setTimeout(function(){
+                        updateStats();
+                        filterUsers();
+                    }, 500)
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    user.status = "pending";
+                    updateStats();
+                    filterUsers();
+                });
+                
+                // Show success message
+                showNotification(`${user.name} has been approved!`, 'success');
+            }
+        }
+
+        function denyUser(userId) {
+            const user = users.find(u => u.id === userId);
+            if (user) {
+                user.status = 'denied';
+                fetch("/auth/deny/", {
+                    method: "POST",
+                    headers: {
+                        'X-CSRFToken': getCookie('csrftoken')
+                    },
+                    body: JSON.stringify({
+                        n_num: userId,
+                    })
+                }).then(response => {
+                    user.status = 'approved';
+                    setTimeout(function(){
+                        updateStats();
+                        filterUsers();
+                    }, 500)
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                    user.status = "pending";
+                    updateStats();
+                    filterUsers();
+                });
+                
+                // Show notification
+                showNotification(`${user.name} has been denied.`, 'error');
+            }
+        }
+
+        function getCookie(name) {
+            let cookieValue = null;
+            if (document.cookie && document.cookie !== '') {
+                const cookies = document.cookie.split(';');
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i].trim();
+                    // Does this cookie string begin with the name we want?
+                    if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                        break;
+                    }
+                }
+            }
+            return cookieValue;
+        }
+
+        function showNotification(message, type) {
+            // Simple notification - in a real app, you'd use a proper notification system
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                padding: 1rem 1.5rem;
+                border-radius: 8px;
+                color: white;
+                font-weight: 600;
+                z-index: 1000;
+                animation: slideIn 0.3s ease;
+                background: ${type === 'success' ? '#48bb78' : '#f56565'};
+            `;
+            notification.textContent = message;
+            document.body.appendChild(notification);
+
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+
+        // Event listeners
+        document.getElementById('statusFilter').addEventListener('change', filterUsers);
+        document.getElementById('dateFilter').addEventListener('change', filterUsers);
+        document.getElementById('searchFilter').addEventListener('input', filterUsers);
+
+        // Initialize
+        updateStats();
+        renderUsers();
+    </script>
+</body>
+</html>

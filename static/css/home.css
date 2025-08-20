@@ -20,6 +20,11 @@
 .hero-content {
     z-index: 2;
     animation: fadeInUp 1s ease-out;
+    perspective: 1000px;
+}
+
+.hero-content .profile-image{
+    animation: rotate3D 3s infinite linear ;
 }
 
 .profile-image {
@@ -123,6 +128,15 @@
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
 }
+
+@keyframes rotate3D {
+    from {
+      transform: rotate3d(1, 0, 0, 0deg); /* Initial state: no rotation */
+    }
+    to {
+      transform: rotate3d(1, 0, 0, 360deg); /* Final state: full rotation */
+    }
+  }
 
 .about-image:hover {
     transform: translateY(-5px);

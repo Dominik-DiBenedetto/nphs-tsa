@@ -105,3 +105,26 @@ function clearAllFilters() {
         if (dateDiv.classList.contains("hidden-date-search")) dateDiv.classList.remove("hidden-date-search")
     })
 }
+
+const deleteButtons = document.querySelectorAll(".delete")
+deleteButtons.forEach(button => {
+    button.addEventListener("click", (e) => {
+        e.preventDefault()
+        let n_num = button.getAttribute("data-nnum")
+        let modal = document.querySelector(`.modal-${n_num}`)
+        if (modal) {
+            let active_modal = document.querySelector(".modal.active")
+            if (active_modal) {
+                active_modal.classList.remove("active")
+            }
+            modal.classList.add("active")
+        }
+    })
+})
+
+document.querySelectorAll(".cancel-delete-button").forEach(cancelBtn => {
+    cancelBtn.addEventListener("click", (e) => {
+        e.preventDefault()
+        cancelBtn.parentElement.parentElement.classList.remove("active")
+    })
+})

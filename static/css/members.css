@@ -179,7 +179,7 @@ tbody tr:hover {
     border-radius: 8px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
     min-width: 120px;
-    z-index: 1000;
+    z-index: 1001;
     opacity: 0;
     visibility: hidden;
     transform: translateY(-10px);
@@ -310,4 +310,39 @@ tbody tr:hover {
     text-align: center;
     padding: 3rem;
     color: #64748b;
+}
+
+.modal{
+    position: fixed;
+    width: 30vw;
+    height: 20vh;
+    background: white;
+    border: 1px solid #999;
+    border-radius: 8px;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    display: none;
+}
+
+.modal.active{
+    display: block;
+}
+
+.modal-buttons{
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    bottom: 20px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.modal-buttons button{
+    max-width: 100px;
+    font-size: 1rem;
+    width: 40%;
+    min-width: 60px;
 }
