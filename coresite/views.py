@@ -14,4 +14,4 @@ def update_server(request):
         repo = git.Repo("https://github.com/Dominik-DiBenedetto/nphs-tsa.git")
         origin = repo.remotes.origin
         origin.pull()
-        return 200
+        return "Success", 200
