@@ -57,11 +57,12 @@
                         <tr style="position: relative;">
                             <th>Name</th>
                             <th>ID</th>
-                            <th class="date" style="position: absolute; right: 20px; top: 50%; transform: translateY(-50%);">{{ date }}</th>
+                            <th class="date" style="position: absolute; right: 95px; top: 50%; transform: translateY(-50%);">{{ date }}</th>
+                            <th style="position: absolute; right: 20px; top: 50%; transform: translateY(-50%);"><button class="export-nnums" id="export-date-{{ date|replace_string:' , ' }}">Export</button></th>
                         </tr>
                     </thead>
                     
-                    <tbody id="membersTableBody">
+                    <tbody id="membersTableBody" class="membersTableBody">
                         {% for member in record %}
                         <div class="modal modal-{{ member.n_number }}">
                             <h3 class="confirm-delete">Are you sure you want to delete attendance record for {{ member.n_number }} on {{ date }}?</h3>

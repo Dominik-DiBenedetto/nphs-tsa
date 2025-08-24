@@ -128,3 +128,42 @@ document.querySelectorAll(".cancel-delete-button").forEach(cancelBtn => {
         cancelBtn.parentElement.parentElement.classList.remove("active")
     })
 })
+
+document.querySelectorAll(".export-nnums").forEach(exportBtn => {
+    let dateHolder = document.querySelector(`#${exportBtn.getAttribute("id").replace("export-", "")}`)
+    let members_holder = dateHolder.querySelector("table").querySelector(".membersTableBody")
+    
+    exportBtn.addEventListener("click", (e) => {
+        e.preventDefault()
+        
+        let fileText = ""
+        Array.from(members_holder.children).forEach(member => {
+            let member_data = member.querySelector("tr")
+            let name = member.querySelector(".member-name")
+            let nnum = member.querySelector(".member-id")
+            fileText += `${name.innerText} - ${nnum.innerText}\n`
+        })
+        saveTextToFile(fileText, `${exportBtn.getAttribute("id").replace("export-date-", "")}-members`)
+    })
+})
+
+function saveTextToFile(textToSave, filename) {
+    // Create a Blob object from the text content
+    const blob = new Blob([textToSave], { type: 'text/plain;charset=utf-8' });
+  
+    // Create a URL for the Blob
+    const url = URL.createObjectURL(blob);
+  
+    // Create a temporary anchor element
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename; // Set the desired filename for the download
+  
+    // Programmatically click the anchor to trigger the download
+    document.body.appendChild(a); // Append to body is good practice for compatibility
+    a.click();
+    document.body.removeChild(a); // Clean up the temporary element
+  
+    // Revoke the object URL to free up resources
+    URL.revokeObjectURL(url);
+  }
