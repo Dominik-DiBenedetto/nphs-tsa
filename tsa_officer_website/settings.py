@@ -27,7 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["nphstsa.pythonanywhere.com"]
 
-
 # Application definition
 
 INSTALLED_APPS = [
