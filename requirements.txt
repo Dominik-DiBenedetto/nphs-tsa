@@ -1,2 +1,3 @@
 django
-sentence_transformers
+scikit-learn
+nltk
