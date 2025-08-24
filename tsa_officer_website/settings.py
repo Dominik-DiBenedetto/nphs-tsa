@@ -23,7 +23,7 @@ MEDIA_ROOT = Path(__file__).resolve().parent.parent;
 SECRET_KEY = 'django-insecure-sygqlddncgvn+zl@zh6**okz+y+s$o1(0fz3+^l=yv+43wzg6p'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["nphstsa.pythonanywhere.com"]
 
