@@ -1,7 +1,7 @@
 from itertools import groupby
 from operator import attrgetter
 import json
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from authentication.models import Member
 from .models import AttendanceRecord
 from datetime import datetime
@@ -16,8 +16,9 @@ def members_view(request):
     return render(request, "members.html", {"members": members})
 
 def view_member(request, n_num):
-    member = Member.objects.get(username=n_num)
-    if not member: return redirect("/members/")
+    try:
+        member = Member.objects.get(username=n_num)
+    except: return redirect("/members/")
 
     events = Event.objects.all()
     participating_events = []
@@ -76,7 +77,9 @@ def delete_record(request, date, n_num):
     # Convert the datetime object to the desired YYYY-MM-DD string format
     date_string = date_object.strftime("%Y-%m-%d")
     
-    record = AttendanceRecord.objects.get(date=date_string, n_number=n_num)
+    record = AttendanceRecord.objects.filter(date=date_string, n_number=n_num)
+    if record.count() > 1:
+        record = record.last()
 
     if record:
         record.delete()
