@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Sponsors</title>
+    {% load static %}
+    <link
+        rel="icon"
+        href="{% static 'images/nphs_bobcats_favicon.jpg' %}"
+        type="image/x-icon"
+    />
+
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/sponsors.css' %}" />
+</head>
+<body>
+    {% load mycomponents %}
+    {% navbar "Sponsors" "none" %}
+    <div class="container">
+        <header class="header">
+            <h1>Our Amazing Sponsors</h1>
+            <p>We're grateful for the support of these incredible organizations that make our mission possible</p>
+        </header>
+
+        <section class="tier-section platinum">
+            <div class="sponsors-grid">
+                <div class="sponsor-card loading" data-url="https://www.jarredsair.com/">
+                    <image
+                    class="sponsor-banner"
+                    src="{% static 'images/sponsors/jarreds-air.png' %}"
+                    ></image>
+                    <div class="sponsor-info">
+                        <h3>Jarred's Air</h3>
+                    </div>
+                </div>
+                <div class="sponsor-card loading" data-url="https://www.dubzbbq.com/menu/">
+                    <image
+                    class="sponsor-banner"
+                    src="{% static 'images/sponsors/dubs.avif' %}"
+                    ></image>
+                    <div class="sponsor-info">
+                        <h3>Dubz BBQ</h3>
+                    </div>
+                </div>
+                <div class="sponsor-card loading" data-url="https://www.worksiteemployee.com/">
+                    <image
+                    class="sponsor-banner"
+                    src="{% static 'images/sponsors/worksite.jpg' %}"
+                    ></image>
+                    <div class="sponsor-info">
+                        <h3>Worksite</h3>
+                    </div>
+                </div>
+                <div class="sponsor-card loading" data-url="https://www.dmsimfg.com/">
+                    <image
+                    class="sponsor-banner"
+                    src="{% static 'images/sponsors/dmsi.jpeg' %}"
+                    ></image>
+                    <div class="sponsor-info">
+                        <h3>DMSI</h3>
+                    </div>
+                </div>
+                <div class="sponsor-card loading" data-url="tel:941-445-0626">
+                    <image
+                    class="sponsor-banner"
+                    src="{% static 'images/sponsors/kellyshometeam.png' %}"
+                    ></image>
+                    <div class="sponsor-info">
+                        <h3>Kelly's Home Team</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="cta-section">
+            <h2>Become a Sponsor</h2>
+            <p>Join our community of supporters and help us make a difference</p>
+            <a href="/sponsorships" class="cta-button">Partner With Us</a>
+        </section>
+    </div>
+
+    <script>
+        // Smooth loading animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.loading');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.classList.add('loaded');
+                        }, index * 100);
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            cards.forEach(card => {
+                observer.observe(card);
+            });
+        });
+
+        // Add hover effects for sponsor cards
+        document.querySelectorAll('.sponsor-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+
+            card.addEventListener('click', function(e){
+                e.preventDefault()
+                window.open(card.getAttribute("data-url"))
+            })
+        });
+    </script>
+</body>
+</html>
