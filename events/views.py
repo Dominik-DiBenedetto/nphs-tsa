@@ -13,7 +13,6 @@ def is_officer(user):
 # Create your views here.
 def index(request):
     events_list = Event.objects.all()
-    print('recieved get')
     return render(request, "events/index.html", {"Events": events_list})
 
 def view_event(request, event_id):
@@ -39,7 +38,7 @@ def update_event(request, event_id):
             event.name = name
             event.desc = desc
             event.prompt = prompt
-            # event.CEG = ceg_file
+            event.CEG = ceg_file
             event.competitors = teams_json
 
             event.save()

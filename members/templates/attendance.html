@@ -97,13 +97,13 @@
                                             href="/members/{{ member.n_number }}"
                                             >View</a
                                         >
+                                        
+                                        {% if user.is_superuser or user|is_officer %}
                                         <a
                                             class="dropdown-item"
                                             href="/members/{{ member.n_number }}/edit"
                                             >Edit</a
                                         >
-
-                                        {% if user.is_superuser or user|is_officer %}
                                         <button a class="dropdown-item delete" data-nnum="{{ member.n_number }}"
                                             >Delete</button
                                         >

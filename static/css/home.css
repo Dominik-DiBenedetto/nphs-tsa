@@ -127,6 +127,70 @@
     color: #666;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
+
+    /* background-size: contain; */
+    /* background-position: center; */
+}
+
+#pic1{
+    background: url("/static/images/grouppictures/leadership.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+#pic2{
+    background: url("/static/images/grouppictures/states24.avif");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+#pic3{
+    background: url("/static/images/grouppictures/nats25.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+#pic4{
+    background: url("/static/images/grouppictures/24regionals.avif");
+    background-position: center;
+    background-size: cover;
+}
+
+#pic5{
+    background: url("/static/images/grouppictures/24officers.avif");
+    background-position: center;
+    background-size: cover;
+}
+
+#pic6{
+    background: url("/static/images/grouppictures/leadershipcostumes.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+#pic7{
+    background: url("/static/images/grouppictures/24regionalsmore.avif");
+    background-position: center;
+    background-size: cover;
+}
+
+#pic8{
+    background: url("/static/images/grouppictures/casonrobot.avif");
+    background-position: center;
+    background-size: cover;
+}
+
+#pic9{
+    background: url("/static/images/grouppictures/matthewbryanwin.avif");
+    background-position: center;
+    background-size: cover;
+}
+
+#pic10{
+    background: url("/static/images/grouppictures/oldtsa.avif");
+    background-position: center;
+    background-size: cover;
 }
 
 @keyframes rotate3D {
@@ -395,24 +459,8 @@
 }
 
 .gallery-item:hover {
-    transform: scale(1.02);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-}
-
-.gallery-item::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, var(--tsa-navy-blue), var(--tsa-dark-navy-blue));
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-.gallery-item:hover::before {
-    opacity: 1;
+    transform: scale(1.05) !important;
+    box-shadow: 0 10px 20px 6px rgba(0, 0, 0, .4);
 }
 
 .gallery-item span {

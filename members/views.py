@@ -6,23 +6,28 @@ from authentication.models import Member
 from .models import AttendanceRecord
 from datetime import datetime
 
+from events.models import Event
+
 
 # Create your views here.
 
 def members_view(request):
     members = Member.objects.all()
-    print(members)
-    for member in members:
-        print(member.first_name)
-        print(member.last_name)
-        print(member.name)
     return render(request, "members.html", {"members": members})
 
 def view_member(request, n_num):
     member = Member.objects.get(username=n_num)
     if not member: return redirect("/members/")
 
-    return render(request, "view_member.html", {"member": member})
+    events = Event.objects.all()
+    participating_events = []
+    for event in events:
+        for team in json.loads(event.competitors):
+            if member.name in team["members"]:
+                participating_events.append({"id": event.pk, "name": event.name, "team": f"Team {team['id']}"})
+                continue
+
+    return render(request, "view_member.html", {"member": member, "events": participating_events})
 
 def attendance_view(request):
     records = AttendanceRecord.objects.select_related('user').order_by('date')
@@ -32,14 +37,12 @@ def attendance_view(request):
         date: list(group)
         for date, group in groupby(records, key=attrgetter('date'))
     }
-    print(grouped_by_date)
     return render(request, "attendance.html", {"records": grouped_by_date})
 
 def scan_attendance_record(request):
     return render(request, "scan_attendance.html", {})
 
 def add_attendance_record(request):
-    print(f"GOT REQUEST {request.method}")
     if request.method == "POST":
         try:
             n_num = request.POST.get('n_num').upper()
@@ -49,7 +52,6 @@ def add_attendance_record(request):
             n_num = body["n_num"]
             date = body["date"]
 
-        print(f"N number {n_num} | Date {date}")
         if not n_num or not date:
             return render(request, "add_attendance_record.html")
         
@@ -57,8 +59,6 @@ def add_attendance_record(request):
             user_obj = Member.objects.get(username=n_num)
         except Member.DoesNotExist:
             user_obj = None
-
-        print(user_obj)
 
         AttendanceRecord.objects.create(
             date = date,
@@ -71,15 +71,12 @@ def add_attendance_record(request):
 def delete_record(request, date, n_num):
     if request.method != "POST": return
 
-    print(n_num)
     date_object = datetime.strptime(date, "%b. %d, %Y")
 
     # Convert the datetime object to the desired YYYY-MM-DD string format
     date_string = date_object.strftime("%Y-%m-%d")
-    print(date_string)
     
     record = AttendanceRecord.objects.get(date=date_string, n_number=n_num)
-    print(record)
 
     if record:
         record.delete()
