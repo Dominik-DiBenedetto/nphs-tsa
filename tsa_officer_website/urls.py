@@ -24,6 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("auth/", include("authentication.urls")),
     path("", include("coresite.urls")),
+    path("", include('pwa.urls')),
 
     path("members/", include("members.urls")),
     path("events/", include("events.urls")),

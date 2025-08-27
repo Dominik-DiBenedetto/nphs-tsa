@@ -225,6 +225,13 @@ tbody tr:hover {
     background-color: #fef2f2;
 }
 
+.date{
+    position: absolute; 
+    right: 95px; 
+    top: 50%; 
+    transform: translateY(-50%);
+}
+
 .filters {
     display: flex;
     flex-wrap: wrap;
@@ -279,6 +286,23 @@ tbody tr:hover {
     transform: translateY(-2px);
 }
 
+@media (max-width: 940px) {
+    .date{
+        right: 250px; 
+    }
+}
+
+@media (max-width: 848px) {
+    .filters {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .filter-input {
+        min-width: auto;
+    }
+}
+
 @media (max-width: 768px) {
     .container {
         padding: 1rem;
@@ -303,6 +327,34 @@ tbody tr:hover {
 
     .filter-input {
         min-width: auto;
+    }
+}
+
+@media (max-width: 500px) {
+    .date{
+        right: 150px; 
+    }
+}
+
+@media (max-width: 420px) {
+    .container {
+        padding: 0.75rem;
+    }
+
+    table {
+        font-size: 0.675rem;
+    }
+
+    th, td {
+        padding: 0.5rem 0.25rem;
+    }
+
+    td, td span {
+        font-size: .5rem !important;
+    }
+
+    .header h1 {
+        font-size: 1.25rem;
     }
 }
 

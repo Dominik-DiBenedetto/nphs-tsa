@@ -1,0 +1,232 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f5f5f5;
+}
+
+.container {
+    max-width: 1200px;
+    padding: 20px;
+}
+
+.header {
+    background: linear-gradient(135deg, var(--tsa-navy-blue) 0%, var(--tsa-dark-navy-blue) 100%);
+    color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.event-title {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.event-subtitle {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    color: #aaa;
+}
+
+.event-subtitle a{
+    color: #aaa;
+}
+
+.content-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.card {
+    background: white;
+    border-radius: 10px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease;
+}
+
+.card:hover {
+    transform: translateY(-2px);
+}
+
+.card-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--tsa-navy-blue);
+    border-bottom: 2px solid var(--tsa-navy-blue);
+    padding-bottom: 0.5rem;
+}
+
+.event-guide {
+    grid-column: 1 / -1;
+}
+
+.file-upload-area {
+    border: 2px dashed var(--tsa-navy-blue);
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+    background-color: #f8f9ff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.file-upload-area:hover {
+    background-color: #e8ebff;
+    border-color: #5a67d8;
+}
+
+.file-upload-area.dragover {
+    background-color: #e8ebff;
+    border-color: #5a67d8;
+}
+
+.file-info {
+    display: none;
+    background-color: #e8f5e8;
+    border: 1px solid #4caf50;
+    border-radius: 5px;
+    padding: 1rem;
+    margin-top: 1rem;
+}
+
+.file-viewer {
+    margin-top: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    min-height: 200px;
+    background-color: #fafafa;
+    padding: 1rem;
+    display: none;
+}
+
+.teams-section {
+    grid-column: 1 / -1;
+}
+
+.teams-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.team-card {
+    background: linear-gradient(135deg, var(--tsa-dark-red) 0%, var(--tsa-red) 100%);
+    color: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    position: relative;
+}
+
+.team-name {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.team-members {
+    list-style: none;
+}
+
+.team-member {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.team-member:last-child {
+    border-bottom: none;
+}
+
+.captain-badge {
+    background-color: #ffd700;
+    color: #333;
+    padding: 0.2rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.accomplishments-section {
+    grid-column: 1 / -1;
+}
+
+.accomplishments-list {
+    list-style: none;
+    margin-top: 1rem;
+}
+
+.accomplishment-item {
+    background: linear-gradient(90deg, var(--tsa-navy-blue), var(--tsa-dark-navy-blue));
+    color: white;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.accomplishment-year {
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-weight: bold;
+}
+
+.event-description {
+    line-height: 1.8;
+}
+
+.event-prompt {
+    background-color: #fff3cd;
+    border: 1px solid #ffeaa7;
+    border-radius: 5px;
+    padding: 1rem;
+    margin-top: 1rem;
+    font-style: italic;
+}
+
+@media (max-width: 768px) {
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .event-title {
+        font-size: 2rem;
+    }
+    
+    .teams-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+.btn {
+    background-color: var(--tsa-navy-blue);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #5a67d8;
+}

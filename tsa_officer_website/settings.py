@@ -21,10 +21,11 @@ MEDIA_ROOT = Path(__file__).resolve().parent.parent;
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
+# SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
+SECRET_KEY = "mge7a*0+do(y8m++-c#(an-b^5hlh0mx*mf@6h*&g2-tnhh9&2"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["127.0.0.1", "nphstsa.pythonanywhere.com"]
 
@@ -42,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'pwa'
 ]
 
 MIDDLEWARE = [
@@ -135,3 +137,17 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# PWA (Progressive Web App)
+PWA_APP_NAME = 'NPHS TSA'
+PWA_APP_DESCRIPTION = 'The official North Port Highschool TSA App.'
+PWA_APP_ICONS = [
+    {
+        'src': '/static/pwaicons/icon-192x192.jpg',
+        'sizes': '192x192'
+    },
+    {
+        'src': '/static/icons/icon-512x512.jpg',
+        'sizes': '512x512'
+    }
+]

@@ -145,9 +145,7 @@
         }
 
         function approveUser(userId) {
-            console.log("Click")
             const user = users.find(u => u.username === userId);
-            console.log(approveUser, user)
             if (user) {
                 fetch("/auth/approve/", {
                     method: "POST",
@@ -177,7 +175,7 @@
         }
 
         function denyUser(userId) {
-            const user = users.find(u => u.id === userId);
+            const user = users.find(u => u.username === userId);
             if (user) {
                 user.status = 'denied';
                 fetch("/auth/deny/", {
@@ -189,7 +187,7 @@
                         n_num: userId,
                     })
                 }).then(response => {
-                    user.status = 'approved';
+                    user.status = 'denied';
                     setTimeout(function(){
                         updateStats();
                         filterUsers();

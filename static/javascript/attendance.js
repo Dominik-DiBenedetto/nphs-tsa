@@ -111,7 +111,8 @@ deleteButtons.forEach(button => {
     button.addEventListener("click", (e) => {
         e.preventDefault()
         let n_num = button.getAttribute("data-nnum")
-        let modal = document.querySelector(`.modal-${n_num}`)
+        let dateTable = document.querySelector(`#date-${button.getAttribute("data-date")}`)
+        let modal = dateTable.querySelector(`.modal-${n_num}`)
         if (modal) {
             let active_modal = document.querySelector(".modal.active")
             if (active_modal) {

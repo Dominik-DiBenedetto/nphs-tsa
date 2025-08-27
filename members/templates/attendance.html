@@ -57,7 +57,7 @@
                         <tr style="position: relative;">
                             <th>Name</th>
                             <th>ID</th>
-                            <th class="date" style="position: absolute; right: 95px; top: 50%; transform: translateY(-50%);">{{ date }}</th>
+                            <th class="date">{{ date }}</th>
                             <th style="position: absolute; right: 20px; top: 50%; transform: translateY(-50%);"><button class="export-nnums" id="export-date-{{ date|replace_string:' , ' }}">Export</button></th>
                         </tr>
                     </thead>
@@ -104,7 +104,7 @@
                                             href="/members/{{ member.n_number }}/edit"
                                             >Edit</a
                                         >
-                                        <button a class="dropdown-item delete" data-nnum="{{ member.n_number }}"
+                                        <button a class="dropdown-item delete" data-nnum="{{ member.n_number }}" data-date="{{ date|replace_string:' , ' }}"
                                             >Delete</button
                                         >
                                         {% endif %}

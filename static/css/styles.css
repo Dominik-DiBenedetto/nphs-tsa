@@ -119,7 +119,7 @@ body {
     position: absolute;
     left: 1rem;
     display: block;
-    background: none;
+    background-color: #f3f4f6;
     border: none;
     cursor: pointer;
     padding: 0.5rem;
@@ -260,4 +260,43 @@ body {
 
 .container{
     margin: 64px auto 0;
+}
+
+@media screen and (max-width: 810px) {
+    .navbar-brand{
+        font-size: .8rem;
+    }
+    li{
+        font-size: .6rem;
+    }
+}
+
+@media screen and (max-width: 615px) {
+    .navbar-brand{
+        font-size: .6rem;
+    }
+    .navbar-nav{
+        gap: 1rem;
+    }
+    .navbar-nav li{
+        font-size: .525rem;
+    }
+}
+
+@media screen and (max-width: 510px) {
+    .navbar-brand{
+        font-size: .5rem;
+    }
+    .navbar-nav li{
+        font-size: .425rem;
+    }
+}
+
+@media screen and (max-width: 410px) {
+    .navbar-brand{
+        font-size: .5rem;
+    }
+    .navbar-nav li{
+        font-size: .3rem;
+    }
 }
