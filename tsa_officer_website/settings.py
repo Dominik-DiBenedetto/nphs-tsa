@@ -21,8 +21,8 @@ MEDIA_ROOT = Path(__file__).resolve().parent.parent;
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
-SECRET_KEY = "mge7a*0+do(y8m++-c#(an-b^5hlh0mx*mf@6h*&g2-tnhh9&2"
+SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
