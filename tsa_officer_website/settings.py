@@ -23,7 +23,6 @@ MEDIA_ROOT = Path(__file__).resolve().parent.parent;
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 
-
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -139,8 +138,20 @@ MEDIA_ROOT = BASE_DIR / 'media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # PWA (Progressive Web App)
+PWA_SERVICE_WORKER_PATH = os.path.join(BASE_DIR, 'static/javascript', 'serviceworker.js')
+
 PWA_APP_NAME = 'NPHS TSA'
 PWA_APP_DESCRIPTION = 'The official North Port Highschool TSA App.'
+PWA_APP_THEME_COLOR = '#000000'
+PWA_APP_BACKGROUND_COLOR = '#ffffff'
+PWA_APP_DISPLAY = 'standalone'
+PWA_APP_SCOPE = '/'
+PWA_APP_ORIENTATION = 'portrait'
+PWA_APP_START_URL = '/'
+PWA_APP_STATUS_BAR_COLOR = 'default'
+PWA_APP_DIR = 'ltr'
+PWA_APP_LANG = 'en-US'
+
 PWA_APP_ICONS = [
     {
         'src': '/static/pwaicons/icon-192x192.jpg',
