@@ -23,10 +23,11 @@ MEDIA_ROOT = Path(__file__).resolve().parent.parent;
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["127.0.0.1", "nphstsa.pythonanywhere.com"]
+ALLOWED_HOSTS = ["127.0.0.1", "localhost", "nphstsa.pythonanywhere.com"]
 
 # Application definition
 
@@ -154,11 +155,29 @@ PWA_APP_LANG = 'en-US'
 
 PWA_APP_ICONS = [
     {
-        'src': '/static/pwaicons/icon-192x192.jpg',
+        'src': '/static/images/pwaicons/icon-192x192.png',
         'sizes': '192x192'
     },
     {
-        'src': '/static/icons/icon-512x512.jpg',
+        'src': '/static/images/pwaicons/icon-512x512.png',
         'sizes': '512x512'
+    },
+    {
+        'src': '/static/images/pwaicons/icon-144x144.png',
+        'sizes': '144x144',
+        'purpose': "any"
+    }
+]
+
+PWA_APP_SCREENSHOTS = [
+    {
+        'src': '/static/images/pwaicons/desktop.png',
+        'sizes': '1280x720',
+        'form_factor': "wide",
+    },
+    {
+        'src': '/static/images/pwaicons/mobile.png',
+        'sizes': '540x720',
+        'form_factor': "narrow",
     }
 ]
