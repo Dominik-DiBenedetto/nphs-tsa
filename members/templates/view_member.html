@@ -6,6 +6,8 @@
     <title>Viewing {{member.name}} | NPHS TSA</title>
 
     {% load static %}
+    {% load pwa %}
+    {% progressive_web_app_meta %}
     <link
         rel="icon"
         href="{% static 'images/nphs_bobcats_favicon.jpg' %}"

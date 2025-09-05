@@ -7,6 +7,8 @@
 
     <script src="https://unpkg.com/html5-qrcode"></script>
     {% load static %}
+    {% load pwa %}
+    {% progressive_web_app_meta %}
 
     <link rel="icon" href="{% static 'images/nphs_bobcats_favicon.jpg' %}" type="image/x-icon">
     <script src="{% static 'javascript/attendance_scanner.js' %}" defer></script>

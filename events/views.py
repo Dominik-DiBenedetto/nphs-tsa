@@ -2,7 +2,7 @@ import json, traceback
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import FileResponse, Http404, HttpResponse
 from django.views.decorators.clickjacking import xframe_options_exempt
-from django.contrib.auth.decorators import user_passes_test
+from django.contrib.auth.decorators import user_passes_test, login_required
 
 from .models import Event
 from .event_recommender import rank_events, get_event_description
@@ -102,6 +102,10 @@ def add_event(request):
         return render(request, "events/add_event.html")
     else:
         return redirect("/events/")
+
+@login_required
+def calendar(request):
+    return render(request, "member_only_templates/calendar.html")
 
 def delete_event(request, event_id):
     if request.method != "POST": return redirect("/events/")

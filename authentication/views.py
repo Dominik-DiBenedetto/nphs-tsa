@@ -8,7 +8,7 @@ from django.contrib.auth.models import Group, Permission
 from django.core.serializers import serialize
 from django.contrib.auth.decorators import user_passes_test
 import json
-
+from django.views.decorators.csrf import csrf_protect
 
 officer_nnumbers = {
     "N463506": "President",
@@ -35,6 +35,7 @@ def update_roles(user):
         user.role = role
         user.groups.add(officer_permissions_group)
         user.name = officer_names[n_num]
+        user.is_active = True
         
         user.save()
 
@@ -42,6 +43,7 @@ def is_officer(user):
     return user.is_superuser or user.groups.filter(name="Officer").exists()
 
 # Create your views here.
+@csrf_protect
 def login_page(request):
     if request.user.is_authenticated:
         return redirect('/home/')
@@ -73,6 +75,7 @@ def login_page(request):
     return render(request, 'auth/login.html')
 
 # Define a view function for the registration page
+@csrf_protect
 def register_page(request):
     if request.user.is_authenticated:
         return redirect('/home/')
@@ -141,13 +144,14 @@ def approve_users(request):
 @user_passes_test(is_officer)
 def deny_user(request):
     if request.method == "POST":
-        n_num = request.POST.get("n_num")
+        n_num = json.loads(request.body)["n_num"]
 
         user = get_object_or_404(Member, username=n_num)
         if user:
             user.delete()
+        return redirect("/auth/approve/")
         
-    return redirect("/approve/")
+    return redirect("/auth/approve/")
 
 def logout_view(request):
     logout(request)
