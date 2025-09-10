@@ -7,13 +7,25 @@ from .models import AttendanceRecord
 from datetime import datetime
 
 from events.models import Event
-
+from django.contrib.auth.decorators import user_passes_test, login_required
+from authentication.views import is_officer
 
 # Create your views here.
 
+@login_required
 def members_view(request):
     members = Member.objects.all()
     return render(request, "members.html", {"members": members})
+
+@user_passes_test(is_officer)
+def delete_member(request):
+    if request.method == "POST":
+        n_num = request.POST.get('n_num')
+        member = get_object_or_404(Member, username=n_num)
+        if member:
+            member.delete()
+
+    return redirect("/members/")
 
 def view_member(request, n_num):
     try:

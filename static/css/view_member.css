@@ -38,8 +38,15 @@ body {
 .profile-name {
     font-size: 28px;
     font-weight: 600;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     color: #2d3748;
+}
+
+.profile-nnum {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: #6e7073;
 }
 
 .profile-rank {
