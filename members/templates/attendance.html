@@ -57,7 +57,7 @@
                 <table>
                     <thead>
                         <tr style="position: relative;">
-                            <th>Name</th>
+                            <th>Name ({{ record|length }})</th>
                             <th>ID</th>
                             <th class="date">{{ date }}</th>
                             <th style="position: absolute; right: 20px; top: 50%; transform: translateY(-50%);"><button class="export-nnums" id="export-date-{{ date|replace_string:' , ' }}">Export</button></th>
