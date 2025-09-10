@@ -24,13 +24,23 @@ def view_member(request, n_num):
     participating_events = []
     for event in events:
         for team in json.loads(event.competitors):
-            if member.name in team["members"]:
+            if member.name in [memberName.title() for memberName in team["members"]]:
                 participating_events.append({"id": event.pk, "name": event.name, "team": f"Team {team['id']}"})
                 continue
 
     return render(request, "view_member.html", {"member": member, "events": participating_events})
 
 def attendance_view(request):
+    # Update user references for accounts created after attendance scanned
+    null_users = AttendanceRecord.objects.filter(user__isnull=True)
+    for user in null_users:
+        try:
+            user_obj = Member.objects.get(username=user.n_number)
+            user.user = user_obj
+            user.save()
+        except Member.DoesNotExist:
+            pass
+    
     records = AttendanceRecord.objects.select_related('user').order_by('date')
 
     # Group by date
@@ -38,6 +48,7 @@ def attendance_view(request):
         date: list(group)
         for date, group in groupby(records, key=attrgetter('date'))
     }
+    print(grouped_by_date)
     return render(request, "attendance.html", {"records": grouped_by_date})
 
 def scan_attendance_record(request):

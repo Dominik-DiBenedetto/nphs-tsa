@@ -33,7 +33,7 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>Name</th>
+                            <th>Name ({{ members|length }})</th>
                             <th>ID</th>
                             <th>Role</th>
                             <th>Strikes</th>
@@ -66,11 +66,6 @@
                                             >View</a
                                         >
                                         {% if user.is_superuser or user|is_officer %}
-                                        <a
-                                            class="dropdown-item"
-                                            href="/members/{{member.username}}/edit"
-                                            >Edit</a
-                                        >
                                         <a class="dropdown-item delete"
                                             >Delete</a
                                         >

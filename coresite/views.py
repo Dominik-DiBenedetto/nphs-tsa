@@ -1,6 +1,4 @@
 from django.shortcuts import render
-from django.http import HttpResponse
-import git
 from django.conf import settings
 from django.http import JsonResponse
 
@@ -29,10 +27,3 @@ def sponsorships(request):
 
 def sponsors(request):
     return render(request, "sponsors.html")
-
-def update_server(request):
-    if request.method == "POST":
-        repo = git.Repo("https://github.com/Dominik-DiBenedetto/nphs-tsa.git")
-        origin = repo.remotes.origin
-        origin.pull()
-        return HttpResponse("Success")

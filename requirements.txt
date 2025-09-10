@@ -1,3 +1,6 @@
 django
 scikit-learn
 nltk
+django-pwa
+django-clearcache
+pypdf

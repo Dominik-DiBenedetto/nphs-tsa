@@ -32,6 +32,7 @@
         </div>
 
         <!-- Profile Actions -->
+        {% if user.is_superuser or user|is_officer %}
         <div class="profile-actions">
             <h2 class="section-title">Account Settings</h2>
             <div class="action-buttons">
@@ -43,6 +44,7 @@
                 </button>
             </div>
         </div>
+        {% endif %}
 
         <!-- Events Section -->
         <div class="events-section">

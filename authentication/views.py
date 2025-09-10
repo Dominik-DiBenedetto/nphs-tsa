@@ -49,7 +49,7 @@ def login_page(request):
         return redirect('/home/')
     # Check if the HTTP request method is POST (form submission)
     if request.method == "POST":
-        username = request.POST.get('username').upper()
+        username = request.POST.get('username').upper() #nnumber or email
         password = request.POST.get('password')
         
         # Check if a user with the provided username exists
@@ -81,7 +81,7 @@ def register_page(request):
         return redirect('/home/')
     # Check if the HTTP request method is POST (form submission)
     if request.method == 'POST':
-        name = request.POST.get('name')
+        name = request.POST.get('name').title()
         n_num = request.POST.get('nnumber').upper()
         email = request.POST.get('email')
 
