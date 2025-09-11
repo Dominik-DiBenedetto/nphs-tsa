@@ -27,18 +27,48 @@ def delete_member(request):
 
     return redirect("/members/")
 
+@user_passes_test(is_officer)
+def update_user(request):
+    if request.method == "POST":
+        viewing_nnum = request.POST.get('viewing_nnum')
+        viewing_user = get_object_or_404(Member, username=viewing_nnum)
+        if not viewing_user: return redirect(f"/members/{viewing_nnum}")
+
+        n_num = request.POST.get('n_num')
+        name = request.POST.get('name')
+        password = request.POST.get('password')
+
+        viewing_user.username = n_num
+        viewing_user.name = name
+        
+        if password and password != "":
+            viewing_user.set_password(password)
+
+        viewing_user.save()
+        return redirect(f"/members/{n_num}")
+
+        
+
 def view_member(request, n_num):
-    try:
-        member = Member.objects.get(username=n_num)
-    except: return redirect("/members/")
+    member = get_object_or_404(Member, username=n_num)
+    if not member: return redirect("/members/")
 
     events = Event.objects.all()
     participating_events = []
     for event in events:
         for team in json.loads(event.competitors):
-            if member.name in [memberName.title() for memberName in team["members"]]:
+            if member.name.lower().strip() in [memberName.lower().strip() for memberName in team["members"]]:
                 participating_events.append({"id": event.pk, "name": event.name, "team": f"Team {team['id']}"})
                 continue
+
+    if len(participating_events) == 0:
+        print(f"Found no events for {n_num}")
+        for event in events:
+            for team in json.loads(event.competitors):
+                print(member.name.lower().strip(), [memberName.lower().strip() for memberName in team["members"]])
+                if member.name.lower() in [memberName.lower() for memberName in team["members"]]:
+                    participating_events.append({"id": event.pk, "name": event.name, "team": f"Team {team['id']}"})
+                    continue
 
     return render(request, "view_member.html", {"member": member, "events": participating_events})
 

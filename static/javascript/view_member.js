@@ -53,23 +53,22 @@ function closePasswordModal() {
 document.getElementById('passwordForm').addEventListener('submit', function(e) {
     e.preventDefault();
     
-    const currentPassword = document.getElementById('currentPassword').value;
     const newPassword = document.getElementById('newPassword').value;
-    const confirmPassword = document.getElementById('confirmPassword').value;
 
-    if (newPassword !== confirmPassword) {
-        alert('New passwords do not match!');
-        return;
-    }
-
-    if (newPassword.length < 6) {
-        alert('Password must be at least 6 characters long!');
-        return;
-    }
-
-    // Simulate password update
-    alert('Password updated successfully!');
-    closePasswordModal();
+    fetch("/members/update/", {
+        method: "POST",
+        headers: {
+            'X-CSRFToken': getCookie('csrftoken'),
+            "Content-Type": "application/x-www-form-urlencoded"
+        },
+        body: new URLSearchParams({
+            viewing_nnum: document.querySelector("#userNnum").textContent,
+            n_num: document.querySelector("#newNnum").value,
+            name: document.querySelector("#newName").value,
+            password: newPassword,
+        }),
+    })
+    window.location.href = `/members/${document.querySelector("#newNnum").value}`
 });
 
 function getCookie(name) {
@@ -95,25 +94,16 @@ function confirmDelete() {
     );
     
     if (confirmed) {
-        const doubleConfirm = confirm(
-            'This will permanently delete all your data. Are you absolutely sure?'
-        );
-        
-        if (doubleConfirm) {
-            fetch("/members/delete/", {
-                method: "POST",
-                headers: {
-                    'X-CSRFToken': getCookie('csrftoken'),
-                    "Content-Type": "application/x-www-form-urlencoded"
-                },
-                body: new URLSearchParams({
-                    n_num: document.querySelector("#userNnum").textContent,
-                    })
-                }).then(res => {
-  console.log("status:", res.status, "redirected:", res.redirected, "url:", res.url);
-});
-            // window.location.href = '/members';
-        }
+        fetch("/members/delete/", {
+            method: "POST",
+            headers: {
+                'X-CSRFToken': getCookie('csrftoken'),
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: new URLSearchParams({
+                n_num: document.querySelector("#userNnum").textContent,
+                })
+            })
     }
 }
 
