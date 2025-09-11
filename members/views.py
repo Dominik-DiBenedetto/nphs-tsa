@@ -61,15 +61,6 @@ def view_member(request, n_num):
                 participating_events.append({"id": event.pk, "name": event.name, "team": f"Team {team['id']}"})
                 continue
 
-    if len(participating_events) == 0:
-        print(f"Found no events for {n_num}")
-        for event in events:
-            for team in json.loads(event.competitors):
-                print(member.name.lower().strip(), [memberName.lower().strip() for memberName in team["members"]])
-                if member.name.lower() in [memberName.lower() for memberName in team["members"]]:
-                    participating_events.append({"id": event.pk, "name": event.name, "team": f"Team {team['id']}"})
-                    continue
-
     return render(request, "view_member.html", {"member": member, "events": participating_events})
 
 def attendance_view(request):
