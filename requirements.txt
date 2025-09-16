@@ -4,3 +4,4 @@ nltk
 django-pwa
 django-clearcache
 pypdf
+psycopg2-binary

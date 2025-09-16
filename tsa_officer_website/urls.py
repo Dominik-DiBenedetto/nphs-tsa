@@ -30,6 +30,7 @@ urlpatterns = [
     path("events/", include("events.urls")),
     path("achievements/", include("achievements.urls")),
     path("tools/", include("tools.urls")),
+    path("notifications/", include("notifications.urls"))
 
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
