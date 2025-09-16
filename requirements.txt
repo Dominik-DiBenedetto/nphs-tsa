@@ -10,3 +10,4 @@ pywebpush
 python-dotenv
 gunicorn
 dj-database-url
+whitenoise
