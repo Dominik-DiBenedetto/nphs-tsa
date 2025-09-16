@@ -1,17 +1,16 @@
-
 // Auto-hide navbar on scroll
 let lastScrollY = window.scrollY;
-const navbar = document.getElementById('navbar');
+const navbar = document.getElementById("navbar");
 
 function handleScroll() {
     const currentScrollY = window.scrollY;
 
     if (currentScrollY < lastScrollY || currentScrollY < 10) {
         // Scrolling up or near top
-        navbar.classList.remove('hidden');
+        navbar.classList.remove("hidden");
     } else {
         // Scrolling down
-        navbar.classList.add('hidden');
+        navbar.classList.add("hidden");
     }
 
     lastScrollY = currentScrollY;
@@ -29,50 +28,121 @@ function throttledScroll() {
     }
 }
 
-window.addEventListener('scroll', throttledScroll);
+window.addEventListener("scroll", throttledScroll);
 
 // Sidebar toggle functionality
-const sidebarToggle = document.getElementById('sidebarToggle');
-const sidebar = document.getElementById('sidebar');
-const sidebarOverlay = document.getElementById('sidebarOverlay');
+const sidebarToggle = document.getElementById("sidebarToggle");
+const sidebar = document.getElementById("sidebar");
+const sidebarOverlay = document.getElementById("sidebarOverlay");
 
 function toggleSidebar() {
-    sidebar.classList.toggle('open');
-    sidebarOverlay.classList.toggle('active');
-    document.body.style.overflow = sidebar.classList.contains('open') ? 'hidden' : '';
+    sidebar.classList.toggle("open");
+    sidebarOverlay.classList.toggle("active");
+    document.body.style.overflow = sidebar.classList.contains("open")
+        ? "hidden"
+        : "";
 }
 
 function closeSidebar() {
-    sidebar.classList.remove('open');
-    sidebarOverlay.classList.remove('active');
-    document.body.style.overflow = '';
+    sidebar.classList.remove("open");
+    sidebarOverlay.classList.remove("active");
+    document.body.style.overflow = "";
 }
 
-sidebarToggle.addEventListener('click', toggleSidebar);
-sidebarOverlay.addEventListener('click', closeSidebar);
+sidebarToggle.addEventListener("click", toggleSidebar);
+sidebarOverlay.addEventListener("click", closeSidebar);
 
 // Close sidebar on escape key
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && sidebar.classList.contains('open')) {
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && sidebar.classList.contains("open")) {
         closeSidebar();
     }
 });
 
 // Handle window resize
-window.addEventListener('resize', () => {
+window.addEventListener("resize", () => {
     if (window.innerWidth > 768) {
         closeSidebar();
     }
 });
 
 // Active link handling
-const active_nav_link = document.querySelector("[data-active-navbar-link]")
-const active_sidebar_link = document.querySelector("[data-active-sidebar-link]")
+const active_nav_link = document.querySelector("[data-active-navbar-link]");
+const active_sidebar_link = document.querySelector(
+    "[data-active-sidebar-link]"
+);
 
-const navbar_link_text = active_nav_link.getAttribute("data-active-navbar-link")
-const sidebar_link_text = active_sidebar_link.getAttribute("data-active-sidebar-link")
+const navbar_link_text = active_nav_link.getAttribute(
+    "data-active-navbar-link"
+);
+const sidebar_link_text = active_sidebar_link.getAttribute(
+    "data-active-sidebar-link"
+);
 if (navbar_link_text != "none") {
-    Array.from(active_nav_link.querySelectorAll("a")).find(el => el.innerText === navbar_link_text).classList.add("active");
+    Array.from(active_nav_link.querySelectorAll("a"))
+        .find((el) => el.innerText === navbar_link_text)
+        .classList.add("active");
 } else {
-    Array.from(active_sidebar_link.querySelectorAll("a")).find(el => el.innerText == sidebar_link_text).classList.add("active");
+    Array.from(active_sidebar_link.querySelectorAll("a"))
+        .find((el) => el.innerText == sidebar_link_text)
+        .classList.add("active");
 }
+
+if (Notification.permission === "default") {
+    Notification.requestPermission();
+}
+
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+
+async function initPush() {
+    if (!("serviceWorker" in navigator)) return;
+  
+    const reg = await navigator.serviceWorker.register("/static/service-worker.js");
+  
+    const permission = await Notification.requestPermission();
+    if (permission !== "granted") {
+      alert("Push notifications denied");
+      return;
+    }
+  
+    const subscription = await reg.pushManager.subscribe({
+      userVisibleOnly: true,
+      applicationServerKey: urlBase64ToUint8Array("BGsVTzkU1W9DQlKwNHbzi8ec1bIlrCjbe1KtQ6HIMVGIy2W9oBh0B3XIQdiQwQsbnAr6t7Bnl0OX5N34l2MpRSU=")
+    });
+  
+    await fetch("notifications/save-subscription/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRFToken": getCookie("csrftoken")
+      },
+      body: JSON.stringify(subscription)
+    });
+  
+    console.log("Push subscribed!");
+  }
+  
+  // Helper to convert base64 → Uint8Array
+  function urlBase64ToUint8Array(base64String) {
+    const padding = "=".repeat((4 - (base64String.length % 4)) % 4);
+    const base64 = (base64String + padding)
+      .replace(/-/g, "+")
+      .replace(/_/g, "/");
+    const rawData = atob(base64);
+    return Uint8Array.from([...rawData].map(char => char.charCodeAt(0)));
+  }
+  

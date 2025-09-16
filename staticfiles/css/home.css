@@ -307,6 +307,7 @@
     overflow: hidden;
     transition: transform 0.3s ease;
     object-fit: cover;
+    object-position: top;
 }
 
 .officer-card:hover .profile-image {
