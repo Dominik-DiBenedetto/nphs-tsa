@@ -1,0 +1,3994 @@
+[
+{
+  "model": "events.event",
+  "pk": 1,
+  "fields": {
+    "name": "Animatronics",
+    "desc": "To address the annual design challenge, participants exhibit and demonstrate their knowledge of mechanical and control systems by creating an animatronic device with a specific purpose (i.e., communicate an idea, entertain, demonstrate a concept, etc.) that includes sound, lights, and an appropriate surrounding environment (a display).",
+    "prompt": "“Time Travelers’ Museum”\r\n\r\nDesign Problem: Create an animatronic figure or scene from a key moment in American history. The character should \"come to life\" to explain their world to a young audience. Designed for a children's museum or educational tour.",
+    "CEG": "",
+    "competitors": "[{\"id\":1,\"members\":[\"Jesse Ryan Ramsey\",\"Jonathan Peat\",\"Kyle Clifton\",\"Timain Roberts\",\"\",\"\"]}]",
+    "captain": null
+  }
+},
+{
+  "model": "events.event",
+  "pk": 2,
+  "fields": {
+    "name": "Architectural Design",
+    "desc": "In response to the annual design challenge, participants develop a set of architectural plans and related materials, and construct both a physical and computer-generated model to accurately depict their design. Semifinalists deliver a presentation and participate in an interview.",
+    "prompt": "",
+    "CEG": "",
+    "competitors": "[{\"id\":1,\"members\":[\"Tessa Kozlowski\",\"Adriana Cuevas\",\"Vivienne Tran\",\"Gabby Austin\",\"Jacob Jarvis\",\"Yanni Ioannou Beihold\"]}]",
+    "captain": null
+  }
+},
+{
+  "model": "events.event",
+  "pk": 3,
+  "fields": {
+    "name": "Audio Podcasting",
+    "desc": "Participants use digital audio technology to create original content for a podcast piece that addresses the annual theme. The podcast must feature high level storytelling techniques, voice acting, and folly sound effects; the full entry must include documentation of the podcast development process and elements. Semifinalists participate in an interview.",
+    "prompt": "“History or Mystery” Students create an audio podcast that focuses on a real-life or fictitious historical event from the past.",
+    "CEG": "",
+    "competitors": "[{\"id\":1,\"members\":[\"Yanni Ioannou Beihold\",\"Stephen Beachy\",\"Jacob Welfer\",\"Christian Leo\",\"Jacob Jarvis\",\"Paul Nelson\"]}]",
+    "captain": null
+  }
+},
+{
+  "model": "events.event",
+  "pk": 4,
+  "fields": {
+    "name": "Biotechnology Design",
+    "desc": "Participants select a contemporary biotechnology problem that addresses the annual theme and demonstrates understanding of the topic through documented research, the development of a solution, a display (including an optional model or prototype), and an effective multimedia presentation. Semifinalists deliver a presentation and participate in an interview.",
+    "prompt": "Topic: Bioconjugation. Bioconjugation is a biochemical technique that has been applied in various fields, such as medicine, diagnostics, biocatalysis, and materials. From chemical warfare to corrective eye surgery, the applications of bioconjugation are vast. Highlight the science behind bioconjugation and demonstrate one of its many uses.",
+    "CEG": "",
+    "competitors": "[{\"id\":1,\"members\":[\"Selena Kasson\",\"Savannah Wilmer\",\"Elizabeth Carpenter\",\"Megan Taylor\",\"Jonathan Peat\",\"Mya Bright\"]}]",
+    "captain": null
+  }
+},
+{
+  "model": "events.event",
+  "pk": 5,
+  "fields": {
+    "name": "Board Game Design",
+    "desc": "Participants develop, build, and package a board game that focuses on a subject of their choice. Creative packaging, and the instructions, pieces, and cards associated with the pilot game will be evaluated. Semifinalists set up the game, demonstrate how the game is played, explain the game’s features, and discuss the design process.",
+    "prompt": "",
+    "CEG": "",
+    "competitors": "[{\"id\":1,\"members\":[\"Jesse Ryan Ramsey\",\"Valeria Rosello Tiburcio\",\"Jackson Hedley\",\"Ethan Greenbaum\",\"Nolan Freed\",\"\"]}]",
+    "captain": null
+  }
+},
+{
+  "model": "events.event",
+  "pk": 6,
+  "fields": {
+    "name": "Chapter Team",
+    "desc": "Participants take a parliamentary procedure test to qualify for the semifinal round of competition. Semifinalists conduct an opening ceremony, items of business, parliamentary actions, and a closing ceremony.",
+    "prompt": "",
+    "CEG": "",
+    "competitors": "[{\"id\":1,\"members\":[\"Dominik DiBenedetto\",\"Bella Ramsey\",\"Alexander Avin\",\"Michael Dankanich\",\"Megan Taylor\",\"Elizabeth Carpenter\"]}]",
+    "captain": null
+  }
+},
+{
+  "model": "events.event",
+  "pk": 7,
+  "fields": {
+    "name": "Children's Stories",
+    "desc": "In response to the annual theme, participants create an illustrated children’s story of artistic, instructional, and social value, and submit documentation related to the development of the physical storybook. Semifinalists read their story aloud and participate in an interview.",
+    "prompt": "Students develop and produce a non-fiction, die-cut board book",
+    "CEG": "",
+    "competitors": "[{\"id\":1,\"members\":[\"Jackson Hedley\",\"Ethan Greenbaum\",\"Valeria Rosello Tiburcio\",\"Damiana Hoback\",\"Vivienne Tran\",\"Selena Kasson\"]}]",
+    "captain": null
+  }
+},
+{
+  "model": "events.event",
+  "pk": 8,
+  "fields": {
+    "name": "Coding",
+    "desc": "Participants take a test, which concentrates on aspects of coding, to qualify for the semifinal round of competition. Semifinalists develop a software program – in a designated amount of time – that accurately addresses an onsite problem.",
+    "prompt": "",
+    "CEG": "",
+    "competitors": "[{\"id\":1,\"members\":[\"Dominik DiBenedetto\",\"Nicholas Marmaro\",\"\",\"\",\"\",\"\"]}]",
+    "captain": null
+  }
+},
+{
+  "model": "events.event",
+  "pk": 9,
+  "fields": {
+    "name": "Computer-Aided Design (CAD), Architecture",
+    "desc": "Participants use complex computer graphic skills, tools, and processes to respond to a design challenge in which they develop representations of architectural subjects, such as foundation and/or floor plans, and/or elevation drawings, and/or details of architectural ornamentation or cabinetry. The solution to the design challenge and participant answers in an interview are evaluated.",
+    "prompt": "",
+    "CEG": "",
+    "competitors": "[{\"id\":1,\"members\":[\"Adriana Cuevas\",\"\",\"\",\"\",\"\",\"\"]},{\"id\":2,\"members\":[\"Gabby Austin\",\"\",\"\",\"\",\"\",\"\"]}]",
+    "captain": null
+  }
+},
+{
+  "model": "events.event",
+  "pk": 10,
+  "fields": {
+    "name": "Computer-Aided Design (CAD), Engineering",
+    "desc": "Participants use complex computer graphic skills, tools, and processes to respond to a design challenge in which they develop three-dimensional representations of engineering subjects, such as a machine part, tool, device, or manufactured product. The solution to the design challenge and participant answers in an interview are evaluated.",
+    "prompt": "",
+    "CEG": "",
+    "competitors": "[{\"id\":1,\"members\":[\"Yanni Ioannou Beihold\",\"\",\"\",\"\",\"\",\"\"]},{\"id\":2,\"members\":[\"Nicholas Marmaro\",\"\",\"\",\"\",\"\",\"\"]}]",
+    "captain": null
+  }
+},
+{
+  "model": "events.event",
+  "pk": 11,
+  "fields": {
+    "name": "Data Science and Analytics",
+    "desc": "Participants identify a societal issue, collect or compile data from various sources about the issue, and then produce documentation and a digital scientific poster about their findings. Semifinalists create a synopsis and digital visual representation of a data set provided in an onsite challenge.",
+    "prompt": "Identify and use a \"Tourism\"- related open-source data set for analysis and research. In the scientific poster, cite the source of the data, including the URL/domain and file format.",
+    "CEG": "",
+    "competitors": "[{\"id\":1,\"members\":[\"Aditya Warrier\",\"Nolan Freed\",\"\",\"\",\"\",\"\"]}]",
+    "captain": null
+  }
+},
+{
+  "model": "events.event",
+  "pk": 12,
+  "fields": {
+    "name": "Debating Technological Issues",
+    "desc": "Participants research the annual topic and subtopics and prepare for a debate against a team from another chapter. Teams are instructed to take either the pro or con side of a selected subtopic, submit a summary of references, and use their research to support their assigned position. The quality of a team’s debate determines semifinalists and finalists.",
+    "prompt": "Theme: Artificial Intelligence and Ethics\r\n\r\nSubtopic 1: AI decision-making in judicial systems introduces bias and undermines human moral judgment.\r\nSubtopic 2: The development of artificial general intelligence (AGI) poses a greater existential threat than nuclear weapons.\r\nSubtopic 3: AI-generated art and literature diminish the value of human creativity and cultural authenticity.",
+    "CEG": "",
+    "competitors": "[{\"id\":1,\"members\":[\"Bella Ramsey\",\"Mya Bright\",\"\",\"\",\"\",\"\"]}]",
+    "captain": null
+  }
+},
+{
+  "model": "events.event",
+  "pk": 13,
+  "fields": {
+    "name": "Digital Video Production",
+    "desc": "Participants develop and submit a digital video and a documentation portfolio (including such items as a storyboard, script, summary of references and sources, and equipment list) that reflects the annual theme. Semifinalists participate in an interview.",
+    "prompt": "“A Twist in Time” Create a story that alters a key historical moment—or imagines a character from the past suddenly appearing in the modern day.",
+    "CEG": "",
+    "competitors": "[{\"id\":1,\"members\":[\"Jackson Hedley\",\"Chase Smith\",\"Mya Bright\",\"Ethan Greenbaum\",\"Jade Botello\",\"\"]}]",
+    "captain": null
+  }
+},
+{
+  "model": "events.event",
+  "pk": 14,
+  "fields": {
+    "name": "Dragster Design",
+    "desc": "Participants design, draw, and construct a CO2-powered dragster that adheres to specifications, design and documentation requirements, and the annual theme. Semifinalists compete in a double-elimination race and participate in an interview.",
+    "prompt": "",
+    "CEG": "",
+    "competitors": "[{\"id\":1,\"members\":[\"Kevin Gonzalez\",\"\",\"\",\"\",\"\",\"\"]},{\"id\":2,\"members\":[\"Yanni Ioannou Beihold\",\"\",\"\",\"\",\"\",\"\"]},{\"id\":3,\"members\":[\"Anderson Naeger\",\"\",\"\",\"\",\"\",\"\"]}]",
+    "captain": null
+  }
+},
+{
+  "model": "events.event",
+  "pk": 15,
+  "fields": {
+    "name": "Drone Challenge (UAV)",
+    "desc": "Participants design, build, assemble, document, and test fly an open-source Unmanned Arial Vehicle (UAV) according to the stated annual theme/problem specifications. The required documentation portfolio must include elements such as a photographic log, wiring schematics, and a description of the programming software used. Semifinalists participate in an interview.",
+    "prompt": "",
+    "CEG": "",
+    "competitors": "[{\"id\":1,\"members\":[\"Kadon Tran\",\"\",\"Ethan Farnham\",\"Mario Rodriguez\",\"\",\"\"]},{\"id\":2,\"members\":[\"Stephen Beachy\",\"Paul Nelson\",\"Christian Leo\",\"Jacob Welfer\",\"\",\"\"]}]",
+    "captain": null
+  }
+},
+{
+  "model": "events.event",
+  "pk": 16,
+  "fields": {
+    "name": "Engineering Design",
+    "desc": "Participants develop a solution to an annual theme that is based on a specific challenge noted by the National Academy of Engineering (NAE) in its compilation of the grand challenges for engineering in the 21st century. The solution will include a documentation portfolio, a display, and a model/prototype. Semifinalists deliver a presentation and participate in an interview.",
+    "prompt": "Engineering the tools of scientific discovery",
+    "CEG": "",
+    "competitors": "[{\"id\":1,\"members\":[\"Ilan Beliansky\",\"Bella Waleko\",\"Adriana Cuevas\",\"Damiana Hoback\",\"Tessa Kozlowski\",\"\"]}]",
+    "captain": null
+  }
+},
+{
+  "model": "events.event",
+  "pk": 17,
+  "fields": {
+    "name": "Extemporaneous Speech",
+    "desc": "Participants select a technology-related or TSA topic from among three topic cards and prepare and give a three-to-five-minute speech that communicates their knowledge of the chosen topic. The quality of the speech determines advancement to the semifinalist level of competition, for which an identical competition procedure is followed to determine finalists.",
+    "prompt": "",
+    "CEG": "",
+    "competitors": "[{\"id\":1,\"members\":[\"Alexander Avin\",\"\",\"\",\"\",\"\",\"\"]}]",
+    "captain": null
+  }
+},
+{
+  "model": "events.event",
+  "pk": 18,
+  "fields": {
+    "name": "Fashion Design and Technology",
+    "desc": "To address the annual theme, participants demonstrate expertise in fashion design principles by creating a wearable garment, garment patterns, and a documentation portfolio. Semifinalist teams present their garment designs (worn by team models), discuss the design process with evaluators, and respond to interview questions.",
+    "prompt": "Villain Era with one element of the main garment being 3-D printed.",
+    "CEG": "",
+    "competitors": "[{\"id\":1,\"members\":[\"Savannah Wilmer\",\"Elizabeth Carpenter\",\"Harper Hambrick\",\"Sophia Ramirez\",\"\",\"\"]}]",
+    "captain": null
+  }
+},
+{
+  "model": "events.event",
+  "pk": 19,
+  "fields": {
+    "name": "Flight Endurance",
+    "desc": "Participants design, build, fly, and adjust (trim) a rubber-band powered model aircraft to make long endurance flights inside a contained airspace. Documentation (including elements such as attributes of the model design, drawings, and an analysis of the trim modifications), an inspection of the model and the required model flight box, and official times for two flights are aspects of the evaluation",
+    "prompt": "",
+    "CEG": "",
+    "competitors": "[{\"id\":1,\"members\":[\"Anderson Naeger\",\"\",\"\",\"\",\"\",\"\"]},{\"id\":2,\"members\":[\"Joshua Matthew Ratigan\",\"\",\"\",\"\",\"\",\"\"]}]",
+    "captain": null
+  }
+},
+{
+  "model": "events.event",
+  "pk": 20,
+  "fields": {
+    "name": "Forensic Science",
+    "desc": "Participants take a test of basic forensic science to qualify for the semifinal round of competition. Semifinalists examine a mock crime scene and demonstrate their knowledge of forensic science through crime scene analysis, with the findings synthesized in a written report/analysis.",
+    "prompt": "",
+    "CEG": "",
+    "competitors": "[{\"id\":1,\"members\":[\"Savannah Wilmer\",\"\",\"\",\"\",\"\",\"\"]},{\"id\":2,\"members\":[\"Timain Roberts\",\"\",\"\",\"\",\"\",\"\"]},{\"id\":3,\"members\":[\"Selena Kasson\",\"\",\"\",\"\",\"\",\"\"]}]",
+    "captain": null
+  }
+},
+{
+  "model": "events.event",
+  "pk": 21,
+  "fields": {
+    "name": "Future Technology Teacher",
+    "desc": "Participants research a developing technology, prepare a video showing an application of the technology in the classroom, and create a lesson plan/activity that features the application and connects to the Standards for Technological and Engineering Literacy (STEL), as well as STEM initiatives and integration. Semifinalists demonstrate the lesson plan and answer questions about their presentation.",
+    "prompt": "",
+    "CEG": "",
+    "competitors": "[{\"id\":1,\"members\":[\"Tessa Kozlowski\",\"\",\"\",\"\",\"\",\"\"]}]",
+    "captain": null
+  }
+},
+{
+  "model": "events.event",
+  "pk": 22,
+  "fields": {
+    "name": "Geospatial Technology",
+    "desc": "To address the issue presented in an annual theme, participants interpret geospatial data and develop a digital portfolio containing maps, data, and pertinent documentation. Semifinalists defend their projections and visual infographic during a presentation/interview.",
+    "prompt": "Theme: Urban Heat Islands and Cooling Solutions\r\n\r\nIdentify urban heat island (UHI) hotspots in your area using temperature, vegetation, and land use data. Map areas most affected by heat and propose equitable solutions—such as tree planting zones, reflective surfaces, or community cooling centers—especially in vulnerable neighborhoods.",
+    "CEG": "",
+    "competitors": "[{\"id\":1,\"members\":[\"Aditya Warrier\",\"Hannah Aguilar\",\"Alexander Avin\",\"\",\"\",\"\"]}]",
+    "captain": null
+  }
+},
+{
+  "model": "events.event",
+  "pk": 23,
+  "fields": {
+    "name": "Manufacturing Prototype",
+    "desc": "Participants design, fabricate, and use Computer Integrated Manufacturing (CIM) to create a product that addresses the annual theme. A documentation portfolio and the completed product prototype are submitted for evaluation. Semifinalists give a product “sales pitch” and demonstration.",
+    "prompt": "Marble Maze or Puzzle Box",
+    "CEG": "",
+    "competitors": "[{\"id\":1,\"members\":[\"Ethan Farnham\",\"Kadon Tran\",\"Mario Rodriguez\",\"Bella Waleko\",\"Damiana Hoback\",\"\"]}]",
+    "captain": null
+  }
+},
+{
+  "model": "events.event",
+  "pk": 24,
+  "fields": {
+    "name": "Music Production",
+    "desc": "Participants produce an original musical piece that reﬂects the annual theme on the TSA website under Themes & Problems. The quality of the musical piece and required documentation (including elements such as a plan of work, self-evaluation, and a list of hardware, software, and instruments used) determines advancement to the semifinal level of competition, during which semifinalist participants are interviewed.",
+    "prompt": "The year 2026 marks the 250th birthday of the United States. Create a musical piece that can be played as the opening number at a July 4th fireworks show.",
+    "CEG": "",
+    "competitors": "[{\"id\":1,\"members\":[\"Gabby Austin\",\"Megan Taylor\",\"Jacob Welfer\",\"Stephen Beachy\",\"Bella Ramsey\",\"\"]}]",
+    "captain": null
+  }
+},
+{
+  "model": "events.event",
+  "pk": 25,
+  "fields": {
+    "name": "On Demand Video",
+    "desc": "Once participants receive the challenge details (required criteria, such as props and a line of dialogue) at the national TSA conference, they have 36 hours to produce a 60-second film that showcases video skills, tools, and communication processes. The quality of the completed video production determines the finalists.",
+    "prompt": "",
+    "CEG": "",
+    "competitors": "[{\"id\":1,\"members\":[\"Aditya Warrier\",\"\",\"\",\"Khanh Nguyen\",\"\",\"\"]}]",
+    "captain": null
+  }
+},
+{
+  "model": "events.event",
+  "pk": 26,
+  "fields": {
+    "name": "Photographic Technology",
+    "desc": "Participants produce a photographic portfolio - demonstrating expertise in photo and imaging technology processes - to convey a message based on the annual theme. Semifinalists have 24 hours to complete a portfolio of photos (with required documentation) taken onsite at the national TSA conference. Finalists are determined based on the quality of the semifinal portfolio, the portfolio presentation, and interview responses.",
+    "prompt": "Photo Essay Series; Create a series of photos that tell a story",
+    "CEG": "",
+    "competitors": "[{\"id\":1,\"members\":[\"\",\"\",\"\",\"\",\"\",\"\"]}]",
+    "captain": null
+  }
+},
+{
+  "model": "events.event",
+  "pk": 27,
+  "fields": {
+    "name": "Prepared Presentation",
+    "desc": "Participants deliver a three-to-five-minute oral presentation related to the current national TSA conference theme. Both semifinalists and finalists are determined based on the quality of the presentation and the appropriate use and content of the accompanying required slide deck.",
+    "prompt": "Everyone knows the classic game of rock, paper, scissors: rock beats scissors, scissors beat paper, and paper beats rock. At the end of the day, which is the most revolutionary tool? Develop a presentation in which you select one of these three technologies/tools and describe its impact on human civilization.",
+    "CEG": "",
+    "competitors": "[{\"id\":1,\"members\":[\"Megan Taylor\",\"\",\"\",\"\",\"\",\"\"]},{\"id\":2,\"members\":[\"Sophia Ramirez\",\"\",\"\",\"\",\"\",\"\"]},{\"id\":3,\"members\":[\"Bella Waleko\",\"\",\"\",\"\",\"\",\"\"]}]",
+    "captain": null
+  }
+},
+{
+  "model": "events.event",
+  "pk": 28,
+  "fields": {
+    "name": "Promotional Design",
+    "desc": "Participants use computerized graphic communications layout and design skills to produce a promotional resource packet. The resource must address the annual theme/problem and include at least four printed publication items and required documentation. Semifinalists demonstrate publishing competency in an onsite technical design challenge.",
+    "prompt": "Theme: Create promotional materials for a chapter-hosted event in which TSA alumni return to the chapter to share career stories, run workshops, and mentor students. The promotional items must include: \r\n\r\nan event information flyer\r\na social media promotional graphic\r\na name badge template\r\na promotional item of the participant’s choice\r\nParticipants should use the following details in the designs:\r\n\r\nEvent title: “Back to Impact: TSA Alumni Day Celebration”\r\nDate of event: June 2-4, 2026\r\nChapter name: Bluewater Heights School of Innovation TSA\r\nSchool mascot: Jets\r\nAddress: 870 Trail Bend Road, Bluewater Heights, MD 21903",
+    "CEG": "",
+    "competitors": "[{\"id\":1,\"members\":[\"Damiana Hoback\",\"\",\"\",\"\",\"\",\"\"]}]",
+    "captain": null
+  }
+},
+{
+  "model": "events.event",
+  "pk": 29,
+  "fields": {
+    "name": "Robotics",
+    "desc": "Participants design, build, document, and test a robot assembled using open-sourced parts according to stated specifications and to meet the challenge of the yearly theme/problem.",
+    "prompt": "",
+    "CEG": "",
+    "competitors": "[{\"id\":1,\"members\":[\"Anderson Naeger\",\"Paul Nelson\",\"Christian Leo\",\"George Lungay\",\"Jonathan Peat\",\"\"]}]",
+    "captain": null
+  }
+},
+{
+  "model": "events.event",
+  "pk": 30,
+  "fields": {
+    "name": "Senior Solar Sprint",
+    "desc": "Students apply scientific understanding, creativity, experimentation, and teamwork to design, build, and race a model solar vehicle that carries a payload. Documentation of the process is required.",
+    "prompt": "",
+    "CEG": "",
+    "competitors": "[{\"id\":1,\"members\":[\"Kevin Gonzalez\",\"Kyle Clifton\",\"Jesse Ryan Ramsey\",\"\",\"\",\"\"]}]",
+    "captain": null
+  }
+},
+{
+  "model": "events.event",
+  "pk": 31,
+  "fields": {
+    "name": "Software Development",
+    "desc": "Participants use their knowledge of cutting-edge technologies, algorithm design, problem-solving principles, effective communication, and collaboration to design, implement, test, document, and present a software development project of educational or social value. Both semifinalists and finalists are determined based on the quality of the presentation and project.",
+    "prompt": "Develop a software program that removes barriers and increases accessibility for people with vision or hearing disabilities.",
+    "CEG": "",
+    "competitors": "[{\"id\":1,\"members\":[\"George Lungay\",\"Nicholas Marmaro\",\"Gavin Arsenault\",\"Chase Smith\",\"\",\"\"]}]",
+    "captain": null
+  }
+},
+{
+  "model": "events.event",
+  "pk": 32,
+  "fields": {
+    "name": "STEM Mass Media",
+    "desc": "In response to an annual theme, participants use written and verbal communication skills to convey a news story in both a video broadcast (preliminary round) and a digital written format (semifinal round). Participants must demonstrate a strong understanding of journalism etiquette and the common practices of the field of mass media.",
+    "prompt": "Headline: The green past of the Saharo-Arabian Desert: Cave deposits reveal recurring humid periods over eight million years\r\n\r\nBackground: A new study led by the Max Planck Institute for Chemistry has uncovered compelling evidence that the Saharo-Arabian Desert—today one of Earth’s driest regions—experienced multiple periods of significantly wetter climate over the past eight million years. Researchers analyzed speleothems, or cave deposits, from seven Saudi Arabian caves and found chemical clues indicating repeated monsoonal rainfall that transformed the desert into a habitable landscape for thousands of years at a time.\r\nThese wetter intervals likely enabled the migration of mammals, including early human ancestors, between Africa and Eurasia—despite the desert’s role as a natural barrier. The study highlights the powerful influence of climate change on human and animal history, as well as the importance of cave formations as records of ancient weather patterns. Using isotopic analysis and radiometric dating, the team also discovered that the decline of monsoonal rainfall was caused by long-term cooling in the Northern Hemisphere, which shifted rain belts southward.\r\n\r\nPrompt: Based on the following headline, develop a news broadcast that includes an introduction of the headline, a summary of the information in the news story, and an explanation of potential future implications of the highlighted work.\r\nhttps://www.eurekalert.org/news-releases/1079999",
+    "CEG": "",
+    "competitors": "[{\"id\":1,\"members\":[\"Hannah Aguilar\",\"beLLa Ramsey\",\"\",\"\",\"\",\"\"]}]",
+    "captain": null
+  }
+},
+{
+  "model": "events.event",
+  "pk": 33,
+  "fields": {
+    "name": "Structural Design and Engineering",
+    "desc": "Participants apply the principles of structural engineering to design and construct a structure that complies with the annual challenge. An assessment of the required documentation and the destructive testing of the structure (to determine its design efficiency) determine both semifinalists and finalists.",
+    "prompt": "",
+    "CEG": "",
+    "competitors": "[{\"id\":1,\"members\":[\"Gabby Austin\",\"Timain Roberts\",\"\",\"\",\"\",\"\"]}]",
+    "captain": null
+  }
+},
+{
+  "model": "events.event",
+  "pk": 34,
+  "fields": {
+    "name": "System Control Technology",
+    "desc": "Participants develop a solution to a problem (typically one from an industrial setting) presented onsite at the conference. They analyze the problem, build a computer-controlled mechanical model, program the model, demonstrate the programming and mechanical features of the model-solution in an interview, and provide instructions for evaluators to operate the model.",
+    "prompt": "",
+    "CEG": "",
+    "competitors": "[{\"id\":1,\"members\":[\"Kevin Gonzalez\",\"Jesse Ryan Ramsey\",\"Kyle Clifton\",\"\",\"\",\"\"]}]",
+    "captain": null
+  }
+},
+{
+  "model": "events.event",
+  "pk": 35,
+  "fields": {
+    "name": "Technology Bowl",
+    "desc": "Participants demonstrate their knowledge of TSA and concepts addressed in technology content standards by completing an objective test. Semifinalist teams participate in a question/response, head-to-head, team competition.",
+    "prompt": "",
+    "CEG": "",
+    "competitors": "[{\"id\":1,\"members\":[\"Ethan Farnham\",\"Hannah Aguilar\",\"Bella Waleko\",\"\",\"\",\"\"]}]",
+    "captain": null
+  }
+},
+{
+  "model": "events.event",
+  "pk": 36,
+  "fields": {
+    "name": "Technology Problem Solving",
+    "desc": "Participants use problem-solving skills to design and construct a finite solution to a challenge provided onsite at the conference. Solutions are evaluated at the end of 90 minutes using measures appropriate to the challenge, such as elapsed time, horizontal or vertical distance, and/or strength.",
+    "prompt": "",
+    "CEG": "",
+    "competitors": "[{\"id\":1,\"members\":[\"Elizabeth Carpenter\",\"\",\"\",\"\",\"\",\"\"]},{\"id\":2,\"members\":[\"Mario Rodriguez\",\"\",\"\",\"\",\"\",\"\"]},{\"id\":4,\"members\":[\"Kadon Tran\",\"\",\"\",\"\",\"\",\"\"]}]",
+    "captain": null
+  }
+},
+{
+  "model": "events.event",
+  "pk": 37,
+  "fields": {
+    "name": "Transportation Modeling",
+    "desc": "Participants research, design, and produce a scale model of a vehicle that complies with the annual design problem. A display for the model and a documentation portfolio – containing elements such as a description of the vehicle, photographs and commentary detailing the vehicle production, and technical illustrations – are required. Semifinalists participate in an interview.",
+    "prompt": "Design Problem: The Sky is Not the Limit- Next-gen space travel.",
+    "CEG": "",
+    "competitors": "[{\"id\":1,\"members\":[\"Ilan Beliansky\",\"\",\"\",\"\",\"\",\"\"]}]",
+    "captain": null
+  }
+},
+{
+  "model": "events.event",
+  "pk": 38,
+  "fields": {
+    "name": "Video Game Design",
+    "desc": "Participants design, build, and launch an E-rated online video game – with accompanying required documentation - that addresses the annual theme. Semifinalists participate in an interview to demonstrate the knowledge and expertise they gained during the development of the game.",
+    "prompt": "Retro Revival: Reimagine an 8-bit or 16-bit era type of game with a modern twist.",
+    "CEG": "",
+    "competitors": "[{\"id\":1,\"members\":[\"Dominik Dibenedetto\",\"Khanh Nguyen\",\"Michael Dankanich\",\"Alexander Avin\",\"Jackson Hedley\",\"Nicholas Marmaro\"]}]",
+    "captain": null
+  }
+},
+{
+  "model": "events.event",
+  "pk": 39,
+  "fields": {
+    "name": "Virtual Reality Simulation (VR)",
+    "desc": "Participants use video and 3D computer graphics tools and design processes to create a two-to-three-minute VR visualization (accompanied by supporting documentation) that addresses the annual theme. Semifinalists deliver a presentation about their visualization and participate in an interview.",
+    "prompt": "Design an interactive, walk-through VR museum based on a topic in art, history, or technology.",
+    "CEG": "",
+    "competitors": "[{\"id\":1,\"members\":[\"Dominik DiBenedetto\",\"Michael Dankanich\",\"Khanh Nguyen\",\"Ilan Beliansky\",\"\",\"\"]}]",
+    "captain": null
+  }
+},
+{
+  "model": "events.event",
+  "pk": 40,
+  "fields": {
+    "name": "Webmaster",
+    "desc": "Participants design, build, and launch a website that addresses the annual challenge. Semifinalists participate in an interview to demonstrate the knowledge and expertise gained during the development of the website.",
+    "prompt": "Topic: Community Resource Hub\r\n\r\nCreate a website that will serve as a community resource hub to highlight resources available to residents within the community (e.g., non-profits, support services, community events and programs, etc.). Your website should include the following: \r\n\r\nan interactive directory of community resources (resource hub) that allows users to search and filter the resources. \r\na highlight section that spotlights at least three of the community resources you have listed in your resource hub. \r\na form that users can submit to indicate new resources that should be added to the community resources hub. \r\nadditional content to enhance the community resource hub for end users.",
+    "CEG": "",
+    "competitors": "[{\"id\":1,\"members\":[\"Chase Smith\",\"Gavin Arsenault\",\"George Lungay\",\"Sophia Ramirez\",\"Valeria Rosello Tiburcio\",\"\"]}]",
+    "captain": null
+  }
+},
+{
+  "model": "achievements.conference",
+  "pk": 1,
+  "fields": {
+    "name": "Manatee Regionals",
+    "location": "Southeast High School",
+    "date": "2024-12-14",
+    "year": 2024
+  }
+},
+{
+  "model": "achievements.eventachievement",
+  "pk": 1,
+  "fields": {
+    "event": "Chapter Team",
+    "competitors": "['Dominik DiBenedetto', 'Megan Taylor', 'Isabella Ramsey', 'Chaz LaFlair', 'Joseph-Carlo Tsourakis']",
+    "placement": "2nd",
+    "conference": 1,
+    "eventRef": 6
+  }
+},
+{
+  "model": "auth.group",
+  "fields": {
+    "name": "Officer",
+    "permissions": []
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "06klxgh0c51ii3hcvceykaugfwjqc8nz",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCGMogu3fcMZGBAqgaS0q6MdzckXej2v_f-W3jat-L3nla_sLgK0OL0OwaKz1QH4QfVe5Ox1W1dghyKPGiXc-P0uh3u30GhXkaNk8lOEyGhC1qRBZU0RnQcLIR01skaUpZzBkZmIO0uEyoDqKLLWXy-CjQ4Hw:1uwmaY:OYHXReoVm3bJGJSNachYV3RVQW_RWOUsX5iaPljORlQ",
+    "expire_date": "2025-09-25T19:04:10.197Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "06typos5svwopp3dgpnyjijwkbrym628",
+  "fields": {
+    "session_data": ".eJxVjDkOwjAUBe_iGlnecBJK-pwh-ptxANlSnFSIu0OkFNC-mXkvNcG25mlrskwzq4uyVp1-RwR6SNkJ36HcqqZa1mVGvSv6oE2PleV5Pdy_gwwtf2sk52wEI85T9Mk4QMQEAZJ0ZJB7FHQmeh-Gc8DEiSOaoROLIfVErN4fMwY5kg:1uwPo6:IjuVPL5OzRMq6yw-mVb6bbX4GR58tSj4WnJhi8_BYS8",
+    "expire_date": "2025-09-24T18:44:38.051Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "07gribrutiv9br8n9k5fbhmhr9kh5plr",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2pChMkNw6d4zkAEGqRqalHbVeHdt0oVu_3vvbyrwutSwdpnDmNVF0aBOv2Pk9JS2k_zgdp90mtoyj1Hvij5o17cpy-t6uH8HlXv91pjRgwcUIomUDVtIYsUWNg6dMy6B9wkjY0Eqcs4EA1jkWIqQJVbvDwUMOD4:1uwf2b:QskAx0nvob1Vz6XP1HxWYYnRp-KbMzXp4kX8p9REwwU",
+    "expire_date": "2025-09-25T11:00:37.260Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "097egyeiolruprbz7rcosa5ao37t04bh",
+  "fields": {
+    "session_data": ".eJxVjDsOwjAQBe_iGln-rhdKes5g-bPGAWRLcVIh7k4ipYD2zcx7Mx_Wpfp10OynzC5MIzv9jjGkJ7Wd5Edo985Tb8s8Rb4r_KCD33qm1_Vw_w5qGHWrpVIl4RkIkhPGZhsjgAqAGgxSFCRdgYTBCLmJCjRBMSKidVKkLA37fAH4CTd4:1uyJG1:_Tq0RZvJhbZ8qXVTKzTSHgdDl_ajnTMp4x3TYJL2Eog",
+    "expire_date": "2025-09-30T00:09:17.454Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "0fw2jkcn1qoiszzbeoznluodhuvc0h59",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2pAOpUzHpXvPQICZStVAUtqV8e7apAvd_vfefykftjX7rcniZ1ZnBUadfscY0kPKTvgeyq3qVMu6zFHvij5o09fK8rwc7t9BDi1_axMAAYgGnIQYbIcdJ4dxGqy1ZNhElNEBOGcJk2EyJNQLY9-PFqKo9wfcjjcC:1uwNd2:qLgd9TeQOXKl7ZhD3jsCTpEopfmfcvLPAXxj575QHFw",
+    "expire_date": "2025-09-24T16:25:04.121Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "0mx6luv271bowrdrpyd0fxxkvzhambmk",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQRf-FtSGWMjxcuvcbyMAMUjWQlHZl_HfbpAvd3nPOfYuA61LC2nkOE4mLACdOv2PE9OS6E3pgvTeZWl3mKcpdkQft8taIX9fD_Tso2MtW6_OIrKzRlL0DxTlZ7wnYGNzASJpzJJtYGQRjYnRkh0wAjvPg2Cvx-QIkeTjz:1uwPz1:kI3jW7smXzsDrbwLc89m-cW5gTY7C_5OlSIeH-F2zn8",
+    "expire_date": "2025-09-24T18:55:55.931Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "1vktzzbsdrjtxygeposzq1f569lytvv7",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hDK0Ja6dO8ZCMPMSNVAUtqV8e7apAvd_vfef6kQtzWHrfESZlJnBZ06_Y4Y04PLTugey63qVMu6zKh3RR-06Wslfl4O9-8gx5a_NXp048DSOUM22gSCMhKK9QmNmRi5B--RB5DeeEiTYyFIKOCiY-_U-wMwTzkp:1uwPnn:Wh0rlHIDIhKZ2XqwTVpilzoMOtiAc3je7DYw8g7aEGI",
+    "expire_date": "2025-09-24T18:44:19.363Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "1zb3ta2cn295dyh4240ix48bc04bpjf6",
+  "fields": {
+    "session_data": ".eJxVjDkOwjAUBe_iGlnecBJK-pwh-ptxANlSnFSIu0OkFNC-mXkvNcG25mlrskwzq4uyVp1-RwR6SNkJ36HcqqZa1mVGvSv6oE2PleV5Pdy_gwwtf2sk52wEI85T9Mk4QMQEAZJ0ZJB7FHQmeh-Gc8DEiSOaoROLIfVErN4fMwY5kg:1uwJQT:akxXc2RGc92YHwwKg7mFFvsQWmpaY77G-HdyY6upADo",
+    "expire_date": "2025-09-24T11:55:49.347Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "2255e20p6tdr8ihsi60fplemdz7dqs61",
+  "fields": {
+    "session_data": ".eJxVjDsOwjAQRO_iGlnrD_IuJT1nsNY_HEC2FCcV4u4kUgooZ96beQvP61L9OvLspyQuAsXptwscn7ntID243buMvS3zFOSuyIMOeespv66H-3dQedRtXYIlJKNAWR2d0mAwQGQ-F4ouh-A0cbIGEFgRFExEQCZlxGy3AOLzBc5-N1M:1uwJIn:obw8ZPOjeEI2bblKqhKYFxlbJaJm6VeCB5HgRse4n6E",
+    "expire_date": "2025-09-24T11:47:53.346Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "3kkicd8nkmd0fm8srzlo1a8h8w5ts9ke",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQRf-FtSFDeXRw6d5vIANMpWogKe3K-O_apAvd3nPOfYlA21rC1nkJcxZnoQZx-h0jpQfXneQ71VuTqdV1maPcFXnQLq8t8_NyuH8HhXr51s6QQSSLZLx1PIyYtScHwKPNhBq8UwQaIEXlDU4TsTZMHBl1UgDi_QHm5Dec:1uyK8d:BAgy7bEiCjg4gynQ6zU7yVkvcWW296D_WdO3jCoEJCY",
+    "expire_date": "2025-09-30T01:05:43.171Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "3mg3z0t1tlo1i8t3ejkl62mev6nguq05",
+  "fields": {
+    "session_data": ".eJxVjDsOwjAQBe_iGlnx36ak5wzWZneNA8iR4qRC3B0ipYD2zcx7iQzbWvPWeckTibPQQZx-xxHwwW0ndId2myXObV2mUe6KPGiX15n4eTncv4MKvX5razQiMgbngnEKVGSI3lAsA3k_FBV0BKcsF0vWK69VcB50MokSEhvx_gD6vTeD:1uwfch:HBXROVC2VpSiGncmEbTQ8aTAx5Uo4v6QICheXEcWROE",
+    "expire_date": "2025-09-25T11:37:55.650Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "4exthhgeca0mymst5q1k8vtork1lbx4f",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCGMogu3fcMZGBAqgaS0q6MdzckXej2v_f-W3jat-L3nla_sLgK0OL0OwaKz1QH4QfVe5Ox1W1dghyKPGiXc-P0uh3u30GhXkaNk8lOEyGhC1qRBZU0RnQcLIR01skaUpZzBkZmIO0uEyoDqKLLWXy-CjQ4Hw:1uwmaX:xbHpo49nXFfn69r_BV2zTWlQvfG9OnE-5SD7-3NZVbQ",
+    "expire_date": "2025-09-25T19:04:09.483Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "4ffesv56ad0pcajb7zd0a6xaltno5kkf",
+  "fields": {
+    "session_data": ".eJxVjEEOgjAQRe_StWloGcbq0j1nINPOjKCmTSisjHcXEha6_e-9_zYDrcs4rFXmYWJzNa4xp98xUnpK3gk_KN-LTSUv8xTtrtiDVtsXltftcP8ORqrjVp-jOtQLuTYkahEIVT260Kh2EQlSgk6D34hEIYTA4qDpPKoAe2bz-QIUsjiV:1uwJNu:iIgKoOpyvVGNsundxLOR85d_Sw545X722yofqzHr9Ls",
+    "expire_date": "2025-09-24T11:53:10.542Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "4i7h8k9pyeq7c4vhi1ybo6k9ial2qn30",
+  "fields": {
+    "session_data": ".eJxVjE0OwiAYBe_C2hCg5c-le89A-HhUqgaS0q6Md9cmXej2zcx7sRC3tYSt5yXMYGdm2Ol3o5geue4A91hvjadW12Umviv8oJ1fG_Lzcrh_ByX28q2ldFZrZBlHUgoOWio_TF5FSx5DtgCk8074cYJyBC0kaa8SBCVjDXt_ANdTN7E:1uwMJ1:3FF0uxXFzj15pp3cDHjE-B0uwpV0hp00KobDJ8d1dj4",
+    "expire_date": "2025-09-24T15:00:19.531Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "4wipblmpjgxx8faodkv0bynclq2h0lkf",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQRf-FtSGA5TEu3fcbyDAMUjU0Ke3K-O_apAvd3nPOfYmI21rj1nmJUxYX4ZQ4_Y4J6cFtJ_mO7TZLmtu6TEnuijxol-Oc-Xk93L-Dir1-60G5bCxDKWSN00w4QAHnbAB9BqWKQfRUgmafElgdgidnmQCyZqOCeH8AAH43yw:1uwQ52:2sJYSpPLtqhhNTwEh-OQ42A0lq4X_hZR37ofq86YlRE",
+    "expire_date": "2025-09-24T19:02:08.842Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "4wurmn7xoq9l55iatskgtdwuzn4oryct",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2pAOpUzHpXvPQICZStVAUtqV8e7apAvd_vfefykftjX7rcniZ1ZnBUadfscY0kPKTvgeyq3qVMu6zFHvij5o09fK8rwc7t9BDi1_axMAAYgGnIQYbIcdJ4dxGqy1ZNhElNEBOGcJk2EyJNQLY9-PFqKo9wfcjjcC:1uwNck:xzGZg3BbUt_nQ68AnbeTfyxjKTZtR3kZqxZM-Ke1GMk",
+    "expire_date": "2025-09-24T16:24:46.842Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "54wsxm2tcdwvs40wzdnae8p9bz4bd92m",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQRf-FtSFOy_Bw6b7fQBgYpGogKe3K-O_apAvd3nPOfQkftrX4rfPi5yQuArU4_Y4U4oPrTtI91FuTsdV1mUnuijxol1NL_Lwe7t9BCb18a4KUMWIGRgpAZ0oajAMcrbMWSLnMEKMaknLWsR0NQyCN46AM6Qgo3h8XZDfl:1uwPtD:p4F0PtIb9RlfN4ac4xkOBpVZXmBbDoa7T2dAEbZkLX0",
+    "expire_date": "2025-09-24T18:49:55.029Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "557vo5rra5db7xsgw36d12um2xnapm5u",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCGMogu3fcMZGBAqgaS0q6MdzckXej2v_f-W3jat-L3nla_sLgK0OL0OwaKz1QH4QfVe5Ox1W1dghyKPGiXc-P0uh3u30GhXkaNk8lOEyGhC1qRBZU0RnQcLIR01skaUpZzBkZmIO0uEyoDqKLLWXy-CjQ4Hw:1uwqy1:oHWGGsGZrX9KJLgynMORnrrfAaVXw4MVrrnjVATC5Nc",
+    "expire_date": "2025-09-25T23:44:41.665Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "55mp5ltm8l2cx1tcuzf8v2lff40ppnr4",
+  "fields": {
+    "session_data": ".eJxVjDsOwjAQRO_iGlkxXq8XSvqcwVr_cAA5UpxUiLvjSCmgnDdv5i0cb2txW0uLm6K4Co3i9As9h2eqexMfXO-zDHNdl8nLXZFH2-Q4x_S6He7fQeFW-poGRQCMGDBbC5HYZK2ZjLeag-opnDnYZMwAF8UqAXaAoNGQVZnE5wv41zd_:1uwPoi:GDjhuFr-SiYHXIOVjkHnowyR-ewkVTzam1lbd1FOHeo",
+    "expire_date": "2025-09-24T18:45:16.657Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "5fpf7fo2w2jdnc3ibrjqjsgou7eewuw9",
+  "fields": {
+    "session_data": ".eJxVjDkOwjAUBe_iGlk2jjdKes5gff8FB1AiZakQd0eWUkD7Zua9VYF9a2VfeSkjqYuyQZ1-xwr45KkTesB0nzXO07aMVXdFH3TVt5n4dT3cv4MGa-u1ZfYpDymfY0YxSGAdUhaLFIGHkMCJDxKRratDsBBMluy8uEhGQH2-IW84rg:1uwPnK:WGof9O-aZ2EZxLGpG64BOKneTGjSnS1mhUoVohqJuZo",
+    "expire_date": "2025-09-24T18:43:50.192Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "6hshmvvwtpnxagfbvrg36n94vyvyoaax",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2pDSwnRw6d4zkBkGpGpoUtqV8e7apAvd_vfef6lA21rC1tISJlFn5dXpd2OKj1R3IHeqt1nHua7LxHpX9EGbvs6SnpfD_Tso1Mq3HsX2nUvJgrAhJxCR-kiDQQ_UCY7ReEeQhSMLDBlZbGZrLKIBQFDvD_tkOEI:1uwJMT:OqrG90DAX2vMczWoKYe_KYV2kVpmLybp4hGs1QRX6Sc",
+    "expire_date": "2025-09-24T11:51:41.872Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "6qv634xvnul7l5qvq8wroonl4xv801oi",
+  "fields": {
+    "session_data": ".eJxVjE0OwiAYBe_C2hCg5c-le89A-HhUqgaS0q6Md9cmXej2zcx7sRC3tYSt5yXMYGdm2Ol3o5geue4A91hvjadW12Umviv8oJ1fG_Lzcrh_ByX28q2ldFZrZBlHUgoOWio_TF5FSx5DtgCk8074cYJyBC0kaa8SBCVjDXt_ANdTN7E:1uwMJ0:tu5kJO8WQ_-uHZD1ieYtuxtiM6a6rS6_MF0uMdbOLlk",
+    "expire_date": "2025-09-24T15:00:18.140Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "6zjnv8bunqxb5y50i1uvlpnsjyp214k2",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQRf-FtSEwvF269xvIwIBUDU1KuzL-uzbpQrf3nHNfLOK2triNssSJ2Jk5dvrdEuZH6TugO_bbzPPc12VKfFf4QQe_zlSel8P9O2g42rcuNQddCGwCYbVTvlYwAoSyKI3xIqdaNGBQnqShoEAaqZ1JQN55dJa9P9PuNuw:1uwPyT:ajSsq19TnaIPkn4GpEP8balZF3UpOBdeyeDnn5IBvJg",
+    "expire_date": "2025-09-24T18:55:21.703Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "76l7kko8prsn9v4gz9veclcg61drn09i",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAURO_C2hD6EVpcuvcM5MMfbdVAUtqV8e7apAvdzntvXiryuoxxbZjjJOqkrDr8bonzA2UDcudyqzrXssxT0puid9r0pQqe5939Oxi5jd-6txCi3ksPE4hDMgRc2aLzYjoYiBcYP9jgzDHxAOdCl8UnwiCErN4f7LY4YQ:1urEli:iQEaWC-d25iGxDrQD9OfVoi7SbgPwSba9Ldx4iQDfAY",
+    "expire_date": "2025-09-10T11:56:46.644Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "7r1vsjpo4bmbknoa55s42f69wy5ibifw",
+  "fields": {
+    "session_data": ".eJxVjDsOwjAQBe_iGlmJ499S0nMGy-td4wCypTipEHeHSCmgfTPzXiLEbS1h67yEmcRZaCNOvyPG9OC6E7rHemsytbouM8pdkQft8tqIn5fD_TsosZdvDZaA0DuCCbMiPZqJeLCZvU2eB-1QkTHkgJRJmiNOCZwHbUdUmbwW7w8bSzhg:1uwerH:OpTMZX_X6A7qJtQczcEd3C5V12GsFK8Z6ibvYwPRMOA",
+    "expire_date": "2025-09-25T10:48:55.126Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "7t09uamdv4eevla8lfbndmeycx1fjsvq",
+  "fields": {
+    "session_data": ".eJxVjDsOwjAQBe_iGln-J6ak5wzWeneNA8iR4qRC3B0ipYD2zcx7iQTbWtPWeUkTibMwVpx-xwz44LYTukO7zRLnti5TlrsiD9rldSZ-Xg7376BCr986cjHK0-gskwXWmcFiLt6hVhYNeBxVLFCMJaUihEA-gNNxiMGQDoN4fwAkSDgr:1uwPnc:GeqaNXLswtolU5t789QuQiUdLGl0tpFjVcJAxfCW764",
+    "expire_date": "2025-09-24T18:44:08.735Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "8pamp2dxhoqff5vaxo8bwdp4fgjvf85f",
+  "fields": {
+    "session_data": ".eJxVjMsOgjAUBf-la9PYSx_UpXu-gdwXgpqSUFgZ_11JWOj2zMx5mR63dey3qks_ibkYF8zpdyTkh5adyB3LbbY8l3WZyO6KPWi13Sz6vB7u38GIdfzWiTQo4OBC4OwaYBh8igCM7LySIOeoLWtyvkkUfchnQqCEQiBDK-b9ARzROOw:1uwPnI:0h7bToWkDz6H0IByd0senbglmmnWrr9AvzDOWhQg0dE",
+    "expire_date": "2025-09-24T18:43:48.409Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "8qvb059vacvsplvqd8y5iyz40yx3zi76",
+  "fields": {
+    "session_data": ".eJxVjDEOwyAUQ-_CXCE-IRA6ds8Z0IcPJW0FUkimqndvkDK0iyX72X4zh_uW3d7i6hZiVwaCXX5Dj-EZSyf0wHKvPNSyrYvnvcJP2vhcKb5uZ_fvIGPLfU0iWaGGIEdQOAYvAe2kLB2qbdQaJjpMSHYwQpoEAEJiUihDisJI9vkC_VY3zQ:1uyJGu:BsqUY3NBinOzj0uEIpgaq7xhe2fg8R74merxuqvGuGc",
+    "expire_date": "2025-09-30T00:10:12.003Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "94ja2588jq6423cxwtphjqvtms1ut2ol",
+  "fields": {
+    "session_data": ".eJxVjMEOwiAQBf-FsyFQoLAevfcbyAKLVA0kpT0Z_9026UGvM_Pem3nc1uK3ToufE7sy6djlFwaMT6qHSQ-s98Zjq-syB34k_LSdTy3R63a2fwcFe9nXCm0aBCgHSao8SCQSWuedmBwBIKMgI40VCmlMgqwM2jqpA4wZCCz7fAH3OjeP:1uwPpt:KIjNF1lJnDfdfq3QFSct8ByCLZXfPWaAoIikR1_bYfw",
+    "expire_date": "2025-09-24T18:46:29.625Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "96p1z1x7ooh9et76e9kcmaas86suuaeg",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hBoBigu3XsGMjCDVA0kpV013t026UK3_733NxFwXUpYO89hInEVgxWX3zFienE9CD2xPppMrS7zFOWhyJN2eW_E79vp_h0U7GWvs4UxJTDGaST0OmJWGoHYkWID1mqlmD2MnMxAOzWIyqJy5DXkBOLzBR5ZOLU:1uwPnh:Bler6cPvXlrp6NfphdZL7MNDbfe1bn7U5KIcHEhuXhE",
+    "expire_date": "2025-09-24T18:44:13.153Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "9f75lqxdjdm4djzh2bu5o59whg4r925a",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQAP-FsyEtC13w6L3fQIBdpGog6eNk_HdD0oNeZybzFj4ce_HHxqtfSFyFduLyC2NIT67d0CPUe5Op1X1douyJPO0m50b8up3t36CErfQvowZLqLRBg0RmnIwClzNoMDwEUCMDMCaKDIg42Am0G1TEYGNOLD5f4Dg3Xg:1uwsHS:qixUfAXzz_LJTu3eT8jIe46oYrPiIdyqlGK5C5eG6CA",
+    "expire_date": "2025-09-26T01:08:50.090Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "9winulskjhkuxznok7000g05ixj3uh5o",
+  "fields": {
+    "session_data": ".eJxVjDsOwjAQBe_iGlnxGv8o6TmDtd5dcAA5UpxUiLtDpBTQvpl5L5VxXWpeu8x5ZHVSxqrD71iQHtI2wndst0nT1JZ5LHpT9E67vkwsz_Pu_h1U7PVbg4fEQkDBH9nZCJEhJusMxEKGaRBvE4YrFC4ojmSwXsgGMCkWb1i9P_yrOAg:1uwPpm:QU3qS0XkRfXRLcYSY1SW4Jf2eh2gi3GsieBprFfbSxQ",
+    "expire_date": "2025-09-24T18:46:22.276Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "a5t4qmquezn9fdh3fhzf72iapqedbole",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2pAOtAIu3fcMZGYYpGpoUtqV8e7apAvd_vfef6mI21ri1mSJU1IXZZ06_Y6E_JC6k3THeps1z3VdJtK7og_a9DgneV4P9--gYCvfGjo6M9JAwaWQWQxgALZZfGbOXsxAnsELe2PAYh-yMwicoTdkre3U-wM4dzi8:1uwaT8:CzWlvtMtxhzADLMHSe1ojGGctVAV_JCNpcsxolPswnI",
+    "expire_date": "2025-09-25T06:07:42.267Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "ay0bpouqk7is37th6ql2087a5sr5e9lk",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2pCBUgSX7j0DGQZGqgaS0q6Md7dNutDte-__twi4LiWsPc9hSuIi7CBOvzAiPXPdTXpgvTdJrS7zFOWeyMN2eWspv65H-3dQsJdtrZ1DcIPSkEl5TuAVgabReUdn3oAebEImZk_RqowM6MCYUYEhTkZ8vgXXOGc:1uwQQv:V5jT7NhbK_fLRdfXwX248eC8yXU2DmEBHO2iqF-6R_4",
+    "expire_date": "2025-09-24T19:24:45.146Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "bcmu8yprw7rt8ua236yfz8mnm5z9i43l",
+  "fields": {
+    "session_data": ".eJxVjEEOgjAQRe_StWnaKZaOS_ecgUxnpoIaSCisjHdXEha6_e-9_zI9bevQb1WXfhRzMbExp98xEz902oncabrNludpXcZsd8UetNpuFn1eD_fvYKA6fOsQlRXBITuQXBjAQ0oulMJIrW-9RwRyQEFijoHbdJYmKXglxiho3h8CGzfc:1uwR7T:fnCCbeDYcJyWC13KvyOI9IsN7xwJzztPgK0qFhbTNJM",
+    "expire_date": "2025-09-24T20:08:43.965Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "boez4ghtw86nxygxcqy5jfv5c1ze9c73",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2pAOpUzHpXvPQICZStVAUtqV8e7apAvd_vfefykftjX7rcniZ1ZnBUadfscY0kPKTvgeyq3qVMu6zFHvij5o09fK8rwc7t9BDi1_axMAAYgGnIQYbIcdJ4dxGqy1ZNhElNEBOGcJk2EyJNQLY9-PFqKo9wfcjjcC:1uwNcm:8EtxhLLFxW6bTLn78KlawRe7D64C7SOvAbF24SBdP_Q",
+    "expire_date": "2025-09-24T16:24:48.148Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "brdzxhyxmpmumqthk4cfqfg4dz1mytmg",
+  "fields": {
+    "session_data": ".eJxVjDsOwjAQBe_iGlnGjn-U9DlDtOtd4wCypTipEHeHSCmgfTPzXmKCbS3T1nmZZhIXYbU4_Y4I6cF1J3SHemsytbouM8pdkQftcmzEz-vh_h0U6OVbRxMpQEadSCtnI6bskgX2YBh5sN7gYAwoxeB1ABfUOetkdbCGgiMl3h8hEjgx:1uyJGD:-sOtGz1gx7mNlv497U4Je7BBss4EtW7T1kRBrb014vs",
+    "expire_date": "2025-09-30T00:09:29.210Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "ci1poarhgp1v0zqv6tk8rl85pm0aqcw1",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hBhgIJL9z0DmRlAqoYmpV0Z765NutDtf-_9l4i4rTVuPS9xSuIijBGn35GQH7ntJN2x3WbJc1uXieSuyIN2Oc4pP6-H-3dQsddvbS04hjMZoqKJfchYEL33rlABzdYZZwZLEABAQ4KESjHSoEAFi0q8PxXMN_g:1uwPul:Ny1tdqYXcoTY5-nHMqwJYykyodF3YbKT8oEJfCX6ibE",
+    "expire_date": "2025-09-24T18:51:31.634Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "crsr51flpyjzq1fx0sualx6v2qqc51ew",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCGMogu3fcMZGBAqgaS0q6MdzckXej2v_f-W3jat-L3nla_sLgK0OL0OwaKz1QH4QfVe5Ox1W1dghyKPGiXc-P0uh3u30GhXkaNk8lOEyGhC1qRBZU0RnQcLIR01skaUpZzBkZmIO0uEyoDqKLLWXy-CjQ4Hw:1uwVpm:C_Iik1g78yI-4PQcOQRUVZEfYEKEf_Lv73SWEl4GkYM",
+    "expire_date": "2025-09-25T01:10:46.781Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "do26fznmezaza0z4068nad6evmr4jc5s",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQRf-FtSE8WhhcuvcbyMAwUjU0Ke3K-O_apAvd3nPOfYmI21rj1ssSJxJnYbw4_Y4J86O0ndAd222WeW7rMiW5K_KgXV5nKs_L4f4dVOz1WwcMI2vPwbIHSMNQcgGTRizOO2vBAHirMiMSAxAhK_DGsNOaVEgo3h8PGjha:1uwPni:dqGRPitm8Oaf6H5hPoXVMahgN41Su3AZngo90lV-veQ",
+    "expire_date": "2025-09-24T18:44:14.010Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "dzbgckpo5ogsvi8a5rkjslkodyfdu5mk",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2pAyyBRcuu8ZyACDVA0kpV0Z765NutDtf-_9l_C0rcVvnRc_J3ER2onT7xgoPrjuJN2p3pqMra7LHOSuyIN2ObXEz-vh_h0U6uVbo4pEOiBYm1UmJmUJXFBo9DAym3x2ziAAEqHNQ8aRAZxNgCkFC1q8Pw5AN-g:1ux3d2:fgEKzKaQ77prBJrhOC3-Ul329C7T-Pq0I9fOKlCJhdE",
+    "expire_date": "2025-09-26T13:15:52.970Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "ebi6afltcton4jjz35dd8v8ay83vp8ag",
+  "fields": {
+    "session_data": ".eJxVjMEOwiAQBf-FsyEFCiwevfcbCAuLVA0kpT0Z_9026UGvb2bem_mwrcVvnRY_J3ZlwrHL74ghPqkeJD1CvTceW12XGfmh8JN2PrVEr9vp_h2U0MteZwxpBMxCRjJWAslgB4yAMGrrnI4KgQSiMwCKdktbhSbDkHROGTL7fAEl0zi5:1uwfRA:Ue7whA5Y1dyULOHE11V_rD-HBbLRz-qmNN1ZoTp-KjM",
+    "expire_date": "2025-09-25T11:26:00.616Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "efs21cak1cyt8555a03xz7y30xenesjn",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2pAOpUzHpXvPQICZStVAUtqV8e7apAvd_vfefykftjX7rcniZ1ZnBUadfscY0kPKTvgeyq3qVMu6zFHvij5o09fK8rwc7t9BDi1_axMAAYgGnIQYbIcdJ4dxGqy1ZNhElNEBOGcJk2EyJNQLY9-PFqKo9wfcjjcC:1uwNcn:4OTxmixaHxRxmfV06q6nIfPC3D9r-ECGR56g6lmxd30",
+    "expire_date": "2025-09-24T16:24:49.622Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "ejec1v118jwl9ry3anifk0ss61l8hscr",
+  "fields": {
+    "session_data": ".eJxVjDsOwjAQRO_iGlnGn6xNSc8ZrLV3jQPIkeKkQtydREoBzRTz3sxbRFyXGtfOcxxJXIQFcfotE-Ynt53QA9t9knlqyzwmuSvyoF3eJuLX9XD_Dir2uq2V8WdHioMLdgDtjCnepi18IbCokNlpLIUyJByUZZM8BfCgM2QFID5f9-Y39Q:1uwPvh:ASZZLAQfTyfptRtEUPdBgPB6d-tb009rU3Ha7ZltjMs",
+    "expire_date": "2025-09-24T18:52:29.205Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "emjt6a48ay1nglfthnx9qi2dj98io19r",
+  "fields": {
+    "session_data": ".eJxVjMEOgjAQRP-lZ9MgLUvXo3e_odnubi1qIKFwMv67kHDQzG3em3mbSOtS4lp1joOYi_FgTr9lIn7quBN50HifLE_jMg_J7oo9aLW3SfR1Pdy_g0K1bOug6LKX4KDXBgmIOt3izuggM4BHzSSc-iDKqQH0LXSC7FrW4Bo0ny8XYzhg:1uwPud:6shftOEIyLrvxJsH7NGrzKLkCBBS0QZA1epxdc5dHNA",
+    "expire_date": "2025-09-24T18:51:23.469Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "eti4tvc5ll36ay2rhh1i08hhhtqo45n7",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hBgQmFcuvcMZBhAqgaS0q6Md9cmXej2v_f-SwTa1hq2kZcwJ3EW2onT7xiJH7ntJN2p3brk3tZljnJX5EGHvPaUn5fD_TuoNOq3Nk6D99FFi94g4FSMz-CJmZU23hlVMBXUBBYtQQHFhS2Cmthmo5V4fwDh1Tcn:1uxTez:H2kX-lAfcLPI7lK1HPvYJ5Ok2VIDOB6ijyqH5HpSzpE",
+    "expire_date": "2025-09-27T17:03:37.459Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "g6avbn4itmiewy0h3l5flyp39eu4cdfk",
+  "fields": {
+    "session_data": ".eJxVjDEOwjAMRe-SGUWkCYnNyM4ZKsd2aQElUtNOiLtDpQ6w_vfef5me1mXs16ZzP4k5m2gOv1smfmjZgNyp3KrlWpZ5ynZT7E6bvVbR52V3_w5GauO3xi6IylFwSM77JJgiOAyZNVHMHlxQ5A48OwJg6iIEBo6DnMgNqGzeH9_dOCc:1uyJDp:VurM3cP0ovRwMg-OPBA--rou00eB8_XHeN9ydcvFALI",
+    "expire_date": "2025-09-30T00:07:01.068Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "gb9ogrinwa8lu3ryypecpsga0wy2m0l2",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQRf-FtSEMyMule7-BDAxI1UBS2pXx322TLnR7zrn3zQKuSw3ryHOYiF2YEuz0CyOmZ267oQe2e-ept2WeIt8TftjBb53y63q0fwcVR93WwrsskiJTQKD2YHSOZIuMSTqNCUDYiGcHMgGpjQmK0mTliwOw4Dz7fAEBsTeU:1uwPnm:1Vixp8WdSwJ4YtuSVW_mjHqkKJPzIqzFEITqlRKx5RI",
+    "expire_date": "2025-09-24T18:44:18.115Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "gmtz9o7cy16gechfo2f1jxfsgk28fzsj",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCGMogu3fcMZGBAqgaS0q6MdzckXej2v_f-W3jat-L3nla_sLgK0OL0OwaKz1QH4QfVe5Ox1W1dghyKPGiXc-P0uh3u30GhXkaNk8lOEyGhC1qRBZU0RnQcLIR01skaUpZzBkZmIO0uEyoDqKLLWXy-CjQ4Hw:1uwmab:JxE4qHSkNUc4C5JucbPfowfV8SkMwGA0Jw138OKHqo8",
+    "expire_date": "2025-09-25T19:04:13.099Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "gq5qnmemoy65kgmdayv7lcqsahx1mdq4",
+  "fields": {
+    "session_data": ".eJxVjDsOwjAQBe_iGlngX2JK-pzBeuvd4ABKpDipEHdHllJA-2bmvVXCvpW0V1nTxOqqjFen35GQnzI3wg_M90XnZd7WiXRT9EGrHhaW1-1w_w4Kaml1BBBcRO-zcR0gEsizE297MtbGMzoeQWQAtjn0NMIbd3HRZOqE1ecLM2s5SQ:1uwPqL:BVMPYl0PJeB-ROctrFgFPO7iF71e3eYd8GB4ugtm3vs",
+    "expire_date": "2025-09-24T18:46:57.105Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "gwh67fhdk05crnyyhgxc3zq5po3es8lw",
+  "fields": {
+    "session_data": ".eJxVjLEOAiEQRP-F2hBgAS-W9n4DWXZBTg2XHHeV8d-F5AptpnhvZt4i4L6VsLe0hpnFRWgrTr8wIj1THYYfWO-LpKVu6xzlqMjDNnlbOL2uR_fvoGArfe2IPTrF0QJk5aKGESr5rL2e_BkZ0CSL2VE_BepEsTGckWliBeLzBRBLOMY:1uwPnE:R188oaYPRXdpr8MOJnGZKVvEqyxbdJdMAB17fInV5gw",
+    "expire_date": "2025-09-24T18:43:44.518Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "h3pfs7au9o08qwqyimxr3wllkdduqma7",
+  "fields": {
+    "session_data": ".eJxVjDsOwjAQBe_iGln-rhdKes5g-bPGAWRLcVIh7k4ipYD2zcx7Mx_Wpfp10OynzC5MIzv9jjGkJ7Wd5Edo985Tb8s8Rb4r_KCD33qm1_Vw_w5qGHWrpVIl4RkIkhPGZhsjgAqAGgxSFCRdgYTBCLmJCjRBMSKidVKkLA37fAH4CTd4:1uyJG3:KrykOVhF_2qUz1RkokFVTaLE3tc2EYmAOoEPTgPSdao",
+    "expire_date": "2025-09-30T00:09:19.775Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "hb5me6bgnwbvo3cawvozwi5opqq7fkuh",
+  "fields": {
+    "session_data": ".eJxVjDEOwjAMRe-SGUWkCYnNyM4ZKsd2aQElUtNOiLtDpQ6w_vfef5me1mXs16ZzP4k5m2gOv1smfmjZgNyp3KrlWpZ5ynZT7E6bvVbR52V3_w5GauO3xi6IylFwSM77JJgiOAyZNVHMHlxQ5A48OwJg6iIEBo6DnMgNqGzeH9_dOCc:1uyJDn:hC0wcN62Tn9tSL4bzkUVqsLAGfulBWii5rxEqyke4wk",
+    "expire_date": "2025-09-30T00:06:59.361Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "hg93vqiqxmt346e7nl6axojz5fghe2bt",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2pACMqBL9z0DGZhBqgaS0q6Md7dNutDtf-_9twi4LiWsnecwkbgKJU6_W8T05LoDemC9N5laXeYpyl2RB-1ybMSv2-H-HRTsZaut1UiJtaOsDZAxTGYAz8pmhWckYubsLpsAYChFUN47dGnI5CODF58vAaU40w:1uwAHC:rEOw1A-s-0o7Uf2gKpEZJYBO4E7Pg0ElCFwOuu7ePYk",
+    "expire_date": "2025-09-24T02:09:38.273Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "hm26czfmyoogm7s6xamj7p50uf13xnok",
+  "fields": {
+    "session_data": ".eJxVjDkOwjAUBe_iGlk2XqGkzxmsv9g4gBIpTirE3YmlFNDOzHtvkWBba9paXtLI4iq8FqdfiEDPPHXDD5jus6R5WpcRZU_kYZscZs6v29H-HVRodV9n4zyQtozaBi72UgxpwyV2DAa9I-QQFTqlLYFyBN6hDxDN2e5afL4e_zhS:1uwQ5D:9SgZNS9Wo6o4Ul-4OTwrQQulwB6fdXd8d049CiMB34k",
+    "expire_date": "2025-09-24T19:02:19.525Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "hsqx3rpeqt2pn2hrb51hsbm2ve44w26r",
+  "fields": {
+    "session_data": ".eJxVjDsOwjAQBe_iGll21rExJX3OED17FxxAjpRPhbg7iZQC2jcz7616rEvp11mmfmB1UTao0--YkJ9Sd8IP1Puo81iXaUh6V_RBZ92NLK_r4f4dFMxlq2GQITcWkFgKzoOSdyY7SOsy29ZEgpxDExM4bl7jDYJ1IVAmIlafLzf7OLA:1uwPpo:gOhleQS2cvrASrV5jLnfk4M5unfYAIJw56NmoKRMlZU",
+    "expire_date": "2025-09-24T18:46:24.864Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "hxku5ts9t18wdtjrmbv30899yjp9dh9d",
+  "fields": {
+    "session_data": ".eJxVjDsOwjAQBe_iGlnx36ak5wzWZneNA8iR4qRC3B0ipYD2zcx7iQzbWvPWeckTibPQQZx-xxHwwW0ndId2myXObV2mUe6KPGiX15n4eTncv4MKvX5razQiMgbngnEKVGSI3lAsA3k_FBV0BKcsF0vWK69VcB50MokSEhvx_gD6vTeD:1uwfcg:3eGLe2rj6kqhpObctznhtbOIXnJqCIlwnLLVD7H_5EI",
+    "expire_date": "2025-09-25T11:37:54.642Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "itv9fow4c8oiq4hjls0jp4midt9ohfl6",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAURO_C2hD6EVpcuvcM5MMfbdVAUtqV8e7apAvdzntvXiryuoxxbZjjJOqkrDr8bonzA2UDcudyqzrXssxT0puid9r0pQqe5939Oxi5jd-6txCi3ksPE4hDMgRc2aLzYjoYiBcYP9jgzDHxAOdCl8UnwiCErN4f7LY4YQ:1uts5V:902iGeilskQVHeEYIfY1XhohydVOR59rmxoqBcbe07s",
+    "expire_date": "2025-09-17T18:20:05.412Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "jc478icg8e8u6p4kx5q1k7dpfk7mhqms",
+  "fields": {
+    "session_data": ".eJxVjDsOwjAQBe_iGlnrTfyjpOcM1tre4ACypTipEHeHSCmgfTPzXiLQtpawdV7CnMVZoBOn3zFSenDdSb5TvTWZWl2XOcpdkQft8toyPy-H-3dQqJdvbfUwoPLecDJ6yqNxyMRkLcXknY4w6oQTaB6UNU6lCBmQkBySAgIU7w_5mzeS:1uy9nB:higIIguUbWWFaKflg0NgWQuKY4mIukC5YxQFsk4RaoA",
+    "expire_date": "2025-09-29T14:02:53.710Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "jg3so4wbequ0yg2a9y8uvmqifs9q4zlx",
+  "fields": {
+    "session_data": ".eJxVjDsOwjAQBe_iGln-ah1Kes5g7dprHEC2FCcV4u4QKQW0b2beS0Tc1hq3wUucszgLZ8XpdyRMD247yXdsty5Tb-syk9wVedAhrz3z83K4fwcVR_3WmLxnPYFBdDSx1hZCZlQ5gNUhEBqvilFQkkXjDJBlqzWBIpORoIj3Bwd4OBk:1uwQDD:X5ZCDMATdy4Y0o5ZWH3L5idW9VufjTGXHuvjrkpX48g",
+    "expire_date": "2025-09-24T19:10:35.145Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "k08l9zwfgxlwzspj6nuf98g91gvmdryc",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCGMogu3fcMZGBAqgaS0q6MdzckXej2v_f-W3jat-L3nla_sLgK0OL0OwaKz1QH4QfVe5Ox1W1dghyKPGiXc-P0uh3u30GhXkaNk8lOEyGhC1qRBZU0RnQcLIR01skaUpZzBkZmIO0uEyoDqKLLWXy-CjQ4Hw:1uwfKx:VSzMRlEQzdCngOTi0l3dVlS1j_iwgX2gR2mNZkVuA9M",
+    "expire_date": "2025-09-25T11:19:35.607Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "k85ryqjs2jxq7ayn4e8305eaegsh3u08",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hAoTAGX7j0DGZhBqoYmpV0Z765NutDtf-_9l4i4rTVunZc4kTiLYRCn3zFhfnDbCd2x3WaZ57YuU5K7Ig_a5XUmfl4O9--gYq_f2gIV5U1JnoB0BhsyZ-YCzo0By1hUMhAsm0Lea8eGPZBFp1AZjYnE-wMnUTjY:1uwPnb:_XwDuknJdT_C-s5de3M4tIUdeKmG7cygFmK7SKy_bxg",
+    "expire_date": "2025-09-24T18:44:07.523Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "kbgpsfujffo7hp3idcaspuaw9kxb6sjj",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2pAOpUzHpXvPQICZStVAUtqV8e7apAvd_vfefykftjX7rcniZ1ZnBUadfscY0kPKTvgeyq3qVMu6zFHvij5o09fK8rwc7t9BDi1_axMAAYgGnIQYbIcdJ4dxGqy1ZNhElNEBOGcJk2EyJNQLY9-PFqKo9wfcjjcC:1uwNcz:SxCpDlpoAqJyxQp8iMyGo4IWcWlJVUZ-pCRFm6F0VeA",
+    "expire_date": "2025-09-24T16:25:01.176Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "kdtb0y2cpv0wgdfupjgpqwixif3h9k5l",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2pAOpUzHpXvPQICZStVAUtqV8e7apAvd_vfefykftjX7rcniZ1ZnBUadfscY0kPKTvgeyq3qVMu6zFHvij5o09fK8rwc7t9BDi1_axMAAYgGnIQYbIcdJ4dxGqy1ZNhElNEBOGcJk2EyJNQLY9-PFqKo9wfcjjcC:1uwNcq:Yc2L1b8BIDdHHSGJqqxMO4Li-nSPHhvTStVZD-BjgwI",
+    "expire_date": "2025-09-24T16:24:52.754Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "kqt2awq1pph65yttxl0hpjwuqbex0jky",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQRf-FtSEwvF269xvIwIBUDU1KuzL-uzbpQrf3nHNfLOK2triNssSJ2Jk5dvrdEuZH6TugO_bbzPPc12VKfFf4QQe_zlSel8P9O2g42rcuNQddCGwCYbVTvlYwAoSyKI3xIqdaNGBQnqShoEAaqZ1JQN55dJa9P9PuNuw:1uwJBO:LUV6K8oHFVM6lThCtqL6LR49kqTqv-Q7tvWgiCVfqeg",
+    "expire_date": "2025-09-24T11:40:14.392Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "l54d2fmlci4nc1v70xjm5ftj6sipxkp7",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAURO_C2hD6EVpcuvcM5MMfbdVAUtqV8e7apAvdzntvXiryuoxxbZjjJOqkrDr8bonzA2UDcudyqzrXssxT0puid9r0pQqe5939Oxi5jd-6txCi3ksPE4hDMgRc2aLzYjoYiBcYP9jgzDHxAOdCl8UnwiCErN4f7LY4YQ:1uwJ8c:sCVEtMgFFipJxwDUDItCCcxeNiY991sppmdXCuTOp5w",
+    "expire_date": "2025-09-24T11:37:22.888Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "l808tpvln4wfuvzmaazfr6ah6wc0kehy",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2pAOpUzHpXvPQICZStVAUtqV8e7apAvd_vfefykftjX7rcniZ1ZnBUadfscY0kPKTvgeyq3qVMu6zFHvij5o09fK8rwc7t9BDi1_axMAAYgGnIQYbIcdJ4dxGqy1ZNhElNEBOGcJk2EyJNQLY9-PFqKo9wfcjjcC:1uwNcj:vk7mZVwXeOHP8Lr24czbTEZXvr2apgCJwRhHE02zfQM",
+    "expire_date": "2025-09-24T16:24:45.463Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "loqpnzdq3wci2iiqa9fc7jazmg3grivc",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAURO_C2hD6EVpcuvcM5MMfbdVAUtqV8e7apAvdzntvXiryuoxxbZjjJOqkrDr8bonzA2UDcudyqzrXssxT0puid9r0pQqe5939Oxi5jd-6txCi3ksPE4hDMgRc2aLzYjoYiBcYP9jgzDHxAOdCl8UnwiCErN4f7LY4YQ:1urEjZ:5X3yQu_I-WoOmLHL7pGDxSaABmKGBZaN7M2IefTFZWw",
+    "expire_date": "2025-09-10T11:54:33.681Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "n6eo5cfuqpvgglg47mc82s96szwe6ph0",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2pAOpUzHpXvPQICZStVAUtqV8e7apAvd_vfefykftjX7rcniZ1ZnBUadfscY0kPKTvgeyq3qVMu6zFHvij5o09fK8rwc7t9BDi1_axMAAYgGnIQYbIcdJ4dxGqy1ZNhElNEBOGcJk2EyJNQLY9-PFqKo9wfcjjcC:1uwMfu:p2kb5shSI_pkzvOMIQsSqh5Q3J6MWg0o9pJ2Bg08_E0",
+    "expire_date": "2025-09-24T15:23:58.159Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "n74gkbpa5pivx1nkue3hn0nkjw0jares",
+  "fields": {
+    "session_data": ".eJxVjMsOgjAUBf-la9PYSx_UpXu-gdwXgpqSUFgZ_11JWOj2zMx5mR63dey3qks_ibkYF8zpdyTkh5adyB3LbbY8l3WZyO6KPWi13Sz6vB7u38GIdfzWiTQo4OBC4OwaYBh8igCM7LySIOeoLWtyvkkUfchnQqCEQiBDK-b9ARzROOw:1uwPoA:0FCcDLfd0ligLwZ26SnNwbIYUF1ZAZH-KMi8_SeUusA",
+    "expire_date": "2025-09-24T18:44:42.056Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "n891go0gnxk63pkws4qnzngnu4pb3neh",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAURO_C2hD6EVpcuvcM5MMfbdVAUtqV8e7apAvdzntvXiryuoxxbZjjJOqkrDr8bonzA2UDcudyqzrXssxT0puid9r0pQqe5939Oxi5jd-6txCi3ksPE4hDMgRc2aLzYjoYiBcYP9jgzDHxAOdCl8UnwiCErN4f7LY4YQ:1uts5W:u504Zz9UJsPushilvX-D7juOAmowsXCuy4gV4ohE5AM",
+    "expire_date": "2025-09-17T18:20:06.669Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "oa6ejgkhmvsta3yf6htnkwhb0mzyq9lx",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQRf-FtSE8WhhcuvcbyMAwUjU0Ke3K-O_apAvd3nPOfYmI21rj1ssSJxJnYbw4_Y4J86O0ndAd222WeW7rMiW5K_KgXV5nKs_L4f4dVOz1WwcMI2vPwbIHSMNQcgGTRizOO2vBAHirMiMSAxAhK_DGsNOaVEgo3h8PGjha:1uwPpN:jTiyZMtd3xbztDolw1h2GIT66CQvnt2j0ZAVzQZelew",
+    "expire_date": "2025-09-24T18:45:57.605Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "ocxmupfg24kvfjsmszmtpciw2iz3e5yi",
+  "fields": {
+    "session_data": ".eJxVjE0OwiAYBe_C2hCg5c-le89A-HhUqgaS0q6Md9cmXej2zcx7sRC3tYSt5yXMYGdm2Ol3o5geue4A91hvjadW12Umviv8oJ1fG_Lzcrh_ByX28q2ldFZrZBlHUgoOWio_TF5FSx5DtgCk8074cYJyBC0kaa8SBCVjDXt_ANdTN7E:1uwLcN:9xsN1fHseTgEFLk68uwcEOP8wQcbvwizxkjy7xE1OIw",
+    "expire_date": "2025-09-24T14:16:15.335Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "pnmgprutxx3qojezeluc97k80cimg90q",
+  "fields": {
+    "session_data": ".eJxVjE0OwiAYBe_C2hCg5c-le89A-HhUqgaS0q6Md9cmXej2zcx7sRC3tYSt5yXMYGdm2Ol3o5geue4A91hvjadW12Umviv8oJ1fG_Lzcrh_ByX28q2ldFZrZBlHUgoOWio_TF5FSx5DtgCk8074cYJyBC0kaa8SBCVjDXt_ANdTN7E:1uwJ88:zbGOlua_u_jakLus7sVoWedpkwP-DJzl0MExiG1W1DY",
+    "expire_date": "2025-09-24T11:36:52.684Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "pwgk1vctyzwnupwl5yovovk0oi3lnugc",
+  "fields": {
+    "session_data": ".eJxVjM0OwiAQhN-FsyGwFVg8evcZGthdpGpo0p-T8d1tkx40mdN838xb9Wldar_OMvUDq4uCqE6_ZU70lLYTfqR2HzWNbZmGrHdFH3TWt5HldT3cv4Oa5rqtMYcOAc_GQyFESyiliNmShTtjQucSWxITGDBCzI4jeRCwnrxzQX2-CwE36g:1uwPnk:8tG74Nz6bdsM1g1i12g3G8hxbm3IfZfi5fMvCYYflvk",
+    "expire_date": "2025-09-24T18:44:16.929Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "q0fqgqcvs9hjstb7luwhu7ntwuneqp54",
+  "fields": {
+    "session_data": ".eJxVjMsOgjAUBf-la9PQ9taCS_d8A7mvWtRAQmFl_HclYaHbMzPnZQbc1jJsVZdhFHMxwZvT70jID512InecbrPleVqXkeyu2INW28-iz-vh_h0UrOVbN4ycOsU2g2YFT00-59AyaEzCIOA8JO3IK2IgdoFDip6ctFEUYjLvDzhBOPQ:1uwPt2:PwQdkQtFmx8HwNE_Ne9MC_5UHIUVYtmR-hXHko-cvfg",
+    "expire_date": "2025-09-24T18:49:44.784Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "q3d5n9odsv7rvfvavt14jutjva8gjp7z",
+  "fields": {
+    "session_data": ".eJxVjDEOwjAMRe-SGUWkCYnNyM4ZKsd2aQElUtNOiLtDpQ6w_vfef5me1mXs16ZzP4k5m2gOv1smfmjZgNyp3KrlWpZ5ynZT7E6bvVbR52V3_w5GauO3xi6IylFwSM77JJgiOAyZNVHMHlxQ5A48OwJg6iIEBo6DnMgNqGzeH9_dOCc:1uwinz:1frEyzJu7C8ilJfydVhsF4XJPBP4cT6tMRJmuUhNufo",
+    "expire_date": "2025-09-25T15:01:47.330Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "skimfz0h7itruvzxde150pyjh1r5d6kg",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hBIC2VcuvcMZJgZpGogKe3KeHdt0oVu_3vvv1TEbS1x67LEmdVZuUmdfseE9JC6E75jvTVNra7LnPSu6IN2fW0sz8vh_h0U7OVb0xRICDnzaB0CB0vsvDjDWQYBCJhy4MF4JPKAjgDDmFJCw5DZinp_AFSWOik:1uwPtn:be9YQLtrGl1fT3fA_VWay9IUiVsUq3pa_jXAoStG2jM",
+    "expire_date": "2025-09-24T18:50:31.475Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "t0hzqj5dop9i9atc1o0gztnx2y6gwnia",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hDKDLS4dO8ZCDMDUjVtUtqV8e7apAvd_vfef6mYtrXGreUljqLOyoE6_Y6U-JGnncg9TbdZ8zyty0h6V_RBm77Okp-Xw_07qKnVb-27EjyxQLYuG5DiCMOQpHDAri8GPRLAkDrLpnfIRJ4tlFAg92hR1PsDFiQ4Ow:1uwQ8S:P1XdocE6PvOvjWaoiJgLlMSFLFdqnzlYXYjdK4EQyIM",
+    "expire_date": "2025-09-24T19:05:40.670Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "u3el79706c5lwbeesdmcmk3cnx4o3pwm",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2pAOpUzHpXvPQICZStVAUtqV8e7apAvd_vfefykftjX7rcniZ1ZnBUadfscY0kPKTvgeyq3qVMu6zFHvij5o09fK8rwc7t9BDi1_axMAAYgGnIQYbIcdJ4dxGqy1ZNhElNEBOGcJk2EyJNQLY9-PFqKo9wfcjjcC:1uwNdB:uA36y_UE6Ote0HZaWQaFjlFd9wKVwN0oESkvpwxAth4",
+    "expire_date": "2025-09-24T16:25:13.212Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "v4c1lr1plkm78w2smgsnfif9kkapu9ww",
+  "fields": {
+    "session_data": ".eJxVjDsOwjAQBe_iGlnrTfyjpOcM1tre4ACypTipEHeHSCmgfTPzXiLQtpawdV7CnMVZoBOn3zFSenDdSb5TvTWZWl2XOcpdkQft8toyPy-H-3dQqJdvbfUwoPLecDJ6yqNxyMRkLcXknY4w6oQTaB6UNU6lCBmQkBySAgIU7w_5mzeS:1uy9nD:Vd_ElO0bj_db1v7gKhIOHT_YeDpneOIZ5oqpSNhfdog",
+    "expire_date": "2025-09-29T14:02:55.416Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "v5knfbe2csis8eae2vx6vow5uevudo5d",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQRf-FtSHDlPJw6d5vIANMpWogKe3K-O_apAvd3nPOfYlA21rC1nkJcxZngVqcfsdI6cF1J_lO9dZkanVd5ih3RR60y2vL_Lwc7t9BoV6-NURMlgdnBgcODZNi1tYmnEZWqDEbdJk1R4BROwBnvMcBvZq8T4ZIvD_rSTcf:1uwPq7:V7kJyiefLavFOdpDAMCWJzEqlC0Jxee8XgiCm8muyR0",
+    "expire_date": "2025-09-24T18:46:43.668Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "v6fhzrz6auz81dyoa28zh85m9ni6qicu",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQRf-FtSE8WhhcuvcbyMAwUjU0Ke3K-O_apAvd3nPOfYmI21rj1ssSJxJnYbw4_Y4J86O0ndAd222WeW7rMiW5K_KgXV5nKs_L4f4dVOz1WwcMI2vPwbIHSMNQcgGTRizOO2vBAHirMiMSAxAhK_DGsNOaVEgo3h8PGjha:1uwPpM:KcHu5lyOX3Mnck15qAJziMhC_Zd_CkuSjQZeWcYeS9I",
+    "expire_date": "2025-09-24T18:45:56.437Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "v7w3qyxopdil8su8fsh42ddmgn0676bc",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCgQMWl-56BzDCDVA0kpV0Z765NutDtf-_9l4iwrSVunZc4k7gIq8Tpd0RID647oTvUW5Op1XWZUe6KPGiXUyN-Xg_376BAL9866wyBrDFEVmmfaGCDQx6dVwZ9do44W8dIOGjrA7Af_dmxMTqQBh3E-wMa0jgz:1uwPsJ:xAhlcS9HGDG-tlI1W21w73xTIT0vOymG2ShNt8SIpMk",
+    "expire_date": "2025-09-24T18:48:59.020Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "wczf64l27c596axfuj984prz61hxq7f0",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2pAOpUzHpXvPQICZStVAUtqV8e7apAvd_vfefykftjX7rcniZ1ZnBUadfscY0kPKTvgeyq3qVMu6zFHvij5o09fK8rwc7t9BDi1_axMAAYgGnIQYbIcdJ4dxGqy1ZNhElNEBOGcJk2EyJNQLY9-PFqKo9wfcjjcC:1uwNcp:mLZWDzhFIRP3L4ARp7wM-xLG0Et1_rslKLEFt1Phvrs",
+    "expire_date": "2025-09-24T16:24:51.141Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "xnvu2tr52fomfiqw3b1gx9zfhzpbomvu",
+  "fields": {
+    "session_data": ".eJxVjDEOwjAMRe-SGUWkCYnNyM4ZKsd2aQElUtNOiLtDpQ6w_vfef5me1mXs16ZzP4k5m2gOv1smfmjZgNyp3KrlWpZ5ynZT7E6bvVbR52V3_w5GauO3xi6IylFwSM77JJgiOAyZNVHMHlxQ5A48OwJg6iIEBo6DnMgNqGzeH9_dOCc:1uyJDl:_uomq3_Wah439Ke9qZYXkaDifrQSbdu9CdATe6DenqE",
+    "expire_date": "2025-09-30T00:06:57.691Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "xs512m8dprznfcwo35cu5vs6ypfnv4yv",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hBhgIJL9z0DmRlAqoYmpV0Z765NutDtf-_9l4i4rTVuPS9xSuIijBGn35GQH7ntJN2x3WbJc1uXieSuyIN2Oc4pP6-H-3dQsddvbS04hjMZoqKJfchYEL33rlABzdYZZwZLEABAQ4KESjHSoEAFi0q8PxXMN_g:1uwPun:4DOsNEXOLPtUbUoItPNTpFjEpEVkVlzaG0m1ZJIkOhw",
+    "expire_date": "2025-09-24T18:51:33.620Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "y0rzrgwlhyzzb00t94d4um00nn0usz92",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2pAOpUzHpXvPQICZStVAUtqV8e7apAvd_vfefykftjX7rcniZ1ZnBUadfscY0kPKTvgeyq3qVMu6zFHvij5o09fK8rwc7t9BDi1_axMAAYgGnIQYbIcdJ4dxGqy1ZNhElNEBOGcJk2EyJNQLY9-PFqKo9wfcjjcC:1uwNcs:SzCF_Ab2-v3TD8aUu8Q9s-FSrX0VtuVy9eZr8ZGI01c",
+    "expire_date": "2025-09-24T16:24:54.437Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "y7yq40ngkg4kv3vtt2fqjo7160kwmtit",
+  "fields": {
+    "session_data": ".eJxVjMsOgjAUBf-la9PQ9taCS_d8A7mvWtRAQmFl_HclYaHbMzPnZQbc1jJsVZdhFHMxwZvT70jID512InecbrPleVqXkeyu2INW28-iz-vh_h0UrOVbN4ycOsU2g2YFT00-59AyaEzCIOA8JO3IK2IgdoFDip6ctFEUYjLvDzhBOPQ:1uwPt3:tKxApio0sQgC5x197JF2SVu79XoAT8cN_jVLmejJVFY",
+    "expire_date": "2025-09-24T18:49:45.663Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "y837il7mpqam13qpqav03gcb18yfyyos",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hCGMogu3fcMZGBAqgaS0q6MdzckXej2v_f-W3jat-L3nla_sLgK0OL0OwaKz1QH4QfVe5Ox1W1dghyKPGiXc-P0uh3u30GhXkaNk8lOEyGhC1qRBZU0RnQcLIR01skaUpZzBkZmIO0uEyoDqKLLWXy-CjQ4Hw:1uwmaZ:gDH5tleYUozBgcgNo9lOYdlYFNPYLDc1dy6VN40RQqk",
+    "expire_date": "2025-09-25T19:04:11.015Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "y8obdxhfkmjojghe51g4enmnl8ze99z9",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2hBhgIJL9z0DmRlAqoYmpV0Z765NutDtf-_9l4i4rTVuPS9xSuIijBGn35GQH7ntJN2x3WbJc1uXieSuyIN2Oc4pP6-H-3dQsddvbS04hjMZoqKJfchYEL33rlABzdYZZwZLEABAQ4KESjHSoEAFi0q8PxXMN_g:1uwPum:xGR3CW1cA1Eq1HkGimjFnqwWF7a3oomscEG3wuRaQMg",
+    "expire_date": "2025-09-24T18:51:32.635Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "ynqv3sl7iof5b8h1x7pb3387t6k1gcya",
+  "fields": {
+    "session_data": ".eJxVjEEOwiAQRe_C2pAOpUzHpXvPQICZStVAUtqV8e7apAvd_vfefykftjX7rcniZ1ZnBUadfscY0kPKTvgeyq3qVMu6zFHvij5o09fK8rwc7t9BDi1_axMAAYgGnIQYbIcdJ4dxGqy1ZNhElNEBOGcJk2EyJNQLY9-PFqKo9wfcjjcC:1uwNcx:DsG7Y1qY0eLbt11IFD_0DdwY1cukJe3_xUuIuKtPuNk",
+    "expire_date": "2025-09-24T16:24:59.388Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "yyvgpd8an86pjv7w69drb1dkec5lkon1",
+  "fields": {
+    "session_data": ".eJxVjDEOwjAMRe-SGUXgxqnDyM4ZKju2SAGlUtNOiLtDpQ6w_vfef7mB16UMa7N5GNWdHZ7c4XcUzg-rG9E719vk81SXeRS_KX6nzV8ntedld_8OCrfyrQWjoHbEaj0DgyQAosBAkZPEXgUDmUIfNaSIXachC8KRycwQxL0_D644Pw:1uwPrf:4NvyD9Nf35yMXO2SLZPPn-ML3u3Cu9OQmUfRPF6M7ik",
+    "expire_date": "2025-09-24T18:48:19.592Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "zd710p72pbxs9su90y0wj1y9ro6385p0",
+  "fields": {
+    "session_data": ".eJxVjDsOwjAQBe_iGlnGjn-U9DlDtOtd4wCypTipEHeHSCmgfTPzXmKCbS3T1nmZZhIXYbU4_Y4I6cF1J3SHemsytbouM8pdkQftcmzEz-vh_h0U6OVbRxMpQEadSCtnI6bskgX2YBh5sN7gYAwoxeB1ABfUOetkdbCGgiMl3h8hEjgx:1uyJGB:nZRbD6iYFC6-HUbC9Av9GgYTrxrfXiq94QsplmNmGDs",
+    "expire_date": "2025-09-30T00:09:27.500Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "zlaa8q3zajm2knm53jqbx4qmjfzsxfk2",
+  "fields": {
+    "session_data": ".eJxVjMsOwiAQRf-FtSHDowN16d5vIANDpWogKe3K-O_apAvd3nPOfYlA21rC1vMSZhZnoUGcfsdI6ZHrTvhO9dZkanVd5ih3RR60y2vj_Lwc7t9BoV6-tQFt2VmywF65wUdEGnlElRVHRiBAk7JXACYmROWTGaY0sY6kGLIT7w_r0jfq:1uwPrR:zj2BxFMSV78BnBYk4v4oYRtIBjFmyiYzw8iKE-xbg1U",
+    "expire_date": "2025-09-24T18:48:05.590Z"
+  }
+},
+{
+  "model": "authentication.member",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$vnXuuktcplH99xcSskSaq7$4weG9KMKSsZjy631nW/2e58PddCuG7RyFcyuBJElBMA=",
+    "last_login": "2025-09-10T11:37:22.798Z",
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-08-27T11:53:58.815Z",
+    "name": "Michael Dankanich",
+    "username": "N434205",
+    "role": "Sergeant At Arms",
+    "strikes": 0,
+    "email": "dankanich.michael@yahoo.com",
+    "groups": [
+      [
+        "Officer"
+      ]
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authentication.member",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$XmpyAjIbIBDbro3dfI3fQt$7OXq7hfp5at+3QiKLYbBUg2dtOo2Z9tWSKM5sIcYxy4=",
+    "last_login": "2025-09-16T00:07:00.989Z",
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-09-10T11:36:50.505Z",
+    "name": "Alexander Avin",
+    "username": "N443333",
+    "role": "Treasurer",
+    "strikes": 0,
+    "email": "akagreat08@gmail.com",
+    "groups": [
+      [
+        "Officer"
+      ]
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authentication.member",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$1uCxKnil19l5ZMoBfihaOZ$HD61KtXzjaRyntkY+kRtrGCvuHq50FMRVvXxLBLwAs4=",
+    "last_login": "2025-09-10T18:55:21.677Z",
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-09-10T11:40:10.915Z",
+    "name": "Ilan Beliansky",
+    "username": "N496155",
+    "role": "Member",
+    "strikes": 0,
+    "email": "beliansky.ilan@gmail.com",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authentication.member",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$8fSoU8E2fUJjgjq5BKozrH$NKcPmRFx+k14k2yAqmqU+WEoo9z6DxtPgDIIvSHNVfc=",
+    "last_login": "2025-09-10T11:47:53.262Z",
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-09-10T11:47:52.037Z",
+    "name": "Bella Ramsey",
+    "username": "N463506",
+    "role": "President",
+    "strikes": 0,
+    "email": "bellaramsey219@gmail.com",
+    "groups": [
+      [
+        "Officer"
+      ]
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authentication.member",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$GgN9X0nF6KIeArbfrQn4um$pNTaxR1h7sAxsAGe8HxiSyutt5pWMu6HEenMVLB6BcY=",
+    "last_login": "2025-09-10T11:51:41.784Z",
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-09-10T11:51:40.899Z",
+    "name": "Elizabeth Carpenter",
+    "username": "N431784",
+    "role": "Reporter",
+    "strikes": 0,
+    "email": "ecarpenter08@icloud.com",
+    "groups": [
+      [
+        "Officer"
+      ]
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authentication.member",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$pWh8iBu0p4lA8r8Q92joC4$YXCpsGbuYlUolyplddltNL4S8mBl6YbsVt9u6qzDrrc=",
+    "last_login": "2025-09-16T00:10:11.911Z",
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-09-10T11:53:08.738Z",
+    "name": "Megan Taylor",
+    "username": "N432119",
+    "role": "Secretary",
+    "strikes": 0,
+    "email": "tedbo926@gmail.com",
+    "groups": [
+      [
+        "Officer"
+      ]
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authentication.member",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$mR1AQrYsc30dlSXWZ0JMNk$sNmtqqba7ebwCd1D/ClOLZ2EfsiKscO4MbC0Hg7Jdlc=",
+    "last_login": "2025-09-10T18:44:38.027Z",
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-09-10T11:55:48.692Z",
+    "name": "Jesse Ryan Ramsey",
+    "username": "N463507",
+    "role": "Member",
+    "strikes": 0,
+    "email": "jesserramsey12@gmail.com",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authentication.member",
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$jqqwS5VQKBnxqUGxGxDj8k$Ub9i4fbxl8onzZ2FvwRKqXXo7qYnk1mqapdwv5Y8i8M=",
+    "last_login": "2025-09-16T01:05:43.162Z",
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-09-10T15:23:56.329Z",
+    "name": "Dominik DiBenedetto",
+    "username": "N501029",
+    "role": "Vice President",
+    "strikes": 0,
+    "email": "dom1475678@gmail.com",
+    "groups": [
+      [
+        "Officer"
+      ]
+    ],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authentication.member",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$OPRTvUBuhREd0X3KbDYlNk$qdVnX0ai0L/T6Y0CyNUroH9M8q62Z67OLCuM+WjrQaE=",
+    "last_login": "2025-09-10T18:46:22.243Z",
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-09-10T18:43:41.641Z",
+    "name": "Jacob Jarvis",
+    "username": "N415344",
+    "role": "Member",
+    "strikes": 0,
+    "email": "jakegj14@icloud.com",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authentication.member",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$NsBqEmgd5dSQ2dLl5teY2G$9FGWuXkICozPiEtbWWFyp55Irbp0gyOHdxlc2/rA4sQ=",
+    "last_login": "2025-09-10T18:43:44.495Z",
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-09-10T18:43:43.454Z",
+    "name": "Ethan Greenbaum",
+    "username": "N485070",
+    "role": "Member",
+    "strikes": 0,
+    "email": "eoot17@icloud.com",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authentication.member",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$a7rOLBLzJxbKYuMv2KCwuZ$TZo7qA73mDANQZwpRoZzpkpIreor460YAyWgxm3nZzY=",
+    "last_login": "2025-09-10T18:44:42.029Z",
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-09-10T18:43:46.321Z",
+    "name": "Timain Roberts",
+    "username": "N434758",
+    "role": "Member",
+    "strikes": 0,
+    "email": "timainrob@gmail.com",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authentication.member",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$Mk1MDF2Hl0KBpVgcQVGX05$dwXXeyhmfmp/zdYM8Yy6mv4d9NNqe/o0JHmTqJclmnc=",
+    "last_login": "2025-09-10T18:43:50.168Z",
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-09-10T18:43:48.882Z",
+    "name": "Ethan Farnham ",
+    "username": "N432249",
+    "role": "Member",
+    "strikes": 0,
+    "email": "betteremailthatisgood@gmail.com",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authentication.member",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$tVB2W0qCBY8HllMPNlKuTm$sHKtPt+bFy5Kn3YMiz1JUhqUQ2DzY+8QqEiDp+nW9v8=",
+    "last_login": "2025-09-13T17:03:37.424Z",
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-09-10T18:43:50.649Z",
+    "name": "Anderson Naeger",
+    "username": "N454663",
+    "role": "Member",
+    "strikes": 0,
+    "email": "andersonnaeger200000@gmail.com",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authentication.member",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$DhqkySRpRd1ytPX75frjB2$JrhjM0+GzDCpJwYVEs+0He+uS9ME0aGHBgDH2heFbok=",
+    "last_login": "2025-09-10T18:46:29.603Z",
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-09-10T18:43:54.643Z",
+    "name": "Aditya Warrier",
+    "username": "N405224",
+    "role": "Member",
+    "strikes": 0,
+    "email": "adi@rainyforest.com",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authentication.member",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$zc2Er6cJJD9wjpE573QpSh$v4cgtFZUwAVyYVUSVeSLiRYBM02OdwFly4DXjQg7UNg=",
+    "last_login": "2025-09-11T11:26:00.588Z",
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-09-10T18:43:57.989Z",
+    "name": "Peyton Mcdonald",
+    "username": "N446547",
+    "role": "Member",
+    "strikes": 0,
+    "email": "peyton.mcdonald11@outlook.com",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authentication.member",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$zTRu6yTtpwpSewxTMR3Jwa$EPL5H89DyX5Xv3I+QZBVBvu8BJIfIkr0pxLvMod5lXA=",
+    "last_login": "2025-09-10T18:48:05.518Z",
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-09-10T18:43:59.058Z",
+    "name": "Nolan Freed",
+    "username": "N501558",
+    "role": "Member",
+    "strikes": 0,
+    "email": "nolanf509@gmail.com",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authentication.member",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$D1cOxNXNTF1okTer7CS47N$mUCiRRkQea8j1uLPbRP7rYTrpzBZtZ5vAudl/eqxQK0=",
+    "last_login": "2025-09-10T18:44:07.500Z",
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-09-10T18:44:04.630Z",
+    "name": "Yanni Ioannou Beihold ",
+    "username": "N468957",
+    "role": "Member",
+    "strikes": 0,
+    "email": "yanni.ioannou.beihold@gmail.com",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authentication.member",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$CRoZVqqwIE4aUf56GOyuMu$SwQ2R4Jtoib0cFtFhZPavsrFoSJjQQFrrxoTqeH3UNY=",
+    "last_login": "2025-09-10T18:44:08.712Z",
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-09-10T18:44:07.574Z",
+    "name": "George Lungay",
+    "username": "N449282",
+    "role": "Member",
+    "strikes": 0,
+    "email": "georgesofficialschoolacc@gmail.com",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authentication.member",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$7ihXnbgSzRKqMapYqAddSw$HlzYMozU6jCopvOlIuECdXCFPzlOgO5/WFUIjGuUIgs=",
+    "last_login": "2025-09-10T18:46:43.643Z",
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-09-10T18:44:08.787Z",
+    "name": "Vivienne Tran",
+    "username": "N493512",
+    "role": "Member",
+    "strikes": 0,
+    "email": "viviennet0907@gmail.com",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authentication.member",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$zQb6l39PIp1LLG1sk7aZsE$jjYlRxN8cE2Z88uf+A5aXu5dPtmZ7tBUhAm6xaEN5QI=",
+    "last_login": "2025-09-10T18:46:57.079Z",
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-09-10T18:44:10.110Z",
+    "name": "Christian Leo",
+    "username": "448061 ",
+    "role": "Member",
+    "strikes": 0,
+    "email": "thatonedude122011@gmail.com",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authentication.member",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$wy3wqJJRJFZxU7prC6rb7Y$XCiWgfgM3rmgsbxKReW7r1ugyJ03ACRN9KEywb50Vbk=",
+    "last_login": "2025-09-10T18:44:13.123Z",
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-09-10T18:44:11.380Z",
+    "name": "Adriana Cuevas ",
+    "username": "N454319",
+    "role": "Member",
+    "strikes": 0,
+    "email": "Adriana.n.cuevas1005@gmail.com",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authentication.member",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$C8sTiVh8UzC42oGyidocJh$LlTrCBmMnXCjLAKf8dntrSknEkoWZkrWHA5R5RbKp14=",
+    "last_login": "2025-09-11T11:37:55.619Z",
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-09-10T18:44:13.185Z",
+    "name": "Tessa Kozlowski ",
+    "username": "N412797",
+    "role": "Member",
+    "strikes": 0,
+    "email": "tessa1117@icloud.com",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authentication.member",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$pFjFpsyQgvfv7IT3xD8XS5$5iI9Np3heGlyV0BT0szPcN+e4o0Jqd6RG/NmHRiocGU=",
+    "last_login": "2025-09-15T14:02:55.391Z",
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-09-10T18:44:14.892Z",
+    "name": "Jonathan Peat",
+    "username": "N455627",
+    "role": "Member",
+    "strikes": 0,
+    "email": "jonathanpeat93@gmail.com",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authentication.member",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$mhFIz81sfUuFh5K8oLBN0U$fiuDJfgq7+NC9GetKp1BxP/pXUOMEiVmZeJo1dh5cmQ=",
+    "last_login": "2025-09-10T18:44:16.905Z",
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-09-10T18:44:16.008Z",
+    "name": "Paul Nelson ",
+    "username": "N448601",
+    "role": "Member",
+    "strikes": 0,
+    "email": "DeadDropPhase3@outlook.com",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authentication.member",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$IwiO0jubwAvWWsq4mt607P$IkpHonZVCRFNSP8kQ8fMr+WLSYNm386IDkVbcqEvXjs=",
+    "last_login": "2025-09-10T18:44:18.092Z",
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-09-10T18:44:17.067Z",
+    "name": "Selena Kasson",
+    "username": "N493720",
+    "role": "Member",
+    "strikes": 0,
+    "email": "selenakasson@gmail.com",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authentication.member",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$G2Iy0stNWCqRpBe9O6CfjX$FOQmUW0Tf4CO2Ek0+0FQ9VSfR975NETgzxJS8xA9ml0=",
+    "last_login": "2025-09-10T18:44:19.332Z",
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-09-10T18:44:18.199Z",
+    "name": "Sophia Ramirez",
+    "username": "N412854",
+    "role": "Member",
+    "strikes": 0,
+    "email": "falconsoccer1@icloud.com",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authentication.member",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$S2VlFIbTA6RYPj7rkK3eNZ$lWOx7x2lVNy/kPyeQLbyfUCssACr0nx7InZxGs/RDWY=",
+    "last_login": "2025-09-10T18:49:45.636Z",
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-09-10T18:44:39.054Z",
+    "name": "Mario Rodriguez",
+    "username": "N433240",
+    "role": "Member",
+    "strikes": 0,
+    "email": "Mariorodriguezgo391@gmail.com",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authentication.member",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$aIBKs3nF3LWRWyGOEuUTD9$CIySqwd8MRGb+LOLg4UDflnse2uatFaChUPjuNF2PkU=",
+    "last_login": "2025-09-10T18:45:16.631Z",
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-09-10T18:45:15.844Z",
+    "name": "Azriel Longbrake",
+    "username": "N431715",
+    "role": "Member",
+    "strikes": 0,
+    "email": "overclockedectoplasmic@gmail.com",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authentication.member",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$QL6NnubPLSsY18Bu2Wpsih$YovZso55137hs0JQ9ZqW4Xe9apj2RvEbdkdFyVAobo8=",
+    "last_login": "2025-09-11T06:07:42.239Z",
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-09-10T18:45:18.234Z",
+    "name": "Marcus Calesa",
+    "username": "N463446",
+    "role": "Member",
+    "strikes": 0,
+    "email": "marcuscalesa250@gmail.com",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authentication.member",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$KGoavKl8vxtNFEvvXcfSeV$rH3nMNeVCEEzWfrfKdaCXfcIcwY9ezCSf0UjLAdpJSA=",
+    "last_login": "2025-09-16T00:09:19.743Z",
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-09-10T18:45:20.033Z",
+    "name": "Damiana Hoback",
+    "username": "N494190",
+    "role": "Member",
+    "strikes": 0,
+    "email": "jadehoback@gmail.com",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authentication.member",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$waHwtALjedWsIcksQxU4u8$8DJepjmO8V1vZEL3JcMbCkfO4/Kpyd263PiniRqIx4s=",
+    "last_login": "2025-09-12T13:15:52.940Z",
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-09-10T18:45:20.761Z",
+    "name": "Dalton Howell",
+    "username": "N449595",
+    "role": "Member",
+    "strikes": 0,
+    "email": "daltonhowell517@gmail.com",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authentication.member",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$wneOCxnRj8WPWDf678CRCY$27Joa+fUbcPIPn68FeihoTH+udoxfjG+OMBcysUks4w=",
+    "last_login": "2025-09-10T18:48:58.997Z",
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-09-10T18:45:23.817Z",
+    "name": "Kyle Clifton",
+    "username": "N439343",
+    "role": "Member",
+    "strikes": 0,
+    "email": "kyleclifton09@gmail.com",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authentication.member",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$RwG1Frs2Kn4xEJL7KBjREY$+VX3oB+LN9FvsunnPhu7mQkr9RrEceToNxIZZU5lCmg=",
+    "last_login": "2025-09-10T19:10:35.123Z",
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-09-10T18:45:31.393Z",
+    "name": "Gabby Austin",
+    "username": "N416070",
+    "role": "Member",
+    "strikes": 0,
+    "email": "boxerpuppy07@gmail.com",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authentication.member",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$EhMkNsmx5o8sM4kYW8wwP4$ZLaYFmYeIBoQ/0MOxcOUHV68Mj6Zd/gU4u9NRdVmSzk=",
+    "last_login": "2025-09-10T18:51:33.587Z",
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-09-10T18:45:33.645Z",
+    "name": "Valeria Rosello Tiburcio ",
+    "username": "N420403",
+    "role": "Member",
+    "strikes": 0,
+    "email": "v.rosellotiburcio@gmail.com",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authentication.member",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$VhHp3U1qRGiIUfITfpvghC$pDkssMU0EtH5CrfF0dC74zXQxtGKcQ+0b7mUKG1VvHI=",
+    "last_login": "2025-09-11T10:48:55.101Z",
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-09-10T18:45:39.831Z",
+    "name": "Joshua Matthew Ratigan",
+    "username": "N451423",
+    "role": "Member",
+    "strikes": 0,
+    "email": "n451423@sarasotacountyschools.net",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authentication.member",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$ZKBQs18qJW0ebec2pEqmY6$LbPVHQPX14eS75Z0++lebY48jxP0hcoqvBJJdpZ99Z8=",
+    "last_login": "2025-09-10T18:51:23.442Z",
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-09-10T18:45:49.178Z",
+    "name": "Jacob Welfer",
+    "username": "N415232",
+    "role": "Member",
+    "strikes": 0,
+    "email": "jjwelfer28@gmail.com",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authentication.member",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$9DYzFE9BGmIOCdojRw0D1M$WZ5mCjz22t5pZ5boX9CEgO242+0ardSi34EC6DfVz4o=",
+    "last_login": "2025-09-10T18:52:29.169Z",
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-09-10T18:45:51.585Z",
+    "name": "Stephen Beachy",
+    "username": "N416157",
+    "role": "Member",
+    "strikes": 0,
+    "email": "n416157@sarasotacountyschools.net",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authentication.member",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$NdytrqTGxM8by5EslQkGx6$dRocEdjnEHROCB5qXxNOmppmi2W1H378fK3cqERvBSI=",
+    "last_login": "2025-09-12T01:08:50.052Z",
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-09-10T18:46:08.538Z",
+    "name": "Kevin Gonzalez",
+    "username": "N442738",
+    "role": "Member",
+    "strikes": 0,
+    "email": "N442738@sarasotacountyschools.net",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authentication.member",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$a961QuHEAVMTvvfh29KSDS$Fe4tzQVO/3M3jgffLuPgJSX48f0w7+Ox+zUWBRFCiOM=",
+    "last_login": "2025-09-10T18:48:19.546Z",
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-09-10T18:48:17.145Z",
+    "name": "Rory Judkins",
+    "username": "N435543",
+    "role": "Member",
+    "strikes": 0,
+    "email": "judkinsrory@gmail.com",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authentication.member",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$Og0vKmxDv6vzYlWHWIBPEg$xlzzNIfKaGvFQlhDx9EWUkUjdnBgfRIYlp1SWsZVw3U=",
+    "last_login": "2025-09-16T00:09:29.178Z",
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-09-10T18:48:53.273Z",
+    "name": "Bella Waleko",
+    "username": "N448323",
+    "role": "Member",
+    "strikes": 0,
+    "email": "Bellawaleko0604@gmail.com",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authentication.member",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$zyRAF0x6JhyROjjHfpUGdz$Q7WjLuERlYXYNF1wOFCGSu7ocY2MogpuxkPu1s7WlF0=",
+    "last_login": "2025-09-10T19:05:40.632Z",
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-09-10T18:49:22.500Z",
+    "name": "Gavin Arsenault ",
+    "username": "N415837",
+    "role": "Member",
+    "strikes": 0,
+    "email": "n415837@sarasotacountyschools.net",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authentication.member",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$03JeHfnnXQmZiKBwwBeXkl$rGaRejVr3oK4zullVsKwJib9MECweHL5TDq486AvpHc=",
+    "last_login": "2025-09-10T18:49:54.993Z",
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-09-10T18:49:53.975Z",
+    "name": "Hannah Aguilar",
+    "username": "N416706",
+    "role": "Member",
+    "strikes": 0,
+    "email": "hannah.aguilar871@gmail.com",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authentication.member",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$GKrsPuzOLmb6d2xPcpD66q$0mRlf1T6CubDdirmBfrBhqO91leR0XiIvigTuxm3b/g=",
+    "last_login": "2025-09-10T18:50:31.446Z",
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-09-10T18:50:30.617Z",
+    "name": "Jade Botello",
+    "username": "N448459",
+    "role": "Member",
+    "strikes": 0,
+    "email": "vibez72359@gmail.com",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authentication.member",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$4fBsVFUjrSwGNzGWRk0ftz$ayfs1W8/T0Uff7lYSWFZlJXUnCjypoYNF2P8rzBpwuE=",
+    "last_login": "2025-09-10T18:55:55.902Z",
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-09-10T18:55:54.644Z",
+    "name": "Christian Blake ",
+    "username": "N458347",
+    "role": "Member",
+    "strikes": 0,
+    "email": "cmblake127@gmail.com",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authentication.member",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$k6gRWmAu6PqV40GU9wGBVI$JjeMGpc8aZ0oV4D6+1vQpYRiPYZLhAN/n0X2wgXl0f4=",
+    "last_login": "2025-09-10T19:02:08.809Z",
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-09-10T19:02:01.664Z",
+    "name": "Nicholas Marmaro",
+    "username": "N441125",
+    "role": "Member",
+    "strikes": 0,
+    "email": "nicholas.marmaro@protonmail.com",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authentication.member",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$Joc2CKGZyEPWHkYC9BZPvN$pbsbOni66dABkJxFJMsU6gxffS/XHQnJmcgEotsV1Qk=",
+    "last_login": "2025-09-10T19:02:19.496Z",
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-09-10T19:02:17.560Z",
+    "name": "Jackson Hedley",
+    "username": "N489338",
+    "role": "Member",
+    "strikes": 0,
+    "email": "wild.hedley@gmail.com",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authentication.member",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$JBhulWY0e5CUQhKrFOYp6D$arkLF38BzrbMqoAIv5z5SmOJHD3XH5EAjTi3ErYuwPY=",
+    "last_login": "2025-09-11T11:00:37.229Z",
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-09-10T19:05:56.341Z",
+    "name": "Lorelei Powell",
+    "username": "N447978",
+    "role": "Member",
+    "strikes": 0,
+    "email": "loreleipow@icloud.com",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authentication.member",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$IJqmIXA0wzGPcpaod38Y2P$LamQNg81mYyeHBC8jClx2NDLAPTuXxpIaoAc8ktU3To=",
+    "last_login": "2025-09-10T19:24:45.125Z",
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-09-10T19:24:44.422Z",
+    "name": "Khanh Nguyen",
+    "username": "N469648",
+    "role": "Member",
+    "strikes": 0,
+    "email": "plxym699@gmail.com",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "authentication.member",
+  "fields": {
+    "password": "pbkdf2_sha256$720000$pWWXxU3GZ3mHGuJbwcmXpr$pG1yIWPbuLcW2Q/ti+yFXJEyvnIS43mhzy1cyu6djqc=",
+    "last_login": "2025-09-10T20:08:43.929Z",
+    "is_superuser": false,
+    "first_name": "",
+    "last_name": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2025-09-10T20:08:43.025Z",
+    "name": "Harper Hambrick",
+    "username": "N469665",
+    "role": "Member",
+    "strikes": 0,
+    "email": "harperhambrick@gmail.com",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 2,
+  "fields": {
+    "date": "2025-08-20",
+    "n_number": "N416157",
+    "user": [
+      "N416157"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 3,
+  "fields": {
+    "date": "2025-08-20",
+    "n_number": "N415232",
+    "user": [
+      "N415232"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 4,
+  "fields": {
+    "date": "2025-08-20",
+    "n_number": "N415344",
+    "user": [
+      "N415344"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 5,
+  "fields": {
+    "date": "2025-08-20",
+    "n_number": "N443333",
+    "user": [
+      "N443333"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 6,
+  "fields": {
+    "date": "2025-08-20",
+    "n_number": "N431784",
+    "user": [
+      "N431784"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 7,
+  "fields": {
+    "date": "2025-08-20",
+    "n_number": "N434205",
+    "user": [
+      "N434205"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 9,
+  "fields": {
+    "date": "2025-08-20",
+    "n_number": "N432119",
+    "user": [
+      "N432119"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 10,
+  "fields": {
+    "date": "2025-08-20",
+    "n_number": "N414974",
+    "user": null
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 11,
+  "fields": {
+    "date": "2025-08-20",
+    "n_number": "N496155",
+    "user": [
+      "N496155"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 12,
+  "fields": {
+    "date": "2025-08-20",
+    "n_number": "N496056",
+    "user": null
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 13,
+  "fields": {
+    "date": "2025-08-20",
+    "n_number": "N442738",
+    "user": [
+      "N442738"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 14,
+  "fields": {
+    "date": "2025-08-20",
+    "n_number": "N454663",
+    "user": [
+      "N454663"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 15,
+  "fields": {
+    "date": "2025-08-20",
+    "n_number": "N434716",
+    "user": null
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 16,
+  "fields": {
+    "date": "2025-08-20",
+    "n_number": "N463446",
+    "user": [
+      "N463446"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 17,
+  "fields": {
+    "date": "2025-08-20",
+    "n_number": "N435145",
+    "user": null
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 18,
+  "fields": {
+    "date": "2025-08-20",
+    "n_number": "N451423",
+    "user": [
+      "N451423"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 19,
+  "fields": {
+    "date": "2025-08-20",
+    "n_number": "N468619",
+    "user": null
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 20,
+  "fields": {
+    "date": "2025-08-20",
+    "n_number": "N449595",
+    "user": [
+      "N449595"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 21,
+  "fields": {
+    "date": "2025-08-20",
+    "n_number": "N493217",
+    "user": null
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 22,
+  "fields": {
+    "date": "2025-08-20",
+    "n_number": "N501558",
+    "user": [
+      "N501558"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 23,
+  "fields": {
+    "date": "2025-08-20",
+    "n_number": "N432058",
+    "user": null
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 24,
+  "fields": {
+    "date": "2025-08-20",
+    "n_number": "N412797",
+    "user": [
+      "N412797"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 25,
+  "fields": {
+    "date": "2025-08-20",
+    "n_number": "N412854",
+    "user": [
+      "N412854"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 26,
+  "fields": {
+    "date": "2025-08-20",
+    "n_number": "N493512",
+    "user": [
+      "N493512"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 27,
+  "fields": {
+    "date": "2025-08-20",
+    "n_number": "N491344",
+    "user": null
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 28,
+  "fields": {
+    "date": "2025-08-20",
+    "n_number": "N432249",
+    "user": [
+      "N432249"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 29,
+  "fields": {
+    "date": "2025-08-20",
+    "n_number": "N431715",
+    "user": [
+      "N431715"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 30,
+  "fields": {
+    "date": "2025-08-20",
+    "n_number": "N433240",
+    "user": [
+      "N433240"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 31,
+  "fields": {
+    "date": "2025-08-20",
+    "n_number": "N405224",
+    "user": [
+      "N405224"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 32,
+  "fields": {
+    "date": "2025-08-20",
+    "n_number": "N494190",
+    "user": [
+      "N494190"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 35,
+  "fields": {
+    "date": "2025-08-20",
+    "n_number": "N584809",
+    "user": null
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 37,
+  "fields": {
+    "date": "2025-08-20",
+    "n_number": "N493720",
+    "user": [
+      "N493720"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 38,
+  "fields": {
+    "date": "2025-08-20",
+    "n_number": "N449690",
+    "user": null
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 40,
+  "fields": {
+    "date": "2025-08-20",
+    "n_number": "N448601",
+    "user": [
+      "N448601"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 41,
+  "fields": {
+    "date": "2025-08-20",
+    "n_number": "N448061",
+    "user": null
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 42,
+  "fields": {
+    "date": "2025-08-20",
+    "n_number": "N447760",
+    "user": null
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 43,
+  "fields": {
+    "date": "2025-08-20",
+    "n_number": "N420403",
+    "user": [
+      "N420403"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 44,
+  "fields": {
+    "date": "2025-08-20",
+    "n_number": "N468957",
+    "user": [
+      "N468957"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 45,
+  "fields": {
+    "date": "2025-08-20",
+    "n_number": "N416070",
+    "user": [
+      "N416070"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 46,
+  "fields": {
+    "date": "2025-08-20",
+    "n_number": "N485070",
+    "user": [
+      "N485070"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 48,
+  "fields": {
+    "date": "2025-08-20",
+    "n_number": "N416414",
+    "user": null
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 50,
+  "fields": {
+    "date": "2025-08-20",
+    "n_number": "N435543",
+    "user": [
+      "N435543"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 51,
+  "fields": {
+    "date": "2025-08-20",
+    "n_number": "N469665",
+    "user": [
+      "N469665"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 52,
+  "fields": {
+    "date": "2025-08-20",
+    "n_number": "N449444",
+    "user": null
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 53,
+  "fields": {
+    "date": "2025-08-20",
+    "n_number": "N446547",
+    "user": [
+      "N446547"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 54,
+  "fields": {
+    "date": "2025-08-20",
+    "n_number": "N479515",
+    "user": null
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 55,
+  "fields": {
+    "date": "2025-08-20",
+    "n_number": "N446271",
+    "user": null
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 57,
+  "fields": {
+    "date": "2025-08-20",
+    "n_number": "N454319",
+    "user": [
+      "N454319"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 58,
+  "fields": {
+    "date": "2025-08-27",
+    "n_number": "N443333",
+    "user": [
+      "N443333"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 59,
+  "fields": {
+    "date": "2025-08-27",
+    "n_number": "N415232",
+    "user": [
+      "N415232"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 60,
+  "fields": {
+    "date": "2025-08-27",
+    "n_number": "N416157",
+    "user": [
+      "N416157"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 61,
+  "fields": {
+    "date": "2025-08-27",
+    "n_number": "N496056",
+    "user": null
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 62,
+  "fields": {
+    "date": "2025-08-27",
+    "n_number": "N451423",
+    "user": [
+      "N451423"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 63,
+  "fields": {
+    "date": "2025-08-27",
+    "n_number": "N494190",
+    "user": [
+      "N494190"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 65,
+  "fields": {
+    "date": "2025-08-27",
+    "n_number": "N431715",
+    "user": [
+      "N431715"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 66,
+  "fields": {
+    "date": "2025-08-27",
+    "n_number": "N449595",
+    "user": [
+      "N449595"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 67,
+  "fields": {
+    "date": "2025-08-27",
+    "n_number": "N442738",
+    "user": [
+      "N442738"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 68,
+  "fields": {
+    "date": "2025-08-27",
+    "n_number": "N415344",
+    "user": [
+      "N415344"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 70,
+  "fields": {
+    "date": "2025-08-27",
+    "n_number": "N454663",
+    "user": [
+      "N454663"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 71,
+  "fields": {
+    "date": "2025-08-27",
+    "n_number": "N468957",
+    "user": [
+      "N468957"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 72,
+  "fields": {
+    "date": "2025-08-27",
+    "n_number": "N448601",
+    "user": [
+      "N448601"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 73,
+  "fields": {
+    "date": "2025-08-27",
+    "n_number": "N448061",
+    "user": null
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 74,
+  "fields": {
+    "date": "2025-08-27",
+    "n_number": "N433240",
+    "user": [
+      "N433240"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 75,
+  "fields": {
+    "date": "2025-08-27",
+    "n_number": "N432249",
+    "user": [
+      "N432249"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 76,
+  "fields": {
+    "date": "2025-08-27",
+    "n_number": "N416070",
+    "user": [
+      "N416070"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 77,
+  "fields": {
+    "date": "2025-08-27",
+    "n_number": "N435543",
+    "user": [
+      "N435543"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 78,
+  "fields": {
+    "date": "2025-08-27",
+    "n_number": "N485070",
+    "user": [
+      "N485070"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 79,
+  "fields": {
+    "date": "2025-08-27",
+    "n_number": "N412854",
+    "user": [
+      "N412854"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 80,
+  "fields": {
+    "date": "2025-08-27",
+    "n_number": "N412797",
+    "user": [
+      "N412797"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 81,
+  "fields": {
+    "date": "2025-08-27",
+    "n_number": "N493512",
+    "user": [
+      "N493512"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 82,
+  "fields": {
+    "date": "2025-08-27",
+    "n_number": "N463446",
+    "user": [
+      "N463446"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 83,
+  "fields": {
+    "date": "2025-08-27",
+    "n_number": "N435145",
+    "user": null
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 84,
+  "fields": {
+    "date": "2025-08-27",
+    "n_number": "N501558",
+    "user": [
+      "N501558"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 85,
+  "fields": {
+    "date": "2025-08-27",
+    "n_number": "N491344",
+    "user": null
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 86,
+  "fields": {
+    "date": "2025-08-27",
+    "n_number": "N405224",
+    "user": [
+      "N405224"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 90,
+  "fields": {
+    "date": "2025-08-27",
+    "n_number": "N584809",
+    "user": null
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 91,
+  "fields": {
+    "date": "2025-08-27",
+    "n_number": "N446547",
+    "user": [
+      "N446547"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 93,
+  "fields": {
+    "date": "2025-08-27",
+    "n_number": "N493720",
+    "user": [
+      "N493720"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 95,
+  "fields": {
+    "date": "2025-08-27",
+    "n_number": "N434205",
+    "user": [
+      "N434205"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 96,
+  "fields": {
+    "date": "2025-08-27",
+    "n_number": "N469648",
+    "user": [
+      "N469648"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 97,
+  "fields": {
+    "date": "2025-09-03",
+    "n_number": "N443333",
+    "user": [
+      "N443333"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 98,
+  "fields": {
+    "date": "2025-09-03",
+    "n_number": "N431784",
+    "user": [
+      "N431784"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 99,
+  "fields": {
+    "date": "2025-09-03",
+    "n_number": "N434205",
+    "user": [
+      "N434205"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 100,
+  "fields": {
+    "date": "2025-09-03",
+    "n_number": "N415344",
+    "user": [
+      "N415344"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 101,
+  "fields": {
+    "date": "2025-09-03",
+    "n_number": "N432119",
+    "user": [
+      "N432119"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 102,
+  "fields": {
+    "date": "2025-09-03",
+    "n_number": "N455627",
+    "user": [
+      "N455627"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 103,
+  "fields": {
+    "date": "2025-09-03",
+    "n_number": "N434758",
+    "user": [
+      "N434758"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 104,
+  "fields": {
+    "date": "2025-09-03",
+    "n_number": "N451423",
+    "user": [
+      "N451423"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 105,
+  "fields": {
+    "date": "2025-09-03",
+    "n_number": "N449595",
+    "user": [
+      "N449595"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 106,
+  "fields": {
+    "date": "2025-09-03",
+    "n_number": "N485070",
+    "user": [
+      "N485070"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 107,
+  "fields": {
+    "date": "2025-09-03",
+    "n_number": "N592118",
+    "user": null
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 108,
+  "fields": {
+    "date": "2025-09-03",
+    "n_number": "N468957",
+    "user": [
+      "N468957"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 110,
+  "fields": {
+    "date": "2025-09-03",
+    "n_number": "N496056",
+    "user": null
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 111,
+  "fields": {
+    "date": "2025-09-03",
+    "n_number": "N454663",
+    "user": [
+      "N454663"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 112,
+  "fields": {
+    "date": "2025-09-03",
+    "n_number": "N420403",
+    "user": [
+      "N420403"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 113,
+  "fields": {
+    "date": "2025-09-03",
+    "n_number": "N435145",
+    "user": null
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 114,
+  "fields": {
+    "date": "2025-09-03",
+    "n_number": "N416070",
+    "user": [
+      "N416070"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 115,
+  "fields": {
+    "date": "2025-09-03",
+    "n_number": "N448061",
+    "user": null
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 116,
+  "fields": {
+    "date": "2025-09-03",
+    "n_number": "N448601",
+    "user": [
+      "N448601"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 117,
+  "fields": {
+    "date": "2025-09-03",
+    "n_number": "N431715",
+    "user": [
+      "N431715"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 119,
+  "fields": {
+    "date": "2025-09-03",
+    "n_number": "N433240",
+    "user": [
+      "N433240"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 120,
+  "fields": {
+    "date": "2025-09-03",
+    "n_number": "N432249",
+    "user": [
+      "N432249"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 121,
+  "fields": {
+    "date": "2025-09-03",
+    "n_number": "N491344",
+    "user": null
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 122,
+  "fields": {
+    "date": "2025-09-03",
+    "n_number": "N501558",
+    "user": [
+      "N501558"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 123,
+  "fields": {
+    "date": "2025-09-03",
+    "n_number": "N405224",
+    "user": [
+      "N405224"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 124,
+  "fields": {
+    "date": "2025-09-03",
+    "n_number": "N494190",
+    "user": [
+      "N494190"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 127,
+  "fields": {
+    "date": "2025-09-03",
+    "n_number": "N493720",
+    "user": [
+      "N493720"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 129,
+  "fields": {
+    "date": "2025-09-03",
+    "n_number": "N446547",
+    "user": [
+      "N446547"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 131,
+  "fields": {
+    "date": "2025-09-03",
+    "n_number": "N469665",
+    "user": [
+      "N469665"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 132,
+  "fields": {
+    "date": "2025-09-03",
+    "n_number": "N449282",
+    "user": [
+      "N449282"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 133,
+  "fields": {
+    "date": "2025-09-03",
+    "n_number": "N463446",
+    "user": [
+      "N463446"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 134,
+  "fields": {
+    "date": "2025-09-03",
+    "n_number": "N496155",
+    "user": [
+      "N496155"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 135,
+  "fields": {
+    "date": "2025-09-03",
+    "n_number": "N416414",
+    "user": null
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 137,
+  "fields": {
+    "date": "2025-09-03",
+    "n_number": "N412854",
+    "user": [
+      "N412854"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 138,
+  "fields": {
+    "date": "2025-09-03",
+    "n_number": "N412797",
+    "user": [
+      "N412797"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 139,
+  "fields": {
+    "date": "2025-09-03",
+    "n_number": "N493512",
+    "user": [
+      "N493512"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 140,
+  "fields": {
+    "date": "2025-09-03",
+    "n_number": "N454319",
+    "user": [
+      "N454319"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 141,
+  "fields": {
+    "date": "2025-09-03",
+    "n_number": "N415232",
+    "user": [
+      "N415232"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 142,
+  "fields": {
+    "date": "2025-09-03",
+    "n_number": "N416157",
+    "user": [
+      "N416157"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 143,
+  "fields": {
+    "date": "2025-09-03",
+    "n_number": "N431333",
+    "user": null
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 144,
+  "fields": {
+    "date": "2025-09-03",
+    "n_number": "N439343",
+    "user": [
+      "N439343"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 146,
+  "fields": {
+    "date": "2025-09-10",
+    "n_number": "N501029",
+    "user": [
+      "N501029"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 147,
+  "fields": {
+    "date": "2025-09-10",
+    "n_number": "N455627",
+    "user": [
+      "N455627"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 148,
+  "fields": {
+    "date": "2025-09-10",
+    "n_number": "N494190",
+    "user": [
+      "N494190"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 149,
+  "fields": {
+    "date": "2025-09-10",
+    "n_number": "N434758",
+    "user": [
+      "N434758"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 150,
+  "fields": {
+    "date": "2025-09-10",
+    "n_number": "N463507",
+    "user": [
+      "N463507"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 152,
+  "fields": {
+    "date": "2025-09-10",
+    "n_number": "N451423",
+    "user": [
+      "N451423"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 153,
+  "fields": {
+    "date": "2025-09-10",
+    "n_number": "N449595",
+    "user": [
+      "N449595"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 154,
+  "fields": {
+    "date": "2025-09-10",
+    "n_number": "N448061",
+    "user": null
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 155,
+  "fields": {
+    "date": "2025-09-10",
+    "n_number": "N454663",
+    "user": [
+      "N454663"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 157,
+  "fields": {
+    "date": "2025-09-10",
+    "n_number": "N448601",
+    "user": [
+      "N448601"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 158,
+  "fields": {
+    "date": "2025-09-10",
+    "n_number": "N442738",
+    "user": [
+      "N442738"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 159,
+  "fields": {
+    "date": "2025-09-10",
+    "n_number": "N420403",
+    "user": [
+      "N420403"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 161,
+  "fields": {
+    "date": "2025-09-10",
+    "n_number": "N431715",
+    "user": [
+      "N431715"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 165,
+  "fields": {
+    "date": "2025-09-10",
+    "n_number": "N493720",
+    "user": [
+      "N493720"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 166,
+  "fields": {
+    "date": "2025-09-10",
+    "n_number": "N432249",
+    "user": [
+      "N432249"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 167,
+  "fields": {
+    "date": "2025-09-10",
+    "n_number": "N433240",
+    "user": [
+      "N433240"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 168,
+  "fields": {
+    "date": "2025-09-10",
+    "n_number": "N446547",
+    "user": [
+      "N446547"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 169,
+  "fields": {
+    "date": "2025-09-10",
+    "n_number": "N416070",
+    "user": [
+      "N416070"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 170,
+  "fields": {
+    "date": "2025-09-10",
+    "n_number": "N468957",
+    "user": [
+      "N468957"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 171,
+  "fields": {
+    "date": "2025-09-10",
+    "n_number": "N485070",
+    "user": [
+      "N485070"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 173,
+  "fields": {
+    "date": "2025-09-10",
+    "n_number": "N416414",
+    "user": null
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 174,
+  "fields": {
+    "date": "2025-09-10",
+    "n_number": "N415344",
+    "user": [
+      "N415344"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 175,
+  "fields": {
+    "date": "2025-09-10",
+    "n_number": "N416157",
+    "user": [
+      "N416157"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 176,
+  "fields": {
+    "date": "2025-09-10",
+    "n_number": "N415232",
+    "user": [
+      "N415232"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 177,
+  "fields": {
+    "date": "2025-09-10",
+    "n_number": "N496155",
+    "user": [
+      "N496155"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 179,
+  "fields": {
+    "date": "2025-09-10",
+    "n_number": "N469665",
+    "user": [
+      "N469665"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 180,
+  "fields": {
+    "date": "2025-09-10",
+    "n_number": "N463446",
+    "user": [
+      "N463446"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 181,
+  "fields": {
+    "date": "2025-09-10",
+    "n_number": "N501558",
+    "user": [
+      "N501558"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 182,
+  "fields": {
+    "date": "2025-09-10",
+    "n_number": "N405224",
+    "user": [
+      "N405224"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 183,
+  "fields": {
+    "date": "2025-09-10",
+    "n_number": "N449282",
+    "user": [
+      "N449282"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 184,
+  "fields": {
+    "date": "2025-09-10",
+    "n_number": "N412797",
+    "user": [
+      "N412797"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 185,
+  "fields": {
+    "date": "2025-09-10",
+    "n_number": "N493512",
+    "user": [
+      "N493512"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 186,
+  "fields": {
+    "date": "2025-09-10",
+    "n_number": "N412854",
+    "user": [
+      "N412854"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 187,
+  "fields": {
+    "date": "2025-09-10",
+    "n_number": "N439343",
+    "user": [
+      "N439343"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 188,
+  "fields": {
+    "date": "2025-09-10",
+    "n_number": "N435543",
+    "user": [
+      "N435543"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 189,
+  "fields": {
+    "date": "2025-09-10",
+    "n_number": "N454319",
+    "user": [
+      "N454319"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 190,
+  "fields": {
+    "date": "2025-09-10",
+    "n_number": "N443333",
+    "user": [
+      "N443333"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 191,
+  "fields": {
+    "date": "2025-09-10",
+    "n_number": "N432119",
+    "user": [
+      "N432119"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 192,
+  "fields": {
+    "date": "2025-09-10",
+    "n_number": "N469648",
+    "user": [
+      "N469648"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 193,
+  "fields": {
+    "date": "2025-09-10",
+    "n_number": "N469648",
+    "user": [
+      "N469648"
+    ]
+  }
+},
+{
+  "model": "members.attendancerecord",
+  "pk": 194,
+  "fields": {
+    "date": "2025-09-10",
+    "n_number": "N432058",
+    "user": null
+  }
+}
+]

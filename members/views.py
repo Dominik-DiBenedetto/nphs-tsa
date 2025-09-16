@@ -81,7 +81,6 @@ def attendance_view(request):
         date: list(group)
         for date, group in groupby(records, key=attrgetter('date'))
     }
-    print(grouped_by_date)
     return render(request, "attendance.html", {"records": grouped_by_date})
 
 def scan_attendance_record(request):

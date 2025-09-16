@@ -5,3 +5,6 @@ django-pwa
 django-clearcache
 pypdf
 psycopg2-binary
+webpush
+pywebpush
+python-dotenv

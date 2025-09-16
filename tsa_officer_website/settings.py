@@ -11,21 +11,23 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+from dotenv import load_dotenv
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 MEDIA_ROOT = Path(__file__).resolve().parent.parent;
 
+load_dotenv(BASE_DIR / '.env')
+
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
-SECRET_KEY = "mge7a*0+do(y8m++-c#(an-b^5hlh0mx*mf@6h*&g2-tnhh9&2"
+SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["127.0.0.1", "localhost", "nphstsa.pythonanywhere.com"]
 
@@ -63,7 +65,7 @@ MIDDLEWARE = [
 
 WEBPUSH_SETTINGS = {
     "VAPID_PUBLIC_KEY": "BGsVTzkU1W9DQlKwNHbzi8ec1bIlrCjbe1KtQ6HIMVGIy2W9oBh0B3XIQdiQwQsbnAr6t7Bnl0OX5N34l2MpRSU=",
-    "VAPID_PRIVATE_KEY": "MIGHAgEAMBMGByqGSM49AgEGCCqGSM49AwEHBG0wawIBAQQgbIMCY92ouDNYfT+s+U/hJZC9QCT/lLGfYLarbXlQoh+hRANCAARrFU85FNVvQ0JSsDR284vHnNWyJawo23tSrUOhyDFRiMtlvaAYdAd1yEHYkMELG5wK+rewZ5dDl+Td+JdjKUUl",
+    "VAPID_PRIVATE_KEY": os.getenv("VAPID_PRIVATE_KEY"),
     "VAPID_ADMIN_EMAIL": "admin@example.com"
 }
 
@@ -90,12 +92,24 @@ WSGI_APPLICATION = 'tsa_officer_website.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.getenv("DB_NAME"),       # database name
+        'USER': os.getenv("DB_USER"),     # the user you created
+        'PASSWORD':os.getenv("DB_PASSWORD"),    # the password you chose
+        'HOST': 'localhost',
+        'PORT': '5432',              # default PostgreSQL port
     }
 }
+
 
 
 # Password validation
