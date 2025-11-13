@@ -93,15 +93,23 @@ WSGI_APPLICATION = 'tsa_officer_website.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': os.getenv("DB_NAME"),       # database name
+#         'USER': os.getenv("DB_USER"),     # the user you created
+#         'PASSWORD':os.getenv("DB_PASSWORD"),    # the password you chose
+#         'HOST': 'localhost',
+#         'PORT': '5432',              # default PostgreSQL port
+#     }
+# }
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv("DB_NAME"),       # database name
-        'USER': os.getenv("DB_USER"),     # the user you created
-        'PASSWORD':os.getenv("DB_PASSWORD"),    # the password you chose
-        'HOST': 'localhost',
-        'PORT': '5432',              # default PostgreSQL port
-    }
+    'default': dj_database_url.config(
+        default=os.environ.get('DATABASE_URL'),
+        conn_max_age=600,
+        ssl_require=True
+    )
 }
 
 # DATABASES = {
