@@ -29,7 +29,7 @@ SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["127.0.0.1", "localhost", "nphstsa.pythonanywhere.com", "nphs-tsa.onrender.com", "nphs-tsa.com"]
+ALLOWED_HOSTS = ["127.0.0.1", "localhost", "nphstsa.pythonanywhere.com", "nphs-tsa.onrender.com", "nphstsa.com", "www.nphstsa.com"]
 
 # Application definition
 
@@ -103,6 +103,10 @@ DATABASES = {
         'PORT': '5432',              # default PostgreSQL port
     }
 }
+
+# DATABASES = {
+#     'default': dj_database_url.config(default=os.getenv("DB_URL"))
+# }
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
