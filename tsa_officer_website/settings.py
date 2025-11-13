@@ -29,7 +29,7 @@ SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["127.0.0.1", "localhost", "nphstsa.pythonanywhere.com", "nphs-tsa.onrender.com", "nphstsa.com", "www.nphstsa.com"]
+ALLOWED_HOSTS = ["127.0.0.1", "localhost", "nphs-tsa-app-7ee9l.ondigitalocean.app", "nphstsa.com", "www.nphstsa.com"]
 
 # Application definition
 
