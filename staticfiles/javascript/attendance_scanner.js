@@ -74,6 +74,7 @@ Quagga.init({
 });
 
 Quagga.onDetected((data) => {
+    alert(data.codeResult.code);
     if (data.codeResult.code && data.codeResult.code.includes("N")) {
         let nNumber = data.codeResult.code;
         const today = new Date();
