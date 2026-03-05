@@ -10,6 +10,15 @@
     {% load pwa %}
     {% progressive_web_app_meta %}
 
+    <style>
+        #interactive { width: 100%; height: 400px; position: relative; }
+        /* Quagga injects a video and canvas; they must overlap */
+        #interactive video, #interactive canvas {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+        }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/@ericblade/quagga2/dist/quagga.min.js" defer></script>
     <link rel="icon" href="{% static 'images/nphs_bobcats_favicon.jpg' %}" type="image/x-icon">
     <script src="{% static 'javascript/attendance_scanner.js' %}" defer></script>
 </head>
