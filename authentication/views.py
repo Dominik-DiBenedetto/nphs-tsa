@@ -11,21 +11,21 @@ import json
 from django.views.decorators.csrf import csrf_protect
 
 officer_nnumbers = {
-    "N463506": "President",
-    "N501029": "Vice President",
-    "N432119": "Secretary",
-    "N443333": "Treasurer",
-    "N431784": "Reporter",
-    "N434205": "Sergeant At Arms",
+    "N501029": "President",
+    "N443333": "Vice President",
+    "N448323": "Secretary",
+    "N463507": "Treasurer",
+    "N448061": "Reporter",
+    "N441125": "Sergeant At Arms",
 }
 
 officer_names = {
-    "N463506": "Bella Ramsey",
     "N501029": "Dominik DiBenedetto",
-    "N432119": "Megan Taylor",
     "N443333": "Alexander Avin",
-    "N431784": "Elizabeth Carpenter",
-    "N434205": "Michael Dankanich",
+    "N448323": "Bella Waleko",
+    "N463507": "Jesse Ramsey",
+    "N448061": "Christian Leo",
+    "N441125": "Nicholas Marmaro",
 }
 
 def update_roles(user):
@@ -91,6 +91,11 @@ def register_page(request):
         
         # Check if a user with the provided username already exists
         user = Member.objects.filter(username=n_num)
+
+        if not "N" in n_num:
+            # Display an information message if the username is taken
+            messages.info(request, "Please include the 'N' in your N Number!")
+            return redirect('/auth/register/')
         
         if user.exists():
             # Display an information message if the username is taken
@@ -115,7 +120,7 @@ def register_page(request):
         user.save()
         
         # Display an information message indicating successful account creation
-        messages.info(request, "Account created Successfully, once your dues are paid you will be approved and able to login!")
+        messages.info(request, "Account created Successfully, once your forms are recieved you will be approved and able to login!")
 
         login(request, user)
         update_roles(user)

@@ -73,10 +73,23 @@ Quagga.init({
     Quagga.start();
 });
 
+let lastScannedNumber = ""
+
 Quagga.onDetected((data) => {
-    alert(data.codeResult.code);
-    if (data.codeResult.code && data.codeResult.code.includes("N")) {
+    if (data.codeResult.code) {
         let nNumber = data.codeResult.code;
+        if (!data.codeResult.code.includes("N")) {
+            try {
+                nNumberNum = parseInt(nNumber)
+            } catch (error) {
+                return
+            }
+            nNumber = "N" + toString(nNumberNum)
+        }
+        if (lastScannedNumber === nNumber) return;
+
+        lastScannedNumber = nNumber
+
         const today = new Date();
         const formattedDate = today.toISOString().slice(0, 10);
         fetch("/members/attendance/add", {
@@ -90,5 +103,8 @@ Quagga.onDetected((data) => {
             })
         })
         alert("scanned3!")
+        setTimeout(() => {
+            if (lastScannedNumber === nNumber) lastScannedNumber = "";
+        }, 5000)
     }
 });

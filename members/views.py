@@ -115,7 +115,18 @@ def add_attendance_record(request):
 def delete_record(request, date, n_num):
     if request.method != "POST": return
 
-    date_object = datetime.strptime(date, "%b. %d, %Y")
+    split_date = date.split(" ")
+    month = split_date[0]
+    month.replace(".", "")
+    if len(month) > 3:
+        month = month[0:3]
+        split_date[0] = month
+    date = " ".join(split_date)
+
+    try:
+        date_object = datetime.strptime(date, "%b %d, %Y")
+    except Exception as e:
+        return f"Trouble processing date. Details: {e}"
 
     # Convert the datetime object to the desired YYYY-MM-DD string format
     date_string = date_object.strftime("%Y-%m-%d")
