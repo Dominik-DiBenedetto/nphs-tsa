@@ -1,6 +1,6 @@
 django
 scikit-learn
-nltk
+sentence_transformers
 django-pwa
 django-clearcache
 pypdf
