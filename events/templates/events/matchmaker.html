@@ -39,7 +39,7 @@
                             <p class="event-description">{{event.1}}</p>
                         </div>
                         <div class="event-footer">
-                            <button class="btn btn-outline">View Event</button>
+                            <button class="btn btn-outline"><a href="{% url 'event' event.id %}">View Event</a></button>
                         </div>
                     </div>
                     {% endfor %}

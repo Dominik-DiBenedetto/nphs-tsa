@@ -182,21 +182,30 @@
             </div>
         </div>
         {{ teams_json|json_script:"teams-data" }}
+        {{ members|json_script:"members" }}
+
         <script>
-            const teamsDataElement = document.getElementById('teams-data');
-            let loadedTeams
-            if (teamsDataElement) {
-                loadedTeams = JSON.parse(teamsDataElement.textContent);
-            }
-            // loadedTeams = JSON.parse(loadedTeams)
+            let loadedTeams, members
             let teamCount = 0;
-            let eventData = {
-                name: "{{ Event.name|safe }}",
-                description: `{{ Event.desc|safe }}`,
-                prompt: `{{ Event.prompt|safe }}`,
-                cegFile: "{{ Event.CEG|safe }}",
-                teams: loadedTeams,
-            };
+            let eventData;
+            
+            document.addEventListener("DOMContentLoaded", () => {
+                
+                const membersData = document.getElementById('members');
+                const teamsDataElement = document.getElementById('teams-data');
+
+                members = JSON.parse(membersData.textContent);
+                loadedTeams = JSON.parse(teamsDataElement.textContent);
+                console.log(members)
+
+                eventData =  {
+                    name: "{{ Event.name|safe }}",
+                    description: `{{ Event.desc|safe }}`,
+                    prompt: `{{ Event.prompt|safe }}`,
+                    cegFile: "{{ Event.CEG|safe }}",
+                    teams: loadedTeams,
+                }
+            })
 
             // Initialize the page
             function init() {
@@ -275,20 +284,36 @@
             // Generate member input fields
             function generateMemberInputs(teamId, isLoading=false) {
                 let inputs = "";
+                let memberOptions = "<option class='member-option'>None</option>";
+                members.forEach(member => {
+                    memberOptions += `<option class="member-option" ${(isLoading && eventData.teams[teamId-1].members[i-1]) ? "selected" : ""}>${member.name}</option>`
+                });
                 for (let i = 1; i <= 6; i++) {
+                    // inputs += `
+                                // <div class="member-input">
+                                //     <div class="member-number">${i}</div>
+                                //     <input type="text"
+                                //            id="team-${teamId}-member-${i}"
+                                //            name="team-${teamId}-member-${i}"
+                                //            class="form-input"
+                                //            placeholder="Member ${i} name..."
+                                //            onchange="updateTeamMember(${teamId}, ${i}, this.value)"
+                                //            value="${isLoading && eventData.teams[teamId-1].members[i-1] || ""}"
+                                //            >
+                                // </div>
+                    //         `;
                     inputs += `
                                 <div class="member-input">
                                     <div class="member-number">${i}</div>
-                                    <input type="text"
+                                    <select
                                            id="team-${teamId}-member-${i}"
                                            name="team-${teamId}-member-${i}"
                                            class="form-input"
-                                           placeholder="Member ${i} name..."
-                                           onchange="updateTeamMember(${teamId}, ${i}, this.value)"
-                                           value="${isLoading && eventData.teams[teamId-1].members[i-1] || ""}"
                                            >
+                                    ${memberOptions}
+                                    </select>
                                 </div>
-                            `;
+                    `
                 }
                 return inputs;
             }
@@ -321,14 +346,6 @@
                     membersGrid.style.display = "grid";
                 } else {
                     membersGrid.style.display = "none";
-                }
-            }
-
-            // Update team member
-            function updateTeamMember(teamId, memberIndex, value) {
-                const team = eventData.teams.find((t) => t.id === teamId);
-                if (team) {
-                    team.members[memberIndex - 1] = value;
                 }
             }
 
@@ -391,7 +408,18 @@
                 formData.append('Description', eventData.description.trim());
                 formData.append('Prompt', eventData.prompt.trim());
                 formData.append('CEG', eventData.cegFile); // File input
-                formData.append('Teams', JSON.stringify(eventData.teams));
+
+                // Get team data
+                let teamData = {}
+                document.querySelectorAll(".member-input").forEach(memberInput => {
+                    let select = memberInput.querySelector("select")
+                    let memberName = select.value
+                    let teamId = memberInput.parentElement.parentElement.id
+                    
+                    if (teamData[teamId]) teamData[teamId].push(memberName)
+                    else teamData[teamId] = [memberName]
+                })
+                formData.append('Teams', JSON.stringify(teamData));
 
                 fetch(`/events/event/{{ Event.pk|safe }}/update/`, {
                     method: "POST",

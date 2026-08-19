@@ -230,7 +230,7 @@ textarea.form-input {
     position: relative;
 }
 
-.member-input input {
+.member-input select {
     padding-left: 2.5rem;
 }
 

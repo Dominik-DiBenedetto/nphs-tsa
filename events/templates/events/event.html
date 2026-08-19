@@ -71,19 +71,23 @@
             <div class="teams-container">
                 {% for team in Teams %}
                 <div class="team-card">
-                    <div class="team-name">Team {{ team.id }}</div>
+                    <div class="team-name">Team {{ team.team.number }}</div>
                     <ul class="team-members">
-                        {% for member in team.members %}
-                        {% if not member == "" %}
+                        {%if team.competitors|length > 0 %}
+                        {% if team.captain %}
+                        <li class="team-member">
+                            <span>{{ team.captain.name }}</span>
+                            <span class="captain-badge">Captain</span>
+                        </li>
+                        {% endif %}
+                        {% for member in team.competitors %}
+                        {% if not team.captain == member %}
                         <li class="team-member">
                             <span>{{ member }}</span>
-                            
-                            {% if Event.captain == member %}
-                            <span class="captain-badge">Captain</span>
-                            {% endif %}
                         </li>
                         {% endif %}
                         {% endfor %}
+                        {% endif %}
                     </ul>
                 </div>
                 {% endfor %}

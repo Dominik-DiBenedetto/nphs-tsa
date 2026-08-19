@@ -4,29 +4,37 @@ from django.http import FileResponse, Http404, HttpResponse
 from django.views.decorators.clickjacking import xframe_options_exempt
 from django.contrib.auth.decorators import user_passes_test, login_required
 
-from .models import Event
+from .models import Event, Team, TeamMember
 from .event_recommender import rank_events, get_event_description
+
+from authentication.models import Member
 
 def is_officer(user):
     return user.is_superuser or user.groups.filter(name="Officer").exists()
 
 # Create your views here.
 def index(request):
-    events_list = Event.objects.all()
+    events_list = Event.objects.all().order_by("name")
     return render(request, "events/index.html", {"Events": events_list})
 
 def view_event(request, event_id):
     event = get_object_or_404(Event, pk=event_id)
-    competitors = event.competitors
-    try:
-        competitors = json.loads(competitors)
-    except:
-        pass
-    return render(request, "events/event.html", {"Event": event, "Teams": competitors})
+    teams = event.teams.all() or {}
+
+    templated_team_data = []
+    for team in teams:
+        members = team.competitors.all()
+        captain = team.competitors.filter(TeamMember__is_captain=True)
+        templated_team_data.append({"team": team, "competitors": members, captain: captain})
+
+    print(templated_team_data, event)
+    return render(request, "events/event.html", {"Event": event, "Teams": templated_team_data})
 
 @user_passes_test(is_officer)
 def update_event(request, event_id):
     event = get_object_or_404(Event, pk=event_id)
+    teams = event.teams.all() or {}
+
     if request.method == "POST":
         try:
             name = request.POST.get('Name')
@@ -39,7 +47,29 @@ def update_event(request, event_id):
             event.desc = desc
             event.prompt = prompt
             event.CEG = ceg_file
-            event.competitors = teams_json
+
+            # Proccess teams
+            print(teams_json)
+            for teamId, members in json.loads(teams_json).items():
+                teamNumber = teamId.split("-")[1]
+                print(type(teams) is dict)
+                team = not type(teams) is dict and teams.filter(number=teamNumber) or None
+                if not team:
+                    print("New team!")
+                    team = Team.objects.create(number=teamNumber)
+                for competitor in team.competitors.all():
+                    print("COMPETITOR", competitor)
+                    if not competitor.name in members:
+                        user = Member.objects.get(name=competitor.name)
+                        TeamMember.objects.filter(user=user, team=team).delete()
+                        print(competitor.name, 'was removed from team!')
+                print(teamId)
+                for member in members:
+                    if member == "None": continue
+                    user = Member.objects.get(name=member)
+                    if user:
+                        TeamMember.objects.create(user=user, team=team, is_captain=False)
+                    print(member)
 
             event.save()
             
@@ -47,12 +77,14 @@ def update_event(request, event_id):
         except Exception as e:
             print(f"ERRORORO {e}")
 
-    competitors = event.competitors
-    try:
-        competitors = json.loads(competitors)
-    except:
-        pass
-    return render(request, "events/update_event.html", {"Event": event, "teams_json": competitors})
+    templated_team_data = []
+    for team in teams:
+        members = team.competitors.all()
+        captain = team.competitors.filter(TeamMember__is_captain=True)
+        templated_team_data.append({"team": team, "competitors": members, captain: captain})
+
+    print(list(Member.objects.all().values("name")))
+    return render(request, "events/update_event.html", {"Event": event, "teams_json": templated_team_data, "members": list(Member.objects.all().values("name"))})
 
 @xframe_options_exempt
 def view_ceg_file(request, event_id):
