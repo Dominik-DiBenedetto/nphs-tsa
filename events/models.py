@@ -8,11 +8,13 @@ class Team(models.Model):
     competitors = models.ManyToManyField(Member, through="TeamMember", related_name="teams")
 
     def __str__(self):
-        formatted = "TEAM\n"
-        for competitor in self.competitors.all():
-            if competitor and competitor.name:
-                formatted = f"\t{formatted}\n{competitor.name}"
-        return formatted.strip()
+        names = [c.name for c in self.competitors.all() if c and c.name]
+
+        if not names:
+            return f"Team {self.number} (No competitors)"
+
+        competitor_list = "\n".join(f"\t{name}" for name in names)
+        return f"TEAM {self.number}:\n{competitor_list}"
 
 class TeamMember(models.Model):
     user = models.ForeignKey(Member, on_delete=models.CASCADE)

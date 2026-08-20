@@ -184,7 +184,7 @@ def add_event(request):
 
 @login_required
 def calendar(request):
-    return render(request, "member_only_templates/calendar.html")
+    return render(request, "member_only_templates/calendar.html") 
 
 def delete_event(request, event_id):
     if request.method != "POST": return redirect("/events/")
