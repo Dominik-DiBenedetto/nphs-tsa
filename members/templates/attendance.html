@@ -66,16 +66,6 @@
                     
                     <tbody id="membersTableBody" class="membersTableBody">
                         {% for member in record %}
-                        <div class="modal modal-{{ member.n_number }}">
-                            <h3 class="confirm-delete">Are you sure you want to delete attendance record for {{ member.n_number }} on {{ date }}?</h3>
-                            <div class="modal-buttons">
-                                <button class="cancel-delete-button">Cancel</button>
-                                <form action="/members/attendance/delete/{{ date }}/{{ member.n_number }}" method="post">
-                                    {% csrf_token %}
-                                    <button type="submit">Confirm</button>
-                                </form>
-                            </div>
-                        </div>
                         <tr>
                             <td class="member-name" style="width: 70%;">
                                 {% if member.user %}

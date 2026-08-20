@@ -106,20 +106,53 @@ function clearAllFilters() {
     })
 }
 
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+
 const deleteButtons = document.querySelectorAll(".delete")
 deleteButtons.forEach(button => {
     button.addEventListener("click", (e) => {
         e.preventDefault()
         let n_num = button.getAttribute("data-nnum")
-        let dateTable = document.querySelector(`#date-${button.getAttribute("data-date")}`)
-        let modal = dateTable.querySelector(`.modal-${n_num}`)
-        if (modal) {
-            let active_modal = document.querySelector(".modal.active")
-            if (active_modal) {
-                active_modal.classList.remove("active")
-            }
-            modal.classList.add("active")
+        let date = button.getAttribute("data-date")
+        const confirmed = confirm(
+            `Are you sure you want to delete attendance for ${n_num} on ${date}? This action cannot be undone.`
+        );
+        if (confirmed) {
+            fetch("/delete/", {
+                method: "POST",
+                headers: {
+                    'X-CSRFToken': getCookie('csrftoken'),
+                    "Content-Type": "application/x-www-form-urlencoded"
+                },
+                body: new URLSearchParams({
+                    n_num: n_num,
+                    date: date
+                    })
+            })
         }
+        // let dateTable = document.querySelector(`#date-${button.getAttribute("data-date")}`)
+        // let modal = dateTable.querySelector(`.modal-${n_num}`)
+        // if (modal) {
+        //     let active_modal = document.querySelector(".modal.active")
+        //     if (active_modal) {
+        //         active_modal.classList.remove("active")
+        //     }
+        //     modal.classList.add("active")
+        // }
     })
 })
 

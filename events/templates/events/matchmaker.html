@@ -29,7 +29,6 @@
                 {% if Events %}
                 <div class="events-grid">
                     {% for event in Events %}
-                    <!-- Event 1 -->
                     <div class="event-card">
                         <div class="event-header">
                             <h3 class="event-title">
@@ -39,7 +38,7 @@
                             <p class="event-description">{{event.1}}</p>
                         </div>
                         <div class="event-footer">
-                            <button class="btn btn-outline"><a href="{% url 'event' event.id %}">View Event</a></button>
+                            <button class="btn btn-outline"><a href="{% url 'event' event.2 %}">View Event</a></button>
                         </div>
                     </div>
                     {% endfor %}

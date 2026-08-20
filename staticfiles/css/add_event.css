@@ -65,6 +65,7 @@
 .form-input {
     width: 100%;
     padding: 1rem;
+    padding-left: 2.25rem;
     border: 2px solid #e1e5e9;
     border-radius: 10px;
     font-size: 1rem;
@@ -230,9 +231,6 @@ textarea.form-input {
     position: relative;
 }
 
-.member-input select {
-    padding-left: 2.5rem;
-}
 
 .member-number {
     position: absolute;

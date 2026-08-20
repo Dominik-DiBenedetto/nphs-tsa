@@ -1,10 +1,11 @@
 from itertools import groupby
 from operator import attrgetter
 import json
+import time
+from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from authentication.models import Member
 from .models import AttendanceRecord
-from datetime import datetime
 
 from events.models import Event
 from django.contrib.auth.decorators import user_passes_test, login_required
@@ -53,13 +54,11 @@ def view_member(request, n_num):
     member = get_object_or_404(Member, username=n_num)
     if not member: return redirect("/members/")
 
-    events = Event.objects.all()
     participating_events = []
-    for event in events:
-        for team in json.loads(event.competitors):
-            if member.name.lower().strip() in [memberName.lower().strip() for memberName in team["members"]]:
-                participating_events.append({"id": event.pk, "name": event.name, "team": f"Team {team['id']}"})
-                continue
+    participating_teams = member.teams.all()
+    for team in participating_teams:
+        event = team.event.first()
+        participating_events.append({"id": event.pk, "name": event.name, "team": f"Team {team.number}"})
 
     return render(request, "view_member.html", {"member": member, "events": participating_events})
 
@@ -112,29 +111,21 @@ def add_attendance_record(request):
 
     return render(request, "add_attendance_record.html")
     
-def delete_record(request, date, n_num):
-    if request.method != "POST": return
+def delete_record(request):
+    if request.method != "POST": return redirect("/members/attendance/")
 
-    split_date = date.split(" ")
-    month = split_date[0]
-    month.replace(".", "")
-    if len(month) > 3:
-        month = month[0:3]
-        split_date[0] = month
-    date = " ".join(split_date)
-
-    try:
-        date_object = datetime.strptime(date, "%b %d, %Y")
-    except Exception as e:
-        return f"Trouble processing date. Details: {e}"
-
-    # Convert the datetime object to the desired YYYY-MM-DD string format
-    date_string = date_object.strftime("%Y-%m-%d")
+    date = request.POST.get("date")
+    n_num = request.POST.get("n_num")
+    print(date, n_num)
     
-    record = AttendanceRecord.objects.filter(date=date_string, n_number=n_num)
+    record = AttendanceRecord.objects.filter(date=date, n_number=n_num)
     if record.count() > 1:
         record = record.last()
 
     if record:
         record.delete()
-        return redirect("attendance")
+
+    cache_buster = int(time.time())
+    return JsonResponse({
+        "redirect_url": f"/members/attendance/?v={cache_buster}"
+    })

@@ -83,7 +83,7 @@
                         {% for member in team.competitors %}
                         {% if not team.captain == member %}
                         <li class="team-member">
-                            <span>{{ member }}</span>
+                            <span>{{ member.name }}</span>
                         </li>
                         {% endif %}
                         {% endfor %}

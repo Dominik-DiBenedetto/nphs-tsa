@@ -1,6 +1,6 @@
 django
 scikit-learn
-sentence_transformers
+fastembed
 django-pwa
 django-clearcache
 pypdf
@@ -11,3 +11,4 @@ python-dotenv
 gunicorn
 dj-database-url
 whitenoise
+rank_bm25

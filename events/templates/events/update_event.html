@@ -13,7 +13,7 @@
         />
 
         <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
-        <link rel="stylesheet" href="{% static 'css/add_event.css' %}" />
+        <link rel="stylesheet" href="{% static 'css/add_event.css' %}?{% now "U" %}" />
 
         <title>Update Event</title>
     </head>
@@ -196,7 +196,6 @@
 
                 members = JSON.parse(membersData.textContent);
                 loadedTeams = JSON.parse(teamsDataElement.textContent);
-                console.log(members)
 
                 eventData =  {
                     name: "{{ Event.name|safe }}",
@@ -205,12 +204,14 @@
                     cegFile: "{{ Event.CEG|safe }}",
                     teams: loadedTeams,
                 }
+
+                console.log(loadedTeams)
+                for (let i=0; i<loadedTeams.length; i++) addTeam() // load teams
             })
 
             // Initialize the page
             function init() {
                 setupEventListeners();
-                addTeam(); // Add first team by default
             }
 
             // Setup event listeners
@@ -270,6 +271,20 @@
                         `;
 
                 teamsContainer.appendChild(teamCard);
+                    
+                if (loadingTeam) {
+                    console.log(teamCount)
+                    let competitors = eventData.teams[teamCount-1].competitors
+                    teamCard.querySelectorAll(".member-option").forEach(memberOption => {
+                        let memberOnTeam = competitors.includes(memberOption.textContent)
+                        if (memberOnTeam && memberOption.parentElement.value === "None")
+                        {
+                            competitors.splice(competitors.indexOf(memberOption.textContent), 1) // remove from list to not double count
+                            memberOption.parentElement.value = memberOption.textContent
+                        }
+
+                    })
+                }
 
                 // Add team to eventData
                 if (!loadingTeam) {
@@ -286,22 +301,9 @@
                 let inputs = "";
                 let memberOptions = "<option class='member-option'>None</option>";
                 members.forEach(member => {
-                    memberOptions += `<option class="member-option" ${(isLoading && eventData.teams[teamId-1].members[i-1]) ? "selected" : ""}>${member.name}</option>`
+                    memberOptions += `<option class="member-option">${member.name}</option>`
                 });
                 for (let i = 1; i <= 6; i++) {
-                    // inputs += `
-                                // <div class="member-input">
-                                //     <div class="member-number">${i}</div>
-                                //     <input type="text"
-                                //            id="team-${teamId}-member-${i}"
-                                //            name="team-${teamId}-member-${i}"
-                                //            class="form-input"
-                                //            placeholder="Member ${i} name..."
-                                //            onchange="updateTeamMember(${teamId}, ${i}, this.value)"
-                                //            value="${isLoading && eventData.teams[teamId-1].members[i-1] || ""}"
-                                //            >
-                                // </div>
-                    //         `;
                     inputs += `
                                 <div class="member-input">
                                     <div class="member-number">${i}</div>
@@ -320,10 +322,6 @@
 
             // Remove team
             function removeTeam(teamId) {
-                if (teamCount <= 1) {
-                    alert("You must have at least one team!");
-                    return;
-                }
 
                 const teamCard = document.getElementById(`team-${teamId}`);
                 if (teamCard) {

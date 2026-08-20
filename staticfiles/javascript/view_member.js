@@ -1,9 +1,11 @@
 const eventData = JSON.parse(document.getElementById('events-data').textContent)
+const passwordForm = document.getElementById('passwordForm')
 
 // Initialize page
 function initializePage() {
     // Set avatar initials
     const initials = document.getElementById('userName').textContent.split(' ').map(n => n[0]).join('');
+    console.log(initials)
     document.getElementById('avatar').textContent = initials;
 
     // Populate events
@@ -46,30 +48,32 @@ function openPasswordModal() {
 
 function closePasswordModal() {
     document.getElementById('passwordModal').style.display = 'none';
-    document.getElementById('passwordForm').reset();
+    passwordForm.reset();
 }
 
 // Handle password form submission
-document.getElementById('passwordForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    const newPassword = document.getElementById('newPassword').value;
+if (passwordForm) {
+    document.getElementById('passwordForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const newPassword = document.getElementById('newPassword').value;
 
-    fetch("/members/update/", {
-        method: "POST",
-        headers: {
-            'X-CSRFToken': getCookie('csrftoken'),
-            "Content-Type": "application/x-www-form-urlencoded"
-        },
-        body: new URLSearchParams({
-            viewing_nnum: document.querySelector("#userNnum").textContent,
-            n_num: document.querySelector("#newNnum").value,
-            name: document.querySelector("#newName").value,
-            password: newPassword,
-        }),
-    })
-    window.location.href = `/members/${document.querySelector("#newNnum").value}`
-});
+        fetch("/members/update/", {
+            method: "POST",
+            headers: {
+                'X-CSRFToken': getCookie('csrftoken'),
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: new URLSearchParams({
+                viewing_nnum: document.querySelector("#userNnum").textContent,
+                n_num: document.querySelector("#newNnum").value,
+                name: document.querySelector("#newName").value,
+                password: newPassword,
+            }),
+        })
+        window.location.href = `/members/${document.querySelector("#newNnum").value}`
+    });
+}
 
 function getCookie(name) {
     let cookieValue = null;

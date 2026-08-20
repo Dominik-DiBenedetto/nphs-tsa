@@ -1,5 +1,11 @@
-from sentence_transformers import SentenceTransformer, util
+import os
+import json
+import numpy as np
+from django.conf import settings
+from rank_bm25 import BM25Okapi
+from fastembed import TextEmbedding
 
+NPY_PATH = os.path.join(settings.BASE_DIR, "event_embeddings.npy")
 events = [
     {"name": "Animatronics", "tags": ["robotics", "engineering", "design"], "desc": "To address the annual design challenge, participants exhibit and demonstrate their knowledge of mechanical and control systems by creating an animatronic device with a specific purpose (i.e., communicate an idea, entertain, demonstrate a concept, etc.) that includes sound, lights, and an appropriate surrounding environment (a display)."},
     {"name": "Architectural Design", "tags": ["architecture", "design", "modeling"], "desc": "In response to the annual design challenge, participants develop a set of architectural plans and related materials, and construct both a physical and computer-generated model to accurately depict their design. Semifinalists deliver a presentation and participate in an interview."},
@@ -44,20 +50,69 @@ events = [
     {"name": "Interior Design", "tags": ["architecture", "design", "modeling", "rennovation"], "desc": "Applying leadership and 21st century skills, participants develop a color sample and material design board(s) used by interior designers to plan an overall cohesive design based on an annual challenge. Participants must demonstrate an understanding of and aptitude for interior design, developing design boards, and presenting a design interpretation. "},
     {"name": "Vlogging", "tags": ["media", "video", "production", "vlog", "blog", "youtube", "content"], "desc": "Vlogging encourages good storytelling, videography, and editing techniques to create a coherent series of creative work. Applying leadership and 21st century skills, participants use digital video technology to create original content that reflects an annual technology theme. Semifinalists complete an onsite challenge to produce additional video(s). Required criteria, such as props, lines of dialog, topics, etc., will be revealed at the semifinalist orientation meeting."},
 ]
+EVENT_TEXTS = [f"{e['name']}: {e['desc']} Tags: {', '.join(e['tags'])}" for e in events]
+EVENT_EMBEDDINGS = np.load(NPY_PATH)
 
 def get_event_description(event_name):
     for event in events:
         if event["name"] != event_name: continue
         return event["desc"]
 
-model = SentenceTransformer('all-MiniLM-L6-v2')
+tokenized_corpus = [doc.split() for doc in EVENT_TEXTS]
+bm25 = BM25Okapi(tokenized_corpus)
+model = TextEmbedding("BAAI/bge-small-en-v1.5")
 
-# Encode event descriptions once
-event_texts = [f"{e['name']}: {e['desc']} Tags: {', '.join(e['tags'])}" for e in events]
-event_embeddings = model.encode(event_texts, convert_to_tensor=True)
-def rank_events(prompt):
-    query_embedding = model.encode(prompt, convert_to_tensor=True)
-    scores = util.cos_sim(query_embedding, event_embeddings)[0]
+# Simple synonym map to bridge common search terms
+SYNONYMS = {
+    "code": ["programming", "software", "developer", "coding"],
+    "coding": ["programming", "software", "developer", "code"],
+    "video": ["media", "production", "film", "vlog"],
+    "building": ["engineering", "construction", "architecture", "model"],
+    "speech": ["presentation", "public speaking", "debate", "communication"],
+}
+
+def rank_events(prompt, alpha=0.3):
+    if not prompt.strip():
+        # Return default list if query is empty
+        return [{**e, "score": 0.0} for e in events]
+
+    query_tokens = prompt.lower().split()
     
-    results = [(events[i]["name"], float(scores[i])) for i in range(len(events))]
-    return sorted(results, key=lambda x: x[1], reverse=True)
+    # 1. Expand query tokens with synonyms
+    expanded_tokens = list(query_tokens)
+    for token in query_tokens:
+        if token in SYNONYMS:
+            expanded_tokens.extend(SYNONYMS[token])
+
+    # 2. Keyword Match (BM25)
+    bm25_scores = bm25.get_scores(expanded_tokens)
+    max_bm25 = np.max(bm25_scores)
+    bm25_norm = (bm25_scores / max_bm25) if max_bm25 > 0 else np.zeros(len(events))
+
+    # 3. Vector Similarity Match (Raw Cosine Similarity)
+    query_emb = list(model.embed([prompt]))[0]
+    sim_scores = np.dot(EVENT_EMBEDDINGS, query_emb) / (
+        np.linalg.norm(EVENT_EMBEDDINGS, axis=1) * np.linalg.norm(query_emb)
+    )
+    # Clip negative similarity scores to 0 (no min-max stretching!)
+    sim_norm = np.maximum(0, sim_scores)
+
+    # 4. Direct Tag & Title Hard Boost
+    tag_boost = np.zeros(len(events))
+    for i, event in enumerate(events):
+        event_tags = [t.lower() for t in event["tags"]]
+        event_title = event["name"].lower()
+        for token in expanded_tokens:
+            if token in event_tags or token in event_title:
+                tag_boost[i] += 0.4  # Direct score bump for hard matches
+
+    # 5. Combined Ranking Score
+    final_scores = (alpha * bm25_norm) + ((1 - alpha) * sim_norm) + tag_boost
+
+    # Sort all 42 events from highest to lowest score
+    ranked_indices = np.argsort(final_scores)[::-1]
+
+    return [
+        [events[idx]["name"], round(float(final_scores[idx]), 3)]
+        for idx in ranked_indices
+    ]

@@ -24,7 +24,7 @@ def view_event(request, event_id):
     templated_team_data = []
     for team in teams:
         members = team.competitors.all()
-        captain = team.competitors.filter(TeamMember__is_captain=True)
+        captain = team.competitors.filter(teammember__is_captain=True)
         templated_team_data.append({"team": team, "competitors": members, captain: captain})
 
     print(templated_team_data, event)
@@ -41,7 +41,7 @@ def update_event(request, event_id):
             desc = request.POST.get('Description')
             prompt = request.POST.get('Prompt')
             ceg_file = request.FILES.get('CEG')
-            teams_json = request.POST.get('Teams')
+            teams_json = json.loads(request.POST.get('Teams'))
 
             event.name = name
             event.desc = desc
@@ -49,41 +49,86 @@ def update_event(request, event_id):
             event.CEG = ceg_file
 
             # Proccess teams
-            print(teams_json)
-            for teamId, members in json.loads(teams_json).items():
+            for teamId, members in teams_json.items():
                 teamNumber = teamId.split("-")[1]
-                print(type(teams) is dict)
-                team = not type(teams) is dict and teams.filter(number=teamNumber) or None
+                team = not type(teams) is dict and teams.filter(number=teamNumber).first() or None
                 if not team:
-                    print("New team!")
                     team = Team.objects.create(number=teamNumber)
+                    event.teams.add(team)
+
                 for competitor in team.competitors.all():
-                    print("COMPETITOR", competitor)
                     if not competitor.name in members:
                         user = Member.objects.get(name=competitor.name)
                         TeamMember.objects.filter(user=user, team=team).delete()
-                        print(competitor.name, 'was removed from team!')
-                print(teamId)
+                
                 for member in members:
                     if member == "None": continue
                     user = Member.objects.get(name=member)
-                    if user:
+                    if user and not team.competitors.filter(name=member).exists():
                         TeamMember.objects.create(user=user, team=team, is_captain=False)
-                    print(member)
+
+            # Handle team deletions
+            saved_teams_count = not type(teams) is dict and teams.count() or -1
+            updated_teams_count = len(teams_json)
+            if not type(teams) is dict and saved_teams_count > updated_teams_count:
+                teamNums = []
+                for teamId in teams_json:
+                    teamNumber = int(teamId.split("-")[1])
+                    teamNums.append(teamNumber)
+                teamNums = sorted(teamNums)
+                
+                if updated_teams_count == 0:
+                    teams.delete()
+                elif (saved_teams_count - updated_teams_count == 1 and (teamNums[0] != 1 or teamNums[-1] != saved_teams_count)):
+                    if updated_teams_count == 0:
+                        teams.first().delete()
+                    elif teamNums[0] != 1:
+                        for i in range(1, updated_teams_count+1):
+                            teams[i].number = i
+                            teams[i].save()
+                        teams[0].delete()
+                    else:
+                        teams[updated_teams_count].delete()
+                else:
+                    lastTeamNum = -1
+                    deletionIndices = []
+                    for teamId in teams_json:
+                        teamNumber = int(teamId.split("-")[1])-1
+                        if teamNumber != lastTeamNum + 1:
+                            deletedNumber = teamNumber - 1
+                            deletionIndices.append(deletedNumber)
+                        lastTeamNum = teamNumber
+                
+                    deletionShift = 0
+                    start = 0
+                    for idx in deletionIndices: 
+                        for i in range(start, idx):
+                            if deletionShift == 0: continue
+                            teams[i].number -= deletionShift
+                            teams[i].save()
+                        start = idx
+                        deletionShift += 1
+
+                    for i in range(deletionIndices[-1], saved_teams_count):
+                        teams[i].number -= deletionShift
+                        teams[i].save()
+
+                    for idx in deletionIndices:
+                        teams[idx].delete()
 
             event.save()
             
-            return redirect("/events/", permanent=True)
+            return redirect(f"/events/event/{event_id}", permanent=True)
         except Exception as e:
             print(f"ERRORORO {e}")
 
     templated_team_data = []
     for team in teams:
-        members = team.competitors.all()
-        captain = team.competitors.filter(TeamMember__is_captain=True)
-        templated_team_data.append({"team": team, "competitors": members, captain: captain})
+        captain = team.competitors.filter(teammember__is_captain=True).first()
+        competitors = list(team.competitors.all().values_list("name", flat=True))
+        templated_team_data.append({"teamNumber": team.number, "captain": captain, "competitors": competitors})
 
-    print(list(Member.objects.all().values("name")))
+    print(templated_team_data)
     return render(request, "events/update_event.html", {"Event": event, "teams_json": templated_team_data, "members": list(Member.objects.all().values("name"))})
 
 @xframe_options_exempt
@@ -102,7 +147,9 @@ def event_matchmaker(request):
 
         sorted_events_list = []
         for name, _ in ranked:
-            sorted_events_list.append((name, get_event_description(name)))
+            eventId = Event.objects.filter(name=name).first()
+            if eventId: eventId = eventId.pk
+            sorted_events_list.append((name, get_event_description(name), eventId or 1))
 
         return render(request, "events/matchmaker.html", {"Events": tuple(sorted_events_list)})
 

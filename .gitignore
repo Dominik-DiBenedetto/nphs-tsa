@@ -4,3 +4,4 @@ __pycache__/
 *.cpython.310.pyc
 .env
 data.json
+build_embeddings.py

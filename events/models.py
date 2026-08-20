@@ -9,10 +9,10 @@ class Team(models.Model):
 
     def __str__(self):
         formatted = "TEAM\n"
-        for competitor in self.competitors:
+        for competitor in self.competitors.all():
             if competitor and competitor.name:
                 formatted = f"\t{formatted}\n{competitor.name}"
-        return formatted
+        return formatted.strip()
 
 class TeamMember(models.Model):
     user = models.ForeignKey(Member, on_delete=models.CASCADE)
@@ -29,7 +29,7 @@ class Event(models.Model):
     prompt = models.TextField(blank=True, null=True)
 
     CEG = models.FileField(blank=True, null=True)
-    teams = models.ManyToManyField(Team, related_name="teams")
+    teams = models.ManyToManyField(Team, related_name="event")
 
     def __str__(self):
         return self.name
