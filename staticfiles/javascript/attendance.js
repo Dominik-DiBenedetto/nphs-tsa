@@ -77,10 +77,23 @@ const ids = document.querySelectorAll(".member-id")
 function searchElms(text) {
     let results = []
     names.forEach((nameElm) => {
-        if (nameElm.textContent.toLowerCase().includes(text)) results.push(nameElm.parentElement.parentElement.parentElement.parentElement)
+        if (nameElm.textContent.toLowerCase().includes(text)) {
+            results.push(nameElm.parentElement.parentElement.parentElement.parentElement)
+            if (nameElm.parentElement.classList.contains("hidden-date-search")) nameElm.parentElement.classList.remove("hidden-date-search")
+        }
+        else if (nameElm.textContent.trim() !== text.trim()) {
+            if (!nameElm.parentElement.classList.contains("hidden-date-search")) nameElm.parentElement.classList.add("hidden-date-search")
+        }
     })
     ids.forEach((idElm) => {
-        if (idElm.textContent.toLowerCase().includes(text)) results.push(idElm.parentElement.parentElement.parentElement.parentElement)
+        if (idElm.textContent.toLowerCase().includes(text)) {
+            results.push(idElm.parentElement.parentElement.parentElement.parentElement) // hide whole date
+            
+            if (idElm.parentElement.classList.contains("hidden-date-search")) idElm.parentElement.classList.remove("hidden-date-search")
+        }
+        else if (idElm.textContent.trim() !== text.trim()) {
+            if (!idElm.parentElement.classList.contains("hidden-date-search")) idElm.parentElement.classList.add("hidden-date-search")
+        }
     })
     DATES.forEach((date) => {
         let dateDiv = date.parentElement.parentElement.parentElement.parentElement
@@ -99,11 +112,7 @@ function clearAllFilters() {
     search.value = ""
     dateSelector.value = null
     reorderDatesSelection.value = "ascending"
-    DATES.forEach((date) => {
-        let dateDiv = date.parentElement.parentElement.parentElement.parentElement
-        if (dateDiv.classList.contains("hidden-date")) dateDiv.classList.remove("hidden-date")
-        if (dateDiv.classList.contains("hidden-date-search")) dateDiv.classList.remove("hidden-date-search")
-    })
+    document.querySelectorAll(".hidden-date-search").forEach(hiddenElm => hiddenElm.classList.remove("hidden-date-search"))
 }
 
 function getCookie(name) {
@@ -132,7 +141,7 @@ deleteButtons.forEach(button => {
             `Are you sure you want to delete attendance for ${n_num} on ${date}? This action cannot be undone.`
         );
         if (confirmed) {
-            fetch("/delete/", {
+            fetch("/members/attendance/delete/", {
                 method: "POST",
                 headers: {
                     'X-CSRFToken': getCookie('csrftoken'),
@@ -142,17 +151,13 @@ deleteButtons.forEach(button => {
                     n_num: n_num,
                     date: date
                     })
-            })
+            }).then(response => response.json())
+            .then(data => {
+                if (data.redirect_url) {
+                    window.location.href = data.redirect_url; // this is to reload the page to show deletion
+                }
+            });
         }
-        // let dateTable = document.querySelector(`#date-${button.getAttribute("data-date")}`)
-        // let modal = dateTable.querySelector(`.modal-${n_num}`)
-        // if (modal) {
-        //     let active_modal = document.querySelector(".modal.active")
-        //     if (active_modal) {
-        //         active_modal.classList.remove("active")
-        //     }
-        //     modal.classList.add("active")
-        // }
     })
 })
 
