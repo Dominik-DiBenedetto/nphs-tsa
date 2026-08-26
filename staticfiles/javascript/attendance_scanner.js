@@ -16,6 +16,7 @@ function getCookie(name) {
     return cookieValue;
 }
 
+let lastScannedNumber = ""
 function onScanSuccess(decodedText, decodedResult) {
     // handle the scanned code as you like, for example:
     if (decodedText) {
