@@ -19,8 +19,8 @@ function getCookie(name) {
 function onScanSuccess(decodedText, decodedResult) {
     // handle the scanned code as you like, for example:
     if (decodedText) {
-        let nNumber = toString(decodedText)
-        console.log(nNumber)
+        let nNumber = decodedText
+        console.log(nNumber, typeof(nNumber))
         if (!decodedText.includes("N")) {
             console.log("NO N")
             let nNumberNum = 0
