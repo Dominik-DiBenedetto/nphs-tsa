@@ -20,6 +20,7 @@ function onScanSuccess(decodedText, decodedResult) {
     // handle the scanned code as you like, for example:
     if (decodedText) {
         let nNumber = decodedText
+        console.log(nNumber)
         if (!decodedText.includes("N")) {
             let nNumberNum = 0
             try {
@@ -45,6 +46,7 @@ function onScanSuccess(decodedText, decodedResult) {
                 date: formattedDate
             })
         })
+        alert("scanned " + nNumber)
         setTimeout(() => {
             if (lastScannedNumber === nNumber) lastScannedNumber = "";
         }, 5000)
