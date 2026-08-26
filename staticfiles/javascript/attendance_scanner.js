@@ -19,9 +19,10 @@ function getCookie(name) {
 function onScanSuccess(decodedText, decodedResult) {
     // handle the scanned code as you like, for example:
     if (decodedText) {
-        let nNumber = decodedText
+        let nNumber = toString(decodedText)
         console.log(nNumber)
         if (!decodedText.includes("N")) {
+            console.log("NO N")
             let nNumberNum = 0
             try {
                 nNumberNum = parseInt(nNumber)
@@ -31,6 +32,7 @@ function onScanSuccess(decodedText, decodedResult) {
             nNumber = "N" + toString(nNumberNum)
         }
 
+        console.log(lastScannedNumber, nNumber)
         if (lastScannedNumber === nNumber) return;
         lastScannedNumber = nNumber
         
