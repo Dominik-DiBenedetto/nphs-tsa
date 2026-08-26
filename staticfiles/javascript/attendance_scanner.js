@@ -23,13 +23,11 @@ function onScanSuccess(decodedText, decodedResult) {
         console.log(nNumber, typeof(nNumber))
         if (!decodedText.includes("N")) {
             console.log("NO N")
-            let nNumberNum = 0
-            try {
-                nNumberNum = parseInt(nNumber)
-            } catch (error) {
+            let nNumberNum = parseInt(nNumber, 10)
+            if (isNaN(nNumberNum)) {
                 return
             }
-            nNumber = "N" + toString(nNumberNum)
+            nNumber = "N" + nNumberNum
         }
 
         console.log(lastScannedNumber, nNumber)
