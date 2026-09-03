@@ -55,14 +55,11 @@
     </div>
 
     <script>
-        // Sample user data
-        let users = JSON.parse(document.querySelector("#users-data").textContent);
+        const users = JSON.parse(document.querySelector("#users-data").textContent);
 
         users.forEach(user => {
             user.status = user.is_active == false && "pending" || "approved"
         });
-
-        let filteredUsers = [...users];
 
         function getInitials(name) {
             return name.split(' ').map(n => n[0]).join('').toUpperCase();
@@ -85,7 +82,7 @@
         function renderUsers() {
             const userList = document.getElementById('userList');
             
-            if (filteredUsers.length === 0) {
+            if (users.length === 0) {
                 userList.innerHTML = `
                     <div class="empty-state">
                         <h3>No users found</h3>
@@ -95,7 +92,7 @@
                 return;
             }
 
-            userList.innerHTML = filteredUsers.map(user => `
+            userList.innerHTML = users.map(user => `
                 <div class="user-card" data-user-id="${user.id}">
                     <div class="user-header">
                         <div class="user-avatar">${getInitials(user.name)}</div>
@@ -129,11 +126,11 @@
         }
 
         function filterUsers() {
-            const statusFilter = document.getElementById('statusFilter').value;
+            const statusFilter = document.getElementById('statusFilter').value.toLowerCase();
             const dateFilter = document.getElementById('dateFilter').value;
             const searchFilter = document.getElementById('searchFilter').value.toLowerCase();
 
-            filteredUsers = users.filter(user => {
+            users = users.filter(user => {
                 const matchesStatus = statusFilter === 'all' || user.status === statusFilter;
                 const matchesDate = !dateFilter || user.registrationDate === dateFilter;
                 const matchesSearch = !searchFilter || 
@@ -213,7 +210,6 @@
                 const cookies = document.cookie.split(';');
                 for (let i = 0; i < cookies.length; i++) {
                     const cookie = cookies[i].trim();
-                    // Does this cookie string begin with the name we want?
                     if (cookie.substring(0, name.length + 1) === (name + '=')) {
                         cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
                         break;

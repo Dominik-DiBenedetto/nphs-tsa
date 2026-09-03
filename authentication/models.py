@@ -2,8 +2,6 @@ from django.db import models
 from django import forms
 from django.contrib.auth.models import AbstractUser
 
-# Create your models here.
-
 class Member(AbstractUser):
     name = models.CharField(max_length=100)
     username = models.CharField(max_length=7, unique=True) # nNumber
@@ -17,4 +15,4 @@ class Member(AbstractUser):
 class CustomUserUpdateForm(forms.ModelForm):
     class Meta:
         model = Member
-        fields = ['name', 'username', 'role', 'strikes', 'email'] # Add your custom fields
+        fields = ['name', 'username', 'role', 'strikes', 'email'] 
