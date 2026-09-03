@@ -1,18 +1,19 @@
 import json, traceback
+
 from django.shortcuts import render, get_object_or_404, redirect
-from django.http import FileResponse, Http404, HttpResponse
+from django.http import FileResponse, Http404
 from django.views.decorators.clickjacking import xframe_options_exempt
 from django.contrib.auth.decorators import user_passes_test, login_required
 
-from .models import Event, Team, TeamMember
 from .event_recommender import rank_events, get_event_description
-
+from .models import Event, Team, TeamMember
 from authentication.models import Member
 
+# Helpers
 def is_officer(user):
     return user.is_superuser or user.groups.filter(name="Officer").exists()
 
-# Create your views here.
+# Views
 def index(request):
     events_list = Event.objects.all().order_by("name")
     return render(request, "events/index.html", {"Events": events_list})
@@ -30,6 +31,7 @@ def view_event(request, event_id):
     print(templated_team_data, event)
     return render(request, "events/event.html", {"Event": event, "Teams": templated_team_data})
 
+# TODO: Refactor this function my goodness its hard to read
 @user_passes_test(is_officer)
 def update_event(request, event_id):
     event = get_object_or_404(Event, pk=event_id)
@@ -128,7 +130,6 @@ def update_event(request, event_id):
         competitors = list(team.competitors.all().values_list("name", flat=True))
         templated_team_data.append({"teamNumber": team.number, "captain": captain, "competitors": competitors})
 
-    print(templated_team_data)
     return render(request, "events/update_event.html", {"Event": event, "teams_json": templated_team_data, "members": list(Member.objects.all().values("name"))})
 
 @xframe_options_exempt
@@ -136,7 +137,7 @@ def view_ceg_file(request, event_id):
     try:
         event = Event.objects.get(id=event_id)
         file_path = event.CEG.path
-        return FileResponse(open(file_path, 'rb'), content_type='application/pdf')  # Adjust MIME if needed
+        return FileResponse(open(file_path, 'rb'), content_type='application/pdf') 
     except (Event.DoesNotExist, FileNotFoundError):
         raise Http404("File not found.")
 
@@ -156,31 +157,26 @@ def event_matchmaker(request):
     return render(request, "events/matchmaker.html")
 
 def add_event(request):
-    if request.user.groups.filter(name="Officer").exists():
-        if request.method == "POST":
-            try:
-                name = request.POST.get('Name')
-                desc = request.POST.get('Description')
-                prompt = request.POST.get('Prompt')
-                ceg_file = request.FILES.get('CEG')
-                teams_json = request.POST.get('Teams')
+    if not request.user.groups.filter(name="Officer").exists(): return redirect("/events/")
+    if request.method == "GET": return render(request, "events/add_event.html")
 
-                newEvent = Event.objects.create(
-                    name = name,
-                    desc = desc,
-                    prompt = prompt,
-                    CEG = ceg_file,
-                    competitors = teams_json
-                )
-                return redirect("/events/")
-                
-            except Exception as e:
-                print(f"ERROR!!! {e}")
-                traceback.print_exc()
+    name = request.POST.get('Name').strip()
+    desc = request.POST.get('Description').strip()
+    prompt = request.POST.get('Prompt').strip()
+    ceg_file = request.FILES.get('CEG')
+    teams_json = request.POST.get('Teams')
 
+    if not name or not desc: # empty string evaluates to false in python
         return render(request, "events/add_event.html")
-    else:
-        return redirect("/events/")
+
+    Event.objects.create(
+        name = name,
+        desc = desc,
+        prompt = prompt,
+        CEG = ceg_file,
+        competitors = teams_json
+    )
+    return redirect("/events/")
 
 @login_required
 def calendar(request):

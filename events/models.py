@@ -8,7 +8,7 @@ class Team(models.Model):
     competitors = models.ManyToManyField(Member, through="TeamMember", related_name="teams")
 
     def __str__(self):
-        names = [c.name for c in self.competitors.all() if c and c.name]
+        names = [member.name for member in self.competitors.all()]
 
         if not names:
             return f"Team {self.number} (No competitors)"
