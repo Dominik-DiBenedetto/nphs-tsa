@@ -6,14 +6,11 @@
 
         {% load static %}
         {% load pwa %}
-    {% progressive_web_app_meta %}
+        {% progressive_web_app_meta %}
         <link rel="icon" href="{% static 'images/nphs_bobcats_favicon.jpg' %}" type="image/x-icon">
 
-        <!-- CSS -->
         <link rel="stylesheet" href="{% static 'css/styles.css' %}" />
         <link rel="stylesheet" href="{% static 'css/members.css' %}" />
-
-        <!-- Javascript -->
         <script src="{% static 'javascript/members.js' %}" defer></script>
         
 
@@ -70,8 +67,6 @@
                             </td>
                         </tr>
                         {% endfor %}
-                        
-                        <!-- Members will be populated by JavaScript -->
                     </tbody>
                 </table>
             </div>

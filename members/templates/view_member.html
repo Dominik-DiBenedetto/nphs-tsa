@@ -24,7 +24,6 @@
     {% navbar "none" "Members" %}
     {% load is_officer %}
     <div class="container">
-        <!-- Profile Header -->
         <div class="profile-header">
             <div class="profile-avatar" id="avatar">DD</div>
             <h1 class="profile-name" id="userName">{{ member.name }}</h1>
@@ -32,31 +31,26 @@
             <span class="profile-rank" id="userRank">{{ member.role }}</span>
         </div>
 
-        <!-- Profile Actions -->
         {% if user.is_superuser or user|is_officer %}
         <div class="profile-actions">
             <h2 class="section-title">Account Settings</h2>
             <div class="action-buttons">
                 <button class="btn btn-primary" onclick="openPasswordModal()">
-                    🔒 Edit Information
+                    Edit Information
                 </button>
                 <button class="btn btn-danger" onclick="confirmDelete()">
-                    🗑️ Delete Account
+                    Delete Account
                 </button>
             </div>
         </div>
         {% endif %}
 
-        <!-- Events Section -->
         <div class="events-section">
             <h2 class="section-title">My Events</h2>
-            <ul class="events-list" id="eventsList">
-                <!-- Events will be populated by JavaScript -->
-            </ul>
+            <ul class="events-list" id="eventsList"><!-- Events will be populated by JavaScript --></ul>
         </div>
     </div>
 
-    <!-- Password Edit Modal -->
     {% if user.is_superuser or user|is_officer %}
     <div class="modal" id="passwordModal">
         <div class="modal-content">

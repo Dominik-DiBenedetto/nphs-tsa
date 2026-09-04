@@ -6,7 +6,7 @@
 
         {% load static %}
         {% load pwa %}
-    {% progressive_web_app_meta %}
+        {% progressive_web_app_meta %}
         <link rel="icon" href="{% static 'images/nphs_bobcats_favicon.jpg' %}" type="image/x-icon">
 
         <!-- CSS -->
@@ -16,8 +16,6 @@
         <!-- Javascript -->
         <script src="{% static 'javascript/members.js' %}" defer></script>
         <script src="{% static 'javascript/attendance.js' %}" defer></script>
-
-        
 
         <title>Members | NPHS TSA</title>
     </head>
@@ -31,6 +29,8 @@
                 <h1>Attendance</h1>
                 {% if user.is_superuser or user|is_officer %}
                 <a href="{% url 'scan_attendance' %}">Scan</a>
+                or
+                <a href="{% url 'add_attendance_record' %}">Add Manually</a>
                 {% endif %}
                 <p>Manage and view member attendance records</p>
                 <div class="filters">
@@ -96,7 +96,7 @@
                                             href="/members/{{ member.n_number }}/edit"
                                             >Edit</a
                                         >
-                                        <button a class="dropdown-item delete" data-nnum="{{ member.n_number }}" data-date="{{ date|replace_string:' , ' }}"
+                                        <button class="dropdown-item delete" data-nnum="{{ member.n_number }}" data-date="{{ date|replace_string:' , ' }}"
                                             >Delete</button
                                         >
                                         {% endif %}
