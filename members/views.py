@@ -1,4 +1,4 @@
-import time
+import time, json
 from itertools import groupby
 from operator import attrgetter
 
@@ -83,8 +83,15 @@ def scan_attendance_record(request):
 def add_attendance_record(request):
     cached_date = ""
     if request.method == "POST":
-        n_num = request.POST.get('n_num').upper()
-        date = request.POST.get('date')
+        n_num, date = None, None
+        if request.META.get("HTTP_SEC_FETCH_DEST", "") == "document": # form submission
+            n_num = request.POST.get('n_num').upper()
+            date = request.POST.get('date')
+        else:
+            data = json.loads(request.body)
+            n_num = data.get('n_num').upper()
+            date = data.get('date')
+
         cached_date = date
 
         if not n_num or not date: return render(request, "add_attendance_record.html")
