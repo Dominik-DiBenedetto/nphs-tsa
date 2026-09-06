@@ -4,12 +4,12 @@ from operator import attrgetter
 
 from django.http import JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
-from authentication.models import Member
 from django.contrib.auth.decorators import user_passes_test, login_required
 from django.db import transaction
 
 from .models import AttendanceRecord
 from authentication.views import is_officer
+from authentication.models import Member, Strike
 
 # Views
 @login_required
@@ -57,7 +57,35 @@ def view_member(request, n_num):
         event = team.event.first()
         participating_events.append({"id": event.pk, "name": event.name, "team": f"Team {team.number}"})
 
-    return render(request, "view_member.html", {"member": member, "events": participating_events})
+
+    return render(request, "view_member.html", {"member": member, "events": participating_events, "strikes": member.strikes.all()})
+
+def give_strike(request):
+    if request.method != "POST": return
+
+    member_nnum = request.POST.get("member_nnum")
+    member = get_object_or_404(Member, username=member_nnum)
+    reason = request.POST.get("reason")
+
+    Strike.objects.create(member=member, reason=reason)
+    member.strikesNum = member.strikesNum + 1
+    member.save()
+
+    return redirect(f"/members/{member_nnum}")
+
+def remove_strike(request):
+    if request.method != "POST": return
+
+    member_nnum = request.POST.get("member_nnum")
+    member = get_object_or_404(Member, username=member_nnum)
+    strike_pk = request.POST.get("pk")
+    strike = member.strikes.filter(pk=strike_pk)
+    if strike:
+        strike.delete()
+        member.strikesNum = member.strikesNum - 1
+        member.save()
+    return redirect(f"/members/{member_nnum}")
+
 
 def attendance_view(request):
     null_user_records = AttendanceRecord.objects.filter(user__isnull=True)
@@ -80,6 +108,7 @@ def attendance_view(request):
 def scan_attendance_record(request):
     return render(request, "scan_attendance.html", {})
 
+# TODO/NOTE TO SELF: Update scanner to send a bulk request instead of requesting the db after every scan!
 def add_attendance_record(request):
     cached_date = ""
     if request.method == "POST":

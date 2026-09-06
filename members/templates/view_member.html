@@ -18,6 +18,9 @@
     <link rel="stylesheet" href="{% static 'css/view_member.css' %}" />
     <script src="{% static 'javascript/view_member.js' %}" defer></script>
 
+    <style>
+        
+    </style>
 </head>
 <body>
     {% load mycomponents %}
@@ -27,7 +30,7 @@
         <div class="profile-header">
             <div class="profile-avatar" id="avatar">DD</div>
             <h1 class="profile-name" id="userName">{{ member.name }}</h1>
-            <h4 class="profile-nnum" id="userNnum">{{ member.username }}</h1>
+            <h4 class="profile-nnum"><span id="userNnum">{{ member.username }}</span> | Strikes: {{ member.strikesNum }}</h1>
             <span class="profile-rank" id="userRank">{{ member.role }}</span>
         </div>
 
@@ -41,13 +44,16 @@
                 <button class="btn btn-danger" onclick="confirmDelete()">
                     Delete Account
                 </button>
+                <button class="btn btn-primary" onclick="openStrikesModal()">
+                    Manage Strikes
+                </button>
             </div>
         </div>
         {% endif %}
 
         <div class="events-section">
             <h2 class="section-title">My Events</h2>
-            <ul class="events-list" id="eventsList"><!-- Events will be populated by JavaScript --></ul>
+            <ul class="events-list" id="eventsList"></ul>
         </div>
     </div>
 
@@ -72,6 +78,35 @@
                 <div class="modal-actions">
                     <button type="button" class="btn btn-secondary" onclick="closePasswordModal()">Cancel</button>
                     <button type="submit" class="btn btn-primary">Update Information</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="modal" id="strikesModal">
+        <div class="modal-content">
+            <h3 class="modal-header">Update Strikes</h3>
+            <div class="strike-displays">
+                {% for strike in strikes %}
+                <div class="strike-display strike-{{ forloop.counter }}">
+                    <div class="strike-header">
+                        <span class="strike-num">Strike {{ forloop.counter }}</span>
+                        <button class="btn btn-danger" onclick="removeStrike({{ strike.pk }})">Remove</button>
+                    </div>
+                    <div class="strike-body">
+                        <label>Reason</label>
+                        <div class="strike-reason">{{ strike.reason }}</div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <form id="strikesForm">
+                <div class="form-group">
+                    <label class="form-label" for="strike-reason-input">Reason</label>
+                    <input type="text" class="form-input strike-reason-input" id="strike-reason-input" placeholder="Please enter a reason for the strike." maxlength="100" />
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="btn btn-secondary" onclick="closeStrikesModal()">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Grant Strike</button>
                 </div>
             </form>
         </div>

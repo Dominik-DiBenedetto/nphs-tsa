@@ -398,3 +398,7 @@ tbody tr:hover {
     width: 40%;
     min-width: 60px;
 }
+
+.hide{
+    display: none;
+}

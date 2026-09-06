@@ -22,8 +22,13 @@
         {% navbar "none" "Members" %}
         <div class="container">
             <div class="header">
-                <h1>Team Members</h1>
-                <p>Manage your team members and their permissions</p>
+                <h1>Chapter Members</h1>
+                <p>View all registered chapter members, their roles, and strike information.</p>
+                <div class="filters">
+                    <div class="filter-group" style="width: 100%;">
+                        <input type="text" id="searchInput" class="filter-input filter-search" style="width: 100%;" placeholder="Search student names or n numbers...">
+                    </div>
+                </div>
             </div>
 
             <div class="members-table">
@@ -39,14 +44,14 @@
                     </thead>
                     <tbody id="membersTableBody">
                         {% for member in members %}
-                        <tr>
+                        <tr class="member">
                             <td class="member-name">{{ member.name }}</td>
                             <td class="member-id">{{ member.username }}</td>
                             <td>
                                 <span class="role-badge role-${member.role}">{{ member.role }}</span>
                             </td>
                             <td>
-                                <span class="strikes ${getStrikesClass(member.strikes)}">Strikes: 0</span>
+                                <span class="strikes">Strikes: {{ member.strikesNum }}</span>
                             </td>
                             <td>
                                 <div class="menu-container">

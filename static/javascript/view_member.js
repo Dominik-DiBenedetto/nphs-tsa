@@ -1,5 +1,7 @@
 const eventData = JSON.parse(document.getElementById('events-data').textContent)
 const passwordForm = document.getElementById('passwordForm')
+const strikesForm = document.getElementById('strikesForm')
+
 
 // Initialize page
 function initializePage() {
@@ -25,12 +27,6 @@ function populateEvents() {
             <div class="event-name">${event.name}</div>
             <div class="event-date">${event.team}</div>
         `;
-        // <span class="event-status status-${event.type[0]}">
-        //         ${event.type[1]}
-        //     </span>
-        //     <span class="event-status status-${event.cluster[0]}">
-        //         ${event.cluster[1]}
-        //     </span>
 
         eventItem.addEventListener("click", (e) => {
             e.preventDefault();
@@ -73,6 +69,22 @@ if (passwordForm) {
         })
         window.location.href = `/members/${document.querySelector("#newNnum").value}`
     });
+    strikesForm.addEventListener('submit', function(e){
+        e.preventDefault();
+
+        fetch("/members/strike/", {
+            method: "POST",
+             headers: {
+                'X-CSRFToken': getCookie('csrftoken'),
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: new URLSearchParams({
+                member_nnum: document.querySelector("#userNnum").textContent,
+                reason: strikesForm.querySelector(".strike-reason-input").value.trim()
+            }),
+        })
+        window.location.href = `/members/${document.querySelector("#newNnum").value}`
+    })
 }
 
 function getCookie(name) {
@@ -107,8 +119,39 @@ function confirmDelete() {
             body: new URLSearchParams({
                 n_num: document.querySelector("#userNnum").textContent,
                 })
-            })
+            }
+        )
     }
+}
+
+function removeStrike(strikePk) {
+    const confirmed = confirm(
+        'Are you sure you want to remove this strike? This action cannot be undone.'
+    );
+    
+    if (confirmed) {
+        fetch("/members/strike/remove/", {
+            method: "POST",
+            headers: {
+                'X-CSRFToken': getCookie('csrftoken'),
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+            body: new URLSearchParams({
+                member_nnum: document.querySelector("#userNnum").textContent,
+                pk: strikePk
+                })
+            }
+        )
+    }
+}
+
+function openStrikesModal() {
+    document.getElementById('strikesModal').style.display = 'block';
+}
+
+function closeStrikesModal() {
+    document.getElementById('strikesModal').style.display = 'none';
+    strikesForm.reset();
 }
 
 // Close modal when clicking outside
