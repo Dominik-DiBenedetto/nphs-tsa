@@ -75,31 +75,3 @@ self.addEventListener('fetch', (event) => {
   // 3) Everything else → pass-through network (and don't cache)
   event.respondWith(fetch(req, { cache: 'no-store' }));
 });
-
-self.addEventListener("push", event => {
-  console.log("Push received:", event);
-
-  let data = {};
-  try {
-    data = event.data.json();
-  } catch (e) {
-    data = { title: "Default title", body: event.data.text() };
-  }
-
-  const title = data.title || "Hello!";
-  const options = {
-    body: data.body || "You have a new notification!",
-    icon: "/static/images/pwaicons/icon-512x512.png",
-  };
-
-  event.waitUntil(
-    self.registration.showNotification(title, options)
-  );
-});
-
-self.addEventListener("notificationclick", event => {
-  event.notification.close();
-  event.waitUntil(
-    clients.openWindow("/") // go to homepage on click
-  );
-});

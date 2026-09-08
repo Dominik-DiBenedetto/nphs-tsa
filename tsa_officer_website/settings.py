@@ -65,9 +65,10 @@ MIDDLEWARE = [
 ]
 
 WEBPUSH_SETTINGS = {
-    "VAPID_PUBLIC_KEY": "BGsVTzkU1W9DQlKwNHbzi8ec1bIlrCjbe1KtQ6HIMVGIy2W9oBh0B3XIQdiQwQsbnAr6t7Bnl0OX5N34l2MpRSU=",
+    "VAPID_PUBLIC_KEY": os.getenv("VAPID_PUBLIC_KEY"),
     "VAPID_PRIVATE_KEY": os.getenv("VAPID_PRIVATE_KEY"),
-    "VAPID_ADMIN_EMAIL": "admin@example.com"
+    "VAPID_ADMIN_EMAIL": os.getenv("VAPID_EMAIL"),
+    "WEBPUSH_URL": "/notifications/" 
 }
 
 ROOT_URLCONF = 'tsa_officer_website.urls'
