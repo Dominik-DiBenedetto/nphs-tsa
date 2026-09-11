@@ -76,22 +76,24 @@ const ids = document.querySelectorAll(".member-id")
 
 function searchElms(text) {
     let results = []
+    let matches = []
     names.forEach((nameElm) => {
         if (nameElm.textContent.toLowerCase().includes(text)) {
             results.push(nameElm.parentElement.parentElement.parentElement.parentElement)
-            if (nameElm.parentElement.classList.contains("hidden-date-search")) nameElm.parentElement.classList.remove("hidden-date-search")
+            matches.push(nameElm.parentElement)
+            nameElm.parentElement.classList.remove("hidden-date-search")
         }
-        else if (nameElm.textContent.trim() !== text.trim()) {
+        else {
             if (!nameElm.parentElement.classList.contains("hidden-date-search")) nameElm.parentElement.classList.add("hidden-date-search")
         }
     })
     ids.forEach((idElm) => {
-        if (idElm.textContent.toLowerCase().includes(text)) {
+        if (idElm.textContent.toLowerCase().includes(text) || matches.includes(idElm.parentElement)) {
             results.push(idElm.parentElement.parentElement.parentElement.parentElement) // hide whole date
-            
-            if (idElm.parentElement.classList.contains("hidden-date-search")) idElm.parentElement.classList.remove("hidden-date-search")
+
+            idElm.parentElement.classList.remove("hidden-date-search")
         }
-        else if (idElm.textContent.trim() !== text.trim()) {
+        else {
             if (!idElm.parentElement.classList.contains("hidden-date-search")) idElm.parentElement.classList.add("hidden-date-search")
         }
     })
@@ -105,7 +107,7 @@ function searchElms(text) {
     })
 }
 search.addEventListener('keyup', (e) => {
-    searchElms(e.target.value.toLowerCase())
+    searchElms(e.target.value.trim().toLowerCase())
 })
 
 function clearAllFilters() {
@@ -186,6 +188,32 @@ document.querySelectorAll(".export-nnums").forEach(exportBtn => {
     })
 })
 
+
+let downloadReportBtn = document.querySelector(".download-report")
+if (downloadReportBtn){
+    downloadReportBtn.addEventListener("click", () => {
+        fetch("/members/attendance/download_report/", {
+            method: "POST",
+            headers: {
+                'X-CSRFToken': getCookie('csrftoken'),
+                "Content-Type": "application/x-www-form-urlencoded"
+            },
+        }).then(response => response.blob())
+        .then(blob => {
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'attendance_report.txt';
+            document.body.appendChild(a);
+            
+            a.click();
+            a.remove();
+            window.URL.revokeObjectURL(url);
+        })
+        .catch(err => console.error('Download failed:', err));
+    })
+}
+    
 function saveTextToFile(textToSave, filename) {
     // Create a Blob object from the text content
     const blob = new Blob([textToSave], { type: 'text/plain;charset=utf-8' });

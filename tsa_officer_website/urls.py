@@ -19,7 +19,6 @@ from django.urls import path, include
 from django.conf.urls.static import static
 
 from django.conf import settings
-from notifications import views as notif_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -31,8 +30,5 @@ urlpatterns = [
     path("events/", include("events.urls")),
     path("achievements/", include("achievements.urls")),
     path("tools/", include("tools.urls")),
-    path("notifications/", include("notifications.urls")),
-    
-    path("firebase-messaging-sw.js", notif_views.firebase_messaging_sw)
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

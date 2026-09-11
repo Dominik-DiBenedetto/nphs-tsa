@@ -27,7 +27,7 @@ load_dotenv(BASE_DIR / '.env')
 SECRET_KEY = os.getenv("DJANGO_SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["127.0.0.1", "localhost", "nphs-tsa-app-7ee9l.ondigitalocean.app", "nphstsa.com", "www.nphstsa.com"]
 
@@ -39,7 +39,6 @@ INSTALLED_APPS = [
     'events.apps.EventsConfig',
     'members.apps.MembersConfig',
     'achievements.apps.AchievementsConfig',
-    'notifications.apps.NotificationsConfig',
 
     'tools.apps.ToolsConfig',
     'django.contrib.admin',
@@ -50,7 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'pwa',
     'clearcache',
-    'webpush'
+    'webpush',
 ]
 
 MIDDLEWARE = [
@@ -68,7 +67,6 @@ WEBPUSH_SETTINGS = {
     "VAPID_PUBLIC_KEY": os.getenv("VAPID_PUBLIC_KEY"),
     "VAPID_PRIVATE_KEY": os.getenv("VAPID_PRIVATE_KEY"),
     "VAPID_ADMIN_EMAIL": os.getenv("VAPID_EMAIL"),
-    "WEBPUSH_URL": "/notifications/" 
 }
 
 ROOT_URLCONF = 'tsa_officer_website.urls'

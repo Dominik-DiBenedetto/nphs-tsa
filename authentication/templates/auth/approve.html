@@ -55,7 +55,7 @@
     </div>
 
     <script>
-        const users = JSON.parse(document.querySelector("#users-data").textContent);
+        let users = JSON.parse(document.querySelector("#users-data").textContent);
 
         users.forEach(user => {
             user.status = user.is_active == false && "pending" || "approved"

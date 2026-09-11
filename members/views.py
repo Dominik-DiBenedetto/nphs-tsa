@@ -2,7 +2,7 @@ import time, json
 from itertools import groupby
 from operator import attrgetter
 
-from django.http import JsonResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import user_passes_test, login_required
 from django.db import transaction
@@ -158,3 +158,20 @@ def delete_record(request):
     return JsonResponse({
         "redirect_url": f"/members/attendance/?v={cache_buster}"
     })
+
+@user_passes_test(is_officer)
+# @require_post
+def download_attendance_report(request):
+    records = {}
+    for record in AttendanceRecord.objects.all():
+        n_num = record.n_number
+        if not records.get(n_num): records[n_num] = []
+        records[n_num].append(str(record.date))
+
+    file_content = ""
+    for n_num, record_list in records.items():
+        file_content += f"{n_num} ({len(record_list)}) - {", ".join(record_list)}\n" 
+    response = HttpResponse(file_content, content_type='text/plain')
+    response['Content-Disposition'] = 'attachment; filename="attendance_report.txt"'
+    print(file_content, response)
+    return response

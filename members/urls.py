@@ -15,6 +15,8 @@ urlpatterns = [
     path("attendance/add", views.add_attendance_record, name="add_attendance_record"),
     path("attendance/scan", views.scan_attendance_record, name="scan_attendance"),
     path("attendance/delete/", views.delete_record, name="delete_record"),
+    path("attendance/download_report/", views.download_attendance_report, name="download_attendance_report"),
+
     
 
 ]

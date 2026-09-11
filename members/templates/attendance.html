@@ -14,7 +14,6 @@
         <link rel="stylesheet" href="{% static 'css/members.css' %}" />
 
         <!-- Javascript -->
-        <script src="{% static 'javascript/members.js' %}" defer></script>
         <script src="{% static 'javascript/attendance.js' %}" defer></script>
 
         <title>Members | NPHS TSA</title>
@@ -36,7 +35,7 @@
                 <div class="filters">
                     <div class="filter-group">
                         <label for="searchInput">Search</label>
-                        <input type="text" id="searchInput" class="filter-input" placeholder="Search student names or n numbers...">
+                        <input type="text" id="searchInput" class="filter-input filter-search" placeholder="Search student names or n numbers...">
                     </div>
                     <div class="filter-group">
                         <label for="dateFilter">Date</label>
@@ -50,6 +49,9 @@
                         </select>
                     </div>
                     <button class="clear-filters" onclick="clearAllFilters()">Clear Filters</button>
+                    {% if user.is_superuser or user|is_officer %}
+                    <button class="download-report">Download Report</button>
+                    {% endif %}
                 </div>
             </div>
             {% for date, record in records.items %}
