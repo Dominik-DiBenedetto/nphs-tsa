@@ -16,12 +16,23 @@ function getCookie(name) {
     return cookieValue;
 }
 
+function saveRecordToLocalStorage(nNumber, formattedDate) {
+    const recordBody = {
+        n_num: nNumber,
+        date: formattedDate
+    };
+
+    let currentStorage = JSON.parse(localStorage.getItem('pending_records')) || [];
+    currentStorage.push(recordBody);
+    localStorage.setItem('pending_records', JSON.stringify(currentStorage));
+}
+
 let lastScannedNumber = ""
 function onScanSuccess(decodedText, decodedResult) {
     // handle the scanned code as you like, for example:
     if (decodedText) {
         let nNumber = decodedText
-        console.log(nNumber, typeof(nNumber))
+        console.log(nNumber, typeof (nNumber))
         if (!decodedText.includes("N")) {
             console.log("NO N")
             let nNumberNum = parseInt(nNumber, 10)
@@ -34,35 +45,64 @@ function onScanSuccess(decodedText, decodedResult) {
         console.log(lastScannedNumber, nNumber)
         if (lastScannedNumber === nNumber) return;
         lastScannedNumber = nNumber
-        
+
         const today = new Date();
         const formattedDate = today.toISOString().slice(0, 10);
-        fetch("/members/attendance/add", {
+        saveRecordToLocalStorage(nNumber, formattedDate)
+
+        alert("scanned " + nNumber)
+        setTimeout(() => {
+            if (lastScannedNumber === nNumber) lastScannedNumber = "";
+        }, 3000)
+    }
+}
+
+function onScanFailure(error) {
+
+}
+
+let html5QrcodeScanner = new Html5QrcodeScanner(
+    "reader", {
+        fps: 10, qrbox: (viewfinderWidth, viewfinderHeight) => {
+            // Calculate dynamic dimensions, e.g., 70% of the smaller dimension
+            let minDimension = Math.min(viewfinderWidth, viewfinderHeight);
+            let qrboxSize = minDimension * 0.7; // Adjust as needed
+            return { width: qrboxSize, height: qrboxSize, disableFlip: false, focusMode: "continuous" };
+        }
+}, /* verbose= */ false);
+html5QrcodeScanner.render(onScanSuccess, onScanFailure);
+
+function sendPendingScans() {
+    const data = localStorage.getItem("pending_records")
+    if (!data || data === "[]") return;
+
+    const blob = new Blob([data], { type: "application/json" })
+    navigator.sendBeacon("/members/attendance/scan/", blob)
+}
+
+async function verifyStoredScans() {
+    const backupData = localStorage.getItem('pending_records')
+    if (!backupData || backupData === "[]") return
+
+    try {
+        const response = await fetch("/members/attendance/confirm_scan", {
             method: "POST",
             headers: {
                 'X-CSRFToken': getCookie('csrftoken')
             },
-            body: JSON.stringify({
-                n_num: nNumber,
-                date: formattedDate
-            })
+            body: backupData
         })
-        alert("scanned " + nNumber)
-        setTimeout(() => {
-            if (lastScannedNumber === nNumber) lastScannedNumber = "";
-        }, 5000)
+        if (response.ok) {
+            localStorage.removeItem("pending_records")
+            console.log("Successfully cleared stored scans!")
+        }
+    } catch (error) {
+        console.error("Sync failed, keeping data for next attempt.")
     }
-  }
+}
 
-  function onScanFailure(error) {
-
-  }
-
-  let html5QrcodeScanner = new Html5QrcodeScanner(
-      "reader", { fps: 10, qrbox: (viewfinderWidth, viewfinderHeight) => {
-        // Calculate dynamic dimensions, e.g., 70% of the smaller dimension
-        let minDimension = Math.min(viewfinderWidth, viewfinderHeight);
-        let qrboxSize = minDimension * 0.7; // Adjust as needed
-        return { width: qrboxSize, height: qrboxSize, disableFlip: false, focusMode: "continuous" };
-      } }, /* verbose= */ false);
-  html5QrcodeScanner.render(onScanSuccess, onScanFailure);
+document.addEventListener('visibilitychange', async () => {
+    if (document.visibilityState === "hidden") sendPendingScans();
+    else verifyStoredScans()
+})
+document.addEventListener('DOMContentLoaded', verifyStoredScans)

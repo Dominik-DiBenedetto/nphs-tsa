@@ -7,6 +7,19 @@ DATES.forEach((elm) => {
     dates.push(date)
 })
 
+function toggleMenu(index) {
+    const menu = document.getElementById(`menu-${index}`);
+
+    closeAllMenus()
+    menu.classList.add("show");
+}
+
+function closeAllMenus() {
+    document.querySelectorAll(".dropdown-menu").forEach((menu) => {
+        menu.classList.remove("show");
+    });
+}
+
 function reorderDates() {
     dates.forEach((date) => {
         let dateStr = date.toISOString().split('T')[0];

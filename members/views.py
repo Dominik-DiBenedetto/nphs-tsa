@@ -5,6 +5,8 @@ from operator import attrgetter
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import user_passes_test, login_required
+from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.http import require_POST
 from django.db import transaction
 
 from .models import AttendanceRecord
@@ -93,7 +95,6 @@ def remove_strike(request):
         member.save()
     return redirect(f"/members/{member_nnum}")
 
-
 def attendance_view(request):
     null_user_records = AttendanceRecord.objects.filter(user__isnull=True)
 
@@ -112,10 +113,43 @@ def attendance_view(request):
 
     return render(request, "attendance.html", {"records": records_grouped_by_date})
 
+@csrf_exempt
+@user_passes_test(is_officer)
 def scan_attendance_record(request):
+    if request.method == "POST":
+        try:
+            raw_data = request.body.decode("utf-8")
+            records_list = json.loads(raw_data)
+
+            n_nums = [record.get("n_num") for record in records_list]
+            user_objs = Member.objects.filter(username__in=n_nums)
+            mapped_list = {user.username: user for user in user_objs}
+
+            records = [AttendanceRecord(date=record.get("date"), n_number=record.get("n_num"), user=mapped_list.get(record.get("n_num"))) for record in records_list]
+            if records: 
+                with transaction.atomic(): AttendanceRecord.objects.bulk_create(records)
+
+            return JsonResponse({'status': 'success'}, status=200)
+        except json.JSONDecodeError:
+            return JsonResponse({'error': 'Invalid data'}, status=400)
     return render(request, "scan_attendance.html", {})
 
-# TODO/NOTE TO SELF: Update scanner to send a bulk request instead of requesting the db after every scan!
+@user_passes_test(is_officer)
+@require_POST
+def check_if_scan_processed(request):
+    try:
+        raw_data = request.body.decode("utf-8")
+        records_list = json.loads(raw_data)
+        print(records_list)
+
+        first_record = records_list[0]
+        if not AttendanceRecord.objects.filter(date=first_record.get("date"), n_number=first_record.get("n_num")).first():
+            return JsonResponse({'error': 'Data was not previously loaded; do not clear local storage.'}, status=400)
+
+        return JsonResponse({'status': 'Date was successfully loaded; you may clear local storage'}, status=200)
+    except json.JSONDecodeError:
+        return JsonResponse({'error': 'Invalid data'}, status=400)
+
 def add_attendance_record(request):
     cached_date = ""
     if request.method == "POST":
@@ -167,7 +201,7 @@ def delete_record(request):
     })
 
 @user_passes_test(is_officer)
-# @require_post
+@require_POST
 def download_attendance_report(request):
     records = {}
     for record in AttendanceRecord.objects.all():
@@ -180,5 +214,5 @@ def download_attendance_report(request):
         file_content += f"{n_num} ({len(record_list)}) - {", ".join(record_list)}\n" 
     response = HttpResponse(file_content, content_type='text/plain')
     response['Content-Disposition'] = 'attachment; filename="attendance_report.txt"'
-    print(file_content, response)
+    
     return response
