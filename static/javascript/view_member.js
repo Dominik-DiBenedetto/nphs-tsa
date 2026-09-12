@@ -47,8 +47,15 @@ function closePasswordModal() {
     passwordForm.reset();
 }
 
-// Handle password form submission
 if (passwordForm) {
+    let role = null
+    let roleSelector = document.querySelector("#newRole")
+    if (roleSelector) {
+        roleSelector.value = document.querySelector("#userRank").textContent
+        roleSelector.addEventListener("change", (e) => {
+            role = e.target.value
+        })
+    }
     document.getElementById('passwordForm').addEventListener('submit', function(e) {
         e.preventDefault();
         
@@ -65,6 +72,7 @@ if (passwordForm) {
                 n_num: document.querySelector("#newNnum").value,
                 name: document.querySelector("#newName").value,
                 password: newPassword,
+                role: role
             }),
         })
         window.location.href = `/members/${document.querySelector("#newNnum").value}`

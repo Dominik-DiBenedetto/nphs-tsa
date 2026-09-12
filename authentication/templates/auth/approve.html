@@ -130,17 +130,23 @@
             const dateFilter = document.getElementById('dateFilter').value;
             const searchFilter = document.getElementById('searchFilter').value.toLowerCase();
 
-            users = users.filter(user => {
+            users.forEach(user => {
                 const matchesStatus = statusFilter === 'all' || user.status === statusFilter;
                 const matchesDate = !dateFilter || user.registrationDate === dateFilter;
                 const matchesSearch = !searchFilter || 
                     user.name.toLowerCase().includes(searchFilter) ||
                     user.email.toLowerCase().includes(searchFilter);
 
-                return matchesStatus && matchesDate && matchesSearch;
+                let elm = document.querySelector(`[data-user-id="${user.id}"]`)
+                if (!elm) return;
+                if (matchesStatus && matchesDate && matchesSearch) {
+                    elm.classList.remove("hidden")
+                } else {
+                    if (!elm.classList.contains("hidden")) elm.classList.add("hidden")
+                }
             });
 
-            renderUsers();
+            // renderUsers();
         }
 
         function approveUser(userId) {

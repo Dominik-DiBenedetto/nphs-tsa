@@ -10,6 +10,7 @@ from django.db import transaction
 from .models import AttendanceRecord
 from authentication.views import is_officer
 from authentication.models import Member, Strike
+from django.contrib.auth.models import Group
 
 # Views
 @login_required
@@ -37,9 +38,15 @@ def update_user(request):
     n_num = request.POST.get('n_num')
     name = request.POST.get('name')
     password = request.POST.get('password')
+    role = request.POST.get("role") or viewing_user.role
+
+    officer_permissions_group, created = Group.objects.get_or_create(name='Officer')
+    if role != viewing_user.role and role != "Member" and role != "Shadow Officer":
+        viewing_user.groups.add(officer_permissions_group)
 
     viewing_user.username = n_num
     viewing_user.name = name
+    viewing_user.role = role
     
     if password and password != "":
         viewing_user.set_password(password)

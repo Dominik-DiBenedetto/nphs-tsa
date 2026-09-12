@@ -38,15 +38,19 @@
         <div class="profile-actions">
             <h2 class="section-title">Account Settings</h2>
             <div class="action-buttons">
+                {% if not member.is_superuser or member.is_superuser and user.is_superuser %}
                 <button class="btn btn-primary" onclick="openPasswordModal()">
                     Edit Information
                 </button>
                 <button class="btn btn-danger" onclick="confirmDelete()">
                     Delete Account
                 </button>
+                {% endif %}
+                {% if not member.is_superuser %}
                 <button class="btn btn-primary" onclick="openStrikesModal()">
                     Manage Strikes
                 </button>
+                {% endif %}
             </div>
         </div>
         {% endif %}
@@ -57,7 +61,7 @@
         </div>
     </div>
 
-    {% if user.is_superuser or user|is_officer %}
+    {% if user|is_officer and not member.is_superuser or user.is_superuser%}
     <div class="modal" id="passwordModal">
         <div class="modal-content">
             <h3 class="modal-header">Change Password</h3>
@@ -75,6 +79,22 @@
                     <input type="password" class="form-input" id="newPassword" value="">
                     <input type="checkbox" name="newPassword" id="showPassword">
                 </div>
+                {% if user.is_superuser %}
+                <div class="form-group">
+                    <label class="form-label" for="newRole">Role</label>
+                    <select type="text" class="form-input" id="newRole">
+                        <option value="Member">Member</option>
+                        <option value="Shadow Officer">Shadow Officer</option>
+                        <option value="Sergeant-At-Arms">Sergeant-At-Arms</option>
+                        <option value="Reporter">Reporter</option>
+                        <option value="Treasurer">Treasurer</option>
+                        <option value="Secretary">Secretary</option>
+                        <option value="Vice President">Vice President</option>
+                        <option value="President">President</option>
+                        <option value="Advisor">Advisor</option>
+                    </select>
+                </div>
+                {% endif %}
                 <div class="modal-actions">
                     <button type="button" class="btn btn-secondary" onclick="closePasswordModal()">Cancel</button>
                     <button type="submit" class="btn btn-primary">Update Information</button>
