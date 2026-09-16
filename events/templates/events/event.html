@@ -84,6 +84,7 @@
                         {% if not team.captain == member %}
                         <li class="team-member">
                             <span>{{ member.name }}</span>
+                            <span>{{ member.is_captain }}</span>
                         </li>
                         {% endif %}
                         {% endfor %}

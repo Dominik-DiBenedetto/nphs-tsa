@@ -8,12 +8,10 @@ class Team(models.Model):
     competitors = models.ManyToManyField(Member, through="TeamMember", related_name="teams")
 
     def __str__(self):
-        names = [member.name for member in self.competitors.all()]
-
-        if not names:
+        if not self.competitors.exists():
             return f"Team {self.number} (No competitors)"
 
-        competitor_list = "\n".join(f"\t{name}" for name in names)
+        competitor_list = "\n".join(f"\t{competitor}" for competitor in self.teammember_set.all())
         return f"TEAM {self.number}:\n{competitor_list}"
 
 class TeamMember(models.Model):

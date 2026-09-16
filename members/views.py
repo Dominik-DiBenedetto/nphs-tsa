@@ -64,7 +64,8 @@ def view_member(request, n_num):
     participating_teams = member.teams.all()
     for team in participating_teams:
         event = team.event.first()
-        participating_events.append({"id": event.pk, "name": event.name, "team": f"Team {team.number}"})
+        is_captain = team.teammember_set.get(user=member).is_captain
+        participating_events.append({"id": event.pk, "name": event.name, "team": f"Team {team.number}", "is_captain": is_captain})
 
 
     return render(request, "view_member.html", {"member": member, "events": participating_events, "strikes": member.strikes.all()})

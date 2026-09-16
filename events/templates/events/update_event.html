@@ -205,7 +205,6 @@
                     teams: loadedTeams,
                 }
 
-                console.log(loadedTeams)
                 for (let i=0; i<loadedTeams.length; i++) addTeam() // load teams
             })
 
@@ -245,7 +244,6 @@
                 let loadingTeam = false;
                 if (teamCount < eventData.teams.length) loadingTeam = true;
 
-                console.log("ADD TEAM")
                 teamCount++;
                 const teamsContainer = document.getElementById("teamsContainer");
 
@@ -257,9 +255,10 @@
                             <div class="team-header">
                                 <div class="team-title">Team ${teamCount}</div>
                                 <div class="team-controls">
-                                    <button type="button" class="btn btn-secondary" onclick="toggleTeamMembers(${teamCount})">
-                                        <span id="toggle-icon-${teamCount}"></span> Toggle Members
-                                    </button>
+                                    <label for="team-${teamCount}-captain" class="team-cap-label">Team Captain:</label>
+                                    <select id="team-${teamCount}-captain" name="team-${teamCount}-captain" class="form-input captain-input">
+                                        <option class="member-option">None</option>
+                                    </select>
                                     <button type="button" class="btn btn-danger" onclick="removeTeam(${teamCount})">
                                         Remove
                                     </button>
@@ -271,9 +270,9 @@
                         `;
 
                 teamsContainer.appendChild(teamCard);
+                const captainSelector = document.querySelector(`#team-${teamCount}-captain`)
                     
                 if (loadingTeam) {
-                    console.log(teamCount)
                     let competitors = eventData.teams[teamCount-1].competitors
                     teamCard.querySelectorAll(".member-option").forEach(memberOption => {
                         let memberOnTeam = competitors.includes(memberOption.textContent)
@@ -281,6 +280,14 @@
                         {
                             competitors.splice(competitors.indexOf(memberOption.textContent), 1) // remove from list to not double count
                             memberOption.parentElement.value = memberOption.textContent
+                            memberOption.parentElement.oldValue = memberOption.textContent
+
+                            if (memberOption.textContent !== "None") {
+                                let newOption = document.createElement("option")
+                                newOption.classList.add("member-option")
+                                newOption.textContent = memberOption.textContent
+                                captainSelector.appendChild(newOption)
+                            }
                         }
 
                     })
@@ -293,7 +300,6 @@
                         members: ["", "", "", "", "", ""],
                     });
                 }
-                console.log(eventData)
             }
 
             // Generate member input fields
@@ -311,6 +317,7 @@
                                            id="team-${teamId}-member-${i}"
                                            name="team-${teamId}-member-${i}"
                                            class="form-input"
+                                           onchange="updateTeamCaptainField(this, ${teamId})"
                                            >
                                     ${memberOptions}
                                     </select>
@@ -318,6 +325,32 @@
                     `
                 }
                 return inputs;
+            }
+
+            function updateTeamCaptainField(memberSelector, teamId)
+            {
+                const oldValue = memberSelector.oldValue || "None"
+                memberSelector.oldValue = memberSelector.value
+
+                const captainSelector = document.querySelector(`#team-${teamId}-captain`)
+                if (!captainSelector) return;
+
+                // Remove team captain candidate
+                let optionArray = Array.from(captainSelector.querySelectorAll("option"))
+                if (oldValue !== "None") {
+                    let oldElm = optionArray.find(option => option.textContent === oldValue)
+                    if (oldElm) oldElm.remove()
+                }
+                
+                if (memberSelector.value !== "None") {
+                    let duplicate = optionArray.find(option => option.textContent === memberSelector.value)
+                    if (duplicate) return;
+
+                    let newOption = document.createElement("option")
+                    newOption.classList.add("member-option")
+                    newOption.textContent = memberSelector.value
+                    captainSelector.appendChild(newOption)
+                }
             }
 
             // Remove team
@@ -413,9 +446,18 @@
                     let select = memberInput.querySelector("select")
                     let memberName = select.value
                     let teamId = memberInput.parentElement.parentElement.id
+
+                    if (!teamData[teamId]) teamData[teamId] = {"Members": []}
                     
-                    if (teamData[teamId]) teamData[teamId].push(memberName)
-                    else teamData[teamId] = [memberName]
+                    teamData[teamId]["Members"].push(memberName)
+                })
+                document.querySelectorAll(".captain-input").forEach(select => {
+                    
+                    let captainName = select.value
+                    let teamId = select.parentElement.parentElement.parentElement.id
+
+                    if (!teamData[teamId]) teamData[teamId] = {"Members": []}
+                    teamData[teamId]["Captain"] = captainName
                 })
                 formData.append('Teams', JSON.stringify(teamData));
 

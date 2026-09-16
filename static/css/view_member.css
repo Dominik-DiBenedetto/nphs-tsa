@@ -319,3 +319,8 @@ a{
     font-size: .9rem;
     color:#666;
 }
+
+.captain-badge{
+    color: var(--tsa-navy-blue);
+    font-weight: bold;
+}

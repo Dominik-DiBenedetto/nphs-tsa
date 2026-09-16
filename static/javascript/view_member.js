@@ -24,7 +24,7 @@ function populateEvents() {
         eventItem.className = 'event-item';
         
         eventItem.innerHTML = `
-            <div class="event-name">${event.name}</div>
+            <div class="event-name">${event.name}${event.is_captain && '<span class="captain-badge"> - Captain</span>'}</div>
             <div class="event-date">${event.team}</div>
         `;
 

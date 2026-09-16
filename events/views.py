@@ -25,9 +25,8 @@ def view_event(request, event_id):
     templated_team_data = []
     for team in teams:
         members = team.competitors.all()
-        captain = team.competitors.filter(teammember__is_captain=True)
-        templated_team_data.append({"team": team, "competitors": members, captain: captain})
-
+        captain = team.competitors.filter(teammember__is_captain=True).first()
+        templated_team_data.append({"team": team, "competitors": members, "captain": captain})
     return render(request, "events/event.html", {"Event": event, "Teams": templated_team_data})
 
 @user_passes_test(is_officer)
@@ -39,7 +38,8 @@ def update_event(request, event_id):
     for team in teams:
         captain = team.competitors.filter(teammember__is_captain=True).first()
         competitors = list(team.competitors.all().values_list("name", flat=True))
-        templated_team_data.append({"teamNumber": team.number, "captain": captain, "competitors": competitors})
+        templated_team_data.append({"teamNumber": team.number, "captain": captain and captain.name or "None", "competitors": competitors})
+
     if request.method == "GET": return render(request, "events/update_event.html", {"Event": event, "teams_json": templated_team_data, "members": list(Member.objects.all().values("name"))})
 
     name = request.POST.get('Name')
@@ -54,9 +54,11 @@ def update_event(request, event_id):
     event.CEG = ceg_file
 
     # Proccess teams
-    for teamId, members in teams_json.items():
+    for teamId, teamObj in teams_json.items():
+        members = teamObj["Members"]
         teamNumber = teamId.split("-")[1]
-        team = not type(teams) is dict and teams.filter(number=teamNumber).first() or None
+        team = not type(teams) is dict and event.teams.filter(number=teamNumber).first() or None
+
         if not team:
             team = Team.objects.create(number=teamNumber)
             event.teams.add(team)
@@ -70,8 +72,11 @@ def update_event(request, event_id):
             if member == "None": continue
             user = Member.objects.get(name=member)
 
-            if not user or team.competitors.filter(name=member).exists(): continue
-            TeamMember.objects.create(user=user, team=team, is_captain=False)
+            if not user: continue
+            if team.competitors.filter(name=member).exists():
+                team.teammember_set.filter(user=user).update(is_captain=member==teamObj["Captain"])
+                continue
+            TeamMember.objects.create(user=user, team=team, is_captain=member==teamObj["Captain"])
 
     saved_teams_count = teams and teams.count() or -1
     updated_teams_count = len(teams_json)
