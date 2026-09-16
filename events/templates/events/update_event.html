@@ -287,6 +287,8 @@
                                 newOption.classList.add("member-option")
                                 newOption.textContent = memberOption.textContent
                                 captainSelector.appendChild(newOption)
+
+                                if (memberOption.textContent === eventData.teams[teamCount-1].captain) captainSelector.value = memberOption.textContent
                             }
                         }
 
