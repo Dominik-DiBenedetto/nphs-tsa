@@ -44,7 +44,7 @@
                     </thead>
                     <tbody id="membersTableBody">
                         {% for member in members %}
-                        <tr class="member">
+                        <tr class="member" onclick="window.location = '/members/{{member.username}}'">
                             <td class="member-name">{{ member.name }}</td>
                             <td class="member-id">{{ member.username }}</td>
                             <td>
@@ -52,23 +52,6 @@
                             </td>
                             <td>
                                 <span class="strikes">Strikes: {{ member.strikesNum }}</span>
-                            </td>
-                            <td>
-                                <div class="menu-container">
-                                    <button
-                                        class="menu-button"
-                                        onclick="toggleMenu({{ forloop.counter }})"
-                                    >
-                                        <span class="menu-dots"></span>
-                                    </button>
-                                    <div class="dropdown-menu" id="menu-{{ forloop.counter }}">
-                                        <a
-                                            class="dropdown-item"
-                                            href="/members/{{member.username}}"
-                                            >View</a
-                                        >
-                                    </div>
-                                </div>
                             </td>
                         </tr>
                         {% endfor %}

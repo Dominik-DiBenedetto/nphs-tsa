@@ -18,7 +18,8 @@ from django.contrib.auth.models import Group
 @login_required
 def members_view(request):
     members = Member.objects.all()
-    return render(request, "members.html", {"members": members})
+    sorted_members = sorted(members, key=lambda member: member.name.split(" ")[len(member.name.split(" "))-1])
+    return render(request, "members.html", {"members": sorted_members})
 
 @user_passes_test(is_officer)
 def delete_member(request):
