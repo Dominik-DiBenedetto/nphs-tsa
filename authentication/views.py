@@ -22,8 +22,8 @@ def login_page(request):
 
     if request.method != "POST": return render(request, 'auth/login.html')
 
-    username = request.POST.get('username').upper() #nnumber
-    password = request.POST.get('password')
+    username = request.POST.get('username').upper().strip() #nnumber
+    password = request.POST.get('password').strip()
 
     if not Member.objects.filter(username=username).exists() and not Member.objects.filter(username=username.lower()).exists():
         messages.error(request, 'Invalid N-Number')
@@ -43,11 +43,11 @@ def register_page(request):
     if request.user.is_authenticated: return redirect('/home/')
     if request.method != "POST":  return render(request, 'auth/register.html')
 
-    n_num = request.POST.get('nnumber').upper()
+    n_num = request.POST.get('nnumber').upper().strip()
     if not "N" in n_num:  n_num = "N" + n_num
 
-    password = request.POST.get('password')
-    conf_password = request.POST.get('confirm-password')
+    password = request.POST.get('password').strip()
+    conf_password = request.POST.get('confirm-password').strip()
     if password != conf_password:
         messages.info(request, "Passwords don't match!")
         return redirect('/auth/register/')
@@ -57,8 +57,8 @@ def register_page(request):
         messages.info(request, "nNumber already in use!")
         return redirect('/auth/register/')
 
-    name = request.POST.get('name').title()
-    email = request.POST.get('email')
+    name = request.POST.get('name').title().strip()
+    email = request.POST.get('email').strip()
     user = Member.objects.create_user(
         name=name,
         username=n_num,
