@@ -41,8 +41,9 @@ def update_user(request):
 
     n_num = request.POST.get('n_num').strip()
     name = request.POST.get('name').strip()
-    password = request.POST.get('password')
-    role = request.POST.get("role") or viewing_user.role
+    password = request.POST.get('password').strip()
+    role = request.POST.get("role").strip() or viewing_user.role
+    if role == "null": role = viewing_user.role
 
     if role != viewing_user.role:
         officer_permissions_group, created = Group.objects.get_or_create(name='Officer')
@@ -53,7 +54,7 @@ def update_user(request):
     viewing_user.name = name
     viewing_user.role = role
     
-    if password and password != "": viewing_user.set_password(password)
+    if password and password != "" and password != "null": viewing_user.set_password(password)
 
     viewing_user.save()
     return redirect(f"/members/{n_num}")
