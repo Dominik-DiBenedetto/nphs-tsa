@@ -324,3 +324,12 @@ a{
     color: var(--tsa-navy-blue);
     font-weight: bold;
 }
+
+.strike-num.view::before{
+    content: "Strike " attr(data-strike);
+    position: absolute;
+    transform: translate(20px, -5px);
+    background: white;
+    width: 5rem;
+    text-align: center;
+}

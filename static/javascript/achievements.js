@@ -120,14 +120,14 @@ function createConferenceCard(conference, year) {
                     <div class="conference-name" contenteditable="true">${conference.name}</div>
                     <div class="conference-location" contenteditable="true">📍 ${conference.location}</div>
                 </div>
-                <div class="conference-date" contenteditable="true">${conference.date}</div>
+                <div class="conference-date" contenteditable="true">${conference.month}</div>
             </div>
             <div class="placements-list">
                 ${conference.placements.map(placement => `
                     <div class="placement-item">
                         <div class="placement-info">
                             <div class="event-name" contenteditable="true" input="updatePlacementName()">${placement.event}</div>
-                            <div class="students-name" contenteditable="true">${placement.students}</div>
+                            <div class="students-name" contenteditable="true">${placement.students.replace("[","").replace("]","")}</div>
                         </div>
                         <div class="placement-rank" contenteditable="true">${placement.rank}</div>
                     </div>
@@ -146,7 +146,7 @@ function createConferenceCard(conference, year) {
                         <div class="conference-name">${conference.name}</div>
                         <div class="conference-location">📍 ${conference.location}</div>
                     </div>
-                    <div class="conference-date">${conference.date}</div>
+                    <div class="conference-date">${conference.month}</div>
                 </div>
                 <div class="placements-list">
                     ${conference.placements.map(placement => `
@@ -200,7 +200,7 @@ window.addEventListener("input", (e) => {
         if (!conferenceData) return;
         
         conferenceData["location"] = newText
-    } else if (e.target.classList.contains("conference-location")){
+    } else if (e.target.classList.contains("conference-date")){
         let conferenceDiv = e.target.parentElement.parentElement
         let conferenceYear = conferenceDiv.getAttribute("data-year")
         let conferenceName = conferenceDiv.getAttribute("data-conference")
@@ -462,7 +462,6 @@ if (addYearForm) {
         updateStats();
 
         closeModal('addYearModal');
-        alert(`Year ${year} added successfully!`);
     });
 }
 
@@ -492,11 +491,10 @@ if (confForm) {
             updateStats();
 
             closeModal('addConferenceModal');
-            alert('Conference added successfully!');
 
             let payload = {
                 name: name,
-                date: date,
+                month: date,
                 location: location,
                 year: year
             }

@@ -157,6 +157,14 @@ function openStrikesModal() {
     document.getElementById('strikesModal').style.display = 'block';
 }
 
+function openViewStrikesModal() {
+    document.getElementById('strikesViewModal').style.display = 'block';
+}
+
+function closeViewStrikesModal() {
+    document.getElementById('strikesViewModal').style.display = 'none';
+}
+
 function closeStrikesModal() {
     document.getElementById('strikesModal').style.display = 'none';
     strikesForm.reset();

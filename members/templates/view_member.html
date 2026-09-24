@@ -34,10 +34,11 @@
             <span class="profile-rank" id="userRank">{{ member.role }}</span>
         </div>
 
-        {% if user.is_superuser or user|is_officer %}
+        {% if user|is_officer or user == member %}
         <div class="profile-actions">
             <h2 class="section-title">Account Settings</h2>
             <div class="action-buttons">
+                {% if user|is_officer %}
                 {% if not member.is_superuser or member.is_superuser and user.is_superuser %}
                 <button class="btn btn-primary" onclick="openPasswordModal()">
                     Edit Information
@@ -49,6 +50,11 @@
                 {% if not member.is_superuser %}
                 <button class="btn btn-primary" onclick="openStrikesModal()">
                     Manage Strikes
+                </button>
+                {% endif %}
+                {% else %}
+                <button class="btn btn-primary" onclick="openViewStrikesModal()">
+                    View Strikes
                 </button>
                 {% endif %}
             </div>
@@ -129,6 +135,29 @@
                     <button type="submit" class="btn btn-primary">Grant Strike</button>
                 </div>
             </form>
+        </div>
+    </div>
+    {% endif %}
+    {% if member == user %}
+    <div class="modal" id="strikesViewModal">
+        <div class="modal-content">
+            <h3 class="modal-header">View Strikes</h3>
+            <div class="strike-displays">
+                {% for strike in strikes %}
+                <div class="strike-display strike-{{ forloop.counter }}">
+                    <div class="strike-header">
+                        <span class="strike-num view" data-strike="{{ forloop.counter }}"></span>
+                    </div>
+                    <div class="strike-body">
+                        <label>Reason</label>
+                        <div class="strike-reason">{{ strike.reason }}</div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="modal-actions" style="display: flex; align-items: center; justify-content: center;">
+                <button type="button" class="btn btn-secondary" onclick="closeViewStrikesModal()" style="width: 35%; text-align: center; display: flex; align-items: center; justify-content: center;">Close</button>
+            </div>
         </div>
     </div>
     {% endif %}

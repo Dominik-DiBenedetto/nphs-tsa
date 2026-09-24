@@ -3,6 +3,7 @@ from .models import Conference, EventAchievement
 import json
 from datetime import datetime
 from django.http import HttpResponse,JsonResponse
+from django.views.decorators.http import require_POST
 from events.models import Event
 
 # Create your views here.
@@ -32,8 +33,9 @@ def get_achievements(request):
             "name": conference.name,
             "location": conference.location,
             "year": conference.year,
-            "date": conference.date,
-            "placements": conf_events
+            "month": conference.month,
+            "placements": conf_events,
+            "overall": conference.overall_placement
         }
         year["conferences"].append(conf)
         
@@ -43,21 +45,25 @@ def achievements_view(request):
     
     return render(request, "achievements.html")
 
-def add_conference(request):
-    if request.method == "POST":
-        data = json.loads(request.body)
-        if data == {}:
-            print("EMPTY DATA")
-            return redirect("/achievements/")
 
-        dateObj = datetime.strptime(data["date"], "%B %d, %Y").date()
-        newConference = Conference.objects.create(
-            name=data["name"],
-            location=data["location"],
-            date=dateObj,
-            year=data["year"]
-        )
+@require_POST
+def add_conference(request):
+    data = json.loads(request.body)
+    if data == {}:
+        print("EMPTY DATA")
+        return redirect("/achievements/")
+
+    
+    newConference = Conference.objects.create(
+        name=data["name"],
+        year=data["year"],
+        location=data.get("location") or None,
+        month=data.get("month") or None,
+        overall_placement=data.get("overall") or None
+    )
+    print(newConference)
     return redirect("/achievements/")
+
 def add_achievement(request):
     if request.method == "POST":
         data = json.loads(request.body)

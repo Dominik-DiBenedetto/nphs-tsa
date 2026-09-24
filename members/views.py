@@ -14,6 +14,7 @@ from authentication.views import is_officer
 from authentication.models import Member, Strike
 from django.contrib.auth.models import Group
 
+OFFICER_ROLES = ["Sergeant-At-Arms", "Reporter", "Treasurer", "Secretary", "Vice President", "President"]
 # Views
 @login_required
 def members_view(request):
@@ -38,21 +39,21 @@ def update_user(request):
     viewing_user = get_object_or_404(Member, username=viewing_nnum)
     if not viewing_user: return redirect(f"/members/")
 
-    n_num = request.POST.get('n_num')
-    name = request.POST.get('name')
+    n_num = request.POST.get('n_num').strip()
+    name = request.POST.get('name').strip()
     password = request.POST.get('password')
     role = request.POST.get("role") or viewing_user.role
 
-    officer_permissions_group, created = Group.objects.get_or_create(name='Officer')
-    if role != viewing_user.role and role != "Member" and role != "Shadow Officer":
-        viewing_user.groups.add(officer_permissions_group)
+    if role != viewing_user.role:
+        officer_permissions_group, created = Group.objects.get_or_create(name='Officer')
+        if role in OFFICER_ROLES: viewing_user.groups.add(officer_permissions_group)
+        else: viewing_user.groups.remove(officer_permissions_group)
 
     viewing_user.username = n_num
     viewing_user.name = name
     viewing_user.role = role
     
-    if password and password != "":
-        viewing_user.set_password(password)
+    if password and password != "": viewing_user.set_password(password)
 
     viewing_user.save()
     return redirect(f"/members/{n_num}")
@@ -67,7 +68,6 @@ def view_member(request, n_num):
         event = team.event.first()
         is_captain = team.teammember_set.get(user=member).is_captain
         participating_events.append({"id": event.pk, "name": event.name, "team": f"Team {team.number}", "is_captain": is_captain})
-
 
     return render(request, "view_member.html", {"member": member, "events": participating_events, "strikes": member.strikes.all()})
 
